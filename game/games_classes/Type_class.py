@@ -45,7 +45,7 @@ matrice_pokemon = [
 
 type_pokemon = Type(types_pokemon, matrice_pokemon)
 
-type1 = "water"
-type2 = "fire"
-print(type_pokemon.get_matrice()[type_pokemon.get_types().index(type1)][type_pokemon.get_types().index(type2)])
+# type1 = "water"
+# type2 = "fire"
+# print(type_pokemon.get_matrice()[type_pokemon.get_types().index(type1)][type_pokemon.get_types().index(type2)])
 

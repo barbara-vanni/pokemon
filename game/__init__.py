@@ -1,5 +1,5 @@
-from .classes_games import *
+from .games_classes import *
 from .menus import *
 from .combats import *
 from .run import *
-from .attributes_games import *
+from .games_attributes import *

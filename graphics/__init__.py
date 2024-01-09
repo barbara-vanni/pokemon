@@ -1,3 +1,3 @@
-from .attributes_graphics import *
-from .classes_graphics import *
-from .functions_graphics import *
+from .graphics_attributes import *
+from .graphics_classes import *
+from .graphics_functions import *

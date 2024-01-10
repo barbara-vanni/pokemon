@@ -1,5 +1,6 @@
 from Type import *
 
+
 class Pokemon(Type):
     # Constructeur
     def __init__(self, types, matrice, power_attack, defense, pv, xp, level, statut = False):

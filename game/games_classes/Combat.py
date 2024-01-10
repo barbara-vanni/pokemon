@@ -65,11 +65,35 @@ class Combat:
         else:
             return "Continue"
 
-    def winner_game(self):
+    def winner_pokemon(self):
         if self.pokemon1.get_pv() <= 0:
             return f"{pokemon2.get_name()} is the winner"
         elif self.pokemon2.get_pv() <= 0:
             return f"{pokemon1.get_name()} is the winner"
+        else:
+            return "Continue"
+    
+    def winner_trainer(self):
+        if self.pokemon1.get_pv() <= 0:
+            return "You lose"
+        elif self.pokemon2.get_pv() <= 0:
+            return "You win"
+        else:
+            return "Continue"
+    
+    def gain_xp(self):
+        if self.pokemon1.get_pv() <= 0:
+            return self.pokemon2.set_xp + 100
+        elif self.pokemon2.get_pv() <= 0:
+            return self.pokemon1.set_xp + 100
+        else:
+            return "Continue"
+    
+    def level_up(self):
+        if self.pokemon1.get_pv() <= 0:
+            return self.pokemon2.set_level + 1
+        elif self.pokemon2.get_pv() <= 0:
+            return self.pokemon1.set_level + 1
         else:
             return "Continue"
 

@@ -31,7 +31,7 @@ class Pokemon(Type):
     def get_speed(self):
         return self._speed
 
-    def set_speed(slef, speed):
+    def set_speed(self, speed):
         self._speed = speed
 
     # Pv

@@ -67,9 +67,9 @@ class Combat:
 
     def winner_game(self):
         if self.pokemon1.get_pv() <= 0:
-            return self.pokemon2
+            return f"{pokemon2.get_name()} is the winner"
         elif self.pokemon2.get_pv() <= 0:
-            return "Player 1"
+            return f"{pokemon1.get_name()} is the winner"
         else:
             return "Continue"
 

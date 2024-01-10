@@ -1,5 +1,5 @@
 import random
-from Pokemon import weakness_resistance, pokemon1, pokemon2
+from Pokemon import weakness_resistance, pokemon1, pokemon2, Pokemon
 from Type import *
 
 class Combat:
@@ -57,9 +57,28 @@ class Combat:
         pv_remaining = pokemon2.pv - self.calculate_damage(pokemon1)
         return pv_remaining
     
+    def end_game(self):
+        if self.pokemon1.get_pv() <= 0:
+            return "You lose"
+        elif self.pokemon2.get_pv() <= 0:
+            return "You win"
+        else:
+            return "Continue"
+
+    def winner_game(self):
+        if self.pokemon1.get_pv() <= 0:
+            return self.pokemon2
+        elif self.pokemon2.get_pv() <= 0:
+            return "Player 1"
+        else:
+            return "Continue"
 
 combat = Combat(pokemon1, pokemon2)
 
 
 
 print(f"{combat.affinity()} hahaha")
+print("pv", combat.pokemon1.get_pv())
+print("pv", combat.pokemon2.get_pv())
+print(combat.end_game())
+print(combat.winner_game())

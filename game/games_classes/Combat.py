@@ -1,4 +1,6 @@
 import random
+from Pokemon import weakness_resistance, pokemon1, pokemon2
+from Type import *
 
 class Combat:
     def __init__(self, attacker, defenser):
@@ -15,8 +17,8 @@ class Combat:
         return first_hit
 
 
-    def affinity(self, attacker, defender):
-        affinity_values = type_pokemon.matrice()[index1][index2]
+    def affinity(self):
+        affinity_values = weakness_resistance
         return affinity_values
     
     def attack_chance(self):
@@ -47,10 +49,17 @@ class Combat:
                 print("Remaining PV : ", defender.pv)
 
     
-    def calculate_damage(self, pokemon1, pokemon2):
-        damage = puissance_attack * affinity_values
+    def calculate_damage(self,attacker):
+        damage = self.power_attack * self.affinity_values
         return damage
     
     def pv_remaining(self, pokemon1, pokemon2):
-        pv_remaining = pokemon2.pv - self.calculate_damage(pokemon1, pokemon2)
+        pv_remaining = pokemon2.pv - self.calculate_damage(pokemon1)
         return pv_remaining
+    
+
+combat = Combat(pokemon1, pokemon2)
+
+
+
+print(f"{combat.affinity()} hahaha")

@@ -1,4 +1,4 @@
-from .games_classes import *
+from game.games_classes import Combat, Pokemon, Type
 from .menus import *
 from .combats import *
 from .run import *

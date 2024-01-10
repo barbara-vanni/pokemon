@@ -1,4 +1,4 @@
-from Type import *
+from Type import Type, pokemon_types, pokemon_matrice, type_pokemon
 
 
 class Pokemon(Type):
@@ -31,7 +31,7 @@ class Pokemon(Type):
     def get_speed(self):
         return self._speed
 
-    def set_speed(slef, speed):
+    def set_speed(self, speed):
         self._speed = speed
 
     # Pv

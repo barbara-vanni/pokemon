@@ -3,6 +3,7 @@ class Type:
     def __init__(self, types, matrice):
         self._types = types
         self._matrice = matrice
+        
 
 
     # Types

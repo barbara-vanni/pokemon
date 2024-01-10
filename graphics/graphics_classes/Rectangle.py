@@ -2,7 +2,7 @@
 Creation of Rectangle classes how allow you to draw Rectangle. 
 Creation of setter and getter for the x, y, width, height attributes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-import Pygame as Py
+import Pygame
 
 class Rectangle:
     def __init__(self, x, y, width, height):
@@ -32,4 +32,4 @@ class Rectangle:
             return self.__height
         
         def draw_rectangle(self):
-            return Py.Rect(self.__x, self.__y, self.__width, self.__height)
+            return Pygame.Rect(self.__x, self.__y, self.__width, self.__height)

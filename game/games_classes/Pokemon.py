@@ -83,10 +83,10 @@ class Pokemon(Type):
         print(f"Level : {self._level}\n")
 
 
-pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 10, 10, 10, 10, 10, 10)
+pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 10, 10, 10, 100, 0, 1)
 pokemon1.informations_pokemon()
 
-pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 10, 10, 10, 0, 10, 10) 
+pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 10, 10, 10, 100, 0, 1) 
 pokemon2.informations_pokemon()
 
 type1 = pokemon1.get_types()

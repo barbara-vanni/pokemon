@@ -81,6 +81,11 @@ class Combat:
         else:
             return "Continue"
     
+    
+
+    def ratio_xp(self):	
+        pass
+
     def gain_xp(self):
         if self.pokemon1.get_pv() <= 0:
             return self.pokemon2.set_xp + 100
@@ -90,10 +95,10 @@ class Combat:
             return "Continue"
     
     def level_up(self):
-        if self.pokemon1.get_pv() <= 0:
-            return self.pokemon2.set_level + 1
-        elif self.pokemon2.get_pv() <= 0:
+        if self.pokemon1.get_xp() >= 100:
             return self.pokemon1.set_level + 1
+        elif self.pokemon2.get_xp() >= 100:
+            return self.pokemon2.set_level + 1
         else:
             return "Continue"
 

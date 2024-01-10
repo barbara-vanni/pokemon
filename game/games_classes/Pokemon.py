@@ -82,6 +82,8 @@ class Pokemon(Type):
         print(f"Xp : {self._xp}")
         print(f"Level : {self._level}\n")
 
+    
+
 
 pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 10, 10, 10, 10, 10, 10)
 pokemon1.informations_pokemon()

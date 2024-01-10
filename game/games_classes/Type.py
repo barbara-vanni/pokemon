@@ -19,7 +19,7 @@ class Type:
     def set_matrice(self, matrice):
         self._matrice = matrice
 
-pokemon_types = ["normal", "fire", "water", "electric", "grass", "ice", "fighting", "poison", "ground", "flying", "psychic", "bug", "rock", "Ggost", "dragon", "dark", "steel", "fairy"]
+pokemon_types = ["normal", "fire", "water", "electric", "grass", "ice", "fighting", "poison", "ground", "flying", "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy"]
 
 pokemon_matrice = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 1, 1, 0.5, 1],
@@ -39,12 +39,11 @@ pokemon_matrice = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 0, 0.5, 1],
     [1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 2, 1, 0.5, 1, 0.5, 1, 2],
     [0.5, 2, 1, 1, 0.5, 0.5, 2, 0, 2, 0.5, 0.5, 0.5, 0.5, 1, 0.5, 1, 0.5, 2],
-    [1, 1, 1, 1, 1, 1, 0.5, 2, 1, 1, 1, 0.5, 1, 1, 0, 0.5, 2, 1]
+    [1, 1, 1, 1, 1, 1, 0.5, 2, 1, 1, 1, 0.5, 1, 1, 0, 0.5, 2, 1]   
 ]
 
 type_pokemon = Type(pokemon_types, pokemon_matrice)
 
-type1 = pokemon_types[1]
-type2 = pokemon_types[2]
+type1 = pokemon_types[2]
+type2 = pokemon_types[1]
 print(type_pokemon.get_matrice()[type_pokemon.get_types().index(type1)][type_pokemon.get_types().index(type2)])
-

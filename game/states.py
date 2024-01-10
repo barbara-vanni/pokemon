@@ -16,6 +16,7 @@ def render_menu():
         running = False
     return render_menu
 
+state = render_menu 
 
 
 # base de la fonction pour l'etat du jeu quand le bouton continuer est cliqué

@@ -1,12 +1,9 @@
-from game import *
-pokemon = Pokemon("Pikachu", 100, 100, 100, 100, 100, 100, "normal")
-print(pokemon.informations_pokemon())
 class Type:
     # Constructeur
     def __init__(self, types, matrice):
         self._types = types
         self._matrice = matrice
-        
+    
 
 
     # Types

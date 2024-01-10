@@ -81,6 +81,8 @@ class Combat:
         else:
             return "Continue"
     
+    
+
     def gain_xp(self):
         if self.pokemon1.get_pv() <= 0:
             return self.pokemon2.set_xp + 100
@@ -105,4 +107,5 @@ print(f"{combat.affinity()} hahaha")
 print("pv", combat.pokemon1.get_pv())
 print("pv", combat.pokemon2.get_pv())
 print(combat.end_game())
-print(combat.winner_game())
+print(combat.winner_pokemon())
+print(combat.winner_trainer())

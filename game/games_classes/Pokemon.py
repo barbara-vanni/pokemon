@@ -13,6 +13,7 @@ class Pokemon(Type):
         self._xp = xp
         self._level = level
         self._statut = statut
+        self._xp_max = 100
 
     # name
     def get_name(self):
@@ -56,6 +57,13 @@ class Pokemon(Type):
     def set_xp(self, xp):
         self._xp = xp
 
+    # Xp_max
+    def get_xp_max(self):
+        return self._xp_max
+    
+    def set_xp_max(self, xp_max):
+        self._xp_max = xp_max
+
     # Level
     def get_level(self):
         return self._level
@@ -82,11 +90,26 @@ class Pokemon(Type):
         print(f"Xp : {self._xp}")
         print(f"Level : {self._level}\n")
 
+    def level_xp(self):
+        if self._xp >= self._xp_max:
+            self._level += 1
+            self._xp = 0
+            self._xp_max = self._xp * 1.75
+            print(f"Level up ! Level : {self._level}")
 
-pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 10, 10, 10, 10, 10, 10)
+    def level_up(self):
+        self.set_level(self.get_level() + 1)
+        self._power_attack += 1
+        self._defense += 1
+        self._speed += 1
+        self._pv += 1
+        print("Your pokemon level up !")
+
+
+pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 10, 10, 10, 10, 0, 1)
 pokemon1.informations_pokemon()
 
-pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 10, 10, 10, 0, 10, 10) 
+pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 10, 10, 10, 10, 0, 1) 
 pokemon2.informations_pokemon()
 
 type1 = pokemon1.get_types()
@@ -98,3 +121,6 @@ index2 = type_pokemon.get_types().index(type2)
 weakness_resistance = type_pokemon.get_matrice()[index1][index2]
 
 print(f"Affinity between {type1} and {type2} : {weakness_resistance}")
+
+pokemon1.level_up()
+pokemon1.informations_pokemon()

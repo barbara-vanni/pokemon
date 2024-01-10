@@ -11,4 +11,3 @@ def render_main():
     continu.collision(font_button_menu, screen)
     option = Button_rect(200, 450, 400, 80, 'Option', 'white', 'blue')
     option.collision(font_button_menu, screen)
-    pygame.display.flip()

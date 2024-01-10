@@ -16,6 +16,6 @@ class Image:
     def set_image(self, image_pos):
         self.__image_pos = image_pos
         
-    def draw_image(self):
-        pygame.image.load(self.__image).convert_alpha()
-        screen.blit(self.__image, self.__image_pos)
+    def draw_image(self, screen):
+        image_surface = pygame.image.load(self.__image).convert_alpha()
+        screen.blit(image_surface, self.__image_pos)

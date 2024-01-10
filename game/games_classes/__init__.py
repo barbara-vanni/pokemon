@@ -1,2 +1,2 @@
-from Type_class import *
-from Pokemon_class import *
+from .Type import *
+from .Pokemon_class import *

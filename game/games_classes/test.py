@@ -1,5 +1,5 @@
 import random
-from Pokemon import weakness_resistance, pokemon1, pokemon2, Pokemon
+from Pokemon import weakness_resistance1, weakness_resistance2, pokemon1, pokemon2, Pokemon
 from Type import *
 
 class Combat:
@@ -18,8 +18,9 @@ class Combat:
 
 
     def affinity(self):
-        affinity_values = weakness_resistance
-        return affinity_values
+        affinity_values1 = weakness_resistance1
+        affinity_values2 = weakness_resistance2
+        return affinity_values1, affinity_values2   
 
     def attack_chance(self):
         attack_chance = random.randint(0, 100)
@@ -52,9 +53,18 @@ class Combat:
 
 
 
-    def calculate_damage(self,attacker):
-        damage = self.power_attack * self.affinity_values
-        return damage
+    def calculate_damage(self, attacker):
+        affinity_values1, affinity_values2 = self.affinity()
+        ratio_affinity1 = float(affinity_values1)
+        puissance_attaque1 = float(self.pokemon1.get_power_attack())
+        damage1 = puissance_attaque1 * ratio_affinity1
+
+        ratio_affinity2 = float(affinity_values2)
+        puissance_attaque2 = float(self.pokemon2.get_power_attack())
+        damage2 = puissance_attaque2 * ratio_affinity2
+
+        return float(damage1), float(damage2)
+
 
     def pv_remaining(self, pokemon1, pokemon2):
         pv_remaining = pokemon2.pv - self.calculate_damage(pokemon1)
@@ -105,33 +115,32 @@ class Combat:
             return "Continue"
 
     def fight(self):
+        attacker, defender = self.first_hit()
         print("The battle is going to begin! Would you want to fight?  (yes/no)")
         answer = input()
+
         if answer == "yes":
             print("Let's go!")
-
-            print(f"{self.pokemon1.get_name()} VS {self.pokemon2.get_name()}")
+            print(f"{attacker.get_name()} VS {defender.get_name()}")
             print("Fight!")
 
-            while self.pokemon1.get_pv() > 0 and self.pokemon2.get_pv() > 0:
-                print(f"{self.pokemon1.get_name()} attacks {self.pokemon2.get_name()}")
-                self.pokemon2.set_pv(self.pokemon2.get_pv() - self.pokemon1.get_power_attack())
-                print(f"{self.pokemon2.set_pv(self.pokemon2.get_pv() - self.pokemon1.get_power_attack())}, \n")
+            while attacker.get_pv() > 0 and defender.get_pv() > 0:
+                print(f"{attacker.get_name()} attacks {defender.get_name()}")
 
-                print(f"{self.pokemon2.get_name()} has {self.pokemon2.get_pv()} PV ")
+                damage = self.calculate_damage(attacker)
+                defender.set_pv(defender.get_pv() - damage)
+                print(f"{defender.get_name()} has {defender.get_pv()} PV ")
+                attacker, defender = self.end_attack(attacker, defender)
 
-                print(f"{self.pokemon2.get_name()} attacks {self.pokemon1.get_name()}")
-                self.pokemon1.set_pv(self.pokemon1.get_pv() - self.pokemon2.get_power_attack())
-                print(f"{self.pokemon1.set_pv(self.pokemon1.get_pv() - self.pokemon2.get_power_attack())}, \n")
-                print(f"{self.pokemon1.get_name()} has {self.pokemon1.get_pv()} PV ")
-
-            if self.pokemon1.get_pv() <= 0:
-                winner = f"{self.pokemon2.get_name()} is the winner"
-            elif self.pokemon2.get_pv() <= 0:
-                winner = f"{self.pokemon1.get_name()} is the winner"
-            else:
-                winner = "Continue"
-                return winner
+                if self.pokemon1.get_pv() <= 0:
+                    winner = f"{self.pokemon2.get_name()} is the winner"
+                    break
+                elif self.pokemon2.get_pv() <= 0:
+                    winner = f"{self.pokemon1.get_name()} is the winner"
+                    break
+                else:
+                    winner = "Continue"
+                print(winner)
 
         elif answer == "no":
             return "You lose"
@@ -144,9 +153,10 @@ combat = Combat(pokemon1, pokemon2)
 
 
 
-print(f"{combat.affinity()} hahaha")
-print("pv", combat.pokemon1.get_pv())
-print("pv", combat.pokemon2.get_pv())
-print(combat.end_game())
-print(combat.winner_trainer())
+# print(f"{combat.affinity()} hahaha")
+# print("pv", combat.pokemon1.get_pv())
+# print("pv", combat.pokemon2.get_pv())
+# print(combat.end_game())
+# print(combat.winner_trainer())
+print(combat.affinity())
 print(combat.fight())

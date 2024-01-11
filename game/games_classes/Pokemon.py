@@ -108,10 +108,10 @@ class Pokemon(Type):
 
 
 pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 10, 10, 10, 100, 0, 1)
-pokemon1.informations_pokemon()
+# pokemon1.informations_pokemon()
 
 pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 10, 10, 10, 100, 0, 1) 
-pokemon2.informations_pokemon()
+# pokemon2.informations_pokemon()
 
 type1 = pokemon1.get_types()
 type2 = pokemon2.get_types()
@@ -119,9 +119,11 @@ type2 = pokemon2.get_types()
 index1 = type_pokemon.get_types().index(type1)
 index2 = type_pokemon.get_types().index(type2)
 
-weakness_resistance = type_pokemon.get_matrice()[index1][index2]
+weakness_resistance1 = type_pokemon.get_matrice()[index1][index2]
+weakness_resistance2 = type_pokemon.get_matrice()[index2][index1]
 
-print(f"Affinity between {type1} and {type2} : {weakness_resistance}")
+print(f"Affinity between {type1} and {type2} : {weakness_resistance1}")
+print(f"Affinity between {type2} and {type1} : {weakness_resistance2}")
 
-pokemon1.level_up()
-pokemon1.informations_pokemon()
+# pokemon1.level_up()
+# pokemon1.informations_pokemon()

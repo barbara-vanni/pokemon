@@ -170,4 +170,3 @@ combat = Combat(pokemon1, pokemon2)
 # # print(combat.end_game())
 # print(combat.winner_trainer())
 print(combat.fight())
-

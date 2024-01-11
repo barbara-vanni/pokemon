@@ -122,6 +122,7 @@ class Combat:
     def fight(self):
         attacker, defender = self.first_hit()
         print("The battle is going to begin! Would you want to fight?  (yes/no)")
+
         answer = input()
 
         if answer == "yes":
@@ -136,8 +137,19 @@ class Combat:
                 damage = self.calculate_damage(attacker, defender)
                 defender.set_pv(defender.get_pv() - damage)
                 print(f"{defender.get_name()} has {defender.get_pv()} PV ")
+
                 attacker, defender = self.end_attack(attacker, defender)
+                print(f"{attacker.get_name()} attacks {defender.get_name()}")
+
+                damage = self.calculate_damage(attacker, defender)
+                defender.set_pv(defender.get_pv() - damage)
+                print(f"{defender.get_name()} has {defender.get_pv()} PV ")
+
+                attacker, defender = self.end_attack(attacker, defender)
+
                 
+                input("Would you want to continue? (yes/no)")
+               
                 if self.pokemon1.get_pv() <= 0:
                     winner = f"{self.pokemon2.get_name()} is the winner"
                     break
@@ -154,29 +166,6 @@ class Combat:
             print("Type yes or no")
             return self.fight()
         
-
-
-
-    # def fight(self):
-    #     attacker, defender = self.first_hit()
-    #     print(f"{attacker.get_name()} VS {defender.get_name()}")
-
-    #     while attacker.get_pv() > 0 and defender.get_pv() > 0:
-    #         self.attack(attacker, defender)
-    #         print(f"{attacker.get_name()} attacks {defender.get_name()}")
-    #         defender.set_pv(defender.get_pv() - attacker.get_power_attack())
-    #         print(f"{defender.get_name()} has {max(defender.get_pv(), 0)} PV left \n")
-
-
-    #         attacker, defender = self.end_attack(attacker, defender)
-
-    #         if defender.get_pv() <= 0:
-    #             break  
-
-    #         if attacker.get_pv() <= 0:
-    #             break  
-
-
 
 combat = Combat(pokemon1, pokemon2)
 

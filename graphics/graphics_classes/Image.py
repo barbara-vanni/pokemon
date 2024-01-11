@@ -5,15 +5,15 @@ class Image:
     def __init__(self, image, image_pos):
         self.__image = image
         self.__image_pos = image_pos
-        self.__image_surface = None  # Ajout de l'attribut pour stocker la surface de l'image
+        self.__image_surface = None 
 
     def get_image(self):
         return self.__image
 
     def set_image(self, image):
         self.__image = image
-        self.__image_surface = None  # Réinitialiser la surface lorsque le chemin de l'image change
-
+        self.__image_surface = None
+        
     def get_image_pos(self):
         return self.__image_pos
 

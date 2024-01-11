@@ -47,3 +47,4 @@ def render_combat():
     attack_message_3.message_render(font_ingame, screen)
     suite_button = Button_image('./assets/images/forward.png', (700, 530))
     suite_button.draw_image(screen)
+    suite_button.collision()

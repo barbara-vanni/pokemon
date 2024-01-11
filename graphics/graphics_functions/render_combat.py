@@ -1,7 +1,7 @@
 from graphics.graphics_attributes import *
-# from graphics.graphics_classes.Image import *
 from graphics.graphics_classes.Button_rect import *
 from graphics.graphics_classes.Button_image import *
+from graphics.graphics_functions.draw_text import *
 
 def render_combat():
     screen.fill((150,150,150))
@@ -39,12 +39,8 @@ def render_combat():
     new_pokemon_button = Button_rect(430, 530, 350, 40, "Changer de pokemon", 'grey', 'black')
     new_pokemon_button.collision(font_ingame, screen)
 
-    attack_message_1 = Message(20, 420, 760, 60, "Le pokémone (nom de pokemon) lance l'attaque",'grey', 'black')
-    attack_message_2 = Message(20, 480, 760, 60, "(nom de l'attaque)",'grey', 'black')
-    attack_message_3 = Message(20, 540, 760, 40, "C'est (efficacité) efficace",'grey', 'black')
-    attack_message_1.message_render(font_ingame, screen)
-    attack_message_2.message_render(font_ingame, screen)
-    attack_message_3.message_render(font_ingame, screen)
+    rectangle = pygame.draw.rect(screen, 'white', (20, 420, 760, 160), 0, 0)
+    draw_text(screen, text_content, font_long, rectangle, max_lines=3)
     suite_button = Button_image('./assets/images/forward.png', (700, 530))
     suite_button.draw_image(screen)
     suite_button.collision()

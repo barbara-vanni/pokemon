@@ -20,8 +20,23 @@ class Combat:
         return attacker, defender
 
     def affinity(self, attacker):
-        affinity_values = self.weakness_resistance(pokemon1, pokemon2, attacker)
-        return affinity_values
+        type1 = self.pokemon1.get_types()
+        type2 = self.pokemon2.get_types()
+
+        type_import = Type(pokemon_types, pokemon_matrice)
+
+        if self.pokemon1 == attacker:
+            index1 = type_import.get_types().index(type1)
+            index2 = type_import.get_types().index(type2)
+            affinity_values = type_import.get_matrice()[index1][index2]
+        elif self.pokemon2 == attacker:
+            index1 = type_import.get_types().index(type2)
+            index2 = type_import.get_types().index(type1)
+            affinity_values = type_import.get_matrice()[index1][index2]
+        else:
+            affinity_values = 1
+
+        return float(affinity_values)
 
     
     def attack_chance(self):

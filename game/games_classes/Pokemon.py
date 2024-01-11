@@ -106,23 +106,7 @@ class Pokemon(Type):
         self._pv += 1
         print(f"{self._name} leveled up to Level {self._level}!")
 
-    def weakness_resistance(self, pokemon1, pokemon2, attacker):
-        type1 = pokemon1.get_types()
-        type2 = pokemon2.get_types()
 
-        if pokemon1 == attacker:
-            index1 = type_pokemon.get_types().index(type1)
-            index2 = type_pokemon.get_types().index(type2)
-
-            weakness_resistance = type_pokemon.get_matrice()[index1][index2]
-            return weakness_resistance
-        
-        elif pokemon2 == attacker:
-            index1 = type_pokemon.get_types().index(type2)
-            index2 = type_pokemon.get_types().index(type1)
-
-            weakness_resistance = type_pokemon.get_matrice()[index2][index1]
-            return weakness_resistance
 
 
 pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 10, 10, 10, 100, 0, 1)

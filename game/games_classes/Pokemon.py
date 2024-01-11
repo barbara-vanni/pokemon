@@ -48,7 +48,7 @@ class Pokemon(Type):
         return self._pv
 
     def set_pv(self, pv):
-        self._pv = pv
+        self._pv = max(pv , 0) 
 
     # Xp
     def get_xp(self):
@@ -109,10 +109,10 @@ class Pokemon(Type):
 
 
 
-pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 10, 10, 10, 100, 0, 1)
+pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 20, 10, 10, 100, 0, 1)
 # pokemon1.informations_pokemon()
 
-pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 10, 10, 10, 100, 0, 1) 
+pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 0, 10, 10, 100, 0, 1) 
 # pokemon2.informations_pokemon()
 
 # type1 = pokemon1.get_types()

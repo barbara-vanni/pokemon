@@ -68,11 +68,13 @@ class Combat:
                 defender.pv = self.pv_remaining(attacker, defender)
                 print("Remaining PV : ", defender.pv)
     
-    def calculate_damage(self, attacker):
+    def calculate_damage(self, attacker, defender):
         affinity_values = self.affinity(attacker)
         ratio_affinity = float(affinity_values)
-        puissance_attaque = float(attacker.get_power_attack())
+        puissance_attaque = float(attacker.get_power_attack() - defender.get_defense())
         damage = puissance_attaque * ratio_affinity
+        if damage < 1:
+            damage = 1
         return float(damage)
     
     def pv_remaining(self, attacker, defender):
@@ -125,16 +127,17 @@ class Combat:
         if answer == "yes":
             print("Let's go!")
             print(f"{attacker.get_name()} VS {defender.get_name()}")
+            print(f"{attacker.get_name()} has {attacker.get_pv()} PV and {defender.get_name()} has {defender.get_pv()} PV")
             print("Fight!")
 
             while attacker.get_pv() > 0 and defender.get_pv() > 0:
                 print(f"{attacker.get_name()} attacks {defender.get_name()}")
 
-                damage = self.calculate_damage(attacker)
+                damage = self.calculate_damage(attacker, defender)
                 defender.set_pv(defender.get_pv() - damage)
                 print(f"{defender.get_name()} has {defender.get_pv()} PV ")
                 attacker, defender = self.end_attack(attacker, defender)
-
+                
                 if self.pokemon1.get_pv() <= 0:
                     winner = f"{self.pokemon2.get_name()} is the winner"
                     break
@@ -143,7 +146,7 @@ class Combat:
                     break
                 else:
                     winner = "Continue"
-                print(winner)
+                print(winner) 
 
         elif answer == "no":
             return "You lose"

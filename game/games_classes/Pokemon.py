@@ -137,6 +137,7 @@ pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 10, 10, 10, 1
 # index1 = type_pokemon.get_types().index(type1)
 # index2 = type_pokemon.get_types().index(type2)
 
+
 # weakness_resistance = type_pokemon.get_matrice()[index1][index2]
 
 # print(f"Affinity between {type1} and {type2} : {weakness_resistance}")

@@ -2,7 +2,7 @@ from graphics.graphics_attributes import *
 
 clock = pygame.time.Clock()
 
-def draw_text(screen, text_content, font_long, rectangle, max_lines):
+def draw_text(screen, text_content, font_long, rectangle, y_begin, y_delta, max_lines):
     global num_words
     words = text_content.split(' ')
     space_width, _ = font_long.size(' ')
@@ -24,12 +24,12 @@ def draw_text(screen, text_content, font_long, rectangle, max_lines):
 
     lines.append(' '.join(current_line))
 
-    y = 440
+    y = y_begin
     for line in lines[-max_lines:]:
         text = font_long.render(line, True, 'black')
         text_rect = text.get_rect(center=(rectangle.centerx, y))
         screen.blit(text, text_rect)
-        y += 60
+        y += y_delta
 
     clock.tick(2)
     num_words += 1

@@ -40,7 +40,7 @@ def render_combat():
     new_pokemon_button.collision(font_ingame, screen)
 
     rectangle = pygame.draw.rect(screen, 'white', (20, 420, 760, 160), 0, 0)
-    draw_text(screen, text_content, font_long, rectangle, max_lines=3)
+    draw_text(screen, text_attaque, font_long, rectangle, 440, 60, max_lines=3)
     suite_button = Button_image('./assets/images/forward.png', (700, 530))
     suite_button.draw_image(screen)
     suite_button.collision()

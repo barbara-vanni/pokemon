@@ -1,6 +1,7 @@
 from graphics.graphics_attributes import *
-from graphics.graphics_classes.Image import *
+# from graphics.graphics_classes.Image import *
 from graphics.graphics_classes.Button_rect import *
+from graphics.graphics_classes.Button_image import *
 
 def render_combat():
     screen.fill((150,150,150))
@@ -29,11 +30,20 @@ def render_combat():
 
     #Menu de sélection de combat
     pygame.draw.rect(screen, 'white', (10, 410, 780, 180), 0, 15)
-    attaquer = Button_rect(20, 430, 350, 40, "A l'attaque !", 'grey', 'black')
-    attaquer.collision(font_ingame, screen)
-    objet = Button_rect(430, 430, 350, 40, "Objet", 'grey', 'black')
-    objet.collision(font_ingame, screen)
-    flee = Button_rect(20, 530, 350, 40, "Fuir", 'grey', 'black')
-    flee.collision(font_ingame, screen)
-    new_pokemon = Button_rect(430, 530, 350, 40, "Changer de pokemon", 'grey', 'black')
-    new_pokemon.collision(font_ingame, screen)
+    attack_button = Button_rect(20, 430, 350, 40, "A l'attaque !", 'grey', 'black')
+    attack_button.collision(font_ingame, screen)
+    object_button = Button_rect(430, 430, 350, 40, "Objet", 'grey', 'black')
+    object_button.collision(font_ingame, screen)
+    flee_button = Button_rect(20, 530, 350, 40, "Fuir", 'grey', 'black')
+    flee_button.collision(font_ingame, screen)
+    new_pokemon_button = Button_rect(430, 530, 350, 40, "Changer de pokemon", 'grey', 'black')
+    new_pokemon_button.collision(font_ingame, screen)
+
+    attack_message_1 = Message(20, 420, 760, 60, "Le pokémone (nom de pokemon) lance l'attaque",'grey', 'black')
+    attack_message_2 = Message(20, 480, 760, 60, "(nom de l'attaque)",'grey', 'black')
+    attack_message_3 = Message(20, 540, 760, 40, "C'est (efficacité) efficace",'grey', 'black')
+    attack_message_1.message_render(font_ingame, screen)
+    attack_message_2.message_render(font_ingame, screen)
+    attack_message_3.message_render(font_ingame, screen)
+    suite_button = Button_image('./assets/images/forward.png', (700, 530))
+    suite_button.draw_image(screen)

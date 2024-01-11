@@ -3,7 +3,7 @@ from graphics.graphics_classes.Image import *
 class Button_image(Image):
     def __init__(self, image, image_pos):
         Image.__init__(self, image, image_pos)
-        self.__rect = Image.get_image().get_rect()
+        self.__rect = self.get_image_surface().get_rect()
         self.__clicked = False
         
     def get_clicked(self):
@@ -11,7 +11,7 @@ class Button_image(Image):
     def set_clicked(self):
         self.__clicked = not self.__clicked
 
-    def collision(self, screen):
+    def collision(self):
         pos = pygame.mouse.get_pos()
         if self.__rect.collidepoint(pos):
             print('clic')

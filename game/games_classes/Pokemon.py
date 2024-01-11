@@ -95,7 +95,7 @@ class Pokemon(Type):
         if self._xp >= self._xp_max:
             self._level += 1
             self._xp = 0
-            self._xp_max = self._xp * 1.75
+            self._xp_max = int(self._xp * 1.75)
             print(f"Level up ! Level : {self._level}")
 
     def level_up(self):
@@ -104,7 +104,7 @@ class Pokemon(Type):
         self._defense += 1
         self._speed += 1
         self._pv += 1
-        print("Your pokemon level up !")
+        print(f"{self._name} leveled up to Level {self._level}!")
 
 
 pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 10, 10, 10, 100, 0, 1)

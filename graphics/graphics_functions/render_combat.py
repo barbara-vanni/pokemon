@@ -11,11 +11,11 @@ def render_combat():
     bcg_combat.draw_image(screen)
 
     # Mise en place des informations graphiques pour le pokemon du dresseur 
-    pokemon_good = Image('./assets/images/carapuce_2.png', (0, 150))
+    pokemon_good = Image('./assets/images/carapuce_2.png', (0, 130))
     pokemon_good.draw_image(screen)
     border_good = Image('./assets/images/border_message.png', (430, 270))
     border_good.draw_image(screen)
-    nom_good = Message(410, 280, 300, 50, 'Carapuce lvl 1', 'white', 'black')
+    nom_good = Message(410, 280, 300, 50, 'CARAPUCE lvl 1', 'white', 'black')
     pv_good = Message(540, 325, 200, 30, '100 / 100 pv', 'white', 'black')
     nom_good.message_render(font_ingame, screen)
     pv_good.message_render(font_ingame, screen)
@@ -23,11 +23,11 @@ def render_combat():
     pygame.draw.rect(screen, 'blue', (450, 360, 280, 10), 0, 15)
 
     # Mise en place des informations graphiques pour le pokemon du vilain
-    pokemon_bad = Image('./assets/images/salameche_2.png', (470, -50))
+    pokemon_bad = Image('./assets/images/salameche_2.png', (440, -60))
     pokemon_bad.draw_image(screen)
     border_bad = Image('./assets/images/border_message.png', (20, 20))
     border_bad.draw_image(screen)
-    nom_bad = Message(10, 30, 300, 50, 'Salameche lvl 1', 'green', 'black')
+    nom_bad = Message(10, 30, 300, 50, 'SALAMECHE lvl 1', 'green', 'black')
     pv_bad = Message(128, 75, 200, 30, '100 / 100 pv', 'green', 'black')
     nom_bad.message_render(font_ingame, screen)
     pv_bad.message_render(font_ingame, screen)
@@ -35,8 +35,7 @@ def render_combat():
     pygame.draw.rect(screen, 'blue', (40, 110, 240, 10), 0, 15)
 
     #Menu de sélection de combat
-    # pygame.draw.rect(screen, 'white', (10, 440, 780, 150), 0, 15)
-    border_option_message = Image('./assets/images/border_choice_message.png', (30, 420))
+    border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
     border_option_message.draw_image(screen)
     attack_button = Button_rect(30, 450, 350, 30, "FIGHT !", 'white', 'black')
     attack_button.collision(font_ingame, screen)

@@ -14,5 +14,4 @@ class Button_image(Image):
     def collision(self):
         pos = pygame.mouse.get_pos()
         if self.__rect.collidepoint(pos):
-            print('clic')
             self.set_clicked()

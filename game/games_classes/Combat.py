@@ -122,38 +122,29 @@ class Combat:
     def gain_xp(self, attacker, defender):
         if self.pokemon1.get_pv() <= 0:
             xp_gain = self.pokemon2.set_xp(self.pokemon2.get_xp() + 100)
+            if self.pokemon2.get_xp() >= self.pokemon2.get_xp_max():
+                self.level_up(self.pokemon2)
         elif self.pokemon2.get_pv() <= 0:
             xp_gain = self.pokemon1.set_xp(self.pokemon1.get_xp() + 100)
+            if self.pokemon1.get_xp() >= self.pokemon1.get_xp_max():
+                self.level_up(self.pokemon1)
         else:
             xp_gain = "Continue"
         return xp_gain
 
 
-    # def level_xp(self):
-    #     if self._xp >= self._xp_max:
-    #         self._level += 1
-    #         self._xp = 0
-    #         self._xp_max = int(self._xp * 1.75)
-    #         print(f"Level up ! Level : {self._level}")
 
-    # def level_up(self):
-    #     if self._xp >= self._xp_max:
-    #         self.set_level(self.get_level() + 1)
-    #         self._power_attack += 1
-    #         self._defense += 1
-    #         self._speed += 1
-    #         self._pv += 1
-    #         print(f"{self._name} leveled up to Level {self._level}!")
-    #     else:
-    #         pass
-
-    # def level_up(self):
-    #     self.set_level(self.get_level() + 1)
-    #     self._power_attack += 1
-    #     self._defense += 1
-    #     self._speed += 1
-    #     self._pv += 1
-    #     print(f"{self._name} leveled up to Level {self._level}!")
+    def level_up(self, pokemon):
+        if pokemon.get_xp() >= pokemon.get_xp_max():
+            pokemon.set_level(pokemon.get_level() + 1)
+            pokemon.set_power_attack(pokemon.get_power_attack() + 1)
+            pokemon.set_defense(pokemon.get_defense() + 1)
+            pokemon.set_speed(pokemon.get_speed() + 1)
+            pokemon.set_pv(pokemon.get_pv() + 1)
+            pokemon.set_pv_max(pokemon.get_pv_max() + 1)
+            print(f"{pokemon.get_name()} leveled up to Level {pokemon.get_level()}!")
+            pokemon.set_xp(0)
+            pokemon.set_xp_max(int(pokemon.get_xp_max() * 1.75))
 
 
 
@@ -170,7 +161,7 @@ class Combat:
         print("The battle is going to begin! Would you want to fight?  (yes/no)")
         answer = input()
         if answer == "yes":
-            print(f"{attacker.get_name()}: {attacker.get_pv()} PV VS {defender.get_name()}: {defender.get_pv()} PV")
+            print(f"{attacker.get_name()}: {attacker.get_pv()}/{attacker.get_pv_max()} PV VS {defender.get_name()}: {defender.get_pv()}/{defender.get_pv_max()} PV")
             print("Fight!\n")
 
             while attacker.get_pv() > 0 and defender.get_pv() > 0:
@@ -186,6 +177,8 @@ class Combat:
                 winner_trainer = self.winner_trainer()
                 if defender.get_pv() <= 0 or attacker.get_pv() <= 0:
                     if self.end_game() == "You lose":
+
+
                         return f"{self.winner_pokemon()}\n {self.winner_trainer()}"
                     elif self.end_game() == "You win":
                         xp_gain = self.gain_xp(attacker, defender)

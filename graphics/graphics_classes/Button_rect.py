@@ -16,7 +16,7 @@ class Button_rect(Message):
         self.__clicked = not self.__clicked
 
     def collision(self, font, screen):
-        rectangle = self.message_render(font, screen)
+        self.__collision_rect = self.message_render(font, screen)
         pos = pygame.mouse.get_pos()
-        if rectangle.collidepoint(pos):
+        if self.__collision_rect.collidepoint(pos):
             self.set_clicked()

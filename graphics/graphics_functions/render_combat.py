@@ -5,7 +5,6 @@ from graphics.graphics_functions.draw_text import *
 from event.mouse_button_event import *
 
 def render_combat():
-
     screen.fill((150,150,150))
     bcg_combat = Image('./assets/images/bcg_combat.png', (0,0))
     bcg_combat.draw_image(screen)
@@ -31,20 +30,22 @@ def render_combat():
     pygame.draw.rect(screen, 'blue', (50, 130, 300, 20), 0, 15)
 
     #Menu de sélection de combat
-    pygame.draw.rect(screen, 'white', (10, 410, 780, 180), 0, 15)
-    attack_button = Button_rect(20, 430, 350, 40, "A l'attaque !", 'grey', 'black')
-    attack_button.collision(font_ingame, screen)
-    object_button = Button_rect(430, 430, 350, 40, "Objet", 'grey', 'black')
-    object_button.collision(font_ingame, screen)
-    flee_button = Button_rect(20, 530, 350, 40, "Fuir", 'grey', 'black')
-    flee_button.collision(font_ingame, screen)
-    new_pokemon_button = Button_rect(430, 530, 350, 40, "Changer de pokemon", 'grey', 'black')
-    new_pokemon_button.collision(font_ingame, screen)
-
-    # rectangle = pygame.draw.rect(screen, 'white', (20, 420, 760, 160), 0, 0)
-    # draw_text(screen, text_attaque, font_long, rectangle, 440, 60, max_lines=3)
-    # suite_button = Button_image('./assets/images/forward.png', (700, 530))
-    # suite_button.draw_image(screen)
-    # suite_button.collision()
-
-    return pokemon_good, nom_good, pv_good, pokemon_bad, nom_bad, pv_bad, attack_button, object_button, flee_button, new_pokemon_button
+    combat = get_combat()
+    if combat == 0:
+        pygame.draw.rect(screen, 'white', (10, 410, 780, 180), 0, 15)
+        attack_button = Button_rect(20, 430, 350, 40, "A l'attaque !", 'grey', 'black')
+        attack_button.collision(font_ingame, screen)
+        object_button = Button_rect(430, 430, 350, 40, "Objet", 'grey', 'black')
+        object_button.collision(font_ingame, screen)
+        flee_button = Button_rect(20, 530, 350, 40, "Fuir", 'grey', 'black')
+        flee_button.collision(font_ingame, screen)
+        new_pokemon_button = Button_rect(430, 530, 350, 40, "Changer de pokemon", 'grey', 'black')
+        new_pokemon_button.collision(font_ingame, screen)
+        return attack_button, object_button, flee_button, new_pokemon_button
+    
+    elif combat == 1:
+        rectangle = pygame.draw.rect(screen, 'white', (20, 420, 760, 160), 0, 0)
+        draw_text(screen, text_attaque, font_long, rectangle, 440, 60, max_lines=3)
+        suite_button = Button_image('./assets/images/forward.png', (700, 530))
+        suite_button.draw_image(screen)
+        suite_button.collision()

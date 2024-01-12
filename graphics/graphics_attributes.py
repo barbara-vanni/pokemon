@@ -13,3 +13,17 @@ font_ingame = pygame.font.Font('./assets/font/Pokemon_text.ttf',15)
 text_attaque = ("Le Pokémon (nom de pokemon) lance l'attaque (nom de l'attaque). C'est (efficacité) efficace.")
 text_choix = ("Bienvenue (nom du dresseur) avant de commencer ton aventure tu va devoir choisir ton pokemon. Attention le type de pokemon est important.")
 num_words = 0
+
+menu = 0
+def get_menu():
+    return menu
+def set_menu(new_menu):
+    global menu
+    menu = new_menu
+
+combat = 0
+def get_combat():
+    return combat
+def set_combat(new_combat):
+    global combat
+    combat = new_combat

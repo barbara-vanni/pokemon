@@ -3,7 +3,7 @@ from Type import *
 
 class Pokemon(Type):
     # Constructeur
-    def __init__(self, name, types, matrice, power_attack, defense, speed, pv, xp, level, statut = False):
+    def __init__(self, name, types, matrice, power_attack, defense, speed, pv, xp, level, xp_max = 200, statut = False):
         Type.__init__(self, types, matrice)
         self._name = name
         self._power_attack = power_attack
@@ -13,7 +13,7 @@ class Pokemon(Type):
         self._xp = xp
         self._level = level
         self._statut = statut
-        self._xp_max = 100
+        self._xp_max = xp_max
 
     # name
     def get_name(self):
@@ -87,7 +87,7 @@ class Pokemon(Type):
         print(f"Defense : {self._defense}")
         print(f"Speed : {self._speed}")
         print(f"Pv : {self._pv}")
-        print(f"Xp : {self._xp}")
+        print(f"Xp : {self._xp}/{self._xp_max}")
         print(f"Level : {self._level}\n")
 
         
@@ -109,10 +109,10 @@ class Pokemon(Type):
 
 
 
-pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 20, 10, 10, 100, 0, 1)
+pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 20, 10, 10, 100, 100, 1)
 # pokemon1.informations_pokemon()
 
-pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 0, 10, 10, 100, 0, 1) 
+pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 20, 10, 10, 100, 0, 1) 
 # pokemon2.informations_pokemon()
 
 # type1 = pokemon1.get_types()
@@ -126,5 +126,6 @@ pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 0, 10, 10, 10
 
 # print(f"Affinity between {type1} and {type2} : {weakness_resistance}")
 
-pokemon1.level_up()
+#pokemon1.level_up()
 pokemon1.informations_pokemon()
+

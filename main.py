@@ -11,9 +11,9 @@ continuer = True
 menu_state = "main_menu"
 
 while continuer:
-    new_game, continu, option = render_main()
+    # new_game, continu, option = render_main()
     pokemon_good, nom_good, pv_good, pokemon_bad, nom_bad, pv_bad, attack_button, object_button, flee_button, new_pokemon_button = render_combat()
     for event in pygame.event.get():
         continuer = quit_event(event, continuer)
-        mouse_button_event(event, new_game, font_ingame, screen)
+        # mouse_button_event(event, new_game, font_ingame, screen)
     pygame.display.flip()

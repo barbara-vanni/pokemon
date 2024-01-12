@@ -57,28 +57,20 @@ class Combat:
 
 
     def attack(self, attacker, defender):
-        choice = input("Choose attack : yes/no")
-        if choice == "yes":
-            print("You choose attack")
+
             if self.attack_chance() == 0:
                 print("Attack missed")
             elif self.attack_chance() == 1:
                 print("Attack hit")
                 defender.pv = self.pv_remaining(attacker, defender)
-                print("Remaining PV : ", defender.pv)
             else:
                 print("Critical hit")
+                damage = self.calculate_damage(attacker, defender) * 0.5
+                pv_remaining = defender.set_pv(defender.get_pv() - damage)
                 defender.pv = self.pv_remaining(attacker, defender)
-                print("Remaining PV : ", defender.pv)
-        elif choice == "no":
-            print("You choose to not attack")
-            return self.attack(self, attacker, defender)
-        else:
-            print("Type yes or no")
-            return self.attack(self, attacker, defender)
+
+
     
-
-
     def calculate_damage(self, attacker, defender):
         affinity_values = self.affinity(attacker)
         ratio_affinity = float(affinity_values)
@@ -154,15 +146,17 @@ class Combat:
             print("Fight!\n")
 
             while attacker.get_pv() > 0 and defender.get_pv() > 0:
-                #start_fight = self.attack(attacker, defender)
+                choice = input("Choose attack : yes/no")
+                self.attack(attacker, defender)
                 
                 print(f"{attacker.get_name()} attacks {defender.get_name()}")
-                self.pv_remaining(attacker, defender)
+                # self.pv_remaining(attacker, defender)
                 print(f"{defender.get_name()} has {defender.get_pv()} PV ")
                 attacker, defender = self.end_attack(attacker, defender)
- 
+
+                self.attack(attacker, defender)
                 print(f"{attacker.get_name()} attacks {defender.get_name()}")
-                self.pv_remaining(attacker, defender)
+                # self.pv_remaining(attacker, defender)
                 print(f"{defender.get_name()} has {defender.get_pv()} PV \n")
                 attacker, defender = self.end_attack(attacker, defender)
                 #input("Would you want to continue? (yes/no)\n")             

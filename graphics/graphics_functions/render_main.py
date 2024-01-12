@@ -3,6 +3,7 @@ from graphics.graphics_classes.Button_rect import *
 from graphics.graphics_attributes import *
 
 def render_main():
+    # if menu_state == "main_menu":
     titre = Message(100, 50, 600, 120, 'POKEMON', 'white', 'blue')
     titre.message_render(font_title, screen)
     new_game = Button_rect(200, 250, 400, 80, 'New Game', 'white', 'blue')
@@ -11,3 +12,4 @@ def render_main():
     continu.collision(font_button_menu, screen)
     option = Button_rect(200, 450, 400, 80, 'Option', 'white', 'blue')
     option.collision(font_button_menu, screen)
+    return new_game, continu, option

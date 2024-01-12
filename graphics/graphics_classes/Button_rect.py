@@ -19,5 +19,4 @@ class Button_rect(Message):
         rectangle = self.message_render(font, screen)
         pos = pygame.mouse.get_pos()
         if rectangle.collidepoint(pos):
-            print('clic')
             self.set_clicked()

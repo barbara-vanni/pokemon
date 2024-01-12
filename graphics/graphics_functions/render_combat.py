@@ -2,14 +2,16 @@ from graphics.graphics_attributes import *
 from graphics.graphics_classes.Button_rect import *
 from graphics.graphics_classes.Button_image import *
 from graphics.graphics_functions.draw_text import *
+from event.mouse_button_event import *
 
 def render_combat():
+
     screen.fill((150,150,150))
     bcg_combat = Image('./assets/images/bcg_combat.png', (0,0))
     bcg_combat.draw_image(screen)
 
     # Mise en place des informations graphiques pour le pokemon du dresseur 
-    pokemon_good = Image('./assets/images/carapuce.png', (0, 150))
+    pokemon_good = Image('./assets/images/carapuce_2.png', (0, 150))
     pokemon_good.draw_image(screen)
     nom_good = Message(450, 275, 300, 40, 'carapuce lvl 1', 'green', 'black')
     pv_good = Message(450, 325, 300, 40, '100 / 100 pv', 'green', 'black')
@@ -19,7 +21,7 @@ def render_combat():
     pygame.draw.rect(screen, 'blue', (450, 375, 300, 20), 0, 15)
 
     # Mise en place des informations graphiques pour le pokemon du vilain
-    pokemon_bad = Image('./assets/images/salameche.png', (500, 0))
+    pokemon_bad = Image('./assets/images/salameche_2.png', (500, 0))
     pokemon_bad.draw_image(screen)
     nom_bad = Message(50, 30, 300, 40, 'salameche lvl 1', 'green', 'black')
     pv_bad = Message(50, 80, 300, 40, '100 / 100 pv', 'green', 'black')
@@ -39,8 +41,10 @@ def render_combat():
     new_pokemon_button = Button_rect(430, 530, 350, 40, "Changer de pokemon", 'grey', 'black')
     new_pokemon_button.collision(font_ingame, screen)
 
-    rectangle = pygame.draw.rect(screen, 'white', (20, 420, 760, 160), 0, 0)
-    draw_text(screen, text_attaque, font_long, rectangle, 440, 60, max_lines=3)
-    suite_button = Button_image('./assets/images/forward.png', (700, 530))
-    suite_button.draw_image(screen)
-    suite_button.collision()
+    # rectangle = pygame.draw.rect(screen, 'white', (20, 420, 760, 160), 0, 0)
+    # draw_text(screen, text_attaque, font_long, rectangle, 440, 60, max_lines=3)
+    # suite_button = Button_image('./assets/images/forward.png', (700, 530))
+    # suite_button.draw_image(screen)
+    # suite_button.collision()
+
+    return pokemon_good, nom_good, pv_good, pokemon_bad, nom_bad, pv_bad, attack_button, object_button, flee_button, new_pokemon_button

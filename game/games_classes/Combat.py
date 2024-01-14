@@ -133,7 +133,6 @@ class Combat:
         return xp_gain
 
 
-
     def level_up(self, pokemon):
         if pokemon.get_xp() >= pokemon.get_xp_max():
             pokemon.set_level(pokemon.get_level() + 1)

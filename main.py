@@ -29,6 +29,6 @@ while continuer:
             if get_combat() == 0:
                 attack_button_event(event, attack_button)
             elif get_combat() == 1 or get_combat() == 2:
-                combat_begin.fight()
+                # combat_begin.fight()
                 suite_button_event(event, suite_button)
     pygame.display.flip()

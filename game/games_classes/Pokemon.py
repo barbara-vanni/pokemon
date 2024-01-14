@@ -114,11 +114,3 @@ class Pokemon(Type):
         self._pv_max += 1
         print(f"{self._name} leveled up to Level {self._level}!")
 
-
-
-
-pokemon1 = Pokemon("Tortank", pokemon_types[2], pokemon_matrice, 20, 10, 10, 50, 500, 100, 10)
-
-pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 20, 10, 10, 100, 100, 0, 1) 
-pokemon1.informations_pokemon()
-

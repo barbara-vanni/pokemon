@@ -1,174 +1,183 @@
 import random
 from game.games_classes.Pokemon import *
 from graphics.graphics_attributes import *
-# from Type import *
 
 class Combat:
-    def __init__(self, pokemon1, pokemon2):
-        self.pokemon1 = pokemon1
-        self.pokemon2 = pokemon2
+    def __init__(self, pokemon1, pokemon2, attack_chance_ratio, affinity_values, player_list, computer_list):
+        self.__pokemon_player = pokemon1
+        self.__pokemon_computer = pokemon2
+        self.__pokemon1 = pokemon1
+        self.__pokemon2 = pokemon2
+        self.__attack_chance_ratio = attack_chance_ratio
+        self.__affinity_values = affinity_values
+        self.__player_list = player_list
+        self.__computer_list = computer_list
+
+    def get_pokemon_trainer(self):
+        return self.__pokemon_trainer
+    def set_pokemon_trainer(self, pokemon1):
+        self.__pokemon_trainer = pokemon1
+
+    def get_pokemon1(self):
+        return self.__pokemon1
+    def set_pokemon1(self, pokemon1):
+        self.__pokemon1 = pokemon1
+
+    def get_pokemon2(self):
+        return self.__pokemon2
+    def set_pokemon1(self, pokemon2):
+        self.__pokemon2 = pokemon2
+
+    def get_attack_chance_ratio(self):
+        return self.__attack_chance_ratio
+    def set_attack_chance_ratio(self, attack_chance_ratio):
+        self.__attack_chance_ratio = attack_chance_ratio
+    
+    def get_affinity_values(self):
+        return self.__affinity_values
+    def set_affinity_values(self, affinity_values):
+        self.__affinity_values = affinity_values
+    
+    def get_player_list(self):
+        return self.__player_list
+    def set_player_list(self, player_list):
+        self.__player_list = player_list
+
+    def get_computer_list(self):
+        return self.__computer_list
+    def set_pokemon_list(self, computer_list):
+        self.__computer_list = computer_list
 
     def first_hit(self):
-        speed_pokemon1 = self.pokemon1.get_speed()
-        speed_pokemon2 = self.pokemon2.get_speed()
+        if self.__pokemon1.get_speed() < self.__pokemon2.get_speed():
+            temp = self.__pokemon1
+            self.__pokemon1 = self.__pokemon2
+            self.__pokemon2 = self.__pokemon1
 
-        if speed_pokemon1 > speed_pokemon2:
-            attacker = self.pokemon1
-            defender = self.pokemon2
-        else :
-            attacker = self.pokemon2
-            defender = self.pokemon1
-        return attacker, defender
-
-    def affinity(self, attacker):
-        type1 = self.pokemon1.get_types()
-        type2 = self.pokemon2.get_types()
+    def affinity(self):
         type_import = Type(pokemon_types, pokemon_matrice)
-        if self.pokemon1 == attacker:
+        type1 = self.__pokemon1.get_types()
+        type2 = self.__pokemon2.get_types()
+
+        try:
             index1 = type_import.get_types().index(type1)
             index2 = type_import.get_types().index(type2)
-            affinity_values = type_import.get_matrice()[index1][index2]
-        elif self.pokemon2 == attacker:
-            index1 = type_import.get_types().index(type2)
-            index2 = type_import.get_types().index(type1)
-            affinity_values = type_import.get_matrice()[index1][index2]
-        else:
-            affinity_values = 1
-        return float(affinity_values)
+        except ValueError:
+            print(f"Erreur : Type non trouvé dans la matrice d'affinité - Type1: {type1}, Type2: {type2}")
+            return None
+        affinity_value = float(type_import.get_matrice()[index1][index2])
+
+        return affinity_value
+
 
     def attack_chance(self):
         attack_chance = random.randint(0, 100)
         if attack_chance <= 15 :
             # attack missed
-            attack_chance_ratio = 0
+            self.set_attack_chance_ratio(0)
         elif 16 <= attack_chance <= 90:
             # attack hit
-            attack_chance_ratio = 1
+            self.set_attack_chance_ratio(1)
         else:
             # attack critical hit
-            attack_chance_ratio = 2
-        return attack_chance_ratio
+            self.set_attack_chance_ratio(2)
 
-    def attack(self, attacker, defender):
-
-            if self.attack_chance() == 0:
-                print("Attack missed")
-            elif self.attack_chance() == 1:
-                print("Attack hit")
-                defender.pv = self.pv_remaining(attacker, defender)
-            else:
-                print("Critical hit")
-                damage = self.calculate_damage(attacker, defender) * 0.5
-                pv_remaining = defender.set_pv(defender.get_pv() - damage)
-                defender.pv = self.pv_remaining(attacker, defender)
-
-    def calculate_damage(self, attacker, defender):
-        affinity_values = self.affinity(attacker)
-        ratio_affinity = float(affinity_values)
-        puissance_attaque = float(attacker.get_power_attack() - defender.get_defense())
-        damage = puissance_attaque * ratio_affinity
+    def calculate_damage(self):
+        puissance_attaque = float(self.__pokemon1.get_power_attack() - self.__pokemon2.get_defense())
+        affinity_value = self.affinity()
+        damage = puissance_attaque * affinity_value
         if damage < 1:
             damage = 1
-        return float(damage)
-
-    def pv_remaining(self, attacker, defender):
-        damage = self.calculate_damage(attacker, defender)
-        pv_remaining = defender.set_pv(defender.get_pv() - damage)
-        return pv_remaining
-
-    def end_game(self):
-        if self.pokemon1.get_pv() <= 0:
-            return pokemon2.get_name()
-        elif self.pokemon2.get_pv() <= 0:
-            return pokemon1.get_name()
-        else:
-            return "Continue"
-
-    def winner_pokemon(self):
-        if self.pokemon1.get_pv() <= 0:
-            return f"{pokemon2.get_name()} is the winner"
-        elif self.pokemon2.get_pv() <= 0:
-            return f"{pokemon1.get_name()} is the winner"
-        # else:
-        #     return "Continue"
-
-    def winner_trainer(self):
-        if self.pokemon1.get_pv() <= 0:
-            return "Player 1 loses"
-        elif self.pokemon2.get_pv() <= 0:
-            return "Player 1 wins"
-        else:
-            return "Continue"
-
-    # def gain_xp(self):
-    #     if self.pokemon1.get_pv() <= 0:
-    #         xp_gain = self.pokemon2.set_xp(self.pokemon2.get_xp() + 100)
-    #     elif self.pokemon2.get_pv() <= 0:
-    #         xp_gain = self.pokemon1.set_xp(self.pokemon1.get_xp() + 100)
-    #     else:
-    #         xp_gain = "Continue"
-    #     return xp_gain
-    def gain_xp(self, attacker, defender):
-        if self.pokemon1.get_pv() <= 0:
-            xp_gain = self.pokemon2.set_xp(self.pokemon2.get_xp() + 100)
-            if self.pokemon2.get_xp() >= self.pokemon2.get_xp_max():
-                self.level_up(self.pokemon2)
-        elif self.pokemon2.get_pv() <= 0:
-            xp_gain = self.pokemon1.set_xp(self.pokemon1.get_xp() + 100)
-            if self.pokemon1.get_xp() >= self.pokemon1.get_xp_max():
-                self.level_up(self.pokemon1)
-        else:
-            xp_gain = "Continue"
-        return xp_gain
+        return damage
+        
+    def pv_remaining(self):
+        damage = self.calculate_damage()
+        self.__pokemon2.set_pv(self.__pokemon2.get_pv() - damage)
+      
+    def attack(self):
+        self.attack_chance()
+        if self.get_attack_chance_ratio() == 1:
+            self.pv_remaining()
+        elif self.get_attack_chance_ratio() == 2:
+            damage = self.calculate_damage() * 0.5
+            self.__pokemon2.set_pv(self.__pokemon2.get_pv() - damage)
 
     def level_up(self, pokemon):
-        if pokemon.get_xp() >= pokemon.get_xp_max():
-            pokemon.set_level(pokemon.get_level() + 1)
-            pokemon.set_power_attack(pokemon.get_power_attack() + 1)
-            pokemon.set_defense(pokemon.get_defense() + 1)
-            pokemon.set_speed(pokemon.get_speed() + 1)
-            pokemon.set_pv(pokemon.get_pv() + 1)
-            pokemon.set_pv_max(pokemon.get_pv_max() + 1)
-            print(f"{pokemon.get_name()} leveled up to Level {pokemon.get_level()}!")
-            pokemon.set_xp(0)
-            pokemon.set_xp_max(int(pokemon.get_xp_max() * 1.75))
+        pokemon.set_level(pokemon.get_level() + 1)
+        pokemon.set_power_attack(pokemon.get_power_attack() + 1)
+        pokemon.set_defense(pokemon.get_defense() + 1)
+        pokemon.set_speed(pokemon.get_speed() + 1)
+        pokemon.set_pv_max(pokemon.get_pv_max() + 1)
+        pokemon.set_pv(pokemon.get_pv() + 1)
+        pokemon.set_xp(0)
+        pokemon.set_xp_max(int(pokemon.get_xp_max() * 1.75))
 
-    def end_attack(self, attacker, defender):
-        temp = attacker
-        attacker = defender
-        defender = temp
-        return attacker, defender
+    def gain_xp(self):
+        if self.__pokemon2 != self.__pokemon_player:
+            self.__pokemon1.set_xp(self.__pokemon1.get_xp() + 100)
+            if self.pokemon__1.get_xp() >= self.__pokemon1.get_xp_max():
+                self.level_up(self.__pokemon1)
+                
+    def end_game(self):
+        if self.__pokemon2.get_pv() <= 0 and self.__pokemon_list_2 == []:
+            self.gain_xp()
+            return self.__pokemon1.get_name()
+        else:
+            return self.__pokemon1.get_name()
+
+    def winner_pokemon(self):
+        if self.__pokemon2.get_pv() <= 0:
+            self.gain_xp()
+            return self.__pokemon1.get_name()
+        else:
+            return self.__pokemon1.get_name()
+
+    # def winner_trainer(self):
+    #     if self.pokemon1.get_pv() <= 0:
+    #         return "Player 1 loses"
+    #     elif self.pokemon2.get_pv() <= 0:
+    #         return "Player 1 wins"
+    #     else:
+    #         return "Continue"
+
+    def end_attack(self):
+        temp = self.__pokemon1
+        self.__pokemon1 = self.__pokemon2
+        self.__pokemon2 = self.__pokemon1
 
     def fight(self):
-        attacker, defender = self.first_hit()
-        if attacker.get_pv() > 0 and defender.get_pv() > 0:
+        self.first_hit()
+        while self.__pokemon1.get_pv() > 0 and self.__pokemon2.get_pv() > 0:
             if get_combat() == 1:
-                self.attack(attacker, defender)
+                self.attack()
+                print('2')
                 end_game = self.end_game()
-                if end_game == self.pokemon1.get_name():
+                print('3')
+                if end_game == self.__pokemon_player:
                     self.gain_xp()
-                    set_combat(0)
-                    set_menu(0)
-                elif end_game == self.pokemon2.get_name():
-                    set_combat(0)
-                attacker, defender = self.end_attack(attacker, defender)
+                    set_combat(3)
+                elif end_game == self.__pokemon_computer:
+                    set_combat(3)
+                self.end_attack()
+                print('4')
+                set_combat(2)
+                print('5')
 
-
-                self.attack(attacker, defender)
+            elif get_combat() == 2:
+                print('6')
+                self.attack()
+                print('7')
                 end_game = self.end_game()
-                if end_game == self.pokemon1.get_name():
+                print('8')
+                if end_game == self.__pokemon_player:
                     self.gain_xp()
-                    set_combat(0)
-                    set_menu(0)
-                elif end_game == self.pokemon2.get_name():
-                    set_combat(0)
-                
-                
+                    set_combat(3)
+                elif end_game == self.__pokemon_computer:
+                    set_combat(3)
+                self.end_attack()
+                print('9')
+                set_combat(0)
+                print('10')
+                   
                 # winner_pokemon = self.__winner_pokemon()
                 # winner_trainer = self.__winner_trainer()
-
-combat = Combat(pokemon1, pokemon2)
-print(combat.fight())
-print(Pokemon.informations_pokemon(pokemon1))
-print(combat.fight())
-

@@ -3,20 +3,16 @@ class Type:
     def __init__(self, types, matrice):
         self._types = types
         self._matrice = matrice
-    
-
 
     # Types
     def get_types(self):
         return self._types
-
     def set_types(self, types):
         self._types = types
 
     # Matrice
     def get_matrice(self):
         return self._matrice
-
     def set_matrice(self, matrice):
         self._matrice = matrice
 
@@ -43,8 +39,8 @@ pokemon_matrice = [
     [1, 1, 1, 1, 1, 1, 0.5, 2, 1, 1, 1, 0.5, 1, 1, 0, 0.5, 2, 1]   
 ]        
 
-type_pokemon = Type(pokemon_types, pokemon_matrice)
+# type_pokemon = Type(pokemon_types, pokemon_matrice)
 
-type1 = pokemon_types[2]
-type2 = pokemon_types[1]
-print(type_pokemon.get_matrice()[type_pokemon.get_types().index(type1)][type_pokemon.get_types().index(type2)])
+# type1 = pokemon_types[12]
+# type2 = pokemon_types[6]
+# print(type_pokemon.get_matrice()[type_pokemon.get_types().index(type1)][type_pokemon.get_types().index(type2)])

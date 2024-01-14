@@ -1,0 +1,108 @@
+{
+    "pokemon_list": [
+        {
+            "name": "Carapuce",
+            "types": "Water",
+            "power_attack": 20,
+            "defense": 10,
+            "speed": 10,
+            "pv": 100,
+            "pv_max": 100,
+            "xp": 100,
+            "xp_max": 200,
+            "level": 1,
+            "statut": false
+        },
+        {
+            "name": "Salameche",
+            "types": "Fire",
+            "power_attack": 20,
+            "defense": 10,
+            "speed": 10,
+            "pv": 100,
+            "pv_max": 100,
+            "xp": 0,
+            "xp_max": 200,
+            "level": 1,
+            "statut": true
+        },
+        {
+            "name": "Bulbizarre",
+            "types": "Grass",
+            "power_attack": 20,
+            "defense": 10,
+            "speed": 10,
+            "pv": 100,
+            "pv_max": 100,
+            "xp": 0,
+            "xp_max": 200,
+            "level": 1,
+            "statut": true
+        },
+        {
+            "name": "Pikachu",
+            "types": "Electric",
+            "power_attack": 20,
+            "defense": 10,
+            "speed": 10,
+            "pv": 100,
+            "pv_max": 100,
+            "xp": 0,
+            "xp_max": 200,
+            "level": 1,
+            "statut": true
+        },
+        {
+            "name": "Rattata",
+            "types": "Normal",
+            "power_attack": 20,
+            "defense": 10,
+            "speed": 10,
+            "pv": 100,
+            "pv_max": 100,
+            "xp": 0,
+            "xp_max": 200,
+            "level": 1,
+            "statut": true
+        },
+        {
+            "name": "Roucool",
+            "types": "Flying",
+            "power_attack": 20,
+            "defense": 10,
+            "speed": 10,
+            "pv": 100,
+            "pv_max": 100,
+            "xp": 0,
+            "xp_max": 200,
+            "level": 1,
+            "statut": true
+        },
+        {
+            "name": "Abo",
+            "types": "Poison",
+            "power_attack": 20,
+            "defense": 10,
+            "speed": 10,
+            "pv": 100,
+            "pv_max": 100,
+            "xp": 0,
+            "xp_max": 200,
+            "level": 1,
+            "statut": true
+        },
+        {
+            "name": "Piafabec",
+            "types": "Flying",
+            "power_attack": 20,
+            "defense": 10,
+            "speed": 10,
+            "pv": 100,
+            "pv_max": 100,
+            "xp": 0,
+            "xp_max": 200,
+            "level": 1,
+            "statut": true
+        }
+    ]
+}

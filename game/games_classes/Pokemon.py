@@ -117,5 +117,5 @@ pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 20, 10, 10, 1
 # print(f"Affinity between {type1} and {type2} : {weakness_resistance}")
 
 #pokemon1.level_up()
-pokemon1.informations_pokemon()
+#pokemon1.informations_pokemon()
 

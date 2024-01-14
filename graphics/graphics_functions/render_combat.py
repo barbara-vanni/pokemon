@@ -3,7 +3,7 @@ from graphics.graphics_classes.Button_rect import *
 from graphics.graphics_classes.Button_image import *
 from graphics.graphics_functions.draw_text import *
 from event.mouse_button_event import *
-from game.games_classes.Combat import *
+
 from game.games_attributes import *
 
 def render_combat(pokemon1, pokemon2):
@@ -47,34 +47,36 @@ def render_combat(pokemon1, pokemon2):
     elif get_combat() == 1 or get_combat() == 2:
         rectangle = pygame.draw.rect(screen, 'white', (20, 420, 760, 160), 0, 0)
         if combat_begin.get_attack_chance_ratio() == 0:
-            text_attack = (f"L'attaque de {pokemon1.get_name()} à échoué")
-            draw_text(screen, text_attack, font_long, rectangle, 440, 60, max_lines=3)
+            attack_missed = (f"L'attaque de {pokemon1.get_name()} à échoué")
+            draw_text(screen, attack_missed, font_long, rectangle, 440, 60, max_lines=3)
         elif combat_begin.get_attack_chance_ratio() == 1:
-            text_attack = (f"L'attaque de {pokemon1.get_name()} à réussi")
-            draw_text(screen, text_attack, font_long, rectangle, 440, 60, max_lines=3)
+            attack_normal = (f"L'attaque de {pokemon1.get_name()} à réussi")
+            draw_text(screen, attack_normal, font_long, rectangle, 440, 60, max_lines=3)
         elif combat_begin.get_attack_chance_ratio() == 2:
-            text_attack = (f"L'attaque de {pokemon1.get_name()} est un coup critique")
-            draw_text(screen, text_attack, font_long, rectangle, 440, 60, max_lines=3)
+            attack_critical = (f"L'attaque de {pokemon1.get_name()} est un coup critique")
+            draw_text(screen, attack_critical, font_long, rectangle, 440, 60, max_lines=3)
         suite_button = Button_image('./assets/images/forward.png', (700, 530))
         suite_button.draw_image(screen)
         suite_button.collision()
         return suite_button
     
     elif get_combat() == 3:
+        rectangle = pygame.draw.rect(screen, 'white', (20, 420, 760, 160), 0, 0)
         if combat_begin.get_affinity_values() < 1:
-            text_attack = (f"{pokemon1.get_name()} lance une attaque. C'est ne pas très efficace.")
-            draw_text(screen, text_attack, font_long, rectangle, 440, 60, max_lines=3)
+            efficiency_none = (f"{pokemon1.get_name()} lance une attaque. C'est ne pas très efficace.")
+            draw_text(screen, efficiency_none, font_long, rectangle, 440, 60, max_lines=3)
         elif combat_begin.get_affinity_values() == 1:
-            text_attack = (f"{pokemon1.get_name()} lance une attaque")
-            draw_text(screen, text_attack, font_long, rectangle, 440, 60, max_lines=3)
+            efficiency = (f"{pokemon1.get_name()} lance une attaque")
+            draw_text(screen, efficiency, font_long, rectangle, 440, 60, max_lines=3)
         elif combat_begin.get_affinity_values() > 1 :
-            text_attack = (f"{pokemon1.get_name()} lance une attaque, C'est très efficace")
-            draw_text(screen, text_attack, font_long, rectangle, 440, 60, max_lines=3)
+            efficiency_top = (f"{pokemon1.get_name()} lance une attaque, C'est très efficace")
+            draw_text(screen, efficiency_top, font_long, rectangle, 440, 60, max_lines=3)
         suite_button = Button_image('./assets/images/forward.png', (700, 530))
         suite_button.draw_image(screen)
         suite_button.collision()
         return suite_button
-            
-        # rectangle = pygame.draw.rect(screen, 'white', (20, 420, 760, 160), 0, 0)
-        # text_attack = (f"{pokemon2.get_name()} est K.O. ")
-        # draw_text(screen, text_attaque, font_long, rectangle, 440, 60, max_lines=3)
+    
+    elif get_combat() == 4:    
+        rectangle = pygame.draw.rect(screen, 'white', (20, 420, 760, 160), 0, 0)
+        dead_text = (f"{pokemon2.get_name()} est K.O.")
+        draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)

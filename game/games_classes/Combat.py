@@ -3,7 +3,7 @@ from game.games_classes.Pokemon import *
 from graphics.graphics_attributes import *
 
 class Combat:
-    def __init__(self, pokemon1, pokemon2, attack_chance_ratio, affinity_values, player_list, computer_list):
+    def __init__(self, pokemon1, pokemon2, attack_chance_ratio, affinity_values, player_list, computer_list, states):
         self.__pokemon_player = pokemon1
         self.__pokemon_computer = pokemon2
         self.__pokemon1 = pokemon1
@@ -12,6 +12,7 @@ class Combat:
         self.__affinity_values = affinity_values
         self.__player_list = player_list
         self.__computer_list = computer_list
+        self.__states = states
 
     def get_pokemon_trainer(self):
         return self.__pokemon_trainer
@@ -45,14 +46,19 @@ class Combat:
 
     def get_computer_list(self):
         return self.__computer_list
-    def set_pokemon_list(self, computer_list):
+    def set_computer_list(self, computer_list):
         self.__computer_list = computer_list
+
+    def get_states(self):
+        return self.__states
+    def set_states(self, states):
+        self.__states = states
 
     def first_hit(self):
         if self.__pokemon1.get_speed() < self.__pokemon2.get_speed():
             temp = self.__pokemon1
             self.__pokemon1 = self.__pokemon2
-            self.__pokemon2 = self.__pokemon1
+            self.__pokemon2 = temp
 
     def affinity(self):
         type_import = Type(pokemon_types, pokemon_matrice)
@@ -66,6 +72,7 @@ class Combat:
             print(f"Erreur : Type non trouvé dans la matrice d'affinité - Type1: {type1}, Type2: {type2}")
             return None
         affinity_value = float(type_import.get_matrice()[index1][index2])
+        self.set_affinity_values(affinity_value)
 
         return affinity_value
 
@@ -96,11 +103,12 @@ class Combat:
       
     def attack(self):
         self.attack_chance()
-        if self.get_attack_chance_ratio() == 1:
-            self.pv_remaining()
-        elif self.get_attack_chance_ratio() == 2:
-            damage = self.calculate_damage() * 0.5
-            self.__pokemon2.set_pv(self.__pokemon2.get_pv() - damage)
+        if self.__states == 1:
+            if self.get_attack_chance_ratio() == 1:
+                self.pv_remaining()
+            elif self.get_attack_chance_ratio() == 2:
+                damage = self.calculate_damage() * 0.5
+                self.__pokemon2.set_pv(self.__pokemon2.get_pv() - damage)
 
     def level_up(self, pokemon):
         pokemon.set_level(pokemon.get_level() + 1)
@@ -121,6 +129,7 @@ class Combat:
     def end_game(self):
         if self.__pokemon2.get_pv() <= 0 and self.__pokemon_list_2 == []:
             self.gain_xp()
+            print('mort')
             return self.__pokemon1.get_name()
         else:
             return self.__pokemon1.get_name()
@@ -143,41 +152,36 @@ class Combat:
     def end_attack(self):
         temp = self.__pokemon1
         self.__pokemon1 = self.__pokemon2
-        self.__pokemon2 = self.__pokemon1
+        self.__pokemon2 = temp
 
     def fight(self):
         self.first_hit()
-        while self.__pokemon1.get_pv() > 0 and self.__pokemon2.get_pv() > 0:
+        if self.__pokemon1.get_pv() > 0 and self.__pokemon2.get_pv() > 0:
             if get_combat() == 1:
-                self.attack()
-                print('2')
-                end_game = self.end_game()
-                print('3')
-                if end_game == self.__pokemon_player:
-                    self.gain_xp()
-                    set_combat(3)
-                elif end_game == self.__pokemon_computer:
-                    set_combat(3)
-                self.end_attack()
-                print('4')
-                set_combat(2)
-                print('5')
+                if self.__states == 0:
+                    self.attack()
+                if self.__states == 2:
+                    end_game = self.end_game()
+                    if end_game == self.__pokemon_player:
+                        self.gain_xp()
+                        set_combat(4)
+                    elif end_game == self.__pokemon_computer:
+                        set_combat(4)
+                    self.end_attack()
 
             elif get_combat() == 2:
-                print('6')
-                self.attack()
-                print('7')
-                end_game = self.end_game()
-                print('8')
-                if end_game == self.__pokemon_player:
-                    self.gain_xp()
-                    set_combat(3)
-                elif end_game == self.__pokemon_computer:
-                    set_combat(3)
-                self.end_attack()
-                print('9')
-                set_combat(0)
-                print('10')
+                if self.__states == 0:
+                    self.attack()
+                if self.__states == 3:
+                    end_game = self.end_game()
+                    if end_game == self.__pokemon_player:
+                        self.gain_xp()
+                        set_combat(3)
+                    elif end_game == self.__pokemon_computer:
+                        set_combat(3)
+                    self.end_attack()
+                    set_combat(0)
+                    self.__states == 0
                    
                 # winner_pokemon = self.__winner_pokemon()
                 # winner_trainer = self.__winner_trainer()

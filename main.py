@@ -19,7 +19,7 @@ while continuer:
     elif get_menu() == 1:
         if get_combat() == 0:
             attack_button, object_button, flee_button, new_pokemon_button = render_combat(pokemon1, pokemon2)
-        elif get_combat() == 1 or get_combat() == 2:
+        elif get_combat() == 1 or get_combat() == 2 or get_combat() == 3:
             suite_button = render_combat(pokemon1, pokemon2)
 
     for event in pygame.event.get():
@@ -28,7 +28,7 @@ while continuer:
         if get_menu() == 1:
             if get_combat() == 0:
                 attack_button_event(event, attack_button)
-            elif get_combat() == 1 or get_combat() == 2:
-                # combat_begin.fight()
+            elif get_combat() == 1 or get_combat() == 2 or get_combat() == 3:
                 suite_button_event(event, suite_button)
+                combat_begin.fight()
     pygame.display.flip()

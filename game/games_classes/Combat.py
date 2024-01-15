@@ -79,7 +79,7 @@ class Combat:
 
     def attack_chance(self):
         attack_chance = random.randint(0, 100)
-        if attack_chance <= 0 :
+        if attack_chance <= 15 :
             # attack missed
             self.set_attack_chance_ratio(0)
         elif 16 <= attack_chance <= 90:
@@ -105,7 +105,7 @@ class Combat:
         if self.get_attack_chance_ratio() == 1:
             self.pv_remaining()
         elif self.get_attack_chance_ratio() == 2:
-            damage = self.calculate_damage() * 0.5
+            damage = self.calculate_damage() / 0.5
             self.__pokemon2.set_pv(self.__pokemon2.get_pv() - damage)
 
     def level_up(self, pokemon):
@@ -157,34 +157,34 @@ class Combat:
         self.__pokemon1 = self.__pokemon2
         self.__pokemon2 = temp
 
-    def fight(self):
-        self.first_hit()
-        if self.__pokemon1.get_pv() > 0 and self.__pokemon2.get_pv() > 0:
-            if get_combat() == 1:
-                if self.__states == 0:
-                    self.attack()
-                if self.__states == 2:
-                    end_game = self.end_game()
-                    if end_game == self.__pokemon_player:
-                        self.gain_xp()
-                        set_combat(4)
-                    elif end_game == self.__pokemon_computer:
-                        set_combat(4)
-                    self.end_attack()
+    # def fight(self):
+    #     self.first_hit()
+    #     if self.__pokemon1.get_pv() > 0 and self.__pokemon2.get_pv() > 0:
+    #         if get_combat() == 1:
+    #             if self.__states == 0:
+    #                 self.attack()
+    #             if self.__states == 2:
+    #                 end_game = self.end_game()
+    #                 if end_game == self.__pokemon_player:
+    #                     self.gain_xp()
+    #                     set_combat(4)
+    #                 elif end_game == self.__pokemon_computer:
+    #                     set_combat(4)
+    #                 self.end_attack()
 
-            elif get_combat() == 2:
-                if self.__states == 0:
-                    self.attack()
-                if self.__states == 3:
-                    end_game = self.end_game()
-                    if end_game == self.__pokemon_player:
-                        self.gain_xp()
-                        set_combat(3)
-                    elif end_game == self.__pokemon_computer:
-                        set_combat(3)
-                    self.end_attack()
-                    set_combat(0)
-                    self.__states == 0
+    #         elif get_combat() == 2:
+    #             if self.__states == 0:
+    #                 self.attack()
+    #             if self.__states == 3:
+    #                 end_game = self.end_game()
+    #                 if end_game == self.__pokemon_player:
+    #                     self.gain_xp()
+    #                     set_combat(3)
+    #                 elif end_game == self.__pokemon_computer:
+    #                     set_combat(3)
+    #                 self.end_attack()
+    #                 set_combat(0)
+    #                 self.__states == 0
                    
                 # winner_pokemon = self.__winner_pokemon()
                 # winner_trainer = self.__winner_trainer()

@@ -27,7 +27,7 @@ def render_combat(pokemon1, pokemon2):
     pv_bad.message_render(font_ingame, screen)
     pygame.draw.rect(screen, 'white',(50, 130, 300, 20), 0, 15)
     pygame.draw.rect(screen, 'blue', (50, 130, pokemon2.get_pv() * 300 / pokemon2.get_pv_max(), 20), 0, 15)
-    print(f"Here get_combat is {get_combat()}\r")
+
     #Menu de sélection de combat
     if get_combat() == 0:
         pygame.draw.rect(screen, 'white', (10, 410, 780, 180), 0, 15)
@@ -82,8 +82,7 @@ def render_combat(pokemon1, pokemon2):
         suite_button.collision()
         return suite_button
     
-    elif get_combat() == 4:
-        print('clic 2')    
+    elif get_combat() == 4:   
         rectangle = pygame.draw.rect(screen, 'white', (20, 420, 760, 160), 0, 0)
         dead_text = (f"{pokemon2.get_name()} est K.O. Félication {pokemon1.get_name()} est passé lvl {pokemon1.get_level()} et son xp est {pokemon1.get_xp()} / {pokemon1.get_xp_max()}")
         draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)

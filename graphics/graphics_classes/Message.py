@@ -26,9 +26,17 @@ class Message(Rectangle):
     def set_color_font(self, color_font):
         self.__color_font = color_font
 
-    def message_render(self, font, screen):
+    def message_render_color(self, font, screen):
         rectangle = Rectangle.draw_rectangle(self)
         pygame.draw.rect(screen, self.__color_rect, rectangle, 0, 0)
+        text_font = font.render(self.__text, True, self.__color_font)
+        text_rect = text_font.get_rect(center=rectangle.center)
+        screen.blit(text_font, text_rect)
+        return rectangle
+    
+    def message_render(self, font, screen):
+        rectangle = Rectangle.draw_rectangle(self)
+        # pygame.draw.rect(screen, self.__color_rect, rectangle, 0, 0)
         text_font = font.render(self.__text, True, self.__color_font)
         text_rect = text_font.get_rect(center=rectangle.center)
         screen.blit(text_font, text_rect)

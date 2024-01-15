@@ -1,4 +1,5 @@
 import pygame
+from assets import *
 
 pygame.init()
 WIDTH = 800

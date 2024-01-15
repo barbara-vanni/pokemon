@@ -26,7 +26,7 @@ def draw_text(screen, text_content, font_long, rectangle, y_begin, y_delta, max_
 
     y = y_begin
     for line in lines[-max_lines:]:
-        text = font_long.render(line, True, 'black')
+        text = font_long.render(line, True, 'white')
         text_rect = text.get_rect(center=(rectangle.centerx, y))
         screen.blit(text, text_rect)
         y += y_delta

@@ -14,10 +14,10 @@ class Combat:
         self.__computer_list = computer_list
         self.__states = states
 
-    def get_pokemon_trainer(self):
-        return self.__pokemon_trainer
-    def set_pokemon_trainer(self, pokemon1):
-        self.__pokemon_trainer = pokemon1
+    def get_pokemon_player(self):
+        return self.__pokemon_player
+    def set_pokemon_player(self, pokemon1):
+        self.__pokemon_player = pokemon1
 
     def get_pokemon1(self):
         return self.__pokemon1
@@ -82,16 +82,21 @@ class Combat:
         if attack_chance <= 15 :
             # attack missed
             self.set_attack_chance_ratio(0)
+            print(self.__attack_chance_ratio)
         elif 16 <= attack_chance <= 90:
             # attack hit
             self.set_attack_chance_ratio(1)
+            print(self.__attack_chance_ratio)
         else:
             # attack critical hit
             self.set_attack_chance_ratio(2)
+            print(self.__attack_chance_ratio)
 
     def calculate_damage(self):
         puissance_attaque = float(self.__pokemon1.get_power_attack() - self.__pokemon2.get_defense())
         affinity_value = self.affinity()
+        print(puissance_attaque)
+        print(affinity_value)
         damage = puissance_attaque * affinity_value
         if damage < 1:
             damage = 1
@@ -102,6 +107,7 @@ class Combat:
         self.__pokemon2.set_pv(self.__pokemon2.get_pv() - damage)
       
     def attack(self):
+
         if self.get_attack_chance_ratio() == 1:
             self.pv_remaining()
         elif self.get_attack_chance_ratio() == 2:

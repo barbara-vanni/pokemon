@@ -1,10 +1,7 @@
+from game import *
+from event import *
 from graphics.graphics_attributes import *
-from graphics.graphics_classes.Button_rect import *
-from graphics.graphics_classes.Button_image import *
-from graphics.graphics_functions.draw_text import *
-from event.mouse_button_event import *
-
-from game.games_attributes import *
+from graphics.graphics_functions import *
 
 def render_combat(pokemon1, pokemon2):
     screen.fill((150,150,150))
@@ -19,7 +16,7 @@ def render_combat(pokemon1, pokemon2):
     nom_good.message_render(font_ingame, screen)
     pv_good.message_render(font_ingame, screen)
     pygame.draw.rect(screen, 'white', (450, 375, 300, 20), 0, 15)
-    pygame.draw.rect(screen, 'blue', (450, 375, 300, 20), 0, 15)
+    pygame.draw.rect(screen, 'blue', (450, 375, pokemon1.get_pv() * 300 / pokemon1.get_pv_max(), 20), 0, 15)
 
     # Mise en place des informations graphiques pour le pokemon du vilain
     pokemon_bad = Image('./assets/images/salameche_2.png', (500, 0))
@@ -29,8 +26,8 @@ def render_combat(pokemon1, pokemon2):
     nom_bad.message_render(font_ingame, screen)
     pv_bad.message_render(font_ingame, screen)
     pygame.draw.rect(screen, 'white',(50, 130, 300, 20), 0, 15)
-    pygame.draw.rect(screen, 'blue', (50, 130, 300, 20), 0, 15)
-
+    pygame.draw.rect(screen, 'blue', (50, 130, pokemon2.get_pv() * 300 / pokemon2.get_pv_max(), 20), 0, 15)
+    print(f"Here get_combat is {get_combat()}\r")
     #Menu de sélection de combat
     if get_combat() == 0:
         pygame.draw.rect(screen, 'white', (10, 410, 780, 180), 0, 15)
@@ -44,7 +41,7 @@ def render_combat(pokemon1, pokemon2):
         new_pokemon_button.collision(font_ingame, screen)
         return attack_button, object_button, flee_button, new_pokemon_button
     
-    elif get_combat() == 1 or get_combat() == 2:
+    elif get_combat() == 1:
         rectangle = pygame.draw.rect(screen, 'white', (20, 420, 760, 160), 0, 0)
         if combat_begin.get_attack_chance_ratio() == 0:
             attack_missed = (f"L'attaque de {pokemon1.get_name()} à échoué")
@@ -60,7 +57,7 @@ def render_combat(pokemon1, pokemon2):
         suite_button.collision()
         return suite_button
     
-    elif get_combat() == 3:
+    elif get_combat() == 2:
         rectangle = pygame.draw.rect(screen, 'white', (20, 420, 760, 160), 0, 0)
         if combat_begin.get_affinity_values() < 1:
             efficiency_none = (f"{pokemon1.get_name()} lance une attaque. C'est ne pas très efficace.")
@@ -76,7 +73,21 @@ def render_combat(pokemon1, pokemon2):
         suite_button.collision()
         return suite_button
     
-    elif get_combat() == 4:    
+    elif get_combat() == 3:    
         rectangle = pygame.draw.rect(screen, 'white', (20, 420, 760, 160), 0, 0)
-        dead_text = (f"{pokemon2.get_name()} est K.O.")
+        dead_text = (f"{pokemon2.get_name()} est K.O. {pokemon1.get_name()} à maintenant {pokemon1.get_xp()} / {pokemon1.get_xp_max()} xp")
         draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
+        suite_button = Button_image('./assets/images/forward.png', (700, 530))
+        suite_button.draw_image(screen)
+        suite_button.collision()
+        return suite_button
+    
+    elif get_combat() == 4:
+        print('clic 2')    
+        rectangle = pygame.draw.rect(screen, 'white', (20, 420, 760, 160), 0, 0)
+        dead_text = (f"{pokemon2.get_name()} est K.O. Félication {pokemon1.get_name()} est passé lvl {pokemon1.get_level()} et son xp est {pokemon1.get_xp()} / {pokemon1.get_xp_max()}")
+        draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
+        suite_button = Button_image('./assets/images/forward.png', (700, 530))
+        suite_button.draw_image(screen)
+        suite_button.collision()
+        return suite_button

@@ -1,4 +1,4 @@
-from game.games_classes.Type import *
+from .Type import *
 
 
 class Pokemon(Type):

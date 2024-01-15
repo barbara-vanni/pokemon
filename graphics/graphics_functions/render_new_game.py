@@ -1,6 +1,4 @@
-from graphics.graphics_attributes import *
-from graphics.graphics_classes.Button_rect import *
-from graphics.graphics_classes.Button_image import *
+from graphics import *
 
 def render_new_game():
     avatar = Image('./assets/images/sacha.png', (275, 50))

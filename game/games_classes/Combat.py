@@ -1,5 +1,5 @@
 import random
-from game.games_classes.Pokemon import *
+from .Pokemon import *
 from graphics.graphics_attributes import *
 
 class Combat:
@@ -79,7 +79,7 @@ class Combat:
 
     def attack_chance(self):
         attack_chance = random.randint(0, 100)
-        if attack_chance <= 15 :
+        if attack_chance <= 0 :
             # attack missed
             self.set_attack_chance_ratio(0)
         elif 16 <= attack_chance <= 90:
@@ -102,13 +102,11 @@ class Combat:
         self.__pokemon2.set_pv(self.__pokemon2.get_pv() - damage)
       
     def attack(self):
-        self.attack_chance()
-        if self.__states == 1:
-            if self.get_attack_chance_ratio() == 1:
-                self.pv_remaining()
-            elif self.get_attack_chance_ratio() == 2:
-                damage = self.calculate_damage() * 0.5
-                self.__pokemon2.set_pv(self.__pokemon2.get_pv() - damage)
+        if self.get_attack_chance_ratio() == 1:
+            self.pv_remaining()
+        elif self.get_attack_chance_ratio() == 2:
+            damage = self.calculate_damage() * 0.5
+            self.__pokemon2.set_pv(self.__pokemon2.get_pv() - damage)
 
     def level_up(self, pokemon):
         pokemon.set_level(pokemon.get_level() + 1)
@@ -123,16 +121,21 @@ class Combat:
     def gain_xp(self):
         if self.__pokemon2 != self.__pokemon_player:
             self.__pokemon1.set_xp(self.__pokemon1.get_xp() + 100)
-            if self.pokemon__1.get_xp() >= self.__pokemon1.get_xp_max():
+            if self.__pokemon1.get_xp() >= self.__pokemon1.get_xp_max():
                 self.level_up(self.__pokemon1)
+                return True
+            return False
                 
+    # def end_game(self):
+    #     if self.__pokemon2.get_pv() <= 0 and self.__pokemon_list_2 == []:
+    #         self.gain_xp()
+    #         return self.__pokemon1.get_name()
+    #     else:
+    #         return self.__pokemon1.get_name()
     def end_game(self):
-        if self.__pokemon2.get_pv() <= 0 and self.__pokemon_list_2 == []:
-            self.gain_xp()
-            print('mort')
-            return self.__pokemon1.get_name()
-        else:
-            return self.__pokemon1.get_name()
+        if self.__pokemon2.get_pv() <= 0:
+            return True
+        return False
 
     def winner_pokemon(self):
         if self.__pokemon2.get_pv() <= 0:

@@ -1,5 +1,5 @@
 import pygame
-from graphics.graphics_attributes import *
+from graphics import *
 
 def mouse_button_event(event, button_object):
     if event.type == pygame.MOUSEBUTTONDOWN:

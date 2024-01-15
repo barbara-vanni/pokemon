@@ -1,5 +1,5 @@
 import pygame
-from graphics.graphics_attributes import *
+from graphics import *
 
 class Image:
     def __init__(self, image, image_pos):

@@ -2,7 +2,7 @@
 Creation Message classes children of Rectangle. Allow to draw message
 Creation of setter and getter for the x, y, width, height attributes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-from graphics.graphics_classes.Rectangle import *
+from .Rectangle import *
 
 class Message(Rectangle):
     def __init__(self, x, y, width, height, text, color_rect, color_font):

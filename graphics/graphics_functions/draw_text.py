@@ -1,3 +1,4 @@
+import pygame
 from graphics.graphics_attributes import *
 
 clock = pygame.time.Clock()

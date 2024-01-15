@@ -3,19 +3,20 @@
         {
             "name": "Carapuce",
             "types": "Water",
+            "level": 1,
             "power_attack": 20,
             "defense": 10,
             "speed": 10,
             "pv": 100,
             "pv_max": 100,
             "xp": 100,
-            "xp_max": 200,
-            "level": 1,
-            "statut": false
+            "xp_max": 150,
+            "statut": 1
         },
         {
             "name": "Salameche",
             "types": "Fire",
+            "level": 1,
             "power_attack": 20,
             "defense": 10,
             "speed": 10,
@@ -23,12 +24,12 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
-            "level": 1,
-            "statut": true
+            "statut": 1
         },
         {
             "name": "Bulbizarre",
             "types": "Grass",
+            "level": 1,
             "power_attack": 20,
             "defense": 10,
             "speed": 10,
@@ -36,12 +37,12 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
-            "level": 1,
-            "statut": true
+            "statut": 1
         },
         {
             "name": "Pikachu",
             "types": "Electric",
+            "level": 1,
             "power_attack": 20,
             "defense": 10,
             "speed": 10,
@@ -49,12 +50,12 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
-            "level": 1,
-            "statut": true
+            "statut": 1
         },
         {
             "name": "Rattata",
             "types": "Normal",
+            "level": 1,
             "power_attack": 20,
             "defense": 10,
             "speed": 10,
@@ -62,12 +63,12 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
-            "level": 1,
-            "statut": true
+            "statut": 1
         },
         {
             "name": "Roucool",
             "types": "Flying",
+            "level": 1,
             "power_attack": 20,
             "defense": 10,
             "speed": 10,
@@ -75,12 +76,12 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
-            "level": 1,
-            "statut": true
+            "statut": 0
         },
         {
             "name": "Abo",
             "types": "Poison",
+            "level": 1,
             "power_attack": 20,
             "defense": 10,
             "speed": 10,
@@ -88,12 +89,12 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
-            "level": 1,
-            "statut": true
+            "statut": 1
         },
         {
             "name": "Piafabec",
             "types": "Flying",
+            "level": 1,
             "power_attack": 20,
             "defense": 10,
             "speed": 10,
@@ -101,8 +102,7 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
-            "level": 1,
-            "statut": true
+            "statut": 0
         }
     ]
 }

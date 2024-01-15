@@ -3,7 +3,7 @@ from Type import *
 
 class Pokemon(Type):
     # Constructeur
-    def __init__(self, name, types, matrice, power_attack, defense, speed, pv, pv_max, xp, level, xp_max = 200, statut = False):
+    def __init__(self, name, types, matrice, power_attack, defense, speed, pv, pv_max, xp, level, xp_max = 200, statut = 0):
         Type.__init__(self, types, matrice)
         self._name = name
         self._power_attack = power_attack
@@ -58,6 +58,7 @@ class Pokemon(Type):
     def set_pv_max(self, pv_max):
         self._pv_max = pv_max
 
+
     # Xp
     def get_xp(self):
         return self._xp
@@ -91,18 +92,18 @@ class Pokemon(Type):
     def informations_pokemon(self):
         print(f"Name : {self._name}")
         print(f"Type : {self._types}")
+        print(f"Level : {self._level}")
         print(f"Attack : {self._power_attack}")
         print(f"Defense : {self._defense}")
         print(f"Speed : {self._speed}")
         print(f"Pv : {self._pv}/{self._pv_max}")
         print(f"Xp : {self._xp}/{self._xp_max}")
-        print(f"Level : {self._level}\n")
 
 
-pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 20, 10, 10, 100, 100, 100, 1)
-# pokemon1.informations_pokemon()
+# pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 20, 10, 10, 100, 100, 100, 1)pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 20, 10, 10, 100, 100, 100, 1)
+# # pokemon1.informations_pokemon()
 
-pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 20, 10, 10, 100, 100, 0, 1) 
+# pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 20, 10, 10, 100, 100, 0, 1) 
 # pokemon2.informations_pokemon()
 
 # type1 = pokemon1.get_types()

@@ -44,7 +44,7 @@ pokemon_matrice = [
 ]        
 
 type_pokemon = Type(pokemon_types, pokemon_matrice)
-
+types_data = type_pokemon.get_types()
 type1 = pokemon_types[2]
 type2 = pokemon_types[1]
-print(type_pokemon.get_matrice()[type_pokemon.get_types().index(type1)][type_pokemon.get_types().index(type2)])
+#print(type_pokemon.get_matrice()[type_pokemon.get_types().index(type1)][type_pokemon.get_types().index(type2)])

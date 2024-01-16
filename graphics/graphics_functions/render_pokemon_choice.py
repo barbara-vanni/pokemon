@@ -1,7 +1,5 @@
-from graphics.graphics_attributes import *
-from graphics.graphics_classes.Button_rect import *
-from graphics.graphics_classes.Button_image import *
-from graphics.graphics_functions.draw_text import *
+import pygame
+from graphics import *
 
 state = 'pokemon_choices'
 

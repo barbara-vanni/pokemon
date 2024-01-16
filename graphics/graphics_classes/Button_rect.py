@@ -3,7 +3,7 @@ Creation of Button_rect classes how allow to click on a Message.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 import pygame
 
-from graphics.graphics_classes.Message import *
+from .Message import *
 
 class Button_rect(Message):
     def __init__ (self, x, y, width, height, text, color_rect, color_font):
@@ -16,8 +16,7 @@ class Button_rect(Message):
         self.__clicked = not self.__clicked
 
     def collision(self, font, screen):
-        rectangle = self.message_render(font, screen)
+        self.__collision_rect = self.message_render(font, screen)
         pos = pygame.mouse.get_pos()
-        if rectangle.collidepoint(pos):
-            # print('clic')
+        if self.__collision_rect.collidepoint(pos):
             self.set_clicked()

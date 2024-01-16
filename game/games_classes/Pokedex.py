@@ -23,7 +23,7 @@ class Pokedex:
                     pokemon_data["pv_max"],
                     pokemon_data["xp"],
                     pokemon_data["xp_max"],
-                    statut = pokemon_data["statut"]
+                    pokemon_data["statut"]
                 )
                 self.pokemon_list.append(pokemon)
                 pokemon.set_statut(pokemon_data["statut"])

@@ -3,9 +3,10 @@ from Type import *
 
 class Pokemon(Type):
     # Constructeur
-    def __init__(self, name, types, matrice, power_attack, defense, speed, pv, pv_max, xp, level, xp_max = 200, statut = 0):
+    def __init__(self, name, types, level, power_attack, defense, speed, pv, pv_max, xp, xp_max, matrice, statut = 0):
         Type.__init__(self, types, matrice)
         self._name = name
+        self._level = level
         self._power_attack = power_attack
         self._defense = defense
         self._speed = speed
@@ -13,7 +14,6 @@ class Pokemon(Type):
         self._pv_max = pv_max
         self._xp = xp
         self._xp_max = xp_max
-        self._level = level
         self._statut = statut
 
     # name
@@ -92,7 +92,7 @@ class Pokemon(Type):
     def informations_pokemon(self):
         print(f"Name : {self._name}")
         print(f"Type : {self._types}")
-        print(f"Level : {self._level}")
+        print(f"Level : {self._level}\n")
         print(f"Attack : {self._power_attack}")
         print(f"Defense : {self._defense}")
         print(f"Speed : {self._speed}")

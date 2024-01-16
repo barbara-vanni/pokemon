@@ -59,7 +59,7 @@ class Combat:
         return self.__render_message
     def set_render_message(self, render_message):
         self.__render_message = render_message
-        
+
     def first_hit(self):
         if self.__pokemon1.get_speed() < self.__pokemon2.get_speed():
             temp = self.__pokemon1
@@ -95,15 +95,15 @@ class Combat:
         if attack_chance <= 15 :
             # attack missed
             self.set_attack_chance_ratio(0)
-            self.__render_message = f"L'attaque de {self.__pokemon1.get_name()} à échoué"
+            self.__render_message = {f"L'attaque de {self.__pokemon1.get_name()} à échoué"}
         elif 16 <= attack_chance <= 90:
             # attack hit
             self.set_attack_chance_ratio(1)
-            self.__render_message = f"L'attaque de {self.__pokemon1.get_name()} à réussi"
+            self.__render_message = {f"L'attaque de {self.__pokemon1.get_name()} à réussi"}
         else:
             # attack critical hit
             self.set_attack_chance_ratio(2)
-            self.__render_message(f"L'attaque de {self.__pokemon1.get_name()} est un coup critique")
+            self.__render_message= {f"L'attaque de {self.__pokemon1.get_name()} est un coup critique"}
 
     def calculate_damage(self):
         puissance_attaque = float(self.__pokemon1.get_power_attack() - self.__pokemon2.get_defense())

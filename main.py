@@ -16,15 +16,6 @@ while running:
     # get_state (who is a function) returns the function to be executed
     get_state()()
 
-    # if get_menu() == 0:
-    #     new_game_button = render_main()
-    # elif get_menu() == 1:
-    #     if get_combat() == 0:
-    #         attack_button, object_button, flee_button, new_pokemon_button = render_combat(pokemon1, pokemon2)
-    #     elif get_combat() == 1 or get_combat() == 2 or get_combat() == 3 or get_combat() == 4:
-    #         suite_button = render_combat(pokemon1, pokemon2)
-
-
     # event handler
     # for event in pygame.event.get():
     #     if event.type == pygame.MOUSEBUTTONDOWN:

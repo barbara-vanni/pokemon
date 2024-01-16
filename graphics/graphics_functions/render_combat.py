@@ -1,8 +1,13 @@
 
-from game import *
+# from game import *
 from event import *
 from graphics.graphics_attributes import *
-from graphics.graphics_functions import *
+from graphics.graphics_functions import draw_text
+from game.games_classes.Combat import *
+from graphics.graphics_classes import *
+from game.games_attributes import *
+# # from game.current_render import *
+# import game.current_render as Current_render
 
 
 def render_combat_menu():
@@ -10,18 +15,26 @@ def render_combat_menu():
     pokemon1 = combat.get_pokemon1()
     pokemon2 = combat.get_pokemon2()
 
-    for event in pygame.event.get():
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if attack_button.render(screen):
-                combat_begin.first_hit()
-                combat_begin.attack_chance()
-            elif get_combat() == 1 or get_combat() == 2 or get_combat() == 3 or get_combat() == 4:
-                suite_button_event(event, suite_button)
-
     screen.fill((255,255,255))
     bcg_combat = Image('./assets/images/battlegrass.png', (0,0))
     bcg_combat.draw_image(screen)
+    render_combat_pokemon()
 
+    render_message_fight = choice_fight()
+
+    if render_message_fight == "attack":
+        render_message_fight = attack_button_event()
+    elif render_message_fight == "object":
+        pass
+    elif render_message_fight == "flee":
+        pass
+    elif render_message_fight == "change_pokemon":
+        pass
+
+
+
+def render_combat_pokemon():
+    
     # Mise en place des informations graphiques pour le pokemon du dresseur 
     pokemon_good = Image('./assets/images/carapuce_2.png', (0, 130))
     pokemon_good.draw_image(screen)
@@ -46,26 +59,42 @@ def render_combat_menu():
     pygame.draw.rect(screen, 'white',(40, 110, 280, 10), 0, 15)
     pygame.draw.rect(screen, 'blue', (40, 110, pokemon2.get_pv() * 280 / pokemon2.get_pv_max(), 10), 0, 15)
 
-    #Menu de sélection de combat
-    if get_combat() == 0:
-        border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
-        border_option_message.draw_image(screen)
-        attack_button = Button_rect(30, 450, 350, 30, "FIGHT !", 'white', 'black')
-        attack_button.collision(font_ingame, screen)
-        object_button = Button_rect(410, 450, 350, 30, "OBJECT", 'white', 'black')
-        object_button.collision(font_ingame, screen)
-        flee_button = Button_rect(30, 510, 350, 30, "RUN", 'white', 'black')
-        flee_button.collision(font_ingame, screen)
-        new_pokemon_button = Button_rect(410, 510, 350, 30, "CHANGE POKEMON", 'white', 'black')
-        new_pokemon_button.collision(font_ingame, screen)
-        return attack_button, object_button, flee_button, new_pokemon_button
+def attack_button_event():
+    rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
+    border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
+    border_option_message.draw_image(screen)
+    draw_text(screen, combat_begin.get_render_message(), font_long, rectangle, 440, 60, max_lines=3)
+    # draw_text(screen, "salut ça va, ça marche", font_long, rectangle, 440, 60, max_lines=3)
+    suite_button = Button_image('./assets/images/forward.png', (700, 530))
+    suite_button.draw_image(screen)
+    suite_button.collision()
+
+#Menu de sélection de combat
+def choice_fight():
+    border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
+    border_option_message.draw_image(screen)
+    attack_button.render(screen)
+    object_button.render(screen)
+    flee_button.render(screen)
+    change_poke_button.render(screen)
+    combat_begin.first_hit()
+    combat_begin.attack_chance()
     
-    elif get_combat() == 1:
-        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
-        border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
-        border_option_message.draw_image(screen)
-        draw_text(screen, combat_begin.get_render_message(), font_long, rectangle, 440, 60, max_lines=3)
-        suite_button = Button_image('./assets/images/forward.png', (700, 530))
-        suite_button.draw_image(screen)
-        suite_button.collision()
-        return suite_button
+    for event in pygame.event.get():
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if attack_button.render(screen):
+                return "attack"
+            elif object_button.render(screen):
+                return "object"
+            elif flee_button.render(screen):
+                return "flee"
+            elif change_poke_button.render(screen):
+                return "change_pokemon"
+    
+    return None
+
+
+
+
+
+

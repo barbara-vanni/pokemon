@@ -16,12 +16,12 @@ text_attaque = ("Le Pokémon (nom de pokemon) lance l'attaque (nom de l'attaque)
 text_choix = (f"Hello (user_name), now you're gonna choose your first pokemon . . . . .  Choose wisely !")
 num_words = 0
 
-menu = 0
-def get_menu():
-    return menu
-def set_menu(new_menu):
-    global menu
-    menu = new_menu
+# menu = 0
+# def get_menu():
+#     return menu
+# def set_menu(new_menu):
+#     global menu
+#     menu = new_menu
 
 combat = 0
 def get_combat():

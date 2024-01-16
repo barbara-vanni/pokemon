@@ -1,10 +1,14 @@
+
 from game import *
 from event import *
 from graphics.graphics_attributes import *
 from graphics.graphics_functions import *
+from graphics.graphics_classes import *
 
-def render_combat(pokemon1, pokemon2):
-    screen.fill((255,255,255))
+
+def render_combat_menu(pokemon1, pokemon2):
+
+    # screen.fill((255,255,255))
     bcg_combat = Image('./assets/images/battlegrass.png', (0,0))
     bcg_combat.draw_image(screen)
 

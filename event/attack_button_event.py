@@ -9,3 +9,4 @@ def attack_button_event(event, button_object):
                 set_combat(1)
                 combat_begin.first_hit()
                 combat_begin.attack_chance()
+

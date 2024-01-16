@@ -2,7 +2,10 @@ import pygame
 from graphics import *
 from game import *
 
+turn_number = 0
+
 def suite_button_event(event, suite_button):
+    global turn_number
     if event.type == pygame.MOUSEBUTTONDOWN:
         if get_combat() == 1:
             if suite_button.get_clicked():
@@ -34,10 +37,12 @@ def suite_button_event(event, suite_button):
                         set_combat(3)
                         suite_button.collision()
                 else:
-                    if combat_begin.get_pokemon1() != combat_begin.get_pokemon_player():
+                    if turn_number == 1:
                         combat_begin.end_attack()
                         set_combat(0)
+                        turn_number = 0
                     else:
+                        turn_number += 1
                         combat_begin.end_attack()
                         set_combat(1)
                         suite_button.collision()
@@ -48,4 +53,3 @@ def suite_button_event(event, suite_button):
                 pokemon1.set_pv(pokemon1.get_pv_max())
                 pokemon2.set_pv(pokemon2.get_pv_max())
                 set_combat(0)
-

@@ -4,6 +4,7 @@ import json
 from graphics.graphics_attributes import *
 from graphics.graphics_classes.Button_rect import *
 from graphics.graphics_classes.Button_image import *
+from assets import *
 
 def render_new_game():
     bcg_new_game = Image('./assets/images/professor_chen_classico.png', (0, 0))

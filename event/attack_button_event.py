@@ -5,7 +5,6 @@ from game.games_attributes import *
 def attack_button_event(event, button_object):
     if event.type == pygame.MOUSEBUTTONDOWN:
         if button_object is not None and button_object.get_clicked():
-            print(combat_begin.get_pokemon_player())
             if get_combat()== 0:
                 set_combat(1)
                 combat_begin.first_hit()

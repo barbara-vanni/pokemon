@@ -2,8 +2,7 @@ from graphics.graphics_attributes import *
 from graphics.graphics_classes import *
 
 def render_main():
-    menu = get_menu()
-    if menu == 0:
+    if get_menu() == 0:
         titre = Message(100, 50, 600, 120, 'POKEMON', 'white', 'blue')
         titre.message_render(font_title, screen)
         new_game = Button_rect(200, 250, 400, 80, 'New Game', 'white', 'blue')

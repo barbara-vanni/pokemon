@@ -25,5 +25,5 @@ pokemon_matrice = [
 
 pokemon1 = Pokemon("Carapuce", pokemon_types[2], pokemon_matrice, 20, 10, 10, 100, 100, 0, 1)
 pokemon2 = Pokemon("Salameche", pokemon_types[1], pokemon_matrice, 20, 10, 12, 100, 100, 0, 1)
-combat_begin = Combat(pokemon1, pokemon2, 0, 0, [], [], 0)
+combat_begin = Combat(pokemon1, pokemon2, 0, 0, [], [], 0, '')
 # trainer = Trainer([pokemon4, pokemon2, pokemon7], pokemon4)

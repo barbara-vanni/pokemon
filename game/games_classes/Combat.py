@@ -3,8 +3,8 @@ from .Pokemon import *
 from graphics.graphics_attributes import *
 
 class Combat:
-    def __init__(self, pokemon1, pokemon2, attack_chance_ratio, affinity_values, player_list, computer_list, states):
-        self.__pokemon_player = pokemon1
+    def __init__(self, pokemon1, pokemon2, attack_chance_ratio, affinity_values, player_list, computer_list, states, render_message):
+        self.__pokemon_player = pokemon1.get_name()
         self.__pokemon_computer = pokemon2
         self.__pokemon1 = pokemon1
         self.__pokemon2 = pokemon2
@@ -13,6 +13,7 @@ class Combat:
         self.__player_list = player_list
         self.__computer_list = computer_list
         self.__states = states
+        self.__render_message = render_message
 
     def get_pokemon_player(self):
         return self.__pokemon_player
@@ -26,7 +27,7 @@ class Combat:
 
     def get_pokemon2(self):
         return self.__pokemon2
-    def set_pokemon1(self, pokemon2):
+    def set_pokemon2(self, pokemon2):
         self.__pokemon2 = pokemon2
 
     def get_attack_chance_ratio(self):
@@ -54,6 +55,11 @@ class Combat:
     def set_states(self, states):
         self.__states = states
 
+    def get_render_message(self):
+        return self.__render_message
+    def set_render_message(self, render_message):
+        self.__render_message = render_message
+        
     def first_hit(self):
         if self.__pokemon1.get_speed() < self.__pokemon2.get_speed():
             temp = self.__pokemon1
@@ -73,6 +79,13 @@ class Combat:
             return None
         affinity_value = float(type_import.get_matrice()[index1][index2])
         self.set_affinity_values(affinity_value)
+        if self.__affinity_values < 1:
+            self.__render_message = f"{self.__pokemon1.get_name()} lance une attaque. C'est ne pas très efficace."
+        elif self.__affinity_values == 1:
+            self.__render_message = f"{self.__pokemon1.get_name()} lance une attaque"
+        elif self.__affinity_values > 1 :
+            self.__render_message = f"{self.__pokemon1.get_name()} lance une attaque, C'est très efficace"
+
 
         return affinity_value
 
@@ -82,21 +95,19 @@ class Combat:
         if attack_chance <= 15 :
             # attack missed
             self.set_attack_chance_ratio(0)
-            print(self.__attack_chance_ratio)
+            self.__render_message = f"L'attaque de {self.__pokemon1.get_name()} à échoué"
         elif 16 <= attack_chance <= 90:
             # attack hit
             self.set_attack_chance_ratio(1)
-            print(self.__attack_chance_ratio)
+            self.__render_message = f"L'attaque de {self.__pokemon1.get_name()} à réussi"
         else:
             # attack critical hit
             self.set_attack_chance_ratio(2)
-            print(self.__attack_chance_ratio)
+            self.__render_message(f"L'attaque de {self.__pokemon1.get_name()} est un coup critique")
 
     def calculate_damage(self):
         puissance_attaque = float(self.__pokemon1.get_power_attack() - self.__pokemon2.get_defense())
         affinity_value = self.affinity()
-        print(puissance_attaque)
-        print(affinity_value)
         damage = puissance_attaque * affinity_value
         if damage < 1:
             damage = 1
@@ -107,11 +118,10 @@ class Combat:
         self.__pokemon2.set_pv(self.__pokemon2.get_pv() - damage)
       
     def attack(self):
-
         if self.get_attack_chance_ratio() == 1:
             self.pv_remaining()
         elif self.get_attack_chance_ratio() == 2:
-            damage = self.calculate_damage() / 0.5
+            damage = self.calculate_damage() * 1.5
             self.__pokemon2.set_pv(self.__pokemon2.get_pv() - damage)
 
     def level_up(self, pokemon):
@@ -123,10 +133,12 @@ class Combat:
         pokemon.set_pv(pokemon.get_pv() + 1)
         pokemon.set_xp(0)
         pokemon.set_xp_max(int(pokemon.get_xp_max() * 1.75))
+        self.__render_message = f"{self.__pokemon2.get_name()} est K.O. Félication {self.__pokemon1.get_name()} est passé lvl {self.__pokemon1.get_level()} et son xp est {self.__pokemon1.get_xp()} / {self.__pokemon1.get_xp_max()}"
 
     def gain_xp(self):
         if self.__pokemon2 != self.__pokemon_player:
             self.__pokemon1.set_xp(self.__pokemon1.get_xp() + 100)
+            self.__render_message = f"{self.get_pokemon2().get_name()} est K.O. Félication {self.get_pokemon1().get_name()} est passé lvl {self.get_pokemon1().get_level()} et son xp est {self.get_pokemon1().get_xp()} / {self.get_pokemon1().get_xp_max()}"
             if self.__pokemon1.get_xp() >= self.__pokemon1.get_xp_max():
                 self.level_up(self.__pokemon1)
                 return True
@@ -162,35 +174,3 @@ class Combat:
         temp = self.__pokemon1
         self.__pokemon1 = self.__pokemon2
         self.__pokemon2 = temp
-
-    # def fight(self):
-    #     self.first_hit()
-    #     if self.__pokemon1.get_pv() > 0 and self.__pokemon2.get_pv() > 0:
-    #         if get_combat() == 1:
-    #             if self.__states == 0:
-    #                 self.attack()
-    #             if self.__states == 2:
-    #                 end_game = self.end_game()
-    #                 if end_game == self.__pokemon_player:
-    #                     self.gain_xp()
-    #                     set_combat(4)
-    #                 elif end_game == self.__pokemon_computer:
-    #                     set_combat(4)
-    #                 self.end_attack()
-
-    #         elif get_combat() == 2:
-    #             if self.__states == 0:
-    #                 self.attack()
-    #             if self.__states == 3:
-    #                 end_game = self.end_game()
-    #                 if end_game == self.__pokemon_player:
-    #                     self.gain_xp()
-    #                     set_combat(3)
-    #                 elif end_game == self.__pokemon_computer:
-    #                     set_combat(3)
-    #                 self.end_attack()
-    #                 set_combat(0)
-    #                 self.__states == 0
-                   
-                # winner_pokemon = self.__winner_pokemon()
-                # winner_trainer = self.__winner_trainer()

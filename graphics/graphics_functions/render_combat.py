@@ -3,12 +3,22 @@ from game import *
 from event import *
 from graphics.graphics_attributes import *
 from graphics.graphics_functions import *
-from graphics.graphics_classes import *
 
 
-def render_combat_menu(pokemon1, pokemon2):
+def render_combat_menu():
+    combat = combat_begin
+    pokemon1 = combat.get_pokemon1()
+    pokemon2 = combat.get_pokemon2()
 
-    # screen.fill((255,255,255))
+    for event in pygame.event.get():
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if attack_button.render(screen):
+                combat_begin.first_hit()
+                combat_begin.attack_chance()
+            elif get_combat() == 1 or get_combat() == 2 or get_combat() == 3 or get_combat() == 4:
+                suite_button_event(event, suite_button)
+
+    screen.fill((255,255,255))
     bcg_combat = Image('./assets/images/battlegrass.png', (0,0))
     bcg_combat.draw_image(screen)
 
@@ -54,55 +64,7 @@ def render_combat_menu(pokemon1, pokemon2):
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
-        if combat_begin.get_attack_chance_ratio() == 0:
-            attack_missed = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} à échoué")
-            draw_text(screen, attack_missed, font_long, rectangle, 440, 60, max_lines=3)
-        elif combat_begin.get_attack_chance_ratio() == 1:
-            attack_normal = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} à réussi")
-            draw_text(screen, attack_normal, font_long, rectangle, 440, 60, max_lines=3)
-        elif combat_begin.get_attack_chance_ratio() == 2:
-            attack_critical = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} est un coup critique")
-            draw_text(screen, attack_critical, font_long, rectangle, 440, 60, max_lines=3)
-        suite_button = Button_image('./assets/images/forward.png', (700, 530))
-        suite_button.draw_image(screen)
-        suite_button.collision()
-        return suite_button
-    
-    elif get_combat() == 2:
-        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
-        border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
-        border_option_message.draw_image(screen)
-        if combat_begin.get_affinity_values() < 1:
-            efficiency_none = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque. C'est ne pas très efficace.")
-            draw_text(screen, efficiency_none, font_long, rectangle, 440, 60, max_lines=3)
-        elif combat_begin.get_affinity_values() == 1:
-            efficiency = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque")
-            draw_text(screen, efficiency, font_long, rectangle, 440, 60, max_lines=3)
-        elif combat_begin.get_affinity_values() > 1 :
-            efficiency_top = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque, C'est très efficace")
-            draw_text(screen, efficiency_top, font_long, rectangle, 440, 60, max_lines=3)
-        suite_button = Button_image('./assets/images/forward.png', (700, 530))
-        suite_button.draw_image(screen)
-        suite_button.collision()
-        return suite_button
-    
-    elif get_combat() == 3:    
-        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
-        border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
-        border_option_message.draw_image(screen)
-        dead_text = (f"{pokemon2.get_name()} est K.O. {pokemon1.get_name()} à maintenant {pokemon1.get_xp()} / {pokemon1.get_xp_max()} xp")
-        draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
-        suite_button = Button_image('./assets/images/forward.png', (700, 530))
-        suite_button.draw_image(screen)
-        suite_button.collision()
-        return suite_button
-    
-    elif get_combat() == 4:   
-        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
-        border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
-        border_option_message.draw_image(screen)
-        dead_text = (f"{pokemon2.get_name()} est K.O. Félication {pokemon1.get_name()} est passé lvl {pokemon1.get_level()} et son xp est {pokemon1.get_xp()} / {pokemon1.get_xp_max()}")
-        draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
+        draw_text(screen, combat_begin.get_render_message(), font_long, rectangle, 440, 60, max_lines=3)
         suite_button = Button_image('./assets/images/forward.png', (700, 530))
         suite_button.draw_image(screen)
         suite_button.collision()

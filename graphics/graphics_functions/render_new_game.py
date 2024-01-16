@@ -6,7 +6,6 @@ import json
 
 
 def render_new_game():
-    global state
     bcg_new_game = Image('./assets/images/professor_chen_classico.png', (0, 0))
     bcg_new_game.draw_image(screen)
     enter_name = Message(300, 100, 600, 60, 'Who are you ?', 'white', 'white')

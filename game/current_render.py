@@ -1,4 +1,4 @@
-from graphics.graphics_functions import render_combat, render_main, render_new_game
+from graphics.graphics_functions import render_main
 from graphics.graphics_classes.Button import *
 from graphics.graphics_attributes import *
 

@@ -2,7 +2,8 @@ import json
 from Pokemon import Pokemon
 from Type import *
 import random
-
+import pygame
+import sys
 
 class Pokedex:
     def __init__(self):
@@ -13,6 +14,7 @@ class Pokedex:
             data = json.load(file)
             for pokemon_data in data["pokemon_list"]:
                 print(f"Debug: Loading Pokemon - {pokemon_data['name']} - Statut: {pokemon_data['statut']}")  # Debug line
+                image_front = pokemon_data.get("image_front", "chemin/par/defaut/image.png")
                 pokemon = Pokemon(
                     pokemon_data["name"],
                     pokemon_data["types"],
@@ -24,7 +26,7 @@ class Pokedex:
                     pokemon_data["pv_max"],
                     pokemon_data["xp"],
                     pokemon_data["xp_max"],
-                    pokemon_data["image_front"],
+                    image_front,
                     pokemon_data["statut"]
                 )
                 self.pokemon_list.append(pokemon)
@@ -63,4 +65,58 @@ if random_pokemon:
 
 
 
+
+pygame.init()
+
+
+screen_width = 500
+screen_height = 500
+
+screen = pygame.display.set_mode((screen_width, screen_height))
+
+
+background_color = (255, 255, 255)
+
+
+font = pygame.font.Font('freesansbold.ttf', 10)
+text = font.render('', True, (0, 0, 0), (255, 255, 255))
+textRect = text.get_rect()
+textRect.center = (screen_width // 2, screen_height // 2)
+
+
+info_lines = [
+    f"Name: {random_pokemon.get_name()}",
+    f"Type: {random_pokemon.get_types()}",
+    f"Level: {random_pokemon.get_level()}",
+    f"Attack: {random_pokemon.get_power_attack()}",
+    f"Defense: {random_pokemon.get_defense()}",
+    f"Speed: {random_pokemon.get_speed()}",
+    f"Pv: {random_pokemon.get_pv()}/{random_pokemon.get_pv_max()}",
+    f"Xp: {random_pokemon.get_xp()}/{random_pokemon.get_xp_max()}"
+]
+
+pokemon_image = pygame.image.load(random_pokemon.get_image_front())
+pokemon_rect = pokemon_image.get_rect()
+pokemon_rect.center = (screen_width // 2, screen_height // 3)  
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+
+    screen.fill(background_color)
+
+    screen.blit(pokemon_image, pokemon_rect)
+
+    if random_pokemon:
+        y_offset = 20 
+        for line in info_lines:
+            text = font.render(line, True, (0, 0, 0), (255, 255, 255))
+            textRect = text.get_rect()
+            textRect.center = (screen_width // 2, y_offset)
+            screen.blit(text, textRect)
+            y_offset += 15  
+    pygame.display.flip()
 

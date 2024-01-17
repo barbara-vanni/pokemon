@@ -2,6 +2,7 @@ from graphics.graphics_attributes import *
 from graphics.graphics_classes.Message import *
 from graphics.graphics_classes.Button import *
 from graphics.graphics_functions.render_new_game import *
+from graphics.graphics_functions.render_pokemon_choice import *
 import graphics.graphics_functions.render_combat as render_combat
 from graphics.graphics_functions.render_main import *
 from game.current_render import *

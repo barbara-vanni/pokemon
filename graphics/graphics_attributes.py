@@ -23,7 +23,9 @@ num_words = 0
 #     global menu
 #     menu = new_menu
 
+
 combat = 0
+
 def get_combat():
     return combat
 def set_combat(new_combat):

@@ -9,6 +9,7 @@ class Button():
         self.color = color
         self.hover_color = hover_color
         self.clicked = False
+        self.active = True 
 
         self.create_button(x, y, scale)
 
@@ -35,10 +36,18 @@ class Button():
             self.clicked = False
             self.image = self.font.render(self.text, True, self.color)
         return action
-    
+
     def render(self, screen):
-        self.draw(screen)
-        return self.check_clicked()
+        if self.active:
+            self.draw(screen)
+            return self.check_clicked()
+        else:
+            return False 
+
+
+    # def render(self, screen):
+    #     self.draw(screen)
+    #     return self.check_clicked()
 
 
 
@@ -51,4 +60,5 @@ attack_button = Button(150, 450, "FIGHT", font_ingame, 1, (0, 0, 0), (50, 50, 50
 object_button = Button(450, 450, "OBJECT", font_ingame, 1, (0, 0, 0), (50, 50, 50))
 flee_button = Button(150, 510, "RUN", font_ingame, 1, (0, 0, 0), (50, 50, 50))
 change_poke_button = Button(450, 510, "CHANGE POKEMON", font_ingame, 1, (0, 0, 0), (50, 50, 50))
+suite_button = Button(680, 485, 'X', font_button_menu, 1, (0, 0, 0), (50, 50, 50))
 # quit_button = Button.Button(200, 100, "Cliquez-moi", None, 2, (255, 0, 0), (0, 255, 0))

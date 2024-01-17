@@ -1,5 +1,7 @@
 import pygame
 from graphics import *
+from graphics.graphics_attributes import *
+
 
 state = 'pokemon_choices'
 

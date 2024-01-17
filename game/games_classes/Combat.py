@@ -57,6 +57,7 @@ class Combat:
 
     def get_render_message(self):
         return self.__render_message
+    
     def set_render_message(self, render_message):
         self.__render_message = render_message
 
@@ -65,6 +66,25 @@ class Combat:
             temp = self.__pokemon1
             self.__pokemon1 = self.__pokemon2
             self.__pokemon2 = temp
+
+
+    def next_step_1(self):
+        self.first_hit()
+        self.affinity()
+        self.attack_chance()
+
+    def next_step_2(self):
+        self.calculate_damage()
+        self.pv_remaining()
+        self.attack()
+
+    def next_step_3(self):
+        if self.gain_xp():
+            self.level_up(self.__pokemon1)
+    
+    def next_step_4(self):
+        if self.end_game():
+            self.winner_pokemon()
 
     def affinity(self):
         type_import = Type(pokemon_types, pokemon_matrice)
@@ -86,7 +106,6 @@ class Combat:
         elif self.__affinity_values > 1 :
             self.__render_message = f"{self.__pokemon1.get_name()} lance une attaque, C'est très efficace"
 
-
         return affinity_value
 
 
@@ -95,15 +114,18 @@ class Combat:
         if attack_chance <= 15 :
             # attack missed
             self.set_attack_chance_ratio(0)
-            self.__render_message = {f"L'attaque de {self.__pokemon1.get_name()} à échoué"}
+            self.__render_message = f"L'attaque de {self.__pokemon1.get_name()} à échoué"
         elif 16 <= attack_chance <= 90:
             # attack hit
             self.set_attack_chance_ratio(1)
-            self.__render_message = {f"L'attaque de {self.__pokemon1.get_name()} à réussi"}
+            self.__render_message = f"L'attaque de {self.__pokemon1.get_name()} à réussi"
         else:
             # attack critical hit
             self.set_attack_chance_ratio(2)
-            self.__render_message= {f"L'attaque de {self.__pokemon1.get_name()} est un coup critique"}
+            self.__render_message= f"L'attaque de {self.__pokemon1.get_name()} est un coup critique"
+
+            # return self.__render_message, self.__attack_chance_ratio
+
 
     def calculate_damage(self):
         puissance_attaque = float(self.__pokemon1.get_power_attack() - self.__pokemon2.get_defense())

@@ -24,3 +24,6 @@ class Image:
 
     def draw_image(self, screen):
         screen.blit(self.get_image_surface(), self.__image_pos)
+    
+    def scale_image(self, scale):
+        self.__image_surface = pygame.transform.scale(self.get_image_surface(), scale)

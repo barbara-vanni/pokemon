@@ -7,7 +7,7 @@ continuer = True
 attack_button = None
 
 while continuer:
-    render_pokemon_menu()
+    render_combat(pokemon1, pokemon2)   
     # if get_menu() == 0:
     #     new_game, continu, option = render_main()
     # elif get_menu() == 1:

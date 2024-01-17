@@ -3,6 +3,7 @@ from event import *
 from graphics.graphics_attributes import *
 from graphics.graphics_functions import *
 
+
 def render_combat(pokemon1, pokemon2):
     screen.fill((255,255,255))
     bcg_combat = Image('./assets/images/battlegrass.png', (0,0))
@@ -21,7 +22,8 @@ def render_combat(pokemon1, pokemon2):
     pygame.draw.rect(screen, 'blue', (450, 360, pokemon1.get_pv() * 280 / pokemon1.get_pv_max(), 10), 0, 15)
 
     # Mise en place des informations graphiques pour le pokemon du vilain
-    pokemon_bad = Image('./assets/images/salameche_2.png', (440, -60))
+    pokemon_bad = Image(pokemon2.get_image_front(), (440, 0))
+    pokemon_bad.scale_image((300, 300))
     pokemon_bad.draw_image(screen)
     border_bad = Image('./assets/images/border_message.png', (20, 20))
     border_bad.draw_image(screen)

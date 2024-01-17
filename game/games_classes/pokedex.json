@@ -11,7 +11,8 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
-            "statut": 1
+            "image_front": "assets/images/pokemon_front/bulbizarre.png",
+            "statut": 0
         },
         {
             "name": "Herbizarre",
@@ -24,6 +25,7 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
+            "image_front": "assets/images/pokemon_front/herbizarre.png",
             "statut": 0
         },
         {
@@ -37,6 +39,7 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
+            "image_front": "assets/images/pokemon_front/florizarre.png",
             "statut": 0
         },
         {
@@ -50,7 +53,8 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
-            "statut": 1
+            "image_front": "assets/images/pokemon_front/salameche.png",
+            "statut": 0
         },
         {
             "name": "Reptincel",
@@ -63,6 +67,7 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
+            "image_front": "assets/images/pokemon_front/reptincel.png",
             "statut": 0
         },
         {
@@ -76,6 +81,7 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
+            "image_front": "assets/images/pokemon_front/dracaufeu.png",
             "statut": 0
         },
         {
@@ -89,7 +95,8 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
-            "statut": 1
+            "image_front": "assets/images/pokemon_front/carapuce.png",
+            "statut": 0
         },
         {
             "name": "Carabaffe",
@@ -102,6 +109,7 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
+            "image_front": "assets/images/pokemon_front/carabaffe.png",
             "statut": 0
         },
         {
@@ -115,6 +123,7 @@
             "pv_max": 100,
             "xp": 0,
             "xp_max": 200,
+            "image_front": "assets/images/pokemon_front/tortank.png",
             "statut": 0
         },
         {
@@ -128,6 +137,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/chenipan.png",
             "statut":0
         },
         {
@@ -141,6 +151,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/chrysacier.png",
             "statut":0
         },
         {
@@ -154,6 +165,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/papilusion.png",
             "statut":0
         },
         {
@@ -167,6 +179,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/aspicot.png",
             "statut":0
         },
         {
@@ -180,6 +193,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/coconfort.png",
             "statut":0
         },
         {
@@ -193,6 +207,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/dardargnan.png",
             "statut":0
         },
         {
@@ -206,6 +221,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/roucool.png",
             "statut":0
         },
         {
@@ -219,6 +235,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/roucoups.png",
             "statut":0
         },
         {
@@ -232,6 +249,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/roucarnage.png",
             "statut":0
         },
         {
@@ -245,6 +263,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/rattata.png",
             "statut":0
         },
         {
@@ -258,6 +277,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/rattatac.png",
             "statut":0
         },
         {
@@ -271,6 +291,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/piafabec.png",
             "statut":0
         },
         {
@@ -284,6 +305,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/rapasdepic.png",
             "statut":0
         },
         {
@@ -297,6 +319,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/abo.png",
             "statut":0
         },
         {
@@ -310,6 +333,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/arbok.png",
             "statut":0
         },
         {
@@ -323,6 +347,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/pikachu.png",
             "statut":0
         },
         {
@@ -336,6 +361,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/raichu.png",
             "statut":0
         },
         {
@@ -349,6 +375,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/sablette.png",
             "statut":0
         },
         {
@@ -362,6 +389,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/sablaireau.png",
             "statut":0
         },
         {
@@ -375,6 +403,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/nidoranf.png",
             "statut":0
         },
         {
@@ -388,6 +417,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/nidorina.png",
             "statut":0
         },
         {
@@ -401,6 +431,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/nidoqueen.png",
             "statut":0
         },
         {
@@ -414,6 +445,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/nidoranm.png",
             "statut":0
         },
         {
@@ -427,6 +459,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/nidorino.png",
             "statut":0
         },
         {
@@ -440,6 +473,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/nidoking.png",
             "statut":0
         },
         {
@@ -453,6 +487,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/melofee.png",
             "statut":0
         },
         {
@@ -466,6 +501,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/melodelfe.png",
             "statut":0
         },
         {
@@ -479,6 +515,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/goupix.png",
             "statut":0
         },
         {
@@ -492,6 +529,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/feunard.png",
             "statut":0
         },
         {
@@ -505,6 +543,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/rondoudou.png",
             "statut":0
         },
         {
@@ -518,6 +557,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/grodoudou.png",
             "statut":0
         },
         {
@@ -531,6 +571,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/nosferapti.png",
             "statut":0
         },
         {
@@ -544,6 +585,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/nosferalto.png",
             "statut":0
         },
         {
@@ -557,6 +599,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/mystherbe.png",
             "statut":0
         },
         {
@@ -570,6 +613,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/ortide.png",
             "statut":0
         },
         {
@@ -583,6 +627,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/rafflesia.png",
             "statut":0
         },
         {
@@ -596,6 +641,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/paras.png",
             "statut":0
         },
         {
@@ -609,6 +655,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/parasect.png",
             "statut":0
         },
         {
@@ -622,10 +669,11 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/mimitoss.png",
             "statut":0
         },
         {
-            "name": "Aérommite",
+            "name": "Aéromite",
             "types": "poison",
             "level": 1,
             "power_attack": 55,
@@ -635,6 +683,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/aeromite.png",
             "statut":0
         },
         {
@@ -648,6 +697,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/taupiqueur.png",
             "statut":0
         },
         {
@@ -661,6 +711,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/triopikeur.png",
             "statut":0
         },
         {
@@ -674,6 +725,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/miaouss.png",
             "statut":0
         },
         {
@@ -687,6 +739,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/persian.png",
             "statut":0
         },
         {
@@ -700,6 +753,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/psykokwak.png",
             "statut":0
         },
         {
@@ -713,6 +767,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/akwakwak.png",
             "statut":0
         },
         {
@@ -726,10 +781,11 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/ferosinge.png",
             "statut":0
         },
         {
-            "name": "Colosing",
+            "name": "Colosinge",
             "types": "fighting",
             "level": 1,
             "power_attack": 80,
@@ -739,6 +795,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/colosinge.png",
             "statut":0
         },
         {
@@ -752,6 +809,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/caninos.png",
             "statut":0
         },
         {
@@ -765,6 +823,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/arcanin.png",
             "statut":0
         },
         {
@@ -778,6 +837,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/ptitard.png",
             "statut":0
         },
         {
@@ -791,6 +851,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/tetarte.png",
             "statut":0
         },
         {
@@ -804,6 +865,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/tartard.png",
             "statut":0
         },
         {
@@ -817,6 +879,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/abra.png",
             "statut":0
         },
         {
@@ -830,6 +893,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/kadabra.png",
             "statut":0
         },
         {
@@ -843,10 +907,11 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/alakazam.png",
             "statut":0
         },
         {
-            "name": "Machop",
+            "name": "Machoc",
             "types": "fighting",
             "level": 1,
             "power_attack": 80,
@@ -856,6 +921,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/machoc.png",
             "statut":0
         },
         {
@@ -869,6 +935,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/machopeur.png",
             "statut":0
         },
         {
@@ -882,6 +949,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/mackogneur.png",
             "statut":0
         },
         {
@@ -895,6 +963,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/chetiflor.png",
             "statut":0
         },
         {
@@ -908,6 +977,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/boustiflor.png",
             "statut":0
         },
         {
@@ -921,6 +991,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/empiflor.png",
             "statut":0
         },
         {
@@ -934,6 +1005,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/tentacool.png",
             "statut":0
         },
         {
@@ -947,6 +1019,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/tentacruel.png",
             "statut":0
         },
         {
@@ -960,6 +1033,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/racaillou.png",
             "statut":0
         },
         {
@@ -973,6 +1047,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/gravalanch.png",
             "statut":0
         },
         {
@@ -986,6 +1061,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/grolem.png",
             "statut":0
         },
         {
@@ -999,6 +1075,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/ponyta.png",
             "statut":0
         },
         {
@@ -1012,6 +1089,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/galopa.png",
             "statut":0
         },
         {
@@ -1025,6 +1103,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/ramoloss.png",
             "statut":0
         },
         {
@@ -1038,6 +1117,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/flagadoss.png",
             "statut":0
         },
         {
@@ -1051,6 +1131,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/magneti.png",
             "statut":0
         },
         {
@@ -1064,6 +1145,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/magneton.png",
             "statut":0
         },
         {
@@ -1077,6 +1159,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/canarticho.png",
             "statut":0
         },
         {
@@ -1090,6 +1173,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/doduo.png",
             "statut":0
         },
         {
@@ -1103,6 +1187,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/dodrio.png",
             "statut":0
         },
         {
@@ -1116,6 +1201,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/otaria.png",
             "statut":0
         },
         {
@@ -1129,6 +1215,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/lamantine.png",
             "statut":0
         },
         {
@@ -1142,6 +1229,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/tadmorv.png",
             "statut":0
         },
         {
@@ -1155,6 +1243,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/grotadmorv.png",
             "statut":0
         },
         {
@@ -1168,6 +1257,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/kokiyas.png",
             "statut":0
         },
         {
@@ -1181,6 +1271,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/crustabri.png",
             "statut":0
         },
         {
@@ -1194,6 +1285,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/fantominus.png",
             "statut":0
         },
         {
@@ -1207,6 +1299,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/spectrum.png",
             "statut":0
         },
         {
@@ -1220,6 +1313,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/ectoplasma.png",
             "statut":0
         },
         {
@@ -1233,6 +1327,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/onix.png",
             "statut":0
         },
         {
@@ -1246,6 +1341,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/soporifik.png",
             "statut":0
         },
         {
@@ -1259,6 +1355,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/hypnomade.png",
             "statut":0
         },
         {
@@ -1272,6 +1369,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/krabby.png",
             "statut":0
         },
         {
@@ -1285,6 +1383,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/krabboss.png",
             "statut":0
         },
         {
@@ -1298,6 +1397,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/voltorbe.png",
             "statut":0
         },
         {
@@ -1311,6 +1411,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/electrode.png",
             "statut":0
         },
         {
@@ -1324,6 +1425,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/noeufnoeuf.png",
             "statut":0
         },
         {
@@ -1337,6 +1439,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/noadkoko.png",
             "statut":0
         },
         {
@@ -1350,6 +1453,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/osselait.png",
             "statut":0
         },
         {
@@ -1363,6 +1467,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/ossatueur.png",
             "statut":0
         },
         {
@@ -1376,6 +1481,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/kicklee.png",
             "statut":0
         },
         {
@@ -1389,6 +1495,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/tygnon.png",
             "statut":0
         },
         {
@@ -1402,6 +1509,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/excelangue.png",
             "statut":0
         },
         {
@@ -1415,6 +1523,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/smogo.png",
             "statut":0
         },
         {
@@ -1428,6 +1537,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/smogogo.png",
             "statut":0
         },
         {
@@ -1441,6 +1551,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/rhinocorne.png",
             "statut":0
         },
         {
@@ -1454,6 +1565,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front": "assets/images/pokemon_front/rhinoferos.png",
             "statut":0
         },
         {
@@ -1467,500 +1579,7 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Saquedeneu",
-            "types": "grass",
-            "level": 1,
-            "power_attack": 55,
-            "defense": 115,
-            "speed":60,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Kangourex",
-            "types": "normal",
-            "level": 1,
-            "power_attack": 95,
-            "defense": 80,
-            "speed":90,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Hypotrempe",
-            "types": "water",
-            "level": 1,
-            "power_attack": 40,
-            "defense": 70,
-            "speed":60,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Hypocéan",
-            "types": "water",
-            "level": 1,
-            "power_attack": 40,
-            "defense": 70,
-            "speed":60,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Poissirène",
-            "types": "water",
-            "level": 1,
-            "power_attack": 67,
-            "defense": 60,
-            "speed":63,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Poissoroy",
-            "types": "water",
-            "level": 1,
-            "power_attack": 67,
-            "defense": 60,
-            "speed":63,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Stari",
-            "types": "water",
-            "level": 1,
-            "power_attack": 45,
-            "defense": 55,
-            "speed":85,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Staross",
-            "types": "water",
-            "level": 1,
-            "power_attack": 45,
-            "defense": 55,
-            "speed":85,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "M.mime",
-            "types": "fairy",
-            "level": 1,
-            "power_attack": 45,
-            "defense": 65,
-            "speed":90,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Insécateur",
-            "types": "bug",
-            "level": 1,
-            "power_attack": 110,
-            "defense": 80,
-            "speed":105,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Lippoutou",
-            "types": "ice",
-            "level": 1,
-            "power_attack": 50,
-            "defense": 35,
-            "speed":95,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Élektek",
-            "types": "electric",
-            "level": 1,
-            "power_attack": 83,
-            "defense": 57,
-            "speed":105,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Magmar",
-            "types": "fire",
-            "level": 1,
-            "power_attack": 95,
-            "defense": 51,
-            "speed":93,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Scarabrute",
-            "types": "bug",
-            "level": 1,
-            "power_attack": 125,
-            "defense": 100,
-            "speed":85,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Tauros",
-            "types": "normal",
-            "level": 1,
-            "power_attack": 100,
-            "defense": 95,
-            "speed":110,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Magicarpe",
-            "types": "water",
-            "level": 1,
-            "power_attack": 10,
-            "defense": 55,
-            "speed":80,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Léviator",
-            "types": "water",
-            "level": 1,
-            "power_attack": 10,
-            "defense": 55,
-            "speed":80,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Lokhlass",
-            "types": "ice",
-            "level": 1,
-            "power_attack": 85,
-            "defense": 80,
-            "speed":60,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Métamorph",
-            "types": "normal",
-            "level": 1,
-            "power_attack": 48,
-            "defense": 48,
-            "speed":48,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Évoli",
-            "types": "normal",
-            "level": 1,
-            "power_attack": 55,
-            "defense": 55,
-            "speed":55,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Aquali",
-            "types": "water",
-            "level": 1,
-            "power_attack": 65,
-            "defense": 60,
-            "speed":65,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Voltali",
-            "types": "electric",
-            "level": 1,
-            "power_attack": 65,
-            "defense": 60,
-            "speed":130,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Pyroli",
-            "types": "fire",
-            "level": 1,
-            "power_attack": 130,
-            "defense": 60,
-            "speed":65,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Porygon",
-            "types": "normal",
-            "level": 1,
-            "power_attack": 60,
-            "defense": 70,
-            "speed":40,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Amonita",
-            "types": "water",
-            "level": 1,
-            "power_attack": 40,
-            "defense": 100,
-            "speed":35,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Amonistar",
-            "types": "water",
-            "level": 1,
-            "power_attack": 40,
-            "defense": 100,
-            "speed":35,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Kabuto",
-            "types": "water",
-            "level": 1,
-            "power_attack": 80,
-            "defense": 90,
-            "speed":55,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Kabutops",
-            "types": "water",
-            "level": 1,
-            "power_attack": 80,
-            "defense": 90,
-            "speed":55,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Ptéra",
-            "types": "flying",
-            "level": 1,
-            "power_attack": 105,
-            "defense": 65,
-            "speed":130,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Ronflex",
-            "types": "normal",
-            "level": 1,
-            "power_attack": 110,
-            "defense": 65,
-            "speed":30,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Artikodin",
-            "types": "ice",
-            "level": 1,
-            "power_attack": 85,
-            "defense": 100,
-            "speed":85,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Élektor",
-            "types": "electric",
-            "level": 1,
-            "power_attack": 90,
-            "defense": 85,
-            "speed":100,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Sulfura",
-            "types": "fire",
-            "level": 1,
-            "power_attack": 100,
-            "defense": 90,
-            "speed":90,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Minidraco",
-            "types": "dragon",
-            "level": 1,
-            "power_attack": 64,
-            "defense": 45,
-            "speed":50,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Draco",
-            "types": "dragon",
-            "level": 1,
-            "power_attack": 64,
-            "defense": 45,
-            "speed":50,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Dracoloss",
-            "types": "dragon",
-            "level": 1,
-            "power_attack": 64,
-            "defense": 45,
-            "speed":50,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Mewtwo",
-            "types": "psychic",
-            "level": 1,
-            "power_attack": 110,
-            "defense": 90,
-            "speed":130,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
-            "statut":0
-        },
-        {
-            "name": "Mew",
-            "types": "psychic",
-            "level": 1,
-            "power_attack": 100,
-            "defense": 100,
-            "speed":100,
-            "pv": 100,
-            "pv_max":100,
-            "xp": 0,
-            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/leveinard.png",
             "statut":0
         },
         {
@@ -1974,8 +1593,527 @@
             "pv_max":100,
             "xp": 0,
             "xp_max":150,
+            "image_front":"assets/images/pokemon_front/sasuke.png",
+            "statut":0
+        },
+        {
+            "name": "Mew",
+            "types": "psychic",
+            "level": 1,
+            "power_attack": 100,
+            "defense": 100,
+            "speed":100,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/mew.png",
+            "statut":0
+        },
+        {
+            "name": "Mewtwo",
+            "types": "psychic",
+            "level": 1,
+            "power_attack": 110,
+            "defense": 90,
+            "speed":130,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/mewtwo.png",
+            "statut":0
+        },
+        {
+            "name": "Dracoloss",
+            "types": "dragon",
+            "level": 1,
+            "power_attack": 64,
+            "defense": 45,
+            "speed":50,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/dracoloss.png",
+            "statut":0
+        },
+        {
+            "name": "Draco",
+            "types": "dragon",
+            "level": 1,
+            "power_attack": 64,
+            "defense": 45,
+            "speed":50,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/draco.png",
+            "statut":0
+        },
+        {
+            "name": "Minidraco",
+            "types": "dragon",
+            "level": 1,
+            "power_attack": 64,
+            "defense": 45,
+            "speed":50,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/minidraco.png",
+            "statut":0
+        },
+        {
+            "name": "Sulfura",
+            "types": "fire",
+            "level": 1,
+            "power_attack": 100,
+            "defense": 90,
+            "speed":90,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/sulfura.png",
+            "statut":0
+        },
+        {
+            "name": "Élektor",
+            "types": "electric",
+            "level": 1,
+            "power_attack": 90,
+            "defense": 85,
+            "speed":100,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/elektor.png",
+            "statut":0
+        },
+        {
+            "name": "Artikodin",
+            "types": "ice",
+            "level": 1,
+            "power_attack": 85,
+            "defense": 100,
+            "speed":85,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/artikodin.png",
+            "statut":0
+        },
+        {
+            "name": "Ronflex",
+            "types": "normal",
+            "level": 1,
+            "power_attack": 110,
+            "defense": 65,
+            "speed":30,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/ronflex.png",
+            "statut":0
+        },
+        {
+            "name": "Ptéra",
+            "types": "flying",
+            "level": 1,
+            "power_attack": 105,
+            "defense": 65,
+            "speed":130,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/ptera.png",
+            "statut":0
+        },
+        {
+            "name": "Kabutops",
+            "types": "water",
+            "level": 1,
+            "power_attack": 80,
+            "defense": 90,
+            "speed":55,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/kabutops.png",
+            "statut":0
+        },
+        {
+            "name": "Kabuto",
+            "types": "water",
+            "level": 1,
+            "power_attack": 80,
+            "defense": 90,
+            "speed":55,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/kabuto.png",
+            "statut":0
+        },
+        {
+            "name": "Amonistar",
+            "types": "water",
+            "level": 1,
+            "power_attack": 40,
+            "defense": 100,
+            "speed":35,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/amonistar.png",
+            "statut":0
+        },
+        {
+            "name": "Amonita",
+            "types": "water",
+            "level": 1,
+            "power_attack": 40,
+            "defense": 100,
+            "speed":35,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/amonita.png",
+            "statut":0
+        },
+        {
+            "name": "Porygon",
+            "types": "normal",
+            "level": 1,
+            "power_attack": 60,
+            "defense": 70,
+            "speed":40,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/porygon.png",
+            "statut":0
+        },
+        {
+            "name": "Pyroli",
+            "types": "fire",
+            "level": 1,
+            "power_attack": 130,
+            "defense": 60,
+            "speed":65,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/pyroli.png",
+            "statut":0
+        },
+        {
+            "name": "Voltali",
+            "types": "electric",
+            "level": 1,
+            "power_attack": 65,
+            "defense": 60,
+            "speed":130,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/voltali.png",
+            "statut":0
+        },
+        {
+            "name": "Aquali",
+            "types": "water",
+            "level": 1,
+            "power_attack": 65,
+            "defense": 60,
+            "speed":65,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/aquali.png",
+            "statut":0
+        },
+        {
+            "name": "Évoli",
+            "types": "normal",
+            "level": 1,
+            "power_attack": 55,
+            "defense": 55,
+            "speed":55,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/evoli.png",
+            "statut":0
+        },
+        {
+            "name": "Métamorph",
+            "types": "normal",
+            "level": 1,
+            "power_attack": 48,
+            "defense": 48,
+            "speed":48,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/metamorph.png",
+            "statut":0
+        },
+        {
+            "name": "Lokhlass",
+            "types": "ice",
+            "level": 1,
+            "power_attack": 85,
+            "defense": 80,
+            "speed":60,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/lokhlass.png",
+            "statut":0
+        },
+        {
+            "name": "Léviator",
+            "types": "water",
+            "level": 1,
+            "power_attack": 10,
+            "defense": 55,
+            "speed":80,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/leviator.png",
+            "statut":0
+        },
+        {
+            "name": "Magicarpe",
+            "types": "water",
+            "level": 1,
+            "power_attack": 10,
+            "defense": 55,
+            "speed":80,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/magicarpe.png",
+            "statut":0
+        },
+        {
+            "name": "Tauros",
+            "types": "normal",
+            "level": 1,
+            "power_attack": 100,
+            "defense": 95,
+            "speed":110,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/tauros.png",
+            "statut":0
+        },
+        {
+            "name": "Scarabrute",
+            "types": "bug",
+            "level": 1,
+            "power_attack": 125,
+            "defense": 100,
+            "speed":85,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/scarabrute.png",
+            "statut":0
+        },
+        {
+            "name": "Magmar",
+            "types": "fire",
+            "level": 1,
+            "power_attack": 95,
+            "defense": 51,
+            "speed":93,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/magmar.png",
+            "statut":0
+        },
+        {
+            "name": "Élektek",
+            "types": "electric",
+            "level": 1,
+            "power_attack": 83,
+            "defense": 57,
+            "speed":105,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/elektek.png",
+            "statut":0
+        },
+        {
+            "name": "Lippoutou",
+            "types": "ice",
+            "level": 1,
+            "power_attack": 50,
+            "defense": 35,
+            "speed":95,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/lippoutou.png",
+            "statut":0
+        },
+        {
+            "name": "Insécateur",
+            "types": "bug",
+            "level": 1,
+            "power_attack": 110,
+            "defense": 80,
+            "speed":105,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/insecateur.png",
+            "statut":0
+        },
+        {
+            "name": "M.mime",
+            "types": "fairy",
+            "level": 1,
+            "power_attack": 45,
+            "defense": 65,
+            "speed":90,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/m_mime.png",
+            "statut":0
+        },
+        {
+            "name": "Staross",
+            "types": "water",
+            "level": 1,
+            "power_attack": 45,
+            "defense": 55,
+            "speed":85,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/staross.png",
+            "statut":0
+        },
+        {
+            "name": "Stari",
+            "types": "water",
+            "level": 1,
+            "power_attack": 45,
+            "defense": 55,
+            "speed":85,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/stari.png",
+            "statut":0
+        },
+        {
+            "name": "Poissoroy",
+            "types": "water",
+            "level": 1,
+            "power_attack": 67,
+            "defense": 60,
+            "speed":63,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/poissoroy.png",
+            "statut":0
+        },
+        {
+            "name": "Hypocéan",
+            "types": "water",
+            "level": 1,
+            "power_attack": 40,
+            "defense": 70,
+            "speed":60,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front": "assets/images/pokemon_front/hypocean.png",
+            "statut":0
+        },
+        {
+            "name": "Hypotrempe",
+            "types": "water",
+            "level": 1,
+            "power_attack": 40,
+            "defense": 70,
+            "speed":60,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/hypotrempe.png",
+            "statut":0
+        },
+        {
+            "name": "Kangourex",
+            "types": "normal",
+            "level": 1,
+            "power_attack": 95,
+            "defense": 80,
+            "speed":90,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/kangourex.png",
+            "statut":0
+        },
+        {
+            "name": "Saquedeneu",
+            "types": "grass",
+            "level": 1,
+            "power_attack": 55,
+            "defense": 115,
+            "speed":60,
+            "pv": 100,
+            "pv_max":100,
+            "xp": 0,
+            "xp_max":150,
+            "image_front":"assets/images/pokemon_front/saquedeneu.png",
             "statut":0
         }
-        
     ]
 }
+

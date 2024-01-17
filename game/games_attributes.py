@@ -1,6 +1,6 @@
-from game.games_classes.Pokedex import *
-from game.games_classes.Pokemon import *
-from game.games_classes.Combat import *
+from .games_classes.Pokemon import *
+from .games_classes.Pokedex import *
+from .games_classes.Combat import *
 
 pokemon_types = ["normal", "fire", "water", "electric", "grass", "ice", "fighting", "poison", "ground", "flying", "psychic", "bug", "rock", "ghost", "dragon", "dark", "steel", "fairy"]
 
@@ -30,5 +30,6 @@ pokedex = Pokedex()
 pokedex.load_from_json("game/games_classes/pokedex.json")
 pokemon2 = pokedex.choose_random_pokemon()
 pokedex.change_statut(pokemon2.get_name())
-combat_begin = Combat(pokemon1, pokemon2, 0, 0, [], [], 0, '')
+pokedex.print_pokemon_meet()
+combat_begin = Combat(pokemon1, pokemon2, 0, 0, [], [], 0)
 # trainer = Trainer([pokemon4, pokemon2, pokemon7], pokemon4)

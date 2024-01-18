@@ -21,6 +21,22 @@ class Button():
     def draw(self, surface):
         surface.blit(self.image, (self.rect.x, self.rect.y))
 
+    # def check_clicked(self):
+    #     action = False
+    #     pos = pygame.mouse.get_pos()
+
+    #     if self.rect.collidepoint(pos):
+    #         if pygame.mouse.get_pressed()[0] == 1 and not self.clicked:
+    #             self.clicked = True
+    #             print (self.text + " Clicked")
+    #             action = True
+    #         else:
+    #             self.image = self.font.render(self.text, True, self.hover_color)
+    #     else:
+    #         self.clicked = False
+    #         self.image = self.font.render(self.text, True, self.color)
+    #     return action
+
     def check_clicked(self):
         action = False
         pos = pygame.mouse.get_pos()
@@ -28,13 +44,12 @@ class Button():
         if self.rect.collidepoint(pos):
             if pygame.mouse.get_pressed()[0] == 1 and not self.clicked:
                 self.clicked = True
-                print (self.text + " Clicked")
+                print(self.text + " Clicked")
                 action = True
-            else:
-                self.image = self.font.render(self.text, True, self.hover_color)
+            elif pygame.mouse.get_pressed()[0] == 0 and self.clicked:
+                self.clicked = False  
         else:
             self.clicked = False
-            self.image = self.font.render(self.text, True, self.color)
         return action
 
     def render(self, screen):
@@ -43,11 +58,6 @@ class Button():
             return self.check_clicked()
         else:
             return False 
-
-
-    # def render(self, screen):
-    #     self.draw(screen)
-    #     return self.check_clicked()
 
 
 

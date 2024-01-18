@@ -32,7 +32,8 @@ def render_combat_menu():
                 message_box = attack_button_event
             if suite_button.render(screen):
                 message_box = suite_button_event
-                button_suite_press_count += 1
+                if valider_button.render(screen):
+                    button_suite_press_count += 1
             if object_button.render(screen):
                 pass
             if flee_button.render(screen):
@@ -85,41 +86,85 @@ def attack_button_event():
 
 
 
-def suite_button_event():
+def handle_logic_steps():
     global button_suite_press_count
-    
-    rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
+
+    print(button_suite_press_count)
     if button_suite_press_count == 1:
         combat_begin.next_step_1()
         button_suite_press_count += 1
+    elif button_suite_press_count == 3:
+        combat_begin.next_step_2()
+        button_suite_press_count += 1
+    print(button_suite_press_count)
 
-    print (button_suite_press_count)
-    print (combat_begin.get_attack_chance_ratio())
+
+def handle_render_steps():
+    global button_suite_press_count
+
+    if button_suite_press_count == 2:
+        render_next_step_1()
+        if suite_button.render(screen):
+            button_suite_press_count += 1
+    elif button_suite_press_count == 4:
+        render_next_step_2()
+        if suite_button.render(screen):
+            button_suite_press_count += 1
+    print(button_suite_press_count)
+
+
+def suite_button_event():
+    global button_suite_press_count
+
+    handle_logic_steps()  
+    handle_render_steps() 
+
+    
+def render_next_step_1():      
+    rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
+    valider_button.render(screen)
     if combat_begin.get_attack_chance_ratio() == 0:
-        message = f"L'attaque de {combat_begin.get_pokemon1().get_name()} à échoué"
-        suite_button.render(screen)
+        message = f"L'attaque de {combat_begin.get_pokemon1().get_name()} \n\n à échoué"
     elif combat_begin.get_attack_chance_ratio() == 1:
-        message = f"L'attaque de {combat_begin.get_pokemon1().get_name()} à réussi"
-        suite_button.render(screen)
+        message = f"L'attaque de {combat_begin.get_pokemon1().get_name()} \n\n à réussi"
     elif combat_begin.get_attack_chance_ratio() == 2:
-        message = f"L'attaque de {combat_begin.get_pokemon1().get_name()} est un coup critique" 
-        suite_button.render(screen)
-    draw_text(screen, message, font_long, rectangle, 440, 60, max_lines=3)
+        message = f"L'attaque de {combat_begin.get_pokemon1().get_name()} \n\n est un coup critique" 
+    draw_text(screen, message, font_ingame, rectangle, 490, 60, max_lines=3)
 
-    print (button_suite_press_count)
+# render pour l'efficacité de l'attaque et perte des pv 
+def render_next_step_2():
+    rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
+    valider_button.render(screen)
+    if combat_begin.get_affinity_values() < 1:
+        efficiency = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque.\n\n C'est ne pas très efficace.")
+    elif combat_begin.get_affinity_values() == 1:
+        efficiency = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque")
+    elif combat_begin.get_affinity_values() > 1 :
+        efficiency = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque. \n\n C'est très efficace")
+    draw_text(screen, efficiency, font_ingame, rectangle, 490, 60, max_lines=3)
 
-    # global num_words, combat_begin, button_suite_press_count
-    # # print('suite_button_event')
+# render pour la mort du pokemon première partie
+def render_next_step_3():
+    rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
+    valider_button.render(screen)
+    dead_text = (f"{pokemon2.get_name()} est K.O. {pokemon1.get_name()} à maintenant {pokemon1.get_xp()} / {pokemon1.get_xp_max()} xp")
+    draw_text(screen, dead_text, font_long, rectangle, 490, 60, max_lines=3)
 
-    # combat_begin.next_step_1()
-    # rectangle_a = Rectangle.draw_rectangle(Rectangle(20, 520, 760, 160))
-    # draw_text(screen, combat_begin.get_render_message(), font_ingame, rectangle_a, 490, 60, max_lines=3)
-    # suite_button.render(screen)
-    # print (button_suite_press_count)
+# render pour la mort du pokemon deuxième partie
+def render_next_step_4():
+    rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
+    valider_button.render(screen)
+    dead_text = (f"{pokemon2.get_name()} est K.O. Félication {pokemon1.get_name()} est passé lvl {pokemon1.get_level()} et son xp est {pokemon1.get_xp()} / {pokemon1.get_xp_max()}")
+    draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
 
-    # if button_suite_press_count == 2:
-    #     combat_begin.next_step_2()
-    #     button_suite_press_count += 1
+
+
+
+
+
+
+
+
 
 
 #Menu de sélection de combat
@@ -130,9 +175,6 @@ def choice_fight():
     object_button.render(screen)
     flee_button.render(screen)
     change_poke_button.render(screen)
-    # combat_begin.first_hit()
-    # combat_begin.attack_chance()
-    # combat_begin.affinity()
     
 message_box = choice_fight
 button_suite_press_count = 0

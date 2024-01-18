@@ -67,7 +67,7 @@ class Combat:
             self.__pokemon1 = self.__pokemon2
             self.__pokemon2 = temp
 
-    
+
     def next_step_1(self):
         self.first_hit()
         self.affinity()
@@ -76,7 +76,7 @@ class Combat:
     def next_step_2(self):
         self.calculate_damage()
         self.pv_remaining()
-        self.attack()
+        # self.attack()
 
     def next_step_3(self):
         if self.gain_xp():

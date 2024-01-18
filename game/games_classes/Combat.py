@@ -76,7 +76,7 @@ class Combat:
     def next_step_2(self):
         self.calculate_damage()
         self.pv_remaining()
-        # self.attack()
+        self.attack()
 
     def next_step_3(self):
         if self.gain_xp():
@@ -111,7 +111,7 @@ class Combat:
 
     def attack_chance(self):
         attack_chance = random.randint(0, 100)
-        if attack_chance <= 15 :
+        if attack_chance <= 99 :
             # attack missed
             self.set_attack_chance_ratio(0)
             self.__render_message = f"L'attaque de {self.__pokemon1.get_name()} à échoué"

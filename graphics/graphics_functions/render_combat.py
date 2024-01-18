@@ -83,34 +83,58 @@ def attack_button_event():
     message = Message(30, 430, 740, 140, 'You choose to fight', 'white', 'black')
     message.message_render(font_ingame, screen)
 
+def next_step_1():
+    global button_suite_press_count, state_fight
+    combat_begin.first_hit()
+    combat_begin.attack_chance()
+    # if combat_begin.get_attack_chance_ratio() == 0 :
+    #     # print(state_fight)
+    #     if state_fight == 0:
+    #         button_suite_press_count = 2
+    #         # combat_begin.end_attack()
+    #     else:
+    #         choice_fight()
+    #         button_suite_press_count = 0
+    #         # combat_begin.end_attack()
+    # else :
+    #     button_suite_press_count = 2
+
 
 
 
 def handle_logic_steps():
     global button_suite_press_count
 
-    print(button_suite_press_count)
+    # print(button_suite_press_count)
     if button_suite_press_count == 1:
-        combat_begin.next_step_1()
-        button_suite_press_count += 1
+        next_step_1()
+        # button_suite_press_count += 1
     elif button_suite_press_count == 3:
         combat_begin.next_step_2()
-        button_suite_press_count += 1
-    print(button_suite_press_count)
+        # button_suite_press_count += 1
+    # print(button_suite_press_count)
+
+
 
 
 def handle_render_steps():
-    global button_suite_press_count
-
+    global button_suite_press_count, state_fight
+    # print(button_suite_press_count)
     if button_suite_press_count == 2:
         render_next_step_1()
-        if suite_button.render(screen):
-            button_suite_press_count += 1
+        if valider_button.render(screen):
+            if state_fight == 0:
+                combat_begin.end_attack()
+                button_suite_press_count = 1
+                state_fight += 1
+            else:
+                button_suite_press_count += 1
+            
     elif button_suite_press_count == 4:
         render_next_step_2()
-        if suite_button.render(screen):
+        if valider_button.render(screen):
             button_suite_press_count += 1
-    print(button_suite_press_count)
+    # print(button_suite_press_count)
 
 
 def suite_button_event():
@@ -119,7 +143,7 @@ def suite_button_event():
     handle_logic_steps()  
     handle_render_steps() 
 
-    
+# render pour l'affinité de l'attaque entre les pokemons et la chance de réussite de l'attaque   
 def render_next_step_1():      
     rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
     valider_button.render(screen)
@@ -155,7 +179,7 @@ def render_next_step_4():
     rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
     valider_button.render(screen)
     dead_text = (f"{pokemon2.get_name()} est K.O. Félication {pokemon1.get_name()} est passé lvl {pokemon1.get_level()} et son xp est {pokemon1.get_xp()} / {pokemon1.get_xp_max()}")
-    draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
+    draw_text(screen, dead_text, font_long, rectangle, 490, 60, max_lines=3)
 
 
 

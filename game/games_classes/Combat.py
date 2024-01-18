@@ -67,7 +67,7 @@ class Combat:
             self.__pokemon1 = self.__pokemon2
             self.__pokemon2 = temp
 
-
+    
     def next_step_1(self):
         self.first_hit()
         self.affinity()

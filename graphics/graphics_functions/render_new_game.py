@@ -18,9 +18,10 @@ def render_new_game():
     color = (255,245,255)
     max_char = 13
 
-    valider_button = Button_image('./assets/images/forward.png', (650, 455))
-    valider_button.draw_image(screen)
-    valider_button.collision()
+    # valider_button = Button_image('./assets/images/forward.png', (650, 455))
+    # valider_button.draw_image(screen)
+    # valider_button.collision()
+    valider_button.render(screen)
 
 
     for event in pygame.event.get():
@@ -38,10 +39,10 @@ def render_new_game():
     input_rect.w = width
     screen.blit(text_surface, (input_rect.x+5, input_rect.y+5))
 
-    valider_button.draw_image(screen)
+    valider_button.render(screen)
     pygame.display.flip()
 
-    pygame.time.Clock().tick(60)
+    # pygame.time.Clock().tick(60)
     # return render_new_game
 
 

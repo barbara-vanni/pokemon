@@ -61,4 +61,5 @@ object_button = Button(450, 450, "OBJECT", font_ingame, 1, (0, 0, 0), (50, 50, 5
 flee_button = Button(150, 510, "RUN", font_ingame, 1, (0, 0, 0), (50, 50, 50))
 change_poke_button = Button(450, 510, "CHANGE POKEMON", font_ingame, 1, (0, 0, 0), (50, 50, 50))
 suite_button = Button(680, 485, 'X', font_button_menu, 1, (0, 0, 0), (50, 50, 50))
+valider_button = Button(680, 485, 'X', font_button_menu, 1, (0, 0, 0), (50, 50, 50))
 # quit_button = Button.Button(200, 100, "Cliquez-moi", None, 2, (255, 0, 0), (0, 255, 0))

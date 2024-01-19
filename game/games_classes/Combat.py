@@ -1,6 +1,7 @@
 import random
 from .Pokemon import *
 from graphics.graphics_attributes import *
+from graphics.graphics_classes import *
 
 class Combat:
     def __init__(self, pokemon1, pokemon2, attack_chance_ratio, affinity_values, player_list, computer_list, states, render_message):
@@ -14,6 +15,7 @@ class Combat:
         self.__computer_list = computer_list
         self.__states = states
         self.__render_message = render_message
+        # self.__turn = 1
 
     def get_pokemon_player(self):
         return self.__pokemon_player
@@ -67,25 +69,6 @@ class Combat:
             self.__pokemon1 = self.__pokemon2
             self.__pokemon2 = temp
 
-
-    def next_step_1(self):
-        self.first_hit()
-        self.affinity()
-        self.attack_chance()
-
-    def next_step_2(self):
-        self.calculate_damage()
-        self.pv_remaining()
-        self.attack()
-
-    def next_step_3(self):
-        if self.gain_xp():
-            self.level_up(self.__pokemon1)
-    
-    def next_step_4(self):
-        if self.end_game():
-            self.winner_pokemon()
-
     def affinity(self):
         type_import = Type(pokemon_types, pokemon_matrice)
         type1 = self.__pokemon1.get_types()
@@ -111,7 +94,7 @@ class Combat:
 
     def attack_chance(self):
         attack_chance = random.randint(0, 100)
-        if attack_chance <= 99 :
+        if attack_chance <= 15 :
             # attack missed
             self.set_attack_chance_ratio(0)
             self.__render_message = f"L'attaque de {self.__pokemon1.get_name()} à échoué"
@@ -124,7 +107,7 @@ class Combat:
             self.set_attack_chance_ratio(2)
             self.__render_message= f"L'attaque de {self.__pokemon1.get_name()} est un coup critique"
 
-            # return self.__render_message, self.__attack_chance_ratio
+        return self.__render_message, self.__attack_chance_ratio
 
 
     def calculate_damage(self):
@@ -166,12 +149,6 @@ class Combat:
                 return True
             return False
                 
-    # def end_game(self):
-    #     if self.__pokemon2.get_pv() <= 0 and self.__pokemon_list_2 == []:
-    #         self.gain_xp()
-    #         return self.__pokemon1.get_name()
-    #     else:
-    #         return self.__pokemon1.get_name()
     def end_game(self):
         if self.__pokemon2.get_pv() <= 0:
             return True
@@ -184,15 +161,10 @@ class Combat:
         else:
             return self.__pokemon1.get_name()
 
-    # def winner_trainer(self):
-    #     if self.pokemon1.get_pv() <= 0:
-    #         return "Player 1 loses"
-    #     elif self.pokemon2.get_pv() <= 0:
-    #         return "Player 1 wins"
-    #     else:
-    #         return "Continue"
-
     def end_attack(self):
         temp = self.__pokemon1
         self.__pokemon1 = self.__pokemon2
         self.__pokemon2 = temp
+
+    
+

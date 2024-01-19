@@ -87,17 +87,18 @@ def next_step_1():
     global button_suite_press_count, state_fight
     combat_begin.first_hit()
     combat_begin.attack_chance()
-    # if combat_begin.get_attack_chance_ratio() == 0 :
-    #     # print(state_fight)
-    #     if state_fight == 0:
-    #         button_suite_press_count = 2
-    #         # combat_begin.end_attack()
-    #     else:
-    #         choice_fight()
-    #         button_suite_press_count = 0
-    #         # combat_begin.end_attack()
-    # else :
-    #     button_suite_press_count = 2
+    
+    while combat_begin.get_pokemon1().get_pv() > 0 and combat_begin.get_pokemon2().get_pv() > 0:
+        if combat_begin.get_attack_chance_ratio() == 0 :
+            if state_fight == 0:
+                button_suite_press_count = 2
+                combat_begin.end_attack()
+            else:
+                choice_fight()
+                button_suite_press_count = 0
+                combat_begin.end_attack()
+        else :
+            button_suite_press_count = 2
 
 
 
@@ -108,10 +109,10 @@ def handle_logic_steps():
     # print(button_suite_press_count)
     if button_suite_press_count == 1:
         next_step_1()
-        # button_suite_press_count += 1
+        button_suite_press_count += 1
     elif button_suite_press_count == 3:
         combat_begin.next_step_2()
-        # button_suite_press_count += 1
+        button_suite_press_count += 1
     # print(button_suite_press_count)
 
 
@@ -203,8 +204,3 @@ def choice_fight():
 message_box = choice_fight
 button_suite_press_count = 0
 state_fight = 0
-
-
-
-
-

@@ -11,9 +11,9 @@ while continuer:
         new_game, continu, option = render_main()
     elif get_menu() == 1:
         if get_combat() == 0:
-            attack_button, object_button, flee_button, new_pokemon_button = render_combat(pokemon1, pokemon2)
+            attack_button, object_button, flee_button, new_pokemon_button = render_combat(get_pokemon1(), get_pokemon2())
         elif get_combat() == 1 or get_combat() == 2 or get_combat() == 3 or get_combat() == 4:
-            suite_button = render_combat(pokemon1, pokemon2)
+            suite_button = render_combat(get_pokemon1(), get_pokemon2())
 
     for event in pygame.event.get():
         continuer = quit_event(event, continuer)

@@ -46,9 +46,15 @@ class Pokedex:
 
     def choose_random_pokemon(self):
         available_pokemon = [pokemon for pokemon in self.pokemon_list if pokemon.get_statut() == 0]
-
         chosen_pokemon = random.choice(available_pokemon)
+        chosen_pokemon.set_image_front(f"assets/images/pokemon_front/{chosen_pokemon.get_name().lower()}.png")
         return chosen_pokemon
+
+    def choose_specific_pokemon(self, pokemon_name):
+        for pokemon in self.pokemon_list:
+            if pokemon.get_name() == pokemon_name:
+                return pokemon
+        return None    
 
     def change_statut(self, pokemon_name):
         json_file_path = "game/games_classes/pokedex.json"

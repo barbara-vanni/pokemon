@@ -25,11 +25,31 @@ pokemon_matrice = [
     [1, 1, 1, 1, 1, 1, 0.5, 2, 1, 1, 1, 0.5, 1, 1, 0, 0.5, 2, 1]   
 ]
 
-pokemon1 = Pokemon("Carapuce", pokemon_types[2], 1, 20, 10, 10, 100, 100, 0, 100, "assets/images/pokemon_front/carapuce.png", pokemon_matrice)
+
+
+
 pokedex = Pokedex()
 pokedex.load_from_json("game/games_classes/pokedex.json")
+pokemon1 = pokedex.choose_specific_pokemon("Mewtwo")
 pokemon2 = pokedex.choose_random_pokemon()
 pokedex.change_statut(pokemon2.get_name())
 pokedex.print_pokemon_meet()
-combat_begin = Combat(pokemon1, pokemon2, 0, 0, [], [], 0)
 # trainer = Trainer([pokemon4, pokemon2, pokemon7], pokemon4)
+#pokemon1
+def get_pokemon1():
+    global pokemon1
+    return pokemon1
+
+def set_pokemon1(npokemon1):
+    global pokemon1
+    pokemon1 = npokemon1
+#pokemon2
+def get_pokemon2():
+    global pokemon2
+    return pokemon2
+
+def set_pokemon2(npokemon2):
+    global pokemon2
+    pokemon2 = npokemon2
+
+combat_begin = Combat(get_pokemon1(), get_pokemon2(), 0, 0, [], [], 0)

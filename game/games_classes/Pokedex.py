@@ -10,7 +10,7 @@ class Pokedex:
         with open(json_file_path, "r") as file:
             data = json.load(file)
             for pokemon_data in data["pokemon_list"]:
-                # print(f"Debug: Loading Pokemon - {pokemon_data['name']} - Statut: {pokemon_data['statut']}")  # Debug line
+                #print(f"Debug: Loading Pokemon - {pokemon_data['name']} - Statut: {pokemon_data['statut']}")  # Debug line
                 image_front = pokemon_data.get("image_front", "chemin/par/defaut/image.png")
                 pokemon = Pokemon(
                     pokemon_data["name"],

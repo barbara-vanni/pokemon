@@ -522,7 +522,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/melofee.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1122,7 +1122,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/gravalanch.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1677,7 +1677,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/rhinoferos.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1801,7 +1801,7 @@
       "in_stockage": 0
     },
     {
-      "name": "\u00c3\u2030lektor",
+      "name": "Elektor",
       "types": "electric",
       "level": 1,
       "power_attack": 90,

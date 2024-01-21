@@ -117,7 +117,7 @@
       "xp": 0,
       "xp_max": 200,
       "image_front": "assets/images/pokemon_front/carabaffe.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -327,7 +327,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/rapasdepic.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -417,11 +417,11 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/sablaireau.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
-      "name": "Nidoran\u00e2\u2122\u20ac",
+      "name": "Nidoranf",
       "types": "poison",
       "level": 1,
       "power_attack": 47,
@@ -436,7 +436,7 @@
       "in_stockage": 0
     },
     {
-      "name": "Nidorana",
+      "name": "Nidorina",
       "types": "poison",
       "level": 1,
       "power_attack": 47,
@@ -466,7 +466,7 @@
       "in_stockage": 0
     },
     {
-      "name": "Nidoran\u00e2\u2122\u201a",
+      "name": "Nidoranm",
       "types": "poison",
       "level": 1,
       "power_attack": 57,
@@ -511,7 +511,7 @@
       "in_stockage": 0
     },
     {
-      "name": "M\u00c3\u00a9lof\u00c3\u00a9e",
+      "name": "Melofee",
       "types": "fairy",
       "level": 1,
       "power_attack": 45,
@@ -526,7 +526,7 @@
       "in_stockage": 0
     },
     {
-      "name": "M\u00c3\u00a9lodelfe",
+      "name": "Melodelfe",
       "types": "fairy",
       "level": 1,
       "power_attack": 45,
@@ -657,7 +657,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/ortide.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -721,7 +721,7 @@
       "in_stockage": 0
     },
     {
-      "name": "A\u00c3\u00a9romite",
+      "name": "Aeromite",
       "types": "poison",
       "level": 1,
       "power_attack": 55,
@@ -826,7 +826,7 @@
       "in_stockage": 0
     },
     {
-      "name": "F\u00c3\u00a9rosinge",
+      "name": "Ferosinge",
       "types": "fighting",
       "level": 1,
       "power_attack": 80,
@@ -901,7 +901,7 @@
       "in_stockage": 0
     },
     {
-      "name": "T\u00c3\u00aatarte",
+      "name": "Tetarte",
       "types": "water",
       "level": 1,
       "power_attack": 50,
@@ -1021,7 +1021,7 @@
       "in_stockage": 0
     },
     {
-      "name": "Ch\u00c3\u00a9tiflor",
+      "name": "Chetiflor",
       "types": "grass",
       "level": 1,
       "power_attack": 75,
@@ -1032,7 +1032,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/chetiflor.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1216,7 +1216,7 @@
       "in_stockage": 0
     },
     {
-      "name": "Magn\u00c3\u00a9ton",
+      "name": "Magneton",
       "types": "steel",
       "level": 1,
       "power_attack": 35,
@@ -1501,7 +1501,7 @@
       "in_stockage": 0
     },
     {
-      "name": "\u00c3\u2030lectrode",
+      "name": "Electrode",
       "types": "electric",
       "level": 1,
       "power_attack": 50,
@@ -1666,7 +1666,7 @@
       "in_stockage": 0
     },
     {
-      "name": "Rhinof\u00c3\u00a9ros",
+      "name": "Rhinoferos",
       "types": "poison",
       "level": 1,
       "power_attack": 85,
@@ -1801,7 +1801,7 @@
       "in_stockage": 0
     },
     {
-      "name": "\u00c3\u2030lektor",
+      "name": "Elektor",
       "types": "electric",
       "level": 1,
       "power_attack": 90,
@@ -1846,7 +1846,7 @@
       "in_stockage": 0
     },
     {
-      "name": "Pt\u00c3\u00a9ra",
+      "name": "Ptera",
       "types": "flying",
       "level": 1,
       "power_attack": 105,
@@ -1981,7 +1981,7 @@
       "in_stockage": 0
     },
     {
-      "name": "\u00c3\u2030voli",
+      "name": "Evoli",
       "types": "normal",
       "level": 1,
       "power_attack": 55,
@@ -1996,7 +1996,7 @@
       "in_stockage": 0
     },
     {
-      "name": "M\u00c3\u00a9tamorph",
+      "name": "Metamorph",
       "types": "normal",
       "level": 1,
       "power_attack": 48,
@@ -2071,7 +2071,7 @@
       "in_stockage": 0
     },
     {
-      "name": "\u00c3\u2030lektek",
+      "name": "Elektek",
       "types": "electric",
       "level": 1,
       "power_attack": 83,
@@ -2101,7 +2101,7 @@
       "in_stockage": 0
     },
     {
-      "name": "Ins\u00c3\u00a9cateur",
+      "name": "Insecateur",
       "types": "bug",
       "level": 1,
       "power_attack": 110,
@@ -2176,7 +2176,7 @@
       "in_stockage": 0
     },
     {
-      "name": "Hypoc\u00c3\u00a9an",
+      "name": "Hypocean",
       "types": "water",
       "level": 1,
       "power_attack": 40,

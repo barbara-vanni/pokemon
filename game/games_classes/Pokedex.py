@@ -60,6 +60,20 @@ class Pokedex:
         with open(json_file_path, "w") as file:
             json.dump(data, file, indent=2)
 
+    def get_pokemon_by_type(self, pokemon_type):
+        matching_pokemon = []
+        for pokemon in self.pokemon_list:
+            if pokemon_type in pokemon.get_types():
+                matching_pokemon.append(pokemon)
+        return matching_pokemon
+    
+    def get_pokemon_by_name(self, pokemon_name):
+        matching_pokemon = []
+        for pokemon in self.pokemon_list:
+            if pokemon_name in pokemon.get_name():
+                matching_pokemon.append(pokemon)
+        return matching_pokemon
+
 
 # pokedex = Pokedex()
 # pokedex.load_from_json("game/games_classes/pokedex.json")

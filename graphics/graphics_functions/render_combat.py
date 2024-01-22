@@ -3,6 +3,7 @@ from game import *
 from event import suite_button_event
 from graphics.graphics_attributes import *
 from graphics.graphics_functions import draw_text
+from graphics.graphics_classes.Button import suite_button, attack_button, object_button, flee_button, change_poke_button
 
 def render_combat_menu():
     global message_box
@@ -18,7 +19,7 @@ def render_combat_menu():
             if attack_button.render(screen):
                 message_box = attack_button_event
             if suite_button.render(screen):
-                message_box = suite_button_event
+                message_box = render_message
             if object_button.render(screen):
                 pass
             if flee_button.render(screen):
@@ -60,33 +61,77 @@ def render_combat_pokemon():
     pygame.draw.rect(screen, 'blue', (40, 110, get_pokemon2().get_pv() * 280 / get_pokemon2().get_pv_max(), 10), 0, 15)
     # print(get_pokemon2().get_name(), end='\r')
 
-def render_message_box():
+# def suite_button_event_render():
+    
+    # if get_combat() == 1:
+    #     rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
+    #     suite_button.render(screen)
+    #     if combat_begin.get_attack_chance_ratio() == 0:
+    #         attack_missed = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} à échoué")
+    #         draw_text(screen, attack_missed, font_long, rectangle, 440, 60, max_lines=3)
+    #     elif combat_begin.get_attack_chance_ratio() == 1:
+    #         attack_normal = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} à réussi")
+    #         draw_text(screen, attack_normal, font_long, rectangle, 440, 60, max_lines=3)
+    #     elif combat_begin.get_attack_chance_ratio() == 2:
+    #         attack_critical = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} est un coup critique")
+    #         draw_text(screen, attack_critical, font_long, rectangle, 440, 60, max_lines=3)
+    
+    # elif get_combat() == 2:
+    #     rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
+    #     suite_button.render(screen)
+    #     if combat_begin.get_affinity_values() < 1:
+    #         efficiency_none = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque. C'est ne pas très efficace.")
+    #         draw_text(screen, efficiency_none, font_long, rectangle, 440, 60, max_lines=3)
+    #     elif combat_begin.get_affinity_values() == 1:
+    #         efficiency = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque")
+    #         draw_text(screen, efficiency, font_long, rectangle, 440, 60, max_lines=3)
+    #     elif combat_begin.get_affinity_values() > 1 :
+    #         efficiency_top = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque, C'est très efficace")
+    #         draw_text(screen, efficiency_top, font_long, rectangle, 440, 60, max_lines=3)
+
+    
+    # elif get_combat() == 3:    
+    #     rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
+    #     suite_button.render(screen)
+    #     dead_text = (f"{pokemon2.get_name()} est K.O. {pokemon1.get_name()} à maintenant {pokemon1.get_xp()} / {pokemon1.get_xp_max()} xp")
+    #     draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
+    
+    # elif get_combat() == 4:   
+    #     rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
+    #     suite_button.render(screen)
+    #     dead_text = (f"{pokemon2.get_name()} est K.O. Félication {pokemon1.get_name()} est passé lvl {pokemon1.get_level()} et son xp est {pokemon1.get_xp()} / {pokemon1.get_xp_max()}")
+    #     draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
+
+def render_message():
     suite_button_event()
     suite_button_event_render()
 
 def suite_button_event():
     global turn_number
+
+    clicked = suite_button.render(screen)
+
     if get_combat() == 1:
-        if suite_button.render(screen):
+        if clicked:
+            print("get_combat() == 1 enter")
             if combat_begin.get_attack_chance_ratio() == 0:
                 if combat_begin.get_pokemon1() == combat_begin.get_pokemon_player():
                     combat_begin.end_attack()
                     set_combat(1)
-                    suite_button.render(screen)
+                    # suite_button.render(screen)
                 else:
                     combat_begin.end_attack()
                     set_combat(0)
-                    suite_button.render(screen)
+                    # suite_button.render(screen)
             else:
                 set_combat(2)
                 combat_begin.attack_chance()
                 combat_begin.attack()
-                suite_button.render(screen)
-
-    # suite_button.render(screen)
+                # suite_button.render(screen)
+            print("get_combat() == 1 exit")
 
     if get_combat() == 2:
-        if suite_button.render(screen) == True:
+        if clicked:
             mort = combat_begin.end_game()
             if mort == True:
                 level_up = combat_begin.gain_xp()
@@ -111,70 +156,74 @@ def suite_button_event():
                     set_combat(1)
                     suite_button.render(screen)
 
-    # suite_button.render(screen)
-
     if get_combat() == 3 or get_combat() == 4:
-        if suite_button.render(screen) == True:
+        if clicked:
             # old_pv = combat_begin.get_pokemon1().get_pv()
             set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
             # combat_begin.get_pokemon1().set_pv(old_pv)
             set_pokemon2(pokedex.choose_random_pokemon())
             set_combat(0)
+    return clicked
   
 
-
 def suite_button_event_render():
-    
+    rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
+
     if get_combat() == 1:
-        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
-        border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
-        border_option_message.draw_image(screen)
-        if combat_begin.get_attack_chance_ratio() == 0:
-            attack_missed = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} à échoué")
-            draw_text(screen, attack_missed, font_long, rectangle, 440, 60, max_lines=3)
-        elif combat_begin.get_attack_chance_ratio() == 1:
-            attack_normal = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} à réussi")
-            draw_text(screen, attack_normal, font_long, rectangle, 440, 60, max_lines=3)
-        elif combat_begin.get_attack_chance_ratio() == 2:
-            attack_critical = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} est un coup critique")
-            draw_text(screen, attack_critical, font_long, rectangle, 440, 60, max_lines=3)
-        suite_button = Button_image('./assets/images/forward.png', (700, 530))
-        suite_button.render(screen)
-    
+        render_combat_message(rectangle, combat_begin.get_attack_chance_ratio())
+        return render_combat_message(rectangle, combat_begin.get_attack_chance_ratio())
+
     elif get_combat() == 2:
-        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
-        border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
-        border_option_message.draw_image(screen)
-        if combat_begin.get_affinity_values() < 1:
-            efficiency_none = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque. C'est ne pas très efficace.")
-            draw_text(screen, efficiency_none, font_long, rectangle, 440, 60, max_lines=3)
-        elif combat_begin.get_affinity_values() == 1:
-            efficiency = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque")
-            draw_text(screen, efficiency, font_long, rectangle, 440, 60, max_lines=3)
-        elif combat_begin.get_affinity_values() > 1 :
-            efficiency_top = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque, C'est très efficace")
-            draw_text(screen, efficiency_top, font_long, rectangle, 440, 60, max_lines=3)
-        suite_button = Button_image('./assets/images/forward.png', (700, 530))
-        suite_button.render(screen)
-    
-    elif get_combat() == 3:    
-        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
-        border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
-        border_option_message.draw_image(screen)
-        dead_text = (f"{pokemon2.get_name()} est K.O. {pokemon1.get_name()} à maintenant {pokemon1.get_xp()} / {pokemon1.get_xp_max()} xp")
-        draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
-        suite_button = Button_image('./assets/images/forward.png', (700, 530))
-        suite_button.render(screen)
-    
-    elif get_combat() == 4:   
-        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
-        border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
-        border_option_message.draw_image(screen)
-        dead_text = (f"{pokemon2.get_name()} est K.O. Félication {pokemon1.get_name()} est passé lvl {pokemon1.get_level()} et son xp est {pokemon1.get_xp()} / {pokemon1.get_xp_max()}")
-        draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
-        suite_button = Button_image('./assets/images/forward.png', (700, 530))
-        suite_button.render(screen)
-    
+        render_efficiency_message(rectangle, combat_begin.get_affinity_values())
+        return render_efficiency_message(rectangle, combat_begin.get_affinity_values())
+
+    elif get_combat() == 3:
+        render_dead_message(rectangle)
+        return render_dead_message(rectangle)
+
+    elif get_combat() == 4:
+        render_level_up_message(rectangle)
+        return render_level_up_message(rectangle)
+
+def render_combat_message(rectangle, attack_chance_ratio):
+    rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
+    suite_button.render(screen)
+    if combat_begin.get_attack_chance_ratio() == 0:
+        attack_missed = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} à échoué")
+        draw_text(screen, attack_missed, font_long, rectangle, 440, 60, max_lines=3)
+    elif combat_begin.get_attack_chance_ratio() == 1:
+        attack_normal = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} à réussi")
+        draw_text(screen, attack_normal, font_long, rectangle, 440, 60, max_lines=3)
+    elif combat_begin.get_attack_chance_ratio() == 2:
+        attack_critical = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} est un coup critique")
+        draw_text(screen, attack_critical, font_long, rectangle, 440, 60, max_lines=3)
+
+def render_efficiency_message(rectangle, affinity_values):
+    rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
+    suite_button.render(screen)
+    if combat_begin.get_affinity_values() < 1:
+        efficiency_none = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque. C'est ne pas très efficace.")
+        draw_text(screen, efficiency_none, font_long, rectangle, 440, 60, max_lines=3)
+    elif combat_begin.get_affinity_values() == 1:
+        efficiency = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque")
+        draw_text(screen, efficiency, font_long, rectangle, 440, 60, max_lines=3)
+    elif combat_begin.get_affinity_values() > 1 :
+        efficiency_top = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque, C'est très efficace")
+        draw_text(screen, efficiency_top, font_long, rectangle, 440, 60, max_lines=3)
+
+def render_dead_message(rectangle):
+    rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
+    suite_button.render(screen)
+    dead_text = (f"{pokemon2.get_name()} est K.O. {pokemon1.get_name()} à maintenant {pokemon1.get_xp()} / {pokemon1.get_xp_max()} xp")
+    draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
+
+def render_level_up_message(rectangle):
+    rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
+    suite_button.render(screen)
+    dead_text = (f"{pokemon2.get_name()} est K.O. Félication {pokemon1.get_name()} est passé lvl {pokemon1.get_level()} et son xp est {pokemon1.get_xp()} / {pokemon1.get_xp_max()}")
+    draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
+
+
 def attack_button_event():
     global num_words, combat_begin
     attack_button.active = False

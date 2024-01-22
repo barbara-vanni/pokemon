@@ -35,8 +35,8 @@ pokemon1 = pokedex.choose_specific_pokemon("Mewtwo")
 pokemon2 = pokedex.choose_random_pokemon()
 pokedex.change_statut(pokemon2.get_name())
 pokedex.print_pokemon_meet()
-trainer = Trainer([], '', '')
-trainer.choose_your_name()
+# trainer = Trainer([], '', '')
+# trainer.choose_your_name()
 
 #pokemon1
 def get_pokemon1():

@@ -2,9 +2,11 @@ import pygame
 from event import *
 from game import *
 from graphics import *
+from game.current_render import *
 
-continuer = True
-attack_button = None
+# continuer = True
+# attack_button = None
+running = True
 
 while running:
 
@@ -14,6 +16,8 @@ while running:
 
     # get_state (who is a function) returns the function to be executed
     get_state()()
+
+
     # event handler
     # for event in pygame.event.get():
     #     if event.type == pygame.MOUSEBUTTONDOWN:

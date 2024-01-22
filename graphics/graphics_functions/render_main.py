@@ -6,6 +6,7 @@ import graphics.graphics_functions.render_combat as render_combat
 from graphics.graphics_functions.render_main import *
 from game.current_render import *
 import game.current_render as Current_render
+from game.games_attributes import *
 
 
 

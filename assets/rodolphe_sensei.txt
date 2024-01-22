@@ -1,0 +1,38 @@
+#interface pour rendu terminal ou pygame
+'''
+explication de Rodolphe sensei sur l'utilisté d'une interface 
+pour le dévellopement d'un porjet. 
+L'idée étant de pouvoir changer de rendu facilement entre le terminal et
+l'interface pygame sans avoir à changer le code de l'application .
+Cela permet aussi d'avoir un garde_fou sur les méthodes à implémenter, 
+puisqu'elles sont nommées mais pas défini directement. 
+
+'''
+class Renderer:
+    def render_menu():
+        pass
+    def render_combat(pokemon1, pokemon2):
+        pass
+
+class TerminalRenderer(Renderer):
+    def render_menu():
+        #affiche le menu
+        pass
+    def render_combat(pokemon1, pokemon2):
+        #affiche le combat
+        pass
+
+class PygameRenderer(Renderer):
+    def render_menu():
+        #affiche le menu
+        pass
+    def render_combat(pokemon1, pokemon2):
+        #affiche le combat
+        pass
+
+
+renderer = TerminalRenderer()
+renderer = PygameRenderer()
+
+
+renderer.render_menu()

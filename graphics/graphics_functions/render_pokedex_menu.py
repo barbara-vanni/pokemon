@@ -26,8 +26,6 @@ def render_pokedex_menu():
                 button_types.draw(screen)
 
                 for event in pygame.event.get():
-                    # if event.type == pygame.QUIT:
-                    #     continuer = False
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         if button_types.draw(screen):
                             selected_pokemon_type = pokemon_types[index - 1]

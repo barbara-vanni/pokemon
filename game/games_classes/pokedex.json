@@ -273,7 +273,7 @@
     {
       "name": "Rattata",
       "types": "normal",
-      "level": 1,
+      "level": 100,
       "power_attack": 56,
       "defense": 35,
       "speed": 72,
@@ -283,7 +283,7 @@
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/rattata.png",
       "statut": 0,
-      "in_stockage": 0
+      "in_stockage": 1
     },
     {
       "name": "Rattatac",

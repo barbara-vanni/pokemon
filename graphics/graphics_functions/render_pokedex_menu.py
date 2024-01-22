@@ -155,12 +155,13 @@ def render_pokedex_menu():
             life_point_message.message_render(font_long, screen)
             xp_point_message = Message(400, 450, 300, 40, f'Experience = {str(pokemon.get_xp())} / {str(pokemon.get_xp_max())}', 'black', 'red')
             xp_point_message.message_render(font_long, screen)
-            # if pokemon.get_in_stockage() == 1:
-            #     in_stockage_message = Message(400, 450, 300, 40, f'{pokemon.get_name()} vous accomapgne!')
-            #     in_stockage_message.message_render(font_long, screen)
-            # else:
-            #     add_to_stockage_button = Button_rect(400, 500, 300, 400, 'Ajouter au stockage', 'black', 'red')
-            #     add_to_stockage_button.collision(font_long, screen)
+            # print(pokemon.get_in_stockage())
+            if pokemon.get_in_stockage() == 1:
+                in_stockage_message = Message(400, 450, 300, 40, f'{pokemon.get_name()} vous accomapgne!')
+                in_stockage_message.message_render(font_long, screen)
+            else:
+                add_to_stockage_button = Button_rect(400, 500, 300, 80, 'Ajouter au stockage', 'black', 'red')
+                add_to_stockage_button.collision(font_long, screen)
             return_button = Button_rect(50, 10, 50, 60, 'Retour', 'black', 'red')
             return_button.collision(font_long, screen)
 

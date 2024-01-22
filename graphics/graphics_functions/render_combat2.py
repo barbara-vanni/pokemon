@@ -70,6 +70,7 @@ def render_combat_pokemon():
     pv_bad.message_render(font_ingame, screen)
     pygame.draw.rect(screen, 'white',(40, 110, 280, 10), 0, 15)
     pygame.draw.rect(screen, 'blue', (40, 110, pokemon2.get_pv() * 280 / pokemon2.get_pv_max(), 10), 0, 15)
+    
 def attack_button_event():
     global num_words, combat_begin
     attack_button.active = False

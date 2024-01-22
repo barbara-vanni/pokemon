@@ -68,6 +68,7 @@ class Combat:
             temp = self.__pokemon1
             self.__pokemon1 = self.__pokemon2
             self.__pokemon2 = temp
+        return self.__pokemon1.get_name()
 
     def affinity(self):
         type_import = Type(pokemon_types, pokemon_matrice)
@@ -166,5 +167,6 @@ class Combat:
         self.__pokemon1 = self.__pokemon2
         self.__pokemon2 = temp
 
-    
 
+
+        

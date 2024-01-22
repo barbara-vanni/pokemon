@@ -16,7 +16,6 @@ while running:
 
     # get_state (who is a function) returns the function to be executed
     get_state()()
-
     # event handler
     # for event in pygame.event.get():
     #     if event.type == pygame.MOUSEBUTTONDOWN:

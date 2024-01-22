@@ -9,6 +9,7 @@ from graphics.graphics_classes import *
 from game.games_attributes import combat_begin, pokemon1, pokemon2
 # # from game.current_render import *
 # import game.current_render as Current_render
+import time
 
 
 
@@ -25,15 +26,14 @@ def render_combat_menu():
     render_combat_pokemon()
     choice_fight()
 
-
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
             if attack_button.render(screen):
                 message_box = attack_button_event
             if suite_button.render(screen):
                 message_box = suite_button_event
-                if valider_button.render(screen):
-                    button_suite_press_count += 1
+            if valider_button.render(screen):
+                state_fight += 1
             if object_button.render(screen):
                 pass
             if flee_button.render(screen):
@@ -45,7 +45,17 @@ def render_combat_menu():
     message_box()
     pygame.display.flip()
 
+#Menu de sélection de combat
+def choice_fight():
+    border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
+    border_option_message.draw_image(screen)
+    attack_button.render(screen)
+    object_button.render(screen)
+    flee_button.render(screen)
+    change_poke_button.render(screen)
 
+message_box = choice_fight
+state_fight = 0
 
 def render_combat_pokemon():
     
@@ -83,67 +93,6 @@ def attack_button_event():
     message = Message(30, 430, 740, 140, 'You choose to fight', 'white', 'black')
     message.message_render(font_ingame, screen)
 
-def next_step_1():
-    global button_suite_press_count, state_fight
-    combat_begin.first_hit()
-    combat_begin.attack_chance()
-    
-    while combat_begin.get_pokemon1().get_pv() > 0 and combat_begin.get_pokemon2().get_pv() > 0:
-        if combat_begin.get_attack_chance_ratio() == 0 :
-            if state_fight == 0:
-                button_suite_press_count = 2
-                combat_begin.end_attack()
-            else:
-                choice_fight()
-                button_suite_press_count = 0
-                combat_begin.end_attack()
-        else :
-            button_suite_press_count = 2
-
-
-
-
-def handle_logic_steps():
-    global button_suite_press_count
-
-    # print(button_suite_press_count)
-    if button_suite_press_count == 1:
-        next_step_1()
-        button_suite_press_count += 1
-    elif button_suite_press_count == 3:
-        combat_begin.next_step_2()
-        button_suite_press_count += 1
-    # print(button_suite_press_count)
-
-
-
-
-def handle_render_steps():
-    global button_suite_press_count, state_fight
-    # print(button_suite_press_count)
-    if button_suite_press_count == 2:
-        render_next_step_1()
-        if valider_button.render(screen):
-            if state_fight == 0:
-                combat_begin.end_attack()
-                button_suite_press_count = 1
-                state_fight += 1
-            else:
-                button_suite_press_count += 1
-            
-    elif button_suite_press_count == 4:
-        render_next_step_2()
-        if valider_button.render(screen):
-            button_suite_press_count += 1
-    # print(button_suite_press_count)
-
-
-def suite_button_event():
-    global button_suite_press_count
-
-    handle_logic_steps()  
-    handle_render_steps() 
-
 # render pour l'affinité de l'attaque entre les pokemons et la chance de réussite de l'attaque   
 def render_next_step_1():      
     rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
@@ -154,6 +103,12 @@ def render_next_step_1():
         message = f"L'attaque de {combat_begin.get_pokemon1().get_name()} \n\n à réussi"
     elif combat_begin.get_attack_chance_ratio() == 2:
         message = f"L'attaque de {combat_begin.get_pokemon1().get_name()} \n\n est un coup critique" 
+    draw_text(screen, message, font_ingame, rectangle, 490, 60, max_lines=3)
+
+def render_attack_missed():
+    rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
+    valider_button.render(screen)
+    message = f"C'est au tour de {combat_begin.get_pokemon2().get_name()} \n\n"
     draw_text(screen, message, font_ingame, rectangle, 490, 60, max_lines=3)
 
 # render pour l'efficacité de l'attaque et perte des pv 
@@ -182,25 +137,84 @@ def render_next_step_4():
     dead_text = (f"{pokemon2.get_name()} est K.O. Félication {pokemon1.get_name()} est passé lvl {pokemon1.get_level()} et son xp est {pokemon1.get_xp()} / {pokemon1.get_xp_max()}")
     draw_text(screen, dead_text, font_long, rectangle, 490, 60, max_lines=3)
 
+def next_step_1():
+    global state_fight
+    combat_begin.first_hit()
+    combat_begin.attack_chance()
+    if combat_begin.get_attack_chance_ratio() == 0:
+        combat_begin.end_attack()
+        return 2
+    else:
+        return 1
+
+def next_step_2():
+    global state_fight
+    if combat_begin.get_attack_chance_ratio() == 1 or combat_begin.get_attack_chance_ratio() == 2:
+        combat_begin.affinity()
+    return 3
+
+def next_step_3():
+    global state_fight
+    if combat_begin.get_attack_chance_ratio() == 1 or combat_begin.get_attack_chance_ratio() == 2:
+        combat_begin.attack()
+    return 4
+
+def next_step_4():
+    global state_fight
+    if combat_begin.get_attack_chance_ratio() == 1 or combat_begin.get_attack_chance_ratio() == 2:
+        combat_begin.end_attack()
+    return 0
+
+def next_step_5():
+    global state_fight
+    if combat_begin.end_game() == True:
+        return 5
+    else:
+        return 0
+
+def handle_logic():
+    global state_fight
+    if state_fight == 0:
+        pass
+    elif state_fight == 1:
+        state_fight = next_step_1()
+    elif state_fight == 2:
+        state_fight = next_step_1()
+    elif state_fight == 3:
+        state_fight = next_step_2()
+    elif state_fight == 4:
+        state_fight = next_step_3()
+    elif state_fight == 5:
+        state_fight = next_step_4()
+    else:
+        raise Exception(f"Unknown state {state_fight}")
+    return state_fight
+
+def handle_render():
+    if state_fight == 0:
+        attack_button_event()
+    elif state_fight == 1:
+        render_next_step_1()
+    elif state_fight == 2:
+        render_attack_missed()
+    elif state_fight == 3:
+        render_next_step_2()
+    elif state_fight == 4:
+        render_next_step_3()
+    elif state_fight == 5:
+        render_next_step_4()
+    else:
+        raise Exception(f"Unknown state {state_fight}")
+    return state_fight
+
+def suite_button_event():
+    global state_fight
+    print("Entering suite_button_event")
+    for i in range(5):
+        handle_logic()
+        handle_render()
+    if valider_button.render(screen):
+        state_fight += 1
+    print("Exiting suite_button_event")
 
 
-
-
-
-
-
-
-
-
-#Menu de sélection de combat
-def choice_fight():
-    border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
-    border_option_message.draw_image(screen)
-    attack_button.render(screen)
-    object_button.render(screen)
-    flee_button.render(screen)
-    change_poke_button.render(screen)
-    
-message_box = choice_fight
-button_suite_press_count = 0
-state_fight = 0

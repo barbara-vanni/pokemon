@@ -56,8 +56,8 @@ class Pokedex:
                 return pokemon
         return None    
 
-    def change_statut(self, pokemon_name):
-        json_file_path = "game/games_classes/save.json"
+    def change_statut(self, pokemon_name, name_trainer):
+        json_file_path = f"game/games_classes/{name_trainer}.json"
         with open(json_file_path, "r") as file:
             data = json.load(file)
         for pokemon_data in data["pokemon_list"]:
@@ -84,8 +84,8 @@ class Pokedex:
 
 
 
-    def change_statistics(self, pokemon_name, xp, xp_max):
-        json_file_path = "game/games_classes/save.json"
+    def change_statistics(self, pokemon_name, xp, xp_max, name_trainer):
+        json_file_path = f"game/games_classes/{name_trainer}.json"
         with open(json_file_path, "r") as file:
             data = json.load(file)
         for pokemon_data in data["pokemon_list"]:
@@ -102,8 +102,8 @@ class Pokedex:
             json.dump(data, file, indent=2)
 
 
-    def change_stat_xp(self, pokemon_name):
-        json_file_path = "game/games_classes/save.json"
+    def change_stat_xp(self, pokemon_name, name_trainer):
+        json_file_path = f"game/games_classes/{name_trainer}.json"
         with open(json_file_path, "r") as file:
             data = json.load(file)
         for pokemon_data in data["pokemon_list"]:
@@ -112,8 +112,8 @@ class Pokedex:
         with open(json_file_path, "w") as file:
             json.dump(data, file, indent=2)
 
-    def change_stat_pv(self, pokemon_name, pv):
-        json_file_path = "game/games_classes/save.json"
+    def change_stat_pv(self, pokemon_name, pv, name_trainer):
+        json_file_path = f"game/games_classes/{name_trainer}.json"
         with open(json_file_path, "r") as file:
             data = json.load(file)
         for pokemon_data in data["pokemon_list"]:

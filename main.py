@@ -6,6 +6,7 @@ from graphics import *
 continuer = True
 attack_button = None
 
+running = True
 while running:
 
     # universal event handler ( à mettre seulement ici !)

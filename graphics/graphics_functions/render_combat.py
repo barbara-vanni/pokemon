@@ -102,9 +102,6 @@ def render_combat_pokemon():
     #     dead_text = (f"{pokemon2.get_name()} est K.O. Félication {pokemon1.get_name()} est passé lvl {pokemon1.get_level()} et son xp est {pokemon1.get_xp()} / {pokemon1.get_xp_max()}")
     #     draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
 
-def render_message():
-    suite_button_event()
-    suite_button_event_render()
 
 def suite_button_event():
     global turn_number
@@ -117,8 +114,9 @@ def suite_button_event():
             if combat_begin.get_attack_chance_ratio() == 0:
                 if combat_begin.get_pokemon1() == combat_begin.get_pokemon_player():
                     combat_begin.end_attack()
+                    
                     set_combat(1)
-                    # suite_button.render(screen)
+
                 else:
                     combat_begin.end_attack()
                     set_combat(0)

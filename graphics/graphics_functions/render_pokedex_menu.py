@@ -32,8 +32,8 @@ def render_pokedex_menu():
                         if button_types.draw(screen):
                             selected_pokemon_type = pokemon_types[index - 1]
                             set_pokedex_render(1)
-        return_button = Button_rect(80, 530, 150, 60, 'Retour', 'black', 'red')
-        return_button.collision(font_button_menu, screen)
+        return_button = Button_rect(50, 10, 50, 60, 'Retour', 'black', 'red')
+        return_button.collision(font_long, screen)
 
     if get_pokedex_render() == 1:
         screen.fill((0, 0, 0))
@@ -129,8 +129,8 @@ def render_pokedex_menu():
                         selected_pokemon_name = pokemon.get_name()
                         set_pokedex_render(2)
                         
-        return_button = Button_rect(80, 530, 150, 60, 'Retour', 'black', 'red')
-        return_button.collision(font_button_menu, screen)
+        return_button = Button_rect(50, 10, 50, 60, 'Retour', 'black', 'red')
+        return_button.collision(font_long, screen)
     
     if get_pokedex_render() == 2:
         screen.fill((0, 0, 0))
@@ -143,17 +143,17 @@ def render_pokedex_menu():
             selected_pokemon_image = Image(f'./assets/images/pokemon_front/{selected_pokemon_name}.png', (0, 200))
             selected_pokemon_image.scale_image_bis(5, 5)
             selected_pokemon_image.draw_image(screen)
-            level_message = Message(400, 150, 300, 40, f'Level = {str(pokemon.get_level())}', 'black', 'red')
+            level_message = Message(400, 200, 300, 40, f'Level = {str(pokemon.get_level())}', 'black', 'red')
             level_message.message_render(font_long, screen)
-            attack_message = Message(400, 200, 300, 40, f'Attack = {str(pokemon.get_power_attack())}', 'black', 'red')
+            attack_message = Message(400, 250, 300, 40, f'Attack = {str(pokemon.get_power_attack())}', 'black', 'red')
             attack_message.message_render(font_long, screen)
-            defense_message = Message(400, 250, 300, 40, f'Defense = {str(pokemon.get_defense())}', 'black', 'red')
+            defense_message = Message(400, 300, 300, 40, f'Defense = {str(pokemon.get_defense())}', 'black', 'red')
             defense_message.message_render(font_long, screen)
-            speed_message = Message(400, 300, 300, 40, f'Speed = {str(pokemon.get_speed())}', 'black', 'red')
+            speed_message = Message(400, 350, 300, 40, f'Speed = {str(pokemon.get_speed())}', 'black', 'red')
             speed_message.message_render(font_long, screen)
-            life_point_message = Message(400, 350, 300, 40, f'Life point = {str(pokemon.get_pv())} / {str(pokemon.get_pv_max())}', 'black', 'red')
+            life_point_message = Message(400, 400, 300, 40, f'Life point = {str(pokemon.get_pv())} / {str(pokemon.get_pv_max())}', 'black', 'red')
             life_point_message.message_render(font_long, screen)
-            xp_point_message = Message(400, 400, 300, 40, f'Experience = {str(pokemon.get_xp())} / {str(pokemon.get_xp_max())}', 'black', 'red')
+            xp_point_message = Message(400, 450, 300, 40, f'Experience = {str(pokemon.get_xp())} / {str(pokemon.get_xp_max())}', 'black', 'red')
             xp_point_message.message_render(font_long, screen)
             # if pokemon.get_in_stockage() == 1:
             #     in_stockage_message = Message(400, 450, 300, 40, f'{pokemon.get_name()} vous accomapgne!')
@@ -161,6 +161,6 @@ def render_pokedex_menu():
             # else:
             #     add_to_stockage_button = Button_rect(400, 500, 300, 400, 'Ajouter au stockage', 'black', 'red')
             #     add_to_stockage_button.collision(font_long, screen)
-            return_button = Button_rect(80, 530, 150, 60, 'Retour', 'black', 'red')
-            return_button.collision(font_button_menu, screen)
+            return_button = Button_rect(50, 10, 50, 60, 'Retour', 'black', 'red')
+            return_button.collision(font_long, screen)
 

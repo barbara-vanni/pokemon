@@ -822,7 +822,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/akwakwak.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1201,7 +1201,7 @@
       "in_stockage": 0
     },
     {
-      "name": "Magn\u00c3\u00a9ti",
+      "name": "Magneti",
       "types": "steel",
       "level": 1,
       "power_attack": 35,
@@ -2116,7 +2116,7 @@
       "in_stockage": 0
     },
     {
-      "name": "M. Mime",
+      "name": "M.Mime",
       "types": "fairy",
       "level": 1,
       "power_attack": 45,
@@ -2232,7 +2232,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/saquedeneu.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     }
   ]

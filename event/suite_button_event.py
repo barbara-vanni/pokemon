@@ -51,5 +51,6 @@ def suite_button_event(event, suite_button):
         if get_combat() == 3 or get_combat() == 4:
             if suite_button.get_clicked() == True:
                 pokemon1.set_pv(pokemon1.get_pv_max())
-                pokemon2.set_pv(pokemon2.get_pv_max())
+                set_pokemon2(pokedex.choose_random_pokemon())
                 set_combat(0)
+  

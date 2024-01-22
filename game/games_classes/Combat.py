@@ -203,7 +203,8 @@ class Combat:
 
     def get_pokemon2(self):
         return self.__pokemon2
-    def set_pokemon1(self, pokemon2):
+
+    def set_pokemon2(self, pokemon2):
         self.__pokemon2 = pokemon2
 
     def get_attack_chance_ratio(self):
@@ -293,7 +294,7 @@ class Combat:
         pokemon.set_speed(pokemon.get_speed() + 1)
         pokemon.set_pv_max(pokemon.get_pv_max() + 1)
         pokemon.set_pv(pokemon.get_pv() + 1)
-        pokemon.set_xp(0)
+        pokemon.set_xp(self.__pokemon1.get_xp() - self.__pokemon1.get_xp_max())
         pokemon.set_xp_max(int(pokemon.get_xp_max() * 1.75))
 
     def gain_xp(self):
@@ -334,6 +335,4 @@ class Combat:
         temp = self.__pokemon1
         self.__pokemon1 = self.__pokemon2
         self.__pokemon2 = temp
-                   
-                # winner_pokemon = self.__winner_pokemon()
-                # winner_trainer = self.__winner_trainer()
+

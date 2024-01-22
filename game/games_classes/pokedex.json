@@ -117,7 +117,7 @@
       "xp": 0,
       "xp_max": 200,
       "image_front": "assets/images/pokemon_front/carabaffe.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -282,8 +282,8 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/rattata.png",
-      "statut": 1,
-      "in_stockage": 1
+      "statut": 0,
+      "in_stockage": 0
     },
     {
       "name": "Rattatac",
@@ -1032,7 +1032,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/chetiflor.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {

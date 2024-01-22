@@ -31,13 +31,13 @@ def suite_button_event(event, suite_button):
                 if mort == True:
                     level_up = combat_begin.gain_xp()
                     if level_up == True:
-                        pokedex.change_statistics(combat_begin.get_pokemon1().get_name(), combat_begin.get_pokemon1().get_xp(), combat_begin.get_pokemon1().get_xp_max())
-                        pokedex.change_stat_pv(combat_begin.get_pokemon1().get_name(), combat_begin.get_pokemon1().get_pv())
+                        pokedex.change_statistics(combat_begin.get_pokemon1().get_name(), combat_begin.get_pokemon1().get_xp(), combat_begin.get_pokemon1().get_xp_max(), trainer.get_name_trainer())
+                        pokedex.change_stat_pv(combat_begin.get_pokemon1().get_name(), combat_begin.get_pokemon1().get_pv(), trainer.get_name_trainer())
                         set_combat(4)
                         suite_button.collision()
                     else:
-                        pokedex.change_stat_pv(combat_begin.get_pokemon1().get_name(), combat_begin.get_pokemon1().get_pv())
-                        pokedex.change_stat_xp(combat_begin.get_pokemon1().get_name())
+                        pokedex.change_stat_pv(combat_begin.get_pokemon1().get_name(), combat_begin.get_pokemon1().get_pv(), trainer.get_name_trainer())
+                        pokedex.change_stat_xp(combat_begin.get_pokemon1().get_name(), trainer.get_name_trainer())
                         set_combat(3)
                         suite_button.collision()
                 else:

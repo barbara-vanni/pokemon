@@ -8,6 +8,7 @@ from game.current_render import *
 # attack_button = None
 running = True
 
+running = True
 while running:
 
     # universal event handler ( à mettre seulement ici !)

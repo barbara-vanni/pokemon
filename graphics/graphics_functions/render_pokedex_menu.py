@@ -36,7 +36,7 @@ def render_pokedex_menu():
         return_button.collision(font_long, screen)
 
     if get_pokedex_render() == 1:
-        screen.fill((0, 0, 0))
+        screen.fill((255, 255, 255))
 
         matching_pokemon = pokedex.get_pokemon_by_type(selected_pokemon_type)
 
@@ -46,10 +46,15 @@ def render_pokedex_menu():
                 titre.message_render(font_title, screen)
                 message_type = Message(400, 500, 75, 15, pokemon.get_name(), 'black', 'white')
                 message_type.message_render(font_title, screen)
-                image_path = f'./assets/images/pokemon_front/{pokemon.get_name()}.png'
-                image = pygame.image.load(image_path)
-                button_types = Button_image(100, 0, image, 10)
-                button_types.draw(screen)
+                if pokemon.get_statut() == 0:
+                    image = Image(f'./assets/images/shadow/{pokemon.get_name()}.png', (100, 0))
+                    image.scale_image((600,600))
+                    image.draw_image(screen)
+                else:
+                    image_path = f'./assets/images/pokemon_front/{pokemon.get_name()}.png'
+                    image = pygame.image.load(image_path)
+                    button_types = Button_image(100, 0, image, 10)
+                    button_types.draw(screen)
 
             elif len(matching_pokemon) <= 2:
                 titre = Message(200, 20, 400, 100, selected_pokemon_type, 'black', 'red')
@@ -58,10 +63,15 @@ def render_pokedex_menu():
                 y = 150 + 200 * (i // 2)
                 message_type = Message(x + 120, y + 350, 75, 15, pokemon.get_name(), 'black', 'white')
                 message_type.message_render(font_title_in_page, screen)
-                image_path = f'./assets/images/pokemon_front/{pokemon.get_name()}.png'
-                image = pygame.image.load(image_path)
-                button_types = Button_image(x, y, image, 5)
-                button_types.draw(screen)
+                if pokemon.get_statut() == 0:
+                    image = Image(f'./assets/images/shadow/{pokemon.get_name()}.png', (x, y))
+                    image.scale_image((300,300))
+                    image.draw_image(screen)
+                else:
+                    image_path = f'./assets/images/pokemon_front/{pokemon.get_name()}.png'
+                    image = pygame.image.load(image_path)
+                    button_types = Button_image(x, y, image, 5)
+                    button_types.draw(screen)
 
             elif len(matching_pokemon) <= 4:
                 titre = Message(200, 20, 400, 100, selected_pokemon_type, 'black', 'red')
@@ -70,10 +80,15 @@ def render_pokedex_menu():
                 y = 120 + 220 * (i // 2)
                 message_type = Message(x + 60, y + 200, 75, 15, pokemon.get_name(), 'black', 'white')
                 message_type.message_render(font_title_in_page, screen)
-                image_path = f'./assets/images/pokemon_front/{pokemon.get_name()}.png'
-                image = pygame.image.load(image_path)
-                button_types = Button_image(x, y, image, 3)
-                button_types.draw(screen)
+                if pokemon.get_statut() == 0:
+                    image = Image(f'./assets/images/shadow/{pokemon.get_name()}.png', (x, y))
+                    image.scale_image((200,200))
+                    image.draw_image(screen)
+                else:
+                    image_path = f'./assets/images/pokemon_front/{pokemon.get_name()}.png'
+                    image = pygame.image.load(image_path)
+                    button_types = Button_image(x, y, image, 3)
+                    button_types.draw(screen)
 
             elif len(matching_pokemon) <= 8:
                 titre = Message(200, 20, 400, 100, selected_pokemon_type, 'black', 'red')
@@ -82,10 +97,15 @@ def render_pokedex_menu():
                 y = 100 + 220 * (i // 4)
                 message_type = Message(x + 60, y + 200, 75, 15, pokemon.get_name(), 'black', 'white')
                 message_type.message_render(font_title_in, screen)
-                image_path = f'./assets/images/pokemon_front/{pokemon.get_name()}.png'
-                image = pygame.image.load(image_path)
-                button_types = Button_image(x, y, image, 3)
-                button_types.draw(screen)
+                if pokemon.get_statut() == 0:
+                    image = Image(f'./assets/images/shadow/{pokemon.get_name()}.png', (x, y))
+                    image.scale_image((200,200))
+                    image.draw_image(screen)
+                else:
+                    image_path = f'./assets/images/pokemon_front/{pokemon.get_name()}.png'
+                    image = pygame.image.load(image_path)
+                    button_types = Button_image(x, y, image, 3)
+                    button_types.draw(screen)
 
             elif len(matching_pokemon) <= 12:
                 titre = Message(200, 20, 400, 100, selected_pokemon_type, 'black', 'red')
@@ -94,10 +114,15 @@ def render_pokedex_menu():
                 y = 120 + 150 * (i // 4)
                 message_type = Message(x + 40, y + 130, 75, 15, pokemon.get_name(), 'black', 'white')
                 message_type.message_render(font_title_in, screen)
-                image_path = f'./assets/images/pokemon_front/{pokemon.get_name()}.png'
-                image = pygame.image.load(image_path)
-                button_types = Button_image(x, y, image, 2)
-                button_types.draw(screen)
+                if pokemon.get_statut() == 0:
+                    image = Image(f'./assets/images/shadow/{pokemon.get_name()}.png', (x, y))
+                    image.scale_image((150,150))
+                    image.draw_image(screen)
+                else:
+                    image_path = f'./assets/images/pokemon_front/{pokemon.get_name()}.png'
+                    image = pygame.image.load(image_path)
+                    button_types = Button_image(x, y, image, 2)
+                    button_types.draw(screen)
 
             elif len(matching_pokemon) <= 16:
                 titre = Message(200, 20, 400, 100, selected_pokemon_type, 'black', 'red')
@@ -106,10 +131,15 @@ def render_pokedex_menu():
                 y = 100 + 120 * (i // 4)
                 message_type = Message(x + 10, y + 100, 75, 15, pokemon.get_name(), 'black', 'white')
                 message_type.message_render(font_title_in, screen)
-                image_path = f'./assets/images/pokemon_front/{pokemon.get_name()}.png'
-                image = pygame.image.load(image_path)
-                button_types = Button_image(x, y, image, 1.5)
-                button_types.draw(screen)
+                if pokemon.get_statut() == 0:
+                    image = Image(f'./assets/images/shadow/{pokemon.get_name()}.png', (x, y))
+                    image.scale_image((150,150))
+                    image.draw_image(screen)
+                else:
+                    image_path = f'./assets/images/pokemon_front/{pokemon.get_name()}.png'
+                    image = pygame.image.load(image_path)
+                    button_types = Button_image(x, y, image, 1.5)
+                    button_types.draw(screen)
 
             else:
                 titre = Message(200, 10, 400, 100, selected_pokemon_type, 'black', 'red')
@@ -118,16 +148,21 @@ def render_pokedex_menu():
                 y = 80 + 80 * (i // 5)
                 message_type = Message(x, y + 70, 75, 15, pokemon.get_name(), 'black', 'white')
                 message_type.message_render(font_title_water, screen)
-                image_path = f'./assets/images/pokemon_front/{pokemon.get_name()}.png'
-                image = pygame.image.load(image_path)
-                button_types = Button_image(x, y, image, 1)
-                button_types.draw(screen)
+                if pokemon.get_statut() == 0:
+                    image = Image(f'./assets/images/shadow/{pokemon.get_name()}.png', (x, y))
+                    image.draw_image(screen)
+                else:
+                    image_path = f'./assets/images/pokemon_front/{pokemon.get_name()}.png'
+                    image = pygame.image.load(image_path)
+                    button_types = Button_image(x, y, image, 1)
+                    button_types.draw(screen)
 
             for event in pygame.event.get():
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    if button_types.draw(screen):
-                        selected_pokemon_name = pokemon.get_name()
-                        set_pokedex_render(2)
+                    if pokemon.get_statut() == 1:
+                        if button_types.draw(screen):
+                            selected_pokemon_name = pokemon.get_name()
+                            set_pokedex_render(2)
                         
         return_button = Button_rect(50, 10, 50, 60, 'Retour', 'black', 'red')
         return_button.collision(font_long, screen)
@@ -155,7 +190,6 @@ def render_pokedex_menu():
             life_point_message.message_render(font_long, screen)
             xp_point_message = Message(400, 450, 300, 40, f'Experience = {str(pokemon.get_xp())} / {str(pokemon.get_xp_max())}', 'black', 'red')
             xp_point_message.message_render(font_long, screen)
-            # print(pokemon.get_in_stockage())
             if pokemon.get_in_stockage() == 1:
                 in_stockage_message = Message(400, 450, 300, 40, f'{pokemon.get_name()} vous accomapgne!')
                 in_stockage_message.message_render(font_long, screen)

@@ -57,7 +57,7 @@ class Pokedex:
         return None    
 
     def change_statut(self, pokemon_name):
-        json_file_path = "game/games_classes/pokedex.json"
+        json_file_path = "game/games_classes/save.json"
         with open(json_file_path, "r") as file:
             data = json.load(file)
         for pokemon_data in data["pokemon_list"]:
@@ -81,6 +81,48 @@ class Pokedex:
         return matching_pokemon
 
 
+
+
+
+    def change_statistics(self, pokemon_name, xp, xp_max):
+        json_file_path = "game/games_classes/save.json"
+        with open(json_file_path, "r") as file:
+            data = json.load(file)
+        for pokemon_data in data["pokemon_list"]:
+            if pokemon_data["name"] == pokemon_name:
+                pokemon_data["level"] += 1
+                pokemon_data["power_attack"] += 1
+                pokemon_data["defense"] += 1
+                pokemon_data["speed"] += 1
+                pokemon_data["pv_max"] += 1
+                pokemon_data["pv"] += 1
+                pokemon_data["xp_max"] = xp_max
+                pokemon_data["xp"] = xp 
+        with open(json_file_path, "w") as file:
+            json.dump(data, file, indent=2)
+
+
+    def change_stat_xp(self, pokemon_name):
+        json_file_path = "game/games_classes/save.json"
+        with open(json_file_path, "r") as file:
+            data = json.load(file)
+        for pokemon_data in data["pokemon_list"]:
+            if pokemon_data["name"] == pokemon_name:
+                pokemon_data["xp"] += 100
+        with open(json_file_path, "w") as file:
+            json.dump(data, file, indent=2)
+
+    def change_stat_pv(self, pokemon_name, pv):
+        json_file_path = "game/games_classes/save.json"
+        with open(json_file_path, "r") as file:
+            data = json.load(file)
+        for pokemon_data in data["pokemon_list"]:
+            if pokemon_data["name"] == pokemon_name:
+                pokemon_data["pv"] = pv
+        with open(json_file_path, "w") as file:
+            json.dump(data, file, indent=2)
+
+
 # pokedex = Pokedex()
 # pokedex.load_from_json("game/games_classes/pokedex.json")
 # pokedex.print_pokemon_meet()
@@ -90,3 +132,8 @@ class Pokedex:
 # if random_pokemon:
 #     print("Randomly Chosen Pokemon:")
 #     random_pokemon.informations_pokemon()
+
+
+
+
+

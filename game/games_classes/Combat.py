@@ -177,6 +177,7 @@
 
 import random
 from .Pokemon import *
+from .Pokedex import *
 from graphics.graphics_attributes import *
 
 class Combat:
@@ -322,6 +323,8 @@ class Combat:
             return self.__pokemon1.get_name()
         else:
             return self.__pokemon1.get_name()
+        
+        self.save_new_stats(self.__pokemon1)
 
     # def winner_trainer(self):
     #     if self.pokemon1.get_pv() <= 0:

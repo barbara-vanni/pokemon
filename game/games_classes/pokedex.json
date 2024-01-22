@@ -822,7 +822,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/akwakwak.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1699,9 +1699,9 @@
       "name": "Sasuke",
       "types": "dark",
       "level": 1,
-      "power_attack": 100,
-      "defense": 100,
-      "speed": 100,
+      "power_attack": 170,
+      "defense": 170,
+      "speed": 150,
       "pv": 100,
       "pv_max": 100,
       "xp": 0,
@@ -2232,7 +2232,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/saquedeneu.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     }
   ]

@@ -71,7 +71,7 @@ def render_combat_pokemon():
             attack_normal = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} à réussi")
             draw_text(screen, attack_normal, font_ingame, rectangle, 490, 60, max_lines=3)
         elif combat_begin.get_attack_chance_ratio() == 2:
-            attack_critical = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} est \n un coup critique")
+            attack_critical = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} est \n\n un coup critique")
             draw_text(screen, attack_critical, font_ingame, rectangle, 490, 60, max_lines=3)
         image = pygame.image.load('./assets/images/forward.png')
         suite_button = Button_image(680, 485, image, 1) 
@@ -82,13 +82,13 @@ def render_combat_pokemon():
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
         if combat_begin.get_affinity_values() < 1:
-            efficiency_none = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque.\n\n   C'est ne pas très efficace.")
+            efficiency_none = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque. \n\n C'est ne pas très efficace.")
             draw_text(screen, efficiency_none, font_ingame, rectangle, 490, 60, max_lines=3)
         elif combat_begin.get_affinity_values() == 1:
             efficiency = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque")
             draw_text(screen, efficiency, font_ingame, rectangle, 490, 60, max_lines=3)
         elif combat_begin.get_affinity_values() > 1 :
-            efficiency_top = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque. \n\n   C'est très efficace")
+            efficiency_top = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque. \n\n C'est très efficace")
             draw_text(screen, efficiency_top, font_ingame, rectangle, 490, 60, max_lines=3)
         image = pygame.image.load('./assets/images/forward.png')
         suite_button = Button_image(680, 485, image, 1)

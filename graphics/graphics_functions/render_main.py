@@ -4,6 +4,7 @@ from graphics.graphics_classes.Button import *
 from graphics.graphics_functions.render_new_game import *
 import graphics.graphics_functions.render_combat as render_combat
 from graphics.graphics_functions.render_main import *
+import graphics.graphics_functions.render_pokedex_menu as render_pokedex
 from game.current_render import *
 import game.current_render as Current_render
 from game.games_attributes import *
@@ -20,7 +21,7 @@ def render_main_menu():
     if continue_button.render(screen):
         Current_render.set_state(render_combat.render_combat_pokemon)  
     if option_button.render(screen):
-        Current_render.set_state(render_main_menu)
+        Current_render.set_state(render_pokedex.render_pokedex_menu)
     
 
     # new_game = Button_rect(200, 250, 400, 80, 'New Game', 'white', 'blue')

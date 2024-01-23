@@ -6,14 +6,14 @@ from graphics import *
 continuer = True
 attack_button = None
 
-while running:
+# while running:
 
     # universal event handler ( à mettre seulement ici !)
-    if pygame.event.Event(pygame.QUIT) in pygame.event.get():
-        running = False
+    # if pygame.event.Event(pygame.QUIT) in pygame.event.get():
+    #     running = False
 
     # get_state (who is a function) returns the function to be executed
-    get_state()()
+    # get_state()()
     # event handler
     # for event in pygame.event.get():
     #     if event.type == pygame.MOUSEBUTTONDOWN:
@@ -36,10 +36,11 @@ while running:
     #     if event.type == pygame.QUIT:
     #         running = False
 
-# continuer = True
-# attack_button = None
+continuer = True
+attack_button = None
 
-# while continuer:
+while continuer:
+    render_combat_pokemon()
 #     if get_menu() == 0:
 #         new_game, continu, option = render_main()
 #     elif get_menu() == 1:

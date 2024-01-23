@@ -177,11 +177,13 @@
 
 import random
 from .Pokemon import *
+from .Pokedex import *
 from graphics.graphics_attributes import *
+from graphics.graphics_classes import *
 
 class Combat:
-    def __init__(self, pokemon1, pokemon2, attack_chance_ratio, affinity_values, player_list, computer_list, states):
-        self.__pokemon_player = pokemon1
+    def __init__(self, pokemon1, pokemon2, attack_chance_ratio, affinity_values, player_list, computer_list, states, render_message):
+        self.__pokemon_player = pokemon1.get_name()
         self.__pokemon_computer = pokemon2
         self.__pokemon1 = pokemon1
         self.__pokemon2 = pokemon2
@@ -190,6 +192,8 @@ class Combat:
         self.__player_list = player_list
         self.__computer_list = computer_list
         self.__states = states
+        self.__render_message = render_message
+        # self.__turn = 1
 
     def get_pokemon_player(self):
         return self.__pokemon_player
@@ -232,11 +236,18 @@ class Combat:
     def set_states(self, states):
         self.__states = states
 
+    def get_render_message(self):
+        return self.__render_message
+    
+    def set_render_message(self, render_message):
+        self.__render_message = render_message
+
     def first_hit(self):
         if self.__pokemon1.get_speed() < self.__pokemon2.get_speed():
             temp = self.__pokemon1
             self.__pokemon1 = self.__pokemon2
             self.__pokemon2 = temp
+        return self.__pokemon1.get_name()
 
     def affinity(self):
         type_import = Type(pokemon_types, pokemon_matrice)
@@ -251,6 +262,12 @@ class Combat:
             return None
         affinity_value = float(type_import.get_matrice()[index1][index2])
         self.set_affinity_values(affinity_value)
+        if self.__affinity_values < 1:
+            self.__render_message = f"{self.__pokemon1.get_name()} lance une attaque. C'est ne pas très efficace."
+        elif self.__affinity_values == 1:
+            self.__render_message = f"{self.__pokemon1.get_name()} lance une attaque"
+        elif self.__affinity_values > 1 :
+            self.__render_message = f"{self.__pokemon1.get_name()} lance une attaque, C'est très efficace"
 
         return affinity_value
 
@@ -280,11 +297,10 @@ class Combat:
         self.__pokemon2.set_pv(self.__pokemon2.get_pv() - damage)
       
     def attack(self):
-
         if self.get_attack_chance_ratio() == 1:
             self.pv_remaining()
         elif self.get_attack_chance_ratio() == 2:
-            damage = self.calculate_damage() / 0.5
+            damage = self.calculate_damage() * 1.5
             self.__pokemon2.set_pv(self.__pokemon2.get_pv() - damage)
 
     def level_up(self, pokemon):
@@ -296,21 +312,17 @@ class Combat:
         pokemon.set_pv(pokemon.get_pv() + 1)
         pokemon.set_xp(self.__pokemon1.get_xp() - self.__pokemon1.get_xp_max())
         pokemon.set_xp_max(int(pokemon.get_xp_max() * 1.75))
+        self.__render_message = f"{self.__pokemon2.get_name()} est K.O. Félication {self.__pokemon1.get_name()} est passé lvl {self.__pokemon1.get_level()} et son xp est {self.__pokemon1.get_xp()} / {self.__pokemon1.get_xp_max()}"
 
     def gain_xp(self):
         if self.__pokemon2 != self.__pokemon_player:
             self.__pokemon1.set_xp(self.__pokemon1.get_xp() + 100)
+            self.__render_message = f"{self.get_pokemon2().get_name()} est K.O. Félication {self.get_pokemon1().get_name()} est passé lvl {self.get_pokemon1().get_level()} et son xp est {self.get_pokemon1().get_xp()} / {self.get_pokemon1().get_xp_max()}"
             if self.__pokemon1.get_xp() >= self.__pokemon1.get_xp_max():
                 self.level_up(self.__pokemon1)
                 return True
             return False
                 
-    # def end_game(self):
-    #     if self.__pokemon2.get_pv() <= 0 and self.__pokemon_list_2 == []:
-    #         self.gain_xp()
-    #         return self.__pokemon1.get_name()
-    #     else:
-    #         return self.__pokemon1.get_name()
     def end_game(self):
         if self.__pokemon2.get_pv() <= 0:
             return True

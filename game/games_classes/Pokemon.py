@@ -116,18 +116,5 @@ class Pokemon(Type):
         print(f"Level : {self._level}\n")
 
         
-    def level_xp(self):
-        if self._xp >= self._xp_max:
-            self._level += 1
-            self._xp = 0
-            self._xp_max = int(self._xp * 1.75)
-            print(f"Level up ! Level : {self._level}")
 
-    def level_up(self):
-        self.set_level(self.get_level() + 1)
-        self._power_attack += 1
-        self._defense += 1
-        self._speed += 1
-        self._pv_max += 1
-        print(f"{self._name} leveled up to Level {self._level}!")
 

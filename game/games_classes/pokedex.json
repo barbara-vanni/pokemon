@@ -273,7 +273,7 @@
     {
       "name": "Rattata",
       "types": "normal",
-      "level": 1,
+      "level": 50,
       "power_attack": 56,
       "defense": 35,
       "speed": 72,
@@ -436,7 +436,7 @@
       "in_stockage": 0
     },
     {
-      "name": "Nidorana",
+      "name": "Nidorina",
       "types": "poison",
       "level": 1,
       "power_attack": 47,
@@ -822,7 +822,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/akwakwak.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1021,7 +1021,7 @@
       "in_stockage": 0
     },
     {
-      "name": "Ch\u00c3\u00a9tiflor",
+      "name": "Chetiflor",
       "types": "grass",
       "level": 1,
       "power_attack": 75,
@@ -1699,9 +1699,9 @@
       "name": "Sasuke",
       "types": "dark",
       "level": 1,
-      "power_attack": 100,
-      "defense": 100,
-      "speed": 100,
+      "power_attack": 170,
+      "defense": 170,
+      "speed": 150,
       "pv": 100,
       "pv_max": 100,
       "xp": 0,
@@ -1981,7 +1981,7 @@
       "in_stockage": 0
     },
     {
-      "name": "\u00c3\u2030voli",
+      "name": "Evoli",
       "types": "normal",
       "level": 1,
       "power_attack": 55,
@@ -2071,7 +2071,7 @@
       "in_stockage": 0
     },
     {
-      "name": "\u00c3\u2030lektek",
+      "name": "Elektek",
       "types": "electric",
       "level": 1,
       "power_attack": 83,
@@ -2232,7 +2232,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/saquedeneu.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     }
   ]

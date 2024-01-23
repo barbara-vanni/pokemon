@@ -1,4 +1,4 @@
-# import pygame
+import pygame
 
 # class Button_image():
 #     def __init__(self, x, y, image, scale):

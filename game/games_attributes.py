@@ -55,4 +55,4 @@ def set_pokemon2(npokemon2):
     global pokemon2
     pokemon2 = npokemon2
 
-# combat_begin = Combat(get_pokemon1(), get_pokemon2(), 0, 0, [], [], 0)
+combat_begin = Combat(get_pokemon1(), get_pokemon2(), 0, 0, [], [], 0)

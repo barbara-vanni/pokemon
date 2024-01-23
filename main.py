@@ -10,13 +10,13 @@ running = True
 
 running = True
 while running:
-
+    render_choose_fight(get_pokemon1())
     # universal event handler ( à mettre seulement ici !)
     if pygame.event.Event(pygame.QUIT) in pygame.event.get():
         running = False
 
-    # get_state (who is a function) returns the function to be executed
-    get_state()()
+    # # get_state (who is a function) returns the function to be executed
+    # get_state()()
 
 
     # event handler

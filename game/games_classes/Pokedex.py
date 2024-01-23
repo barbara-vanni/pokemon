@@ -1,3 +1,5 @@
+import pygame
+import sys
 import json
 import random
 from game.games_classes.Pokemon import *
@@ -5,7 +7,7 @@ from game.games_classes.Pokemon import *
 class Pokedex:
     def __init__(self):
         self.pokemon_list = []
-    
+
     def load_from_json(self, json_file_path):
         with open(json_file_path, "r") as file:
             data = json.load(file)
@@ -134,6 +136,6 @@ class Pokedex:
 #     random_pokemon.informations_pokemon()
 
 
-
-
+    
+    
 

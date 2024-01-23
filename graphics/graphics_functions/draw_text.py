@@ -27,6 +27,8 @@ def draw_text(screen, text_content, font_long, rectangle, y_begin, y_delta, max_
     y = y_begin
     for line in lines[-max_lines:]:
         text = font_long.render(line, True, 'black')
+        
+        x_position = rectangle.centerx - text.get_width() // 2
         text_rect = text.get_rect(center=(rectangle.centerx, y))
         text.set_clip(text_rect)
         screen.blit(text, text_rect)
@@ -35,9 +37,4 @@ def draw_text(screen, text_content, font_long, rectangle, y_begin, y_delta, max_
     clock.tick(2)
     num_words += 1
 
-# def erase_text(screen, rectangle, y_begin, y_delta, max_lines):
-#     erase_surface = pygame.Surface((rectangle.width, max_lines * y_delta))
-#     erase_surface.fill((255, 255, 255)) 
 
-#     text_rect = erase_surface.get_rect(center=(rectangle.centerx, y_begin))
-#     screen.blit(erase_surface, text_rect)

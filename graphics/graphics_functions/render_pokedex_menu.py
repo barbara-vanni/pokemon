@@ -220,6 +220,8 @@ def render_pokedex_menu():
 
 def return_(screen):
     if back_button.render(screen):
+        # if get_pokedex_render() == 0:
+        #     # set_menu(1)
         if get_pokedex_render() == 1:
             set_pokedex_render(0) 
         elif get_pokedex_render() == 2:

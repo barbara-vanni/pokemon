@@ -1,5 +1,4 @@
 from graphics.graphics_functions import render_main
-# from graphics.graphics_functions import render_combat
 from graphics.graphics_classes.Button import *
 from graphics.graphics_attributes import *
 

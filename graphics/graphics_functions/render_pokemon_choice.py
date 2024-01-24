@@ -55,7 +55,7 @@ def pokemon_1_action():
 
 def pokemon_2_action():
     screen.fill('black')
-    pokemon_2 = Image('./assets/images/schroumfameche.png', (0, 0))
+    pokemon_2 = Image('./assets/images/schroumameche.png', (0, 0))
     pokemon_2.draw_image(screen)
     if back_button.render(screen):
         Current_render.set_state(state_pokemon_choices)

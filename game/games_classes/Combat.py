@@ -1,8 +1,6 @@
 import random
 from .Pokemon import *
 from .Pokedex import *
-# from graphics.graphics_attributes import *
-# from graphics.graphics_classes import *
 from game.games_attributes import *
 
 class Combat:

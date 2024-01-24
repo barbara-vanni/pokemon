@@ -5,8 +5,6 @@ from game.current_render import *
 import game.current_render as Current_render
 from graphics.graphics_functions import draw_text
 
-
-
 state = 'pokemon_choices'
 
 def state_pokemon_choices():
@@ -55,7 +53,7 @@ def pokemon_1_action():
 
 def pokemon_2_action():
     screen.fill('black')
-    pokemon_2 = Image('./assets/images/schroumfameche.png', (0, 0))
+    pokemon_2 = Image('./assets/images/schroumameche.png', (0, 0))
     pokemon_2.draw_image(screen)
     if back_button.render(screen):
         Current_render.set_state(state_pokemon_choices)
@@ -66,6 +64,3 @@ def pokemon_3_action():
     pokemon_3.draw_image(screen)
     if back_button.render(screen):
         Current_render.set_state(state_pokemon_choices)
-
-
-    

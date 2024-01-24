@@ -32,9 +32,9 @@ def render_choose_fight(pokemon1):
         if button_one.render(screen):
             Current_render.set_state(render_new_game)
         if button_two.render(screen):
-            Current_render.set_state(render_combat.render_combat)
+            Current_render.set_state(render_combat)
         if button_three.render(screen):
-            Current_render.set_state(render_combat.render_combat)
+            Current_render.set_state(render_combat)
         if button_four.render(screen):
             Current_render.set_state(render_combat.render_combat)
         if button_five.render(screen):

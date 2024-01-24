@@ -10,7 +10,8 @@ running = True
 
 running = True
 while running:
-    render_choose_fight(get_pokemon1())
+    # render_choose_fight(get_pokemon1())
+    render_combat_pokemon()
     # universal event handler ( à mettre seulement ici !)
     if pygame.event.Event(pygame.QUIT) in pygame.event.get():
         running = False

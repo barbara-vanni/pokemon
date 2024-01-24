@@ -62,63 +62,63 @@ def render_combat_pokemon():
         border_option_message.draw_image(screen)
         if combat_begin.get_attack_chance_ratio() == 0:
             attack_missed = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} à échoué")
-            draw_text(screen, attack_missed, font_long, rectangle, 440, 60, max_lines=3)
+            draw_text(screen, attack_missed, font_ingame, rectangle, 490, 60, max_lines=3)
         elif combat_begin.get_attack_chance_ratio() == 1:
             attack_normal = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} à réussi")
-            draw_text(screen, attack_normal, font_long, rectangle, 440, 60, max_lines=3)
+            draw_text(screen, attack_normal, font_ingame, rectangle, 490, 60, max_lines=3)
         elif combat_begin.get_attack_chance_ratio() == 2:
             attack_critical = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} est un coup critique")
-            draw_text(screen, attack_critical, font_long, rectangle, 440, 60, max_lines=3)
+            draw_text(screen, attack_critical, font_ingame, rectangle, 490, 60, max_lines=3)
         image = pygame.image.load('./assets/images/forward.png')
-        suite_button = Button_image(700, 530, image, 1)
+        suite_button = Button_image(680, 485, image, 1)
         suite_button.draw(screen)
     
     elif get_combat() == 2:
-        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
+        rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
         if combat_begin.get_affinity_values() < 1:
             efficiency_none = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque. C'est ne pas très efficace.")
-            draw_text(screen, efficiency_none, font_long, rectangle, 440, 60, max_lines=3)
+            draw_text(screen, efficiency_none, font_ingame, rectangle, 490, 60, max_lines=3)
         elif combat_begin.get_affinity_values() == 1:
             efficiency = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque")
-            draw_text(screen, efficiency, font_long, rectangle, 440, 60, max_lines=3)
+            draw_text(screen, efficiency, font_ingame, rectangle, 490, 60, max_lines=3)
         elif combat_begin.get_affinity_values() > 1 :
             efficiency_top = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque, C'est très efficace")
-            draw_text(screen, efficiency_top, font_long, rectangle, 440, 60, max_lines=3)
+            draw_text(screen, efficiency_top, font_ingame, rectangle, 490, 60, max_lines=3)
         image = pygame.image.load('./assets/images/forward.png')
-        suite_button = Button_image(700, 530, image, 1)
+        suite_button = Button_image(680, 485, image, 1)
         suite_button.draw(screen)
     
     elif get_combat() == 3:    
-        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
+        rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
         dead_text = (f"{get_pokemon2().get_name()} est K.O. {get_pokemon1().get_name()} à maintenant {pokemon1.get_xp()} / {pokemon1.get_xp_max()} xp")
-        draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
+        draw_text(screen, dead_text, font_ingame, rectangle, 490, 60, max_lines=3)
         image = pygame.image.load('./assets/images/forward.png')
-        suite_button = Button_image(700, 530, image, 1)
+        suite_button = Button_image(680, 485, image, 1)
         suite_button.draw(screen)
     
     elif get_combat() == 4:   
-        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
+        rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
         dead_text = (f"{get_pokemon2().get_name()} est K.O. Félication {get_pokemon1().get_name()} est passé lvl {pokemon1.get_level()} et son xp est {pokemon1.get_xp()} / {pokemon1.get_xp_max()}")
         dead_text = (f"{get_pokemon2().get_name()} est K.O. Félication {get_pokemon1().get_name()} est passé lvl {get_pokemon1().get_level()} et son xp est {get_pokemon1().get_xp()} / {get_pokemon1().get_xp_max()}")
-        draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
+        draw_text(screen, dead_text, font_ingame, rectangle, 490, 60, max_lines=3)
         image = pygame.image.load('./assets/images/forward.png')
-        suite_button = Button_image(700, 530, image, 1)
+        suite_button = Button_image(680, 485, image, 1)
         suite_button.draw(screen)
 
     elif get_combat() == 5:
-        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
+        rectangle = Rectangle.draw_rectangle(Rectangle(30, 430, 740, 140))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
         dead_text = (f"Ton pokemon {get_pokemon1().get_name()} a succombé, il est maintenant lvl {get_pokemon1().get_level()} et reppase à {get_pokemon1().get_xp()}")
-        draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
+        draw_text(screen, dead_text, font_ingame, rectangle, 490, 60, max_lines=3)
         image = pygame.image.load('./assets/images/forward.png')
-        suite_button = Button_image(700, 530, image, 1)
+        suite_button = Button_image(600, 485, image, 1)
         suite_button.draw(screen)
 
 

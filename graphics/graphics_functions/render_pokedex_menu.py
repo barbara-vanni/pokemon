@@ -1,5 +1,6 @@
 import pygame
 from game import *
+from graphics.graphics_classes.Button import *
 from graphics import *
 from graphics.graphics_attributes import *
 
@@ -8,17 +9,19 @@ selected_pokemon_name = ""
 
 def render_pokedex_menu():
     screen.fill((255, 255, 255))
+    bcg_pokedex = Image('./assets/images/pokedex_pokemon_groupe.png', (0,0))
+    bcg_pokedex.draw_image(screen)
     global selected_pokemon_type, selected_pokemon_name
     if get_pokedex_render() == 0:
-        titre = Message(200, 20, 400, 100, 'POKEDEX', 'black', 'red')
+        titre = Message(200, 30, 400, 10, 'POKEDEX', 'black', 'white')
         titre.message_render(font_button_menu, screen)
 
         buttons = []
         for i in range(4):
-            x = 175 + 120 * i
+            x = 285 + 130 * i
 
             for j in range(4):
-                y = 150 + 110 * j
+                y = 85 + 110 * j
                 index = i * 4 + j + 1
                 image_path = f'./assets/images/type/badges_{str(index)}.jpg'
                 image = pygame.image.load(image_path)
@@ -177,8 +180,8 @@ def render_pokedex_menu():
                         selected_pokemon_name = pokemon.get_name()
                         set_pokedex_render(2)
 
-                        
         return_(screen)
+        
     
     if get_pokedex_render() == 2:
         screen.fill((255, 220, 250))
@@ -209,15 +212,13 @@ def render_pokedex_menu():
             else:
                 add_to_stockage_button = Button_rect(400, 500, 300, 80, 'Ajouter au stockage', 'black', 'red')
                 add_to_stockage_button.collision(font_long, screen)
-            return_(screen)
+        return_(screen)
 
 def return_(screen):
-    back_button = Button(720, 560, "BACK", font_ingame, 1, (0, 0, 0), (0, 255, 0))
-    if back_button.draw(screen):
-        if get_pokedex_render == 1:
+    if back_button.render(screen):
+        if get_pokedex_render() == 1:
             set_pokedex_render(0) 
-        elif get_pokedex_render == 2:
+        elif get_pokedex_render() == 2:
             set_pokedex_render(1)
-    return get_pokedex_render()
 
 

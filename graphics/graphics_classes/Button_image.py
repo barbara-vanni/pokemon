@@ -31,7 +31,7 @@ class Button_image():
 
         return self.clicked
 
-# from .Image import *
+from .Image import *
 
 # class Button_image(Image):
 #     def __init__(self, image, image_pos):

@@ -16,11 +16,13 @@ color = (255,245,255)
 
 def render_new_game():
     global active, user_text
+    global active, user_text
     bcg_new_game = Image('./assets/images/professor_chen_classico.png', (0, 0))
     bcg_new_game.draw_image(screen)
     enter_name = Message(300, 100, 600, 60, 'Who are you ?', 'white', 'white')
     enter_name.message_render(font_long, screen)
 
+    input_box_state()
     input_box_state()
     # Input box for name user
     # input_rect = pygame.Rect(100, 450, 200, 50)
@@ -39,7 +41,26 @@ def render_new_game():
                 active = True
             else:
                 active = False
+            if input_rect.collidepoint(event.pos):
+                active = True
+            else:
+                active = False
         if event.type == pygame.KEYDOWN:
+            if active:
+                if event.key == pygame.K_BACKSPACE:
+                    # get text input from 0 to -1 i.e. end.
+                    user_text = user_text[:-1]
+                elif event.key == pygame.K_RETURN:
+                    # Save the entered name to the JSON file when Enter key is pressed
+                    print(user_text)
+                    # save_data(user_text, 0)  
+                else:
+                    user_text += event.unicode
+                    if event.key == pygame.K_SPACE:
+                        game_paused = True
+        if valider_new_game_button.render(screen):
+            Current_render.set_state(state_pokemon_choices)
+
             if active:
                 if event.key == pygame.K_BACKSPACE:
                     # get text input from 0 to -1 i.e. end.

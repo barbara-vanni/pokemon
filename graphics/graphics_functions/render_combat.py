@@ -7,8 +7,10 @@ from game.games_classes.Combat import Combat
 
 turn_number = 0
 
+
 def render_combat_pokemon():
     global turn_number
+
 
     screen.fill((255,255,255))
     bcg_combat = Image('./assets/images/battlegrass.png', (0,0))
@@ -26,6 +28,7 @@ def render_combat_pokemon():
     pygame.draw.rect(screen, 'white', (450, 360, 280, 10), 0, 15)
     pygame.draw.rect(screen, 'blue', (450, 360, get_pokemon1().get_pv() * 280 / get_pokemon1().get_pv_max(), 10), 0, 15)
 
+
     # Mise en place des informations graphiques pour le pokemon du vilain
     pokemon_bad = Image(get_pokemon2().get_image_front(), (440, 0))
     pokemon_bad.scale_image((300, 300))
@@ -40,6 +43,7 @@ def render_combat_pokemon():
     pygame.draw.rect(screen, 'blue', (40, 110, get_pokemon2().get_pv() * 280 / get_pokemon2().get_pv_max(), 10), 0, 15)
     # print(get_pokemon2().get_name(), end='\r')
 
+
     #Menu de sélection de combat
     if get_combat() == 0:
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
@@ -52,6 +56,7 @@ def render_combat_pokemon():
         flee_button.collision(font_ingame, screen)
         new_pokemon_button = Button_rect(410, 510, 350, 30, "CHANGE POKEMON", 'white', 'black')
         new_pokemon_button.collision(font_ingame, screen)
+
 
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -77,9 +82,11 @@ def render_combat_pokemon():
             draw_text(screen, attack_critical, font_long, rectangle, 440, 60, max_lines=3)
         image = pygame.image.load('./assets/images/forward.png')
         suite_button = Button_image(700, 530, image, 1)
+        suite_button = Button_image(700, 530, image, 1)
         suite_button.draw(screen)
     
     elif get_combat() == 2:
+        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
@@ -94,19 +101,24 @@ def render_combat_pokemon():
             draw_text(screen, efficiency_top, font_long, rectangle, 440, 60, max_lines=3)
         image = pygame.image.load('./assets/images/forward.png')
         suite_button = Button_image(700, 530, image, 1)
+        suite_button = Button_image(700, 530, image, 1)
         suite_button.draw(screen)
     
     elif get_combat() == 3:    
+        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
         dead_text = (f"{get_pokemon2().get_name()} est K.O. {get_pokemon1().get_name()} à maintenant {pokemon1.get_xp()} / {pokemon1.get_xp_max()} xp")
         draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
+        draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
         image = pygame.image.load('./assets/images/forward.png')
+        suite_button = Button_image(700, 530, image, 1)
         suite_button = Button_image(700, 530, image, 1)
         suite_button.draw(screen)
     
     elif get_combat() == 4:   
+        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)

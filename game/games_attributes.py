@@ -50,18 +50,3 @@ def get_pokemon2():
 def set_pokemon2(npokemon2):
     global pokemon2
     pokemon2 = npokemon2
-
-
-
-# pokedex = Pokedex()
-# pokedex.load_from_json("game/games_classes/pokedex.json")
-# pokedex.choose_your_name('save')
-# pokemon1 = pokedex.choose_specific_pokemon("Mewtwo")
-# pokemon2 = pokedex.choose_random_pokemon()
-# pokedex.change_statut(pokemon2.get_name(), 'save')
-# pokedex.print_pokemon_meet()
-# trainer = Trainer([], '', '')
-# trainer.choose_your_name()
-
-
-# combat_begin = Combat(get_pokemon1(), get_pokemon2(), 0, 0, [], [], 0)

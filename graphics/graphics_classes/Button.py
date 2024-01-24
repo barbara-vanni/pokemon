@@ -71,7 +71,7 @@ class Button():
 #create button instances
 new_game_button = Button(200, 250, "NEW-GAME", font_button_menu, 1, (255, 0, 0), (0, 255, 0))
 continue_button = Button(200, 350, "CONTINUE", font_button_menu, 1, (255, 0, 0), (0, 255, 0))
-option_button = Button(200, 450, "OPTION", font_button_menu, 1, (255, 0, 0), (0, 255, 0))
+option_button = Button(200, 450, "POKEDEX", font_button_menu, 1, (255, 0, 0), (0, 255, 0))
 attack_button = Button(150, 450, "FIGHT", font_ingame, 1, (0, 0, 0), (50, 50, 50))
 object_button = Button(450, 450, "OBJECT", font_ingame, 1, (0, 0, 0), (50, 50, 50))
 flee_button = Button(150, 510, "RUN", font_ingame, 1, (0, 0, 0), (50, 50, 50))

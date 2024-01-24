@@ -8,6 +8,7 @@ class Button_image():
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
         self.clicked = False
+        # self.id = id
 
     def draw(self, surface):
         action = False
@@ -19,6 +20,7 @@ class Button_image():
             if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False:
                 self.clicked = True
                 action = True
+                # render_pokedex_menu_set_type(self.type)
 
         if pygame.mouse.get_pressed()[0] == 0:
             self.clicked = False
@@ -26,7 +28,8 @@ class Button_image():
         #draw button on screen
         surface.blit(self.image, (self.rect.x, self.rect.y))
 
-        return action
+
+        return self.clicked
 
 # from .Image import *
 

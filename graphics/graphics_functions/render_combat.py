@@ -1,8 +1,9 @@
-from game import *
-from event import *
+# from game import *
 from graphics.graphics_attributes import *
 from graphics.graphics_functions import *
+from graphics.graphics_classes import *
 from game.games_attributes import *
+from game.games_classes.Combat import Combat
 
 turn_number = 0
 
@@ -57,22 +58,22 @@ def render_combat_pokemon():
                 if attack_button is not None and attack_button.get_clicked():
                     if get_combat()== 0:
                         set_combat(1)
-                        combat_begin.first_hit()
-                        combat_begin.attack_chance()
+                        Combat.combat_begin.first_hit()
+                        Combat.combat_begin.attack_chance()
 
     
     elif get_combat() == 1:
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
-        if combat_begin.get_attack_chance_ratio() == 0:
-            attack_missed = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} à échoué")
+        if Combat.combat_begin.get_attack_chance_ratio() == 0:
+            attack_missed = (f"L'attaque de {Combat.combat_begin.get_pokemon1().get_name()} à échoué")
             draw_text(screen, attack_missed, font_long, rectangle, 440, 60, max_lines=3)
-        elif combat_begin.get_attack_chance_ratio() == 1:
-            attack_normal = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} à réussi")
+        elif Combat.combat_begin.get_attack_chance_ratio() == 1:
+            attack_normal = (f"L'attaque de {Combat.combat_begin.get_pokemon1().get_name()} à réussi")
             draw_text(screen, attack_normal, font_long, rectangle, 440, 60, max_lines=3)
-        elif combat_begin.get_attack_chance_ratio() == 2:
-            attack_critical = (f"L'attaque de {combat_begin.get_pokemon1().get_name()} est un coup critique")
+        elif Combat.combat_begin.get_attack_chance_ratio() == 2:
+            attack_critical = (f"L'attaque de {Combat.combat_begin.get_pokemon1().get_name()} est un coup critique")
             draw_text(screen, attack_critical, font_long, rectangle, 440, 60, max_lines=3)
         image = pygame.image.load('./assets/images/forward.png')
         suite_button = Button_image(700, 530, image, 1)
@@ -82,14 +83,14 @@ def render_combat_pokemon():
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
-        if combat_begin.get_affinity_values() < 1:
-            efficiency_none = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque. C'est ne pas très efficace.")
+        if Combat.combat_begin.get_affinity_values() < 1:
+            efficiency_none = (f"{Combat.combat_begin.get_pokemon1().get_name()} lance une attaque. C'est ne pas très efficace.")
             draw_text(screen, efficiency_none, font_long, rectangle, 440, 60, max_lines=3)
-        elif combat_begin.get_affinity_values() == 1:
-            efficiency = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque")
+        elif Combat.combat_begin.get_affinity_values() == 1:
+            efficiency = (f"{Combat.combat_begin.get_pokemon1().get_name()} lance une attaque")
             draw_text(screen, efficiency, font_long, rectangle, 440, 60, max_lines=3)
-        elif combat_begin.get_affinity_values() > 1 :
-            efficiency_top = (f"{combat_begin.get_pokemon1().get_name()} lance une attaque, C'est très efficace")
+        elif Combat.combat_begin.get_affinity_values() > 1 :
+            efficiency_top = (f"{Combat.combat_begin.get_pokemon1().get_name()} lance une attaque, C'est très efficace")
             draw_text(screen, efficiency_top, font_long, rectangle, 440, 60, max_lines=3)
         image = pygame.image.load('./assets/images/forward.png')
         suite_button = Button_image(700, 530, image, 1)
@@ -119,47 +120,47 @@ def render_combat_pokemon():
         if event.type == pygame.MOUSEBUTTONDOWN:
             if get_combat() == 1:
                 if suite_button.draw(screen):
-                    if combat_begin.get_attack_chance_ratio() == 0:
+                    if Combat.combat_begin.get_attack_chance_ratio() == 0:
                         if turn_number == 1:
-                            combat_begin.end_attack()
+                            Combat.combat_begin.end_attack()
                             set_combat(0)
                             turn_number = 0
                         else:
                             turn_number += 1
-                            combat_begin.attack_chance()
-                            combat_begin.end_attack()
+                            Combat.combat_begin.attack_chance()
+                            Combat.combat_begin.end_attack()
                             set_combat(1)
                     else:
                         set_combat(2)
-                        combat_begin.attack_chance()
-                        combat_begin.attack()
+                        Combat.combat_begin.attack_chance()
+                        Combat.combat_begin.attack()
 
             if get_combat() == 2:
                 if suite_button.draw(screen) == True:
-                    mort = combat_begin.end_game()
+                    mort = Combat.combat_begin.end_game()
                     if mort == True:
-                        level_up = combat_begin.gain_xp()
+                        level_up = Combat.combat_begin.gain_xp()
                         if level_up == True:
-                            pokedex.change_statistics(combat_begin.get_pokemon1().get_name(), combat_begin.get_pokemon1().get_xp(), combat_begin.get_pokemon1().get_xp_max())
-                            pokedex.change_stat_pv(combat_begin.get_pokemon1().get_name(), combat_begin.get_pokemon1().get_pv())
+                            pokedex.change_statistics(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_xp(), Combat.combat_begin.get_pokemon1().get_xp_max(), 'save')
+                            pokedex.change_stat_pv(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_pv(), 'save')
                             set_combat(4)
                         else:
-                            pokedex.change_stat_pv(combat_begin.get_pokemon1().get_name(), combat_begin.get_pokemon1().get_pv())
-                            pokedex.change_stat_xp(combat_begin.get_pokemon1().get_name())
+                            pokedex.change_stat_pv(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_pv(), 'save')
+                            pokedex.change_stat_xp(Combat.combat_begin.get_pokemon1().get_name(), 'save')
                             set_combat(3)
                     else:
                         if turn_number == 1:
-                            combat_begin.end_attack()
+                            Combat.combat_begin.end_attack()
                             set_combat(0)
                             turn_number = 0
                         else:
                             turn_number += 1
-                            combat_begin.end_attack()
+                            Combat.combat_begin.end_attack()
                             set_combat(1)
 
             if get_combat() == 3 or get_combat() == 4:
                 if suite_button.draw(screen) == True:
                     set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
                     set_pokemon2(pokedex.choose_random_pokemon())
-                    combat_begin.set_pokemon2(get_pokemon2())
+                    Combat.combat_begin.set_pokemon2(get_pokemon2())
                     set_combat(0)

@@ -1,5 +1,4 @@
 import pygame
-from event import *
 from game import *
 from graphics import *
 

@@ -2,7 +2,6 @@
 Creation of Button_rect classes how allow to click on a Message.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 import pygame
-
 from .Message import *
 
 class Button_rect(Message):

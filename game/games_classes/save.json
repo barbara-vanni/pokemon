@@ -162,7 +162,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/chrysacier.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -192,7 +192,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/aspicot.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -222,7 +222,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/dardargnan.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -357,7 +357,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/arbok.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -432,7 +432,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/nidoranf.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -537,7 +537,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/melodelfe.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -567,7 +567,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/feunard.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -582,7 +582,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/rondoudou.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -642,7 +642,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/mystherbe.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -657,7 +657,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/ortide.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -732,7 +732,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/aeromite.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -762,7 +762,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/triopikeur.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -792,7 +792,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/persian.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -807,7 +807,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/psykokwak.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -852,7 +852,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/colosinge.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -867,7 +867,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/caninos.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -897,7 +897,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/ptitard.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -972,7 +972,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/alakazam.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1002,7 +1002,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/machopeur.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1077,7 +1077,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/tentacool.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1107,7 +1107,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/racaillou.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1122,7 +1122,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/gravalanch.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1152,7 +1152,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/ponyta.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1197,7 +1197,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/flagadoss.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1227,7 +1227,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/magneton.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1287,7 +1287,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/otaria.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1332,7 +1332,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/grotadmorv.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1362,7 +1362,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/crustabri.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1437,7 +1437,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/soporifik.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1497,7 +1497,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/voltorbe.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1542,7 +1542,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/noadkoko.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1572,7 +1572,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/ossatueur.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1602,7 +1602,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/tygnon.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1632,7 +1632,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/smogo.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1677,7 +1677,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/rhinoferos.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1692,7 +1692,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/leveinard.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1707,7 +1707,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/sasuke.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1729,12 +1729,12 @@
       "name": "Mewtwo",
       "types": "psychic",
       "level": 1,
-      "power_attack": 110,
+      "power_attack": 1110,
       "defense": 90,
       "speed": 130,
       "pv": 100,
       "pv_max": 100,
-      "xp": 0,
+      "xp": 100,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/mewtwo.png",
       "statut": 0,
@@ -1782,7 +1782,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/minidraco.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1947,7 +1947,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/pyroli.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1992,7 +1992,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/evoli.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -2052,7 +2052,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/scarabrute.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -2067,7 +2067,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/magmar.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -2097,7 +2097,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/lippoutou.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -2112,7 +2112,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/insecateur.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -2142,7 +2142,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/staross.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -2232,7 +2232,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/saquedeneu.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     }
   ]

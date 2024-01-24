@@ -1422,7 +1422,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/onix.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1728,14 +1728,14 @@
     {
       "name": "Mewtwo",
       "types": "psychic",
-      "level": 2,
-      "power_attack": 1111,
-      "defense": 91,
-      "speed": 131,
-      "pv": 101,
-      "pv_max": 101,
-      "xp": 50,
-      "xp_max": 262,
+      "level": 1,
+      "power_attack": 1110,
+      "defense": 90,
+      "speed": 130,
+      "pv": 100,
+      "pv_max": 100,
+      "xp": 100,
+      "xp_max": 150,
       "image_front": "assets/images/pokemon_front/mewtwo.png",
       "statut": 0,
       "in_stockage": 0
@@ -1977,7 +1977,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/aquali.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {

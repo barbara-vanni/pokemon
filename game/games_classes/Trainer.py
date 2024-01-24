@@ -45,10 +45,3 @@ class Trainer():
 
     def show_pokemon_actif(self):
         print(self.__actif_pokemon.get_name())
-
-    def choose_your_name(self):
-        self.__name_trainer = input("Choisissez votre nom de dresseur: ")
-        json_file_path = "game/games_classes/{self.__name_trainer}.json"
-        with open(json_file_path, "w") as file:
-            data = json.load(file)
-            json.dump(data, file, indent=2)

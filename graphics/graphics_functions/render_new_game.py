@@ -1,6 +1,6 @@
 from graphics.graphics_attributes import *
 from graphics.graphics_classes import *
-from game.current_render import *
+# from game.current_render import *
 from graphics.graphics_classes.Button import *
 import game.current_render as Current_render
 from graphics.graphics_functions.render_pokemon_choice import state_pokemon_choices

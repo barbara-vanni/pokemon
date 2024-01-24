@@ -207,7 +207,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/coconfort.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -627,7 +627,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/nosferalto.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {

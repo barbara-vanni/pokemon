@@ -31,6 +31,8 @@ pokedex.load_from_json("game/games_classes/pokedex.json")
 pokedex.choose_your_name('save')
 pokemon1 = pokedex.choose_specific_pokemon("Mewtwo")
 pokemon2 = pokedex.choose_random_pokemon()
+scale = pokedex.get_level_scale(pokemon1)
+pokemon2.set_level(random.randint(pokemon1.get_level() - scale, pokemon1.get_level() + scale))
 pokedex.change_statut(pokemon2.get_name(), 'save')
 pokedex.print_pokemon_meet()
 

@@ -3,6 +3,8 @@ from graphics.graphics_attributes import *
 
 clock = pygame.time.Clock()
 
+
+
 def draw_text(screen, text_content, font_long, rectangle, y_begin, y_delta, max_lines):
     global num_words
     words = text_content.split(' ')

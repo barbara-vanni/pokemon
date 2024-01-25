@@ -1,6 +1,8 @@
 import pygame
 from graphics.graphics_attributes import font_button_menu, font_ingame, font_long
 from game.mouse_click import get_mouse_click
+import time
+
 class Button():
     def __init__(self, x, y, text, font, scale, color, hover_color):
         self.text = text
@@ -8,7 +10,8 @@ class Button():
         self.color = color
         self.hover_color = hover_color
         self.clicked = False
-        self.active = True 
+        self.active = True
+        self.last_click_time = time.time()
 
         self.create_button(x, y, scale)
 
@@ -27,11 +30,15 @@ class Button():
         # self.clicked = False
         # print(pos, self.rect.collidepoint(pos))
         # if pos.collision(self.rect):
-        if self.rect.collidepoint(pos) and get_mouse_click() and self.clicked == False:
+        if self.clicked and time.time() - self.last_click_time < 0.5:
+            # self.clicked = False
+            return False
+        if self.rect.collidepoint(pos) and get_mouse_click():
             # if pygame.mouse.get_pressed()[0] == 1 and not self.clicked:
             
             # if pygame.event.Event(pygame.MOUSEBUTTONDOWN) in pygame.event.get() and not self.clicked:
             # :
+                self.last_click_time = time.time()
                 self.clicked = True
                 print(self.text + " Clicked")
                 action = True

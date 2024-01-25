@@ -1107,7 +1107,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/racaillou.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {

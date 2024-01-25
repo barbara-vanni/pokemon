@@ -81,8 +81,8 @@ class Combat:
 
 
     def attack_chance(self):
-        self.set_attack_chance_ratio(1)
-        return
+        # self.set_attack_chance_ratio(1)
+        # return
         attack_chance = random.randint(0, 100)
         if attack_chance <= 15 :
             # attack missed

@@ -74,7 +74,6 @@ def render_combat_pokemon():
             attack_critical = (f"L'attaque de {Combat.combat_begin.get_pokemon1().get_name()} est un coup critique")
             draw_text(screen, attack_critical, font_ingame, rectangle, 490, 60, max_lines=3)
         if suite_button.render(screen):
-            print("coucou")
             if Combat.combat_begin.get_attack_chance_ratio() == 0:
                 if turn_number == 1:
                     Combat.combat_begin.end_attack()
@@ -105,7 +104,6 @@ def render_combat_pokemon():
             draw_text(screen, efficiency_top, font_ingame, rectangle, 490, 60, max_lines=3)
 
         if suite_button.render(screen):
-            print("coucou2")
             if Combat.combat_begin.end_game() == True:
                 if Combat.combat_begin.gain_xp() == True:
                     pokedex.change_statistics(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_xp(), Combat.combat_begin.get_pokemon1().get_xp_max(), 'save')

@@ -146,11 +146,15 @@ def render_combat_pokemon():
         border_option_message.draw_image(screen)
         dead_text = (f"{get_pokemon2().get_name()} est K.O. {get_pokemon1().get_name()} à maintenant {pokemon1.get_xp()} / {pokemon1.get_xp_max()} xp")
         draw_text(screen, dead_text, font_ingame, rectangle, 490, 60, max_lines=3)
-        if suite_button.render(screen):
-            set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
-            set_pokemon2(pokedex.choose_random_pokemon())
-            Combat.combat_begin.set_pokemon2(get_pokemon2())
-            set_combat(0)
+        if suite_button.render(screen):  
+            if get_state_combat() == 1:
+                Current_render.set_state(render_choose_fight.render_choose_fight)
+            else:
+                set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
+                set_pokemon2(pokedex.choose_random_pokemon())
+                Combat.combat_begin.set_pokemon2(get_pokemon2())
+                set_combat(0)
+
     
     elif get_combat() == 4:   
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
@@ -158,11 +162,15 @@ def render_combat_pokemon():
         border_option_message.draw_image(screen)
         dead_text = (f"{get_pokemon2().get_name()} est K.O. Félication {get_pokemon1().get_name()} est passé lvl {pokemon1.get_level()} et son xp est {pokemon1.get_xp()} / {pokemon1.get_xp_max()}")
         draw_text(screen, dead_text, font_ingame, rectangle, 490, 60, max_lines=3)
-        if suite_button.render(screen):
-            set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
-            set_pokemon2(pokedex.choose_random_pokemon())
-            Combat.combat_begin.set_pokemon2(get_pokemon2())
-            set_combat(0)
+        if suite_button.render(screen):  
+            if get_state_combat() == 1:
+                Current_render.set_state(render_choose_fight.render_choose_fight)
+            else:
+                set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
+                set_pokemon2(pokedex.choose_random_pokemon())
+                Combat.combat_begin.set_pokemon2(get_pokemon2())
+                set_combat(0)
+
     
     
 

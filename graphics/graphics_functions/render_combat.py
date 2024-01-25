@@ -113,9 +113,7 @@ def render_combat_pokemon():
                     if Combat.combat_begin.get_pokemon2().get_name() == Combat.combat_begin.get_pokemon_player():
                         pokedex.change_statistics_down(get_pokemon1(), 'save')
                         pokedex.change_stat_pv(get_pokemon1().get_name(), get_pokemon1().get_pv_max() - 1, 'save')
-                        print(get_combat())
                         set_combat(5)
-                        print(get_combat())
                     pokedex.change_stat_pv(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_pv(), 'save')
                     pokedex.change_stat_xp(Combat.combat_begin.get_pokemon1().get_name(), 'save')
                     set_combat(3)
@@ -160,7 +158,6 @@ def render_combat_pokemon():
             set_combat(0)
 
     elif get_combat(5):
-        print('coucou')
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)

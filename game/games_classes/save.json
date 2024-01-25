@@ -342,7 +342,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/abo.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1734,7 +1734,7 @@
       "speed": 130,
       "pv": 100,
       "pv_max": 100,
-      "xp": 100,
+      "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/mewtwo.png",
       "statut": 0,
@@ -2067,7 +2067,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/magmar.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {

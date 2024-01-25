@@ -116,8 +116,3 @@ class Pokedex:
                 pokemon_data["pv"] = pv
         with open(json_file_path, "w") as file:
             json.dump(data, file, indent=2)
-
-
-
-
-

@@ -155,9 +155,9 @@ def render_combat_pokemon():
                 set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
                 set_pokemon2(pokedex.choose_random_pokemon())
                 scale = pokedex.get_level_scale(get_pokemon1())
-            get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
-            pokedex.stats_level_scale(get_pokemon2())
-            pokedex.change_statut(get_pokemon2().get_name(), 'save')
+                get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
+                pokedex.stats_level_scale(get_pokemon2())
+                pokedex.change_statut(get_pokemon2().get_name(), 'save')
                 set_combat(0)
 
     
@@ -174,9 +174,9 @@ def render_combat_pokemon():
                 set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
                 set_pokemon2(pokedex.choose_random_pokemon())
                 scale = pokedex.get_level_scale(get_pokemon1())
-            get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
-            pokedex.stats_level_scale(get_pokemon2())
-            pokedex.change_statut(get_pokemon2().get_name(), 'save')
+                get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
+                pokedex.stats_level_scale(get_pokemon2())
+                pokedex.change_statut(get_pokemon2().get_name(), 'save')
                 set_combat(0)
 
 

@@ -102,7 +102,7 @@
       "xp": 0,
       "xp_max": 200,
       "image_front": "assets/images/pokemon_front/carapuce.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1729,12 +1729,12 @@
       "name": "Mewtwo",
       "types": "psychic",
       "level": 1,
-      "power_attack": 1110,
+      "power_attack": 110,
       "defense": 90,
       "speed": 130,
       "pv": 100,
       "pv_max": 100,
-      "xp": 100,
+      "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/mewtwo.png",
       "statut": 0,
@@ -2067,7 +2067,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/magmar.png",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {

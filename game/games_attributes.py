@@ -32,7 +32,7 @@ pokedex.choose_your_name('save')
 pokemon1 = pokedex.choose_specific_pokemon("Mewtwo")
 pokemon2 = pokedex.choose_random_pokemon()
 pokedex.change_statut(pokemon2.get_name(), 'save')
-pokedex.print_pokemon_meet()
+# pokedex.print_pokemon_meet()
 
 #pokemon1
 def get_pokemon1():

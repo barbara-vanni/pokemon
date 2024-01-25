@@ -32,5 +32,5 @@ def draw_text(screen, text_content, font_long, rectangle, y_begin, y_delta, max_
         screen.blit(text, text_rect)
         y += y_delta
 
-    clock.tick(2)
+    # clock.tick(2)
     num_words += 1

@@ -119,6 +119,17 @@ class Pokedex:
         with open(json_file_path, "w") as file:
             json.dump(data, file, indent=2)
 
+    def get_level_scale(self, pokemon_name):
+        if pokemon_name.get_level() == 1:
+            return 0
+        elif pokemon_name.get_level() >= 40:
+            return 3
+        elif pokemon_name.get_level() >= 15:
+            return 2
+        else:
+            return 1
+
+
 
     
     

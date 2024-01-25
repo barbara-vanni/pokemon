@@ -4,6 +4,7 @@ from graphics.graphics_functions import *
 from graphics.graphics_classes import *
 from game.games_attributes import *
 from game.games_classes.Combat import Combat
+# from graphics.graphics_classes.Button import *
 
 turn_number = 0
 
@@ -11,7 +12,7 @@ turn_number = 0
 def render_combat_pokemon():
     global turn_number
 
-
+    # suite_button.clicked = False
     screen.fill((255,255,255))
     bcg_combat = Image('./assets/images/battlegrass.png', (0,0))
     bcg_combat.draw_image(screen)
@@ -41,31 +42,23 @@ def render_combat_pokemon():
     pv_bad.message_render(font_ingame, screen)
     pygame.draw.rect(screen, 'white',(40, 110, 280, 10), 0, 15)
     pygame.draw.rect(screen, 'blue', (40, 110, get_pokemon2().get_pv() * 280 / get_pokemon2().get_pv_max(), 10), 0, 15)
-    # print(get_pokemon2().get_name(), end='\r')
 
 
     #Menu de sélection de combat
     if get_combat() == 0:
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
-        attack_button = Button_rect(30, 450, 350, 30, "FIGHT !", 'white', 'black')
-        attack_button.collision(font_ingame, screen)
+        # attack_button.draw(screen)
         object_button = Button_rect(410, 450, 350, 30, "OBJECT", 'white', 'black')
         object_button.collision(font_ingame, screen)
         flee_button = Button_rect(30, 510, 350, 30, "RUN", 'white', 'black')
         flee_button.collision(font_ingame, screen)
         new_pokemon_button = Button_rect(410, 510, 350, 30, "CHANGE POKEMON", 'white', 'black')
         new_pokemon_button.collision(font_ingame, screen)
-
-
-        for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if attack_button is not None and attack_button.get_clicked():
-                    if get_combat()== 0:
-                        set_combat(1)
-                        Combat.combat_begin.first_hit()
-                        Combat.combat_begin.attack_chance()
-
+        if attack_button.render(screen):
+            set_combat(1)
+            Combat.combat_begin.first_hit()
+            Combat.combat_begin.attack_chance()
     
     elif get_combat() == 1:
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
@@ -73,109 +66,89 @@ def render_combat_pokemon():
         border_option_message.draw_image(screen)
         if Combat.combat_begin.get_attack_chance_ratio() == 0:
             attack_missed = (f"L'attaque de {Combat.combat_begin.get_pokemon1().get_name()} à échoué")
-            draw_text(screen, attack_missed, font_long, rectangle, 440, 60, max_lines=3)
+            draw_text(screen, attack_missed, font_ingame, rectangle, 490, 60, max_lines=3)
         elif Combat.combat_begin.get_attack_chance_ratio() == 1:
             attack_normal = (f"L'attaque de {Combat.combat_begin.get_pokemon1().get_name()} à réussi")
-            draw_text(screen, attack_normal, font_long, rectangle, 440, 60, max_lines=3)
+            draw_text(screen, attack_normal, font_ingame, rectangle, 490, 60, max_lines=3)
         elif Combat.combat_begin.get_attack_chance_ratio() == 2:
             attack_critical = (f"L'attaque de {Combat.combat_begin.get_pokemon1().get_name()} est un coup critique")
-            draw_text(screen, attack_critical, font_long, rectangle, 440, 60, max_lines=3)
-        image = pygame.image.load('./assets/images/forward.png')
-        suite_button = Button_image(700, 530, image, 1)
-        suite_button = Button_image(700, 530, image, 1)
-        suite_button.draw(screen)
+            draw_text(screen, attack_critical, font_ingame, rectangle, 490, 60, max_lines=3)
+        if suite_button.render(screen):
+            print("coucou")
+            if Combat.combat_begin.get_attack_chance_ratio() == 0:
+                if turn_number == 1:
+                    Combat.combat_begin.end_attack()
+                    set_combat(0)
+                    turn_number = 0
+                else:
+                    turn_number += 1
+                    Combat.combat_begin.attack_chance()
+                    Combat.combat_begin.end_attack()
+                    # set_combat(1)
+            else:
+                set_combat(2)
+                # Combat.combat_begin.attack_chance()
+                Combat.combat_begin.attack()
     
     elif get_combat() == 2:
-        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
         if Combat.combat_begin.get_affinity_values() < 1:
             efficiency_none = (f"{Combat.combat_begin.get_pokemon1().get_name()} lance une attaque. C'est ne pas très efficace.")
-            draw_text(screen, efficiency_none, font_long, rectangle, 440, 60, max_lines=3)
+            draw_text(screen, efficiency_none, font_ingame, rectangle, 490, 60, max_lines=3)
         elif Combat.combat_begin.get_affinity_values() == 1:
             efficiency = (f"{Combat.combat_begin.get_pokemon1().get_name()} lance une attaque")
-            draw_text(screen, efficiency, font_long, rectangle, 440, 60, max_lines=3)
+            draw_text(screen, efficiency, font_ingame, rectangle, 490, 60, max_lines=3)
         elif Combat.combat_begin.get_affinity_values() > 1 :
             efficiency_top = (f"{Combat.combat_begin.get_pokemon1().get_name()} lance une attaque, C'est très efficace")
-            draw_text(screen, efficiency_top, font_long, rectangle, 440, 60, max_lines=3)
-        image = pygame.image.load('./assets/images/forward.png')
-        suite_button = Button_image(700, 530, image, 1)
-        suite_button = Button_image(700, 530, image, 1)
-        suite_button.draw(screen)
+            draw_text(screen, efficiency_top, font_ingame, rectangle, 490, 60, max_lines=3)
+
+        if suite_button.render(screen):
+            print("coucou2")
+            if Combat.combat_begin.end_game() == True:
+                if Combat.combat_begin.gain_xp() == True:
+                    pokedex.change_statistics(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_xp(), Combat.combat_begin.get_pokemon1().get_xp_max(), 'save')
+                    pokedex.change_stat_pv(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_pv(), 'save')
+                    set_combat(4)
+                else:
+                    pokedex.change_stat_pv(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_pv(), 'save')
+                    pokedex.change_stat_xp(Combat.combat_begin.get_pokemon1().get_name(), 'save')
+                    set_combat(3)
+            else:
+                if turn_number == 1:
+                    Combat.combat_begin.end_attack()
+                    set_combat(0)
+                    turn_number = 0
+                else:
+                    turn_number += 1
+                    Combat.combat_begin.end_attack()
+                    set_combat(1)
     
     elif get_combat() == 3:    
-        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
         dead_text = (f"{get_pokemon2().get_name()} est K.O. {get_pokemon1().get_name()} à maintenant {pokemon1.get_xp()} / {pokemon1.get_xp_max()} xp")
-        draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
-        draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
-        image = pygame.image.load('./assets/images/forward.png')
-        suite_button = Button_image(700, 530, image, 1)
-        suite_button = Button_image(700, 530, image, 1)
-        suite_button.draw(screen)
+        draw_text(screen, dead_text, font_ingame, rectangle, 490, 60, max_lines=3)
+        if suite_button.render(screen):
+            set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
+            set_pokemon2(pokedex.choose_random_pokemon())
+            Combat.combat_begin.set_pokemon2(get_pokemon2())
+            set_combat(0)
     
     elif get_combat() == 4:   
-        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
         dead_text = (f"{get_pokemon2().get_name()} est K.O. Félication {get_pokemon1().get_name()} est passé lvl {pokemon1.get_level()} et son xp est {pokemon1.get_xp()} / {pokemon1.get_xp_max()}")
-        draw_text(screen, dead_text, font_long, rectangle, 440, 60, max_lines=3)
-        image = pygame.image.load('./assets/images/forward.png')
-        suite_button = Button_image(700, 530, image, 1)
-        suite_button.draw(screen)
-        
-    for event in pygame.event.get():
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if get_combat() == 1:
-                if suite_button.draw(screen):
-                    if Combat.combat_begin.get_attack_chance_ratio() == 0:
-                        if turn_number == 1:
-                            Combat.combat_begin.end_attack()
-                            set_combat(0)
-                            turn_number = 0
-                        else:
-                            turn_number += 1
-                            Combat.combat_begin.attack_chance()
-                            Combat.combat_begin.end_attack()
-                            set_combat(1)
-                    else:
-                        set_combat(2)
-                        Combat.combat_begin.attack_chance()
-                        Combat.combat_begin.attack()
+        draw_text(screen, dead_text, font_ingame, rectangle, 490, 60, max_lines=3)
+        if suite_button.render(screen):
+            set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
+            set_pokemon2(pokedex.choose_random_pokemon())
+            Combat.combat_begin.set_pokemon2(get_pokemon2())
+            set_combat(0)
+    
+    
 
-            if get_combat() == 2:
-                if suite_button.draw(screen) == True:
-                    mort = Combat.combat_begin.end_game()
-                    if mort == True:
-                        level_up = Combat.combat_begin.gain_xp()
-                        if level_up == True:
-                            pokedex.change_statistics(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_xp(), Combat.combat_begin.get_pokemon1().get_xp_max(), 'save')
-                            pokedex.change_stat_pv(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_pv(), 'save')
-                            set_combat(4)
-                        else:
-                            pokedex.change_stat_pv(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_pv(), 'save')
-                            pokedex.change_stat_xp(Combat.combat_begin.get_pokemon1().get_name(), 'save')
-                            set_combat(3)
-                    else:
-                        if turn_number == 1:
-                            Combat.combat_begin.end_attack()
-                            set_combat(0)
-                            turn_number = 0
-                        else:
-                            turn_number += 1
-                            Combat.combat_begin.end_attack()
-                            set_combat(1)
-
-            if get_combat() == 3 or get_combat() == 4:
-                if suite_button.draw(screen) == True:
-                    set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
-                    set_pokemon2(pokedex.choose_random_pokemon())
-                    scale = pokedex.get_level_scale(get_pokemon1())
-                    get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
-                    pokedex.stats_level_scale(get_pokemon2())
-                    pokedex.change_statut(get_pokemon2().get_name(), 'save')
-                    set_combat(0)
+    

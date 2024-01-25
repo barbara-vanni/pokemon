@@ -35,8 +35,7 @@ scale = pokedex.get_level_scale(pokemon1)
 pokemon2.set_level(random.randint(pokemon1.get_level() - scale, pokemon1.get_level() + scale))
 pokedex.stats_level_scale(pokemon2)
 pokedex.change_statut(pokemon2.get_name(), 'save')
-pokedex.print_pokemon_meet()
-# print(pokemon2.get_attack(), pokemon2.get_defense(), pokemon2.get_speed(), pokemon2.get_pv(), pokemon2.get_pv_max())
+# pokedex.print_pokemon_meet()
 
 #pokemon1
 def get_pokemon1():

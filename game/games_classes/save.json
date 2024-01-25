@@ -1728,8 +1728,8 @@
     {
       "name": "Mewtwo",
       "types": "psychic",
-      "level": 45,
-      "power_attack": 1110,
+      "level": 1,
+      "power_attack": 110,
       "defense": 90,
       "speed": 130,
       "pv": 97.0,
@@ -1857,7 +1857,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/ptera.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {

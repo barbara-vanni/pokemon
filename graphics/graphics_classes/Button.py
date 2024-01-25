@@ -1,5 +1,7 @@
 import pygame
 from graphics.graphics_attributes import font_button_menu, font_ingame, font_long
+from game.mouse_click import get_mouse_click
+import time
 
 class Button():
     def __init__(self, x, y, text, font, scale, color, hover_color):
@@ -8,7 +10,8 @@ class Button():
         self.color = color
         self.hover_color = hover_color
         self.clicked = False
-        self.active = True 
+        self.active = True
+        self.last_click_time = time.time()
 
         self.create_button(x, y, scale)
 
@@ -20,24 +23,34 @@ class Button():
     def draw(self, surface):
         surface.blit(self.image, (self.rect.x, self.rect.y))
 
+
     def check_clicked(self):
         action = False
         pos = pygame.mouse.get_pos()
-
-        if self.rect.collidepoint(pos):
-            if pygame.mouse.get_pressed()[0] == 1 and not self.clicked:
+        # self.clicked = False
+        # print(pos, self.rect.collidepoint(pos))
+        # if pos.collision(self.rect):
+        if self.clicked and time.time() - self.last_click_time < 0.5:
+            # self.clicked = False
+            return False
+        if self.rect.collidepoint(pos) and get_mouse_click():
+            # if pygame.mouse.get_pressed()[0] == 1 and not self.clicked:
+            
+            # if pygame.event.Event(pygame.MOUSEBUTTONDOWN) in pygame.event.get() and not self.clicked:
+            # :
+                self.last_click_time = time.time()
                 self.clicked = True
                 print(self.text + " Clicked")
                 action = True
-        elif pygame.mouse.get_pressed()[0] == 0 and self.clicked:
-            self.clicked = False
+        # elif pygame.mouse.get_pressed()[0] == 0 and self.clicked:
+        #     self.clicked = False
         else:
             self.clicked = False
 
-        if action:
-            self.image = self.font.render(self.text, True, self.hover_color)
-        else:
-            self.image = self.font.render(self.text, True, self.color)
+        # if action:
+        #     self.image = self.font.render(self.text, True, self.hover_color)
+        # else:
+        #     self.image = self.font.render(self.text, True, self.color)
 
         return action
 
@@ -54,7 +67,7 @@ class Button():
 #create button instances
 new_game_button = Button(200, 250, "NEW-GAME", font_button_menu, 1, (255, 0, 0), (0, 255, 0))
 continue_button = Button(200, 350, "CONTINUE", font_button_menu, 1, (255, 0, 0), (0, 255, 0))
-option_button = Button(200, 450, "OPTION", font_button_menu, 1, (255, 0, 0), (0, 255, 0))
+option_button = Button(200, 450, "POKEDEX", font_button_menu, 1, (255, 0, 0), (0, 255, 0))
 attack_button = Button(150, 450, "FIGHT", font_ingame, 1, (0, 0, 0), (50, 50, 50))
 object_button = Button(450, 450, "OBJECT", font_ingame, 1, (0, 0, 0), (50, 50, 50))
 flee_button = Button(150, 510, "RUN", font_ingame, 1, (0, 0, 0), (50, 50, 50))

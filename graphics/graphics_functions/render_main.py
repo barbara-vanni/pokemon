@@ -22,7 +22,6 @@ def render_main_menu():
 
     if continue_button.render(screen):
         Current_render.set_state(render_combat.render_combat_pokemon)  
-    # if option_button.render(screen):
-    #     Current_render.set_state(render_pokedex.render_pokedex_menu)
+
     if option_button.render(screen):
         Current_render.set_state(render_choose_fight)

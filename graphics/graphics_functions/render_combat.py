@@ -1,9 +1,12 @@
-# from game import *
+from game import *
 from graphics.graphics_attributes import *
-from graphics.graphics_functions import *
+from graphics.graphics_functions import draw_text, render_choose_fight
 from graphics.graphics_classes import *
 from game.games_attributes import *
 from game.games_classes.Combat import Combat
+import game.current_render as Current_render
+
+
 
 turn_number = 0
 
@@ -15,6 +18,21 @@ def render_combat_pokemon():
     screen.fill((255,255,255))
     bcg_combat = Image('./assets/images/battlegrass.png', (0,0))
     bcg_combat.draw_image(screen)
+
+    # for pokeball_number in range(1, 6):
+    #     if get_state_combat() == pokeball_number:
+    #         pokeball = Image(f'./assets/images/pokeball{pokeball_number}.png', (pokeball_number * 60, 0))
+    #     pokeball.draw_image(screen)
+
+    pokeball = None  # Initialisez la variable en dehors de la boucle
+
+    for pokeball_number in range(1, 6):
+        if get_state_combat() == pokeball_number:
+            pokeball = Image(f'./assets/images/pokeball{pokeball_number}.png', (pokeball_number * 60, 0))
+
+    if pokeball is not None:
+        pokeball.draw_image(screen)
+
     # Mise en place des informations graphiques pour le pokemon du dresseur 
     pokemon_good = Image(get_pokemon1().get_image_front(), (0, 130))
     pokemon_good.scale_image((300, 300))
@@ -172,7 +190,23 @@ def render_combat_pokemon():
 
             if get_combat() == 3 or get_combat() == 4:
                 if suite_button.draw(screen) == True:
-                    set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
-                    set_pokemon2(pokedex.choose_random_pokemon())
-                    Combat.combat_begin.set_pokemon2(get_pokemon2())
                     set_combat(0)
+                    set_state_combat(0)
+                    turn_number = 0
+                    if get_state_combat() == 0:
+                        set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
+                        set_pokemon2(pokedex.choose_random_pokemon())
+                        Combat.combat_begin.set_pokemon2(get_pokemon2())
+                        set_combat(0)
+                    else:
+                        render_choose_fight.render_choose_fight()
+
+            # if get_combat() == 3 or get_combat() == 4:
+            #     if suite_button.draw(screen) == True:
+            #         if get_state_combat() == 0:
+            #             set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
+            #             set_pokemon2(pokedex.choose_random_pokemon())
+            #             Combat.combat_begin.set_pokemon2(get_pokemon2())
+            #             set_combat(0)
+            #         else:
+            #             render_choose_fight.render_choose_fight()

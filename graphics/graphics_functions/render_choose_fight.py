@@ -1,9 +1,10 @@
 import pygame
 from game import Pokedex
+from game.games_attributes import *
 from graphics import *
 from graphics.graphics_attributes import *
 import graphics.graphics_functions.render_combat as render_combat
-from graphics.graphics_functions.render_combat import render_combat_pokemon
+# from graphics.graphics_functions.render_combat import render_combat_pokemon
 import game.current_render as Current_render
 from graphics.graphics_functions.render_new_game import *
 import graphics.graphics_functions.render_pokedex_menu as render_pokedex
@@ -34,21 +35,31 @@ def render_choose_fight():
 
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
+                if button_survival.render(screen):
+                    set_state_combat(0)
+                    Current_render.set_state(render_combat.render_combat_pokemon)
                 if button_one.render(screen):
+                    set_state_combat(1)
                     Current_render.set_state(render_combat.render_combat_pokemon)
                 if button_two.render(screen):
+                    set_state_combat(2)
                     Current_render.set_state(render_combat.render_combat_pokemon)
                 if button_three.render(screen):
+                    set_state_combat(3)
                     Current_render.set_state(render_combat.render_combat_pokemon)
                 if button_four.render(screen):
+                    set_state_combat(4)
                     Current_render.set_state(render_combat.render_combat_pokemon)
                 if button_five.render(screen):
+                    set_state_combat(5)
                     Current_render.set_state(render_combat.render_combat_pokemon)
                 if button_six.render(screen):
+                    set_state_combat(6)
                     Current_render.set_state(render_combat.render_combat_pokemon)
                 if button_pokedex.render(screen):
                     Current_render.set_state(render_pokedex.render_pokedex_menu) 
 
+        button_survival.render(screen)
         button_one.render(screen)
         button_two.render(screen)
         button_three.render(screen)

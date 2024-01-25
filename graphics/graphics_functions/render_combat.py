@@ -4,7 +4,7 @@ from graphics.graphics_functions import draw_text, render_choose_fight
 from graphics.graphics_classes import *
 from game.games_attributes import *
 from game.games_classes.Combat import Combat
-# from graphics.graphics_classes.Button import *
+import game.current_render as Current_render
 
 turn_number = 0
 

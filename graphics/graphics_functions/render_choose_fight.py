@@ -33,45 +33,37 @@ def render_choose_fight():
         screen.blit(image_font_choose_fight, (0, 0))  
         titre_choose_fight.message_render(font_title_in_page, screen)
 
-        for event in pygame.event.get():
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if button_survival.render(screen):
-                    set_state_combat(0)
-                    Current_render.set_state(render_combat.render_combat_pokemon)
-                if button_one.render(screen):
-                    set_state_combat(1)
-                    Current_render.set_state(render_combat.render_combat_pokemon)
-                if button_two.render(screen):
-                    set_state_combat(2)
-                    Current_render.set_state(render_combat.render_combat_pokemon)
-                if button_three.render(screen):
-                    set_state_combat(3)
-                    Current_render.set_state(render_combat.render_combat_pokemon)
-                if button_four.render(screen):
-                    set_state_combat(4)
-                    Current_render.set_state(render_combat.render_combat_pokemon)
-                if button_five.render(screen):
-                    set_state_combat(5)
-                    Current_render.set_state(render_combat.render_combat_pokemon)
-                if button_six.render(screen):
-                    set_state_combat(6)
-                    Current_render.set_state(render_combat.render_combat_pokemon)
-                if button_pokedex.render(screen):
-                    Current_render.set_state(render_pokedex.render_pokedex_menu) 
-
-        button_survival.render(screen)
-        button_one.render(screen)
-        button_two.render(screen)
-        button_three.render(screen)
-        button_four.render(screen)
-        button_five.render(screen)
-        button_six.render(screen)
-        button_pokedex.render(screen)
+        
+    if button_survival.render(screen):
+        set_state_combat(0)
+        Current_render.set_state(render_combat.render_combat_pokemon)
+    if button_one.render(screen):
+        set_state_combat(1)
+        Current_render.set_state(render_combat.render_combat_pokemon)
+    if button_two.render(screen):
+        set_state_combat(2)
+        Current_render.set_state(render_combat.render_combat_pokemon)
+    if button_three.render(screen):
+        set_state_combat(3)
+        Current_render.set_state(render_combat.render_combat_pokemon)
+    if button_four.render(screen):
+        set_state_combat(4)
+        Current_render.set_state(render_combat.render_combat_pokemon)
+    if button_five.render(screen):
+        set_state_combat(5)
+        Current_render.set_state(render_combat.render_combat_pokemon)
+    if button_six.render(screen):
+        set_state_combat(6)
+        Current_render.set_state(render_combat.render_combat_pokemon)
+    if button_pokedex.render(screen):
+        Current_render.set_state(render_pokedex.render_pokedex_menu) 
 
 
-        screen.blit(image_trainer_choose_fight, (-10, 180))
-        screen.blit(image_random_pokemon, (200, 160))
-        pygame.display.flip()
-        pygame.time.delay(2000)
+
+
+    screen.blit(image_trainer_choose_fight, (-10, 180))
+    screen.blit(image_random_pokemon, (200, 160))
+    # pygame.display.flip()
+    # pygame.time.delay(20)
 
      

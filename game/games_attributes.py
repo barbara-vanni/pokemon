@@ -34,7 +34,7 @@ pokemon2 = pokedex.choose_random_pokemon()
 scale = pokedex.get_level_scale(pokemon1)
 pokemon2.set_level(random.randint(pokemon1.get_level() - scale, pokemon1.get_level() + scale))
 pokedex.change_statut(pokemon2.get_name(), 'save')
-pokedex.print_pokemon_meet()
+# pokedex.print_pokemon_meet()
 
 #pokemon1
 def get_pokemon1():

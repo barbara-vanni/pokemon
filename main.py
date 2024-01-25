@@ -17,6 +17,10 @@ while running:
     else:
         set_mouse_click(False)
 
+    # if pygame.event.Event(pygame.MOUSEBUTTONDOWN) in events:
+    #     set_mouse_click(True)
+    # elif pygame.event.Event(pygame.MOUSEBUTTONUP) in events:
+    #     set_mouse_click(False)
 
     # # get_state (who is a function) returns the function to be executed
     get_state()()
@@ -45,3 +49,4 @@ while running:
 
 
     pygame.display.flip()
+    clock.tick(60)

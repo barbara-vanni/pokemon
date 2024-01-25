@@ -1,8 +1,5 @@
 import pygame
 from graphics.graphics_attributes import font_button_menu, font_ingame, font_long
-
-import pygame
-from graphics.graphics_attributes import font_button_menu, font_ingame, font_long
 from game.mouse_click import get_mouse_click
 import time
 

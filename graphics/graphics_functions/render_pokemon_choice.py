@@ -43,11 +43,13 @@ def render_pokemon_choices_buttons():
     return water, fire, grass
 
 
-
 def pokemon_1_action():
     screen.fill('black')
     pokemon_1 = Image('./assets/images/caratoji.png', (0, 0))
     pokemon_1.draw_image(screen)
+    pokemon_message = Message(720, 300, 30, 40, 'Caratoji', 'black', 'black')
+    pokemon_message.message_render(font_ingame, screen)
+
     if back_button.render(screen):
         Current_render.set_state(state_pokemon_choices)
 

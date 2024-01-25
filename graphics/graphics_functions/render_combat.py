@@ -1,10 +1,10 @@
-# from game import *
+from game import *
 from graphics.graphics_attributes import *
-from graphics.graphics_functions import *
+from graphics.graphics_functions import draw_text, render_choose_fight
 from graphics.graphics_classes import *
 from game.games_attributes import *
 from game.games_classes.Combat import Combat
-# from graphics.graphics_classes.Button import *
+import game.current_render as Current_render
 
 turn_number = 0
 
@@ -16,6 +16,21 @@ def render_combat_pokemon():
     screen.fill((255,255,255))
     bcg_combat = Image('./assets/images/battlegrass.png', (0,0))
     bcg_combat.draw_image(screen)
+
+    # for pokeball_number in range(1, 6):
+    #     if get_state_combat() == pokeball_number:
+    #         pokeball = Image(f'./assets/images/pokeball{pokeball_number}.png', (pokeball_number * 60, 0))
+    #     pokeball.draw_image(screen)
+
+    pokeball = None  # Initialisez la variable en dehors de la boucle
+
+    for pokeball_number in range(1, 6):
+        if get_state_combat() == pokeball_number:
+            pokeball = Image(f'./assets/images/pokeball{pokeball_number}.png', (pokeball_number * 60, 0))
+
+    if pokeball is not None:
+        pokeball.draw_image(screen)
+
     # Mise en place des informations graphiques pour le pokemon du dresseur 
     pokemon_good = Image(get_pokemon1().get_image_front(), (0, 130))
     pokemon_good.scale_image((300, 300))
@@ -133,14 +148,18 @@ def render_combat_pokemon():
         border_option_message.draw_image(screen)
         dead_text = (f"{get_pokemon2().get_name()} est K.O. {get_pokemon1().get_name()} à maintenant {pokemon1.get_xp()} / {pokemon1.get_xp_max()} xp")
         draw_text(screen, dead_text, font_ingame, rectangle, 490, 60, max_lines=3)
-        if suite_button.render(screen):
-            set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
-            set_pokemon2(pokedex.choose_random_pokemon())
-            scale = pokedex.get_level_scale(get_pokemon1())
+        if suite_button.render(screen):  
+            if get_state_combat() == 1:
+                Current_render.set_state(render_choose_fight.render_choose_fight)
+            else:
+                set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
+                set_pokemon2(pokedex.choose_random_pokemon())
+                scale = pokedex.get_level_scale(get_pokemon1())
             get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
             pokedex.stats_level_scale(get_pokemon2())
             pokedex.change_statut(get_pokemon2().get_name(), 'save')
-            set_combat(0)
+                set_combat(0)
+
     
     elif get_combat() == 4:   
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
@@ -148,14 +167,18 @@ def render_combat_pokemon():
         border_option_message.draw_image(screen)
         dead_text = (f"{get_pokemon2().get_name()} est K.O. Félication {get_pokemon1().get_name()} est passé lvl {pokemon1.get_level()} et son xp est {pokemon1.get_xp()} / {pokemon1.get_xp_max()}")
         draw_text(screen, dead_text, font_ingame, rectangle, 490, 60, max_lines=3)
-        if suite_button.render(screen):
-            set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
-            set_pokemon2(pokedex.choose_random_pokemon())
-            scale = pokedex.get_level_scale(get_pokemon1())
+        if suite_button.render(screen):  
+            if get_state_combat() == 1:
+                Current_render.set_state(render_choose_fight.render_choose_fight)
+            else:
+                set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
+                set_pokemon2(pokedex.choose_random_pokemon())
+                scale = pokedex.get_level_scale(get_pokemon1())
             get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
             pokedex.stats_level_scale(get_pokemon2())
             pokedex.change_statut(get_pokemon2().get_name(), 'save')
-            set_combat(0)
+                set_combat(0)
+
 
     elif get_combat(5):
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))

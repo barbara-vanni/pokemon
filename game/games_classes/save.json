@@ -522,7 +522,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/melofee.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -762,7 +762,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/triopikeur.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1107,7 +1107,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/racaillou.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1122,7 +1122,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/gravalanch.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1677,7 +1677,7 @@
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/rhinoferos.png",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1728,14 +1728,14 @@
     {
       "name": "Mewtwo",
       "types": "psychic",
-      "level": 9,
-      "power_attack": 109,
-      "defense": 89,
-      "speed": 129,
+      "level": 1,
+      "power_attack": 110,
+      "defense": 90,
+      "speed": 130,
       "pv": 99,
-      "pv_max": 99,
-      "xp": 0,
-      "xp_max": 1050,
+      "pv_max": 100,
+      "xp": 100,
+      "xp_max": 150,
       "image_front": "assets/images/pokemon_front/mewtwo.png",
       "statut": 0,
       "in_stockage": 0

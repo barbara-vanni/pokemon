@@ -53,3 +53,14 @@ def get_pokemon2():
 def set_pokemon2(npokemon2):
     global pokemon2
     pokemon2 = npokemon2
+
+state_combat = 0
+
+def get_state_combat():
+    global state_combat
+    return state_combat
+
+def set_state_combat(nstate_combat):
+    global state_combat
+    state_combat = nstate_combat
+    

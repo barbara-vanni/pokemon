@@ -9,6 +9,7 @@ import graphics.graphics_functions.render_pokedex_menu as render_pokedex
 from game.current_render import *
 import game.current_render as Current_render
 from game.games_attributes import *
+from graphics.graphics_functions.render_choose_fight import *
 
 
 
@@ -21,5 +22,6 @@ def render_main_menu():
 
     if continue_button.render(screen):
         Current_render.set_state(render_combat.render_combat_pokemon)  
+
     if option_button.render(screen):
-        Current_render.set_state(render_pokedex.render_pokedex_menu)
+        Current_render.set_state(render_choose_fight)

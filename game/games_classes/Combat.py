@@ -113,21 +113,10 @@ class Combat:
             damage = self.calculate_damage() * 1.5
             self.__pokemon2.set_pv(self.__pokemon2.get_pv() - damage)
 
-    def level_up(self, pokemon):
-        pokemon.set_level(pokemon.get_level() + 1)
-        pokemon.set_power_attack(pokemon.get_power_attack() + 1)
-        pokemon.set_defense(pokemon.get_defense() + 1)
-        pokemon.set_speed(pokemon.get_speed() + 1)
-        pokemon.set_pv_max(pokemon.get_pv_max() + 1)
-        pokemon.set_pv(pokemon.get_pv() + 1)
-        pokemon.set_xp(self.__pokemon1.get_xp() - self.__pokemon1.get_xp_max())
-        pokemon.set_xp_max(int(pokemon.get_xp_max() * 1.75))
-
     def gain_xp(self):
         if self.__pokemon2 != self.__pokemon_player:
             self.__pokemon1.set_xp(self.__pokemon1.get_xp() + 100)
             if self.__pokemon1.get_xp() >= self.__pokemon1.get_xp_max():
-                self.level_up(self.__pokemon1)
                 return True
             return False
                 

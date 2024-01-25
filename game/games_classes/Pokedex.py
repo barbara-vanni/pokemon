@@ -91,7 +91,7 @@ class Pokedex:
                 pokemon_data["speed"] += 1
                 pokemon_data["pv_max"] += 1
                 pokemon_data["pv"] += 1
-                pokemon_data["xp_max"] = 150 * 1.75 ** pokemon_data["level"] 
+                pokemon_data["xp_max"] = 150 + 100 * pokemon_data["level"] 
                 pokemon_data["xp"] = xp 
         with open(json_file_path, "w") as file:
             json.dump(data, file, indent=2)
@@ -139,26 +139,16 @@ class Pokedex:
         with open(json_file_path, "r") as file:
             data = json.load(file)
         for pokemon_data in data["pokemon_list"]:
-            if pokemon_data["name"] == pokemon_name:
+            if pokemon_data["name"] == pokemon_name.get_name():
                 if pokemon_data ["level"] >= 2:
-                    scale = self.get_level_scale()
+                    scale = self.get_level_scale(pokemon_name)
                     pokemon_data["level"] -= scale
                     pokemon_data["power_attack"] -= scale
                     pokemon_data["defense"] -= scale
                     pokemon_data["speed"] -= scale
                     pokemon_data["pv_max"] -= scale
-                    pokemon_data["pv"] == pokemon_data["pv_max"]
-                    pokemon_data["xp_max"] = 150 * 1.75 ** pokemon_data["level"] 
+                    pokemon_data["pv"] == pokemon_name.get_pv_max() - scale
+                    pokemon_data["xp_max"] = 150 + 100 * pokemon_data["level"] 
                     pokemon_data["xp"] = 0
                 with open(json_file_path, "w") as file:
                     json.dump(data, file, indent=2)
-
-                    
-
-
-
-
-
-
-
-

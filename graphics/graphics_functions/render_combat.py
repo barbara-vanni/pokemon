@@ -74,7 +74,6 @@ def render_combat_pokemon():
             attack_critical = (f"L'attaque de {Combat.combat_begin.get_pokemon1().get_name()} est un coup critique")
             draw_text(screen, attack_critical, font_ingame, rectangle, 490, 60, max_lines=3)
         if suite_button.render(screen):
-            print("coucou")
             if Combat.combat_begin.get_attack_chance_ratio() == 0:
                 if turn_number == 1:
                     Combat.combat_begin.end_attack()
@@ -105,13 +104,18 @@ def render_combat_pokemon():
             draw_text(screen, efficiency_top, font_ingame, rectangle, 490, 60, max_lines=3)
 
         if suite_button.render(screen):
-            print("coucou2")
             if Combat.combat_begin.end_game() == True:
                 if Combat.combat_begin.gain_xp() == True:
-                    pokedex.change_statistics(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_xp(), Combat.combat_begin.get_pokemon1().get_xp_max(), 'save')
+                    pokedex.change_statistics(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_xp(), 'save')
                     pokedex.change_stat_pv(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_pv(), 'save')
                     set_combat(4)
                 else:
+                    if Combat.combat_begin.get_pokemon2().get_name() == Combat.combat_begin.get_pokemon_player():
+                        pokedex.change_statistics_down(get_pokemon1(), 'save')
+                        pokedex.change_stat_pv(get_pokemon1().get_name(), get_pokemon1().get_pv_max() - 1, 'save')
+                        print(get_combat())
+                        set_combat(5)
+                        print(get_combat())
                     pokedex.change_stat_pv(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_pv(), 'save')
                     pokedex.change_stat_xp(Combat.combat_begin.get_pokemon1().get_name(), 'save')
                     set_combat(3)
@@ -134,7 +138,10 @@ def render_combat_pokemon():
         if suite_button.render(screen):
             set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
             set_pokemon2(pokedex.choose_random_pokemon())
-            Combat.combat_begin.set_pokemon2(get_pokemon2())
+            scale = pokedex.get_level_scale(get_pokemon1())
+            get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
+            pokedex.stats_level_scale(get_pokemon2())
+            pokedex.change_statut(get_pokemon2().get_name(), 'save')
             set_combat(0)
     
     elif get_combat() == 4:   
@@ -146,9 +153,24 @@ def render_combat_pokemon():
         if suite_button.render(screen):
             set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
             set_pokemon2(pokedex.choose_random_pokemon())
-            Combat.combat_begin.set_pokemon2(get_pokemon2())
+            scale = pokedex.get_level_scale(get_pokemon1())
+            get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
+            pokedex.stats_level_scale(get_pokemon2())
+            pokedex.change_statut(get_pokemon2().get_name(), 'save')
             set_combat(0)
-    
-    
 
-    
+    elif get_combat(5):
+        print('coucou')
+        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
+        border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
+        border_option_message.draw_image(screen)
+        dead_text = (f"Votre {get_pokemon1().get_name()} est mort, il repasse lvl {get_pokemon1().get_level()} et {get_pokemon1.get_xp()} xp")
+        draw_text(screen, dead_text, font_ingame, rectangle, 490, 60, max_lines=3)
+        if suite_button.render(screen):
+            set_pokemon1(pokedex.choose_specific_pokemon("Mewtwo"))
+            set_pokemon2(pokedex.choose_random_pokemon())
+            scale = pokedex.get_level_scale(get_pokemon1())
+            get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
+            pokedex.stats_level_scale(get_pokemon2())
+            pokedex.change_statut(get_pokemon2().get_name(), 'save')
+            set_combat(0)

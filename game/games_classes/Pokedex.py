@@ -79,7 +79,7 @@ class Pokedex:
                 matching_pokemon.append(pokemon)
         return matching_pokemon
 
-    def change_statistics(self, pokemon_name, xp, xp_max, name_trainer):
+    def change_statistics(self, pokemon_name, xp, name_trainer):
         json_file_path = f"game/games_classes/{name_trainer}.json"
         with open(json_file_path, "r") as file:
             data = json.load(file)
@@ -91,7 +91,7 @@ class Pokedex:
                 pokemon_data["speed"] += 1
                 pokemon_data["pv_max"] += 1
                 pokemon_data["pv"] += 1
-                pokemon_data["xp_max"] = xp_max
+                pokemon_data["xp_max"] = 150 * 1.75 ** pokemon_data["level"] 
                 pokemon_data["xp"] = xp 
         with open(json_file_path, "w") as file:
             json.dump(data, file, indent=2)
@@ -126,6 +126,36 @@ class Pokedex:
             return 2
         else:
             return 1
+    
+    def stats_level_scale(self, pokemon_name):
+        pokemon_name.set_power_attack(pokemon_name.get_power_attack() + pokemon_name.get_level())
+        pokemon_name.set_defense(pokemon_name.get_defense() + pokemon_name.get_level())
+        pokemon_name.set_speed(pokemon_name.get_speed() + pokemon_name.get_level())
+        pokemon_name.set_pv(pokemon_name.get_pv() + pokemon_name.get_level())
+        pokemon_name.set_pv_max(pokemon_name.get_pv_max() + pokemon_name.get_level())
+
+    def change_statistics_down(self, pokemon_name, name_trainer):
+        json_file_path = f"game/games_classes/{name_trainer}.json"
+        with open(json_file_path, "r") as file:
+            data = json.load(file)
+        for pokemon_data in data["pokemon_list"]:
+            if pokemon_data["name"] == pokemon_name:
+                if pokemon_data ["level"] >= 2:
+                    scale = self.get_level_scale()
+                    pokemon_data["level"] -= scale
+                    pokemon_data["power_attack"] -= scale
+                    pokemon_data["defense"] -= scale
+                    pokemon_data["speed"] -= scale
+                    pokemon_data["pv_max"] -= scale
+                    pokemon_data["pv"] == pokemon_data["pv_max"]
+                    pokemon_data["xp_max"] = 150 * 1.75 ** pokemon_data["level"] 
+                    pokemon_data["xp"] = 0
+                with open(json_file_path, "w") as file:
+                    json.dump(data, file, indent=2)
+
+                    
+
+
 
 
 

@@ -677,7 +677,7 @@
       "image_front": "assets/images/pokemon_front/grodoudou.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1034,7 +1034,7 @@
       "image_front": "assets/images/pokemon_front/tetarte.png",
       "evolution_level": 36,
       "evolution_name": "Tartard",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1833,7 +1833,7 @@
       "image_front": "assets/images/pokemon_front/excelangue.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1918,7 +1918,7 @@
       "image_front": "assets/images/pokemon_front/leveinard.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1958,14 +1958,14 @@
     {
       "name": "Mewtwo",
       "types": "psychic",
-      "level": 1,
-      "power_attack": 110,
-      "defense": 90,
-      "speed": 130,
-      "pv": 100,
-      "pv_max": 100,
+      "level": 3,
+      "power_attack": 112,
+      "defense": 92,
+      "speed": 132,
+      "pv": 98,
+      "pv_max": 102,
       "xp": 0,
-      "xp_max": 150,
+      "xp_max": 450,
       "image_front": "assets/images/pokemon_front/mewtwo.png",
       "evolution_level": null,
       "evolution_name": "",
@@ -2122,7 +2122,7 @@
       "image_front": "assets/images/pokemon_front/kabutops.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -2258,7 +2258,7 @@
       "image_front": "assets/images/pokemon_front/evoli.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {

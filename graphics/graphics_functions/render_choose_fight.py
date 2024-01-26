@@ -31,7 +31,7 @@ def render_choose_fight():
 
 
         screen.blit(image_font_choose_fight, (0, 0))  
-        titre_choose_fight.message_render(font_title_in_page, screen)
+        titre_choose_fight.message_render(font_button_menu, screen)
 
         
     if button_survival.render(screen):

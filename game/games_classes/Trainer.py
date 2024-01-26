@@ -63,7 +63,7 @@ class Trainer():
 
     def show_enemy_list(self):
         for pokemon in self.__enemy_list:
-            print(pokemon.get_name())
+            print("Name:", pokemon.get_name())
 
 
 # trainer = Trainer([], None, "Sacha", [])

@@ -227,24 +227,38 @@ def add_pokemon_list():
     if pokemon.get_in_stockage() == 1:
         if button_remove_pokemon.render(screen):
             set_pokedex_render(3)
+            trainer.remove_pokemon(pokemon)
             pokemon.set_in_stockage(0)
             Current_render.set_state(render_list_pokemon)
-    if pokemon.get_in_stockage() == 0:
+    elif pokemon.get_in_stockage() == 0:
         if button_add_pokemon.render(screen):
-            set_pokedex_render(3)
-            pokemon.set_in_stockage(1)
-            Current_render.set_state(render_list_pokemon)
-
-
-
+            if len(trainer.get_pokemon_list()) >= 6:
+                full = Message(350, 480, 300, 40, f'Inventory full, please remove pokemon', 'black', 'white')
+                full.message_render(font_ingame, screen)
+                pygame.display.update()
+                pygame.time.delay(1000)
+                Current_render.set_state(render_list_pokemon)
+            else:
+                trainer.add_pokemon(pokemon)
+                set_pokedex_render(3)
+                pokemon.set_in_stockage(1)
+                Current_render.set_state(render_list_pokemon)
 
 def render_list_pokemon():
-    bcg_pokedex_list = Image('./assets/images/pokedex_pokemon_choix.png', (0,0))
+    bcg_pokedex_list = Image('./assets/images/pokedex_pokemon_choix.png', (0, 0))
     bcg_pokedex_list.draw_image(screen)
-    list_pokemon = pokedex.get_pokemon_by_stockage(1)
+    for index, pokemon in enumerate(trainer.get_pokemon_list()):
+        if index <= 2:
+            image = Image(f'./assets/images/pokemon_front/{pokemon.get_name()}.png', (25 + 270 * index, 110))
+            image.scale_image((200, 200))
+            image.draw_image(screen)
+        elif index >=3 and index <= 5:
+            image = Image(f'./assets/images/pokemon_front/{pokemon.get_name()}.png', (25 + 270 * (index - 3), 320))
+            image.scale_image((200, 200))
+            image.draw_image(screen)
     
     if back_button.render(screen):
-        set_pokedex_render(2)
+        set_pokedex_render(0)
         Current_render.set_state(render_pokedex_menu)
 
 

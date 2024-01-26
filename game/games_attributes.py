@@ -29,13 +29,13 @@ pokemon_matrice = [
 pokedex = Pokedex()
 pokedex.load_from_json("game/games_classes/pokedex.json")
 pokedex.choose_your_name('save')
-# pokemon1 = pokedex.choose_specific_pokemon("Mewtwo")
-# pokemon2 = pokedex.choose_random_pokemon()
-# scale = pokedex.get_level_scale(pokemon1)
-# pokemon2.set_level(random.randint(pokemon1.get_level() - scale, pokemon1.get_level() + scale))
-# pokedex.stats_level_scale(pokemon2)
-# pokedex.change_statut(pokemon2.get_name(), 'save')
-# pokedex.print_pokemon_meet()
+pokemon1 = pokedex.choose_specific_pokemon("Mewtwo")
+pokemon2 = pokedex.choose_random_pokemon()
+scale = pokedex.get_level_scale(pokemon1)
+pokemon2.set_level(random.randint(pokemon1.get_level() - scale, pokemon1.get_level() + scale))
+pokedex.stats_level_scale(pokemon2)
+pokedex.change_statut(pokemon2.get_name(), 'save')
+pokedex.print_pokemon_meet()
 
 #pokemon1
 def get_pokemon1():
@@ -64,19 +64,6 @@ def set_state_combat(nstate_combat):
     global state_combat
     state_combat = nstate_combat
 trainer = Trainer([], None, "Sacha", [])
-pokemon1 = Pokemon("Pikachu", 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, "Electric")
-pokemon2 = Pokemon("Carapuce", 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, "Water")
-pokemon3 = Pokemon("Bulbizarre", 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, "Grass")
-pokemon4 = Pokemon("Salameche", 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, "Fire")
-pokemon5 = Pokemon("Rattata", 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, "Normal")
-pokemon6 = Pokemon("Piafabec", 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, "Normal")
 
-trainer.add_pokemon(pokemon1)
-trainer.add_pokemon(pokemon2)
-trainer.add_pokemon(pokemon3)
-trainer.add_pokemon(pokemon4)
-trainer.add_pokemon(pokemon5)
-trainer.add_pokemon(pokemon6)
-trainer.show_pokemon_list()
 trainer.enemy_pocket(pokedex)
 trainer.show_enemy_list()

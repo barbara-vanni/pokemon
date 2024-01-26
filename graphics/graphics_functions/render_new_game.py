@@ -34,7 +34,7 @@ def render_new_game():
     enter_name = Message(300, 100, 600, 60, 'Who are you ?', 'white', 'white')
     enter_name.message_render(font_long, screen)
 
-    input_box_state()
+    name_trainer = input_box_state()
 
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:

@@ -51,14 +51,13 @@ class Pokedex:
         return None
 
     def choose_your_name(self, name_trainer):
-        # self.__name_trainer = input("Choisissez votre nom de dresseur: ")
         json_file_path = f"game/games_classes/{name_trainer}.json"
         with open("game/games_classes/pokedex.json", "r") as pokedex_file:
             pokedex_data = json.load(pokedex_file)
         with open(json_file_path, "w") as new_file:
             json.dump(pokedex_data, new_file, indent=2)    
 
-        trainer = Trainer([], None, name_trainer)
+        trainer = Trainer([], None, name_trainer, [])
         return trainer
 
     def change_statut(self, pokemon_name, name_trainer):

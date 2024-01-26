@@ -58,14 +58,14 @@ def render_combat_pokemon():
         border_option_message.draw_image(screen)
         object_button = Button_rect(410, 450, 350, 30, "OBJECT", 'white', 'black')
         object_button.collision(font_ingame, screen)
-        new_pokemon_button = Button_rect(410, 510, 350, 30, "CHANGE POKEMON", 'white', 'black')
-        new_pokemon_button.collision(font_ingame, screen)
         if attack_button.render(screen):
             set_combat(1)
             Combat.combat_begin.first_hit()
             Combat.combat_begin.attack_chance()
-        if flee_button.render(screen):
+        elif flee_button.render(screen):
             Current_render.set_state(render_choose_fight.render_choose_fight)
+        elif change_poke_button.render(screen):
+            set_combat(7)
     
     elif get_combat() == 1:
         rectangle = Rectangle.draw_rectangle(Rectangle(100, 380, 550, 160))
@@ -211,3 +211,25 @@ def render_combat_pokemon():
             pokedex.stats_level_scale(get_pokemon2())
             pokedex.change_statut(get_pokemon2().get_name(), 'save')
             set_combat(0)
+    
+    elif get_combat() == 7:
+        rectangle = Rectangle.draw_rectangle(Rectangle(100, 380, 550, 160))
+        border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
+        border_option_message.draw_image(screen)
+        for index, pokemon in enumerate(trainer.get_pokemon_list()):
+            if index <= 2:
+                pokemon_button = Button(100 + 200 * index, 470, pokemon.get_name(), font_ingame, 0, 'black', 'black')
+                if pokemon_button.render(screen):
+                    Combat.combat_begin.set_pokemon1(pokedex.choose_specific_pokemon(pokemon.get_name()))
+                    set_pokemon1(Combat.combat_begin.get_pokemon1())
+                    set_combat(0)
+                elif suite_button.render(screen):
+                    set_combat(0)
+            elif index >= 3 and index <= 5:
+                pokemon_button = Button(100 + 200 * (index - 3), 520, pokemon.get_name(), font_ingame, 0, 'black', 'black')
+                if pokemon_button.render(screen):
+                    Combat.combat_begin.set_pokemon1(pokedex.choose_specific_pokemon(pokemon.get_name()))
+                    set_pokemon1(Combat.combat_begin.get_pokemon1())
+                    set_combat(0)
+                elif suite_button.render(screen):
+                    set_combat(0)

@@ -125,7 +125,12 @@ def render_combat_pokemon():
                     pokedex.change_stat_pv(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_pv(), 'save')
                     evolution = pokedex.evolution(Combat.combat_begin.get_pokemon1(), 'save')
                     if evolution:
+                        level_stockage = Combat.combat_begin.get_pokemon1().get_level()
+                        pokedex.reset_stats(Combat.combat_begin.get_pokemon1(), 'save') 
+                        Combat.combat_begin.set_pokemon1(Combat.combat_begin.get_pokemon1())
                         Combat.combat_begin.set_pokemon1(pokedex.choose_specific_pokemon(Combat.combat_begin.get_pokemon1().get_evolution_name()))
+                        pokedex.adjust_level(Combat.combat_begin.get_pokemon1(), 'save', level_stockage)
+                        Combat.combat_begin.set_pokemon1(pokedex.choose_specific_pokemon(Combat.combat_begin.get_pokemon1().get_name()))
                         set_pokemon1(Combat.combat_begin.get_pokemon1())
                         set_combat(6)
                     else:

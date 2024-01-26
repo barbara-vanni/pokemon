@@ -149,7 +149,7 @@ class Pokedex:
                     pokemon_data["defense"] -= scale
                     pokemon_data["speed"] -= scale
                     pokemon_data["pv_max"] -= scale
-                    pokemon_data["pv"] == pokemon_name.get_pv_max() - scale
+                    pokemon_data["pv"] = pokemon_name.get_pv_max() - scale
                     pokemon_data["xp_max"] = 150 + 100 * pokemon_data["level"] 
                     pokemon_data["xp"] = 0
                 with open(json_file_path, "w") as file:
@@ -163,3 +163,61 @@ class Pokedex:
             if pokemon_data["name"] == pokemon_name.get_name():
                 if pokemon_data["level"] == pokemon_name.get_evolution_level():
                     return True
+    
+    def reset_stats(self, pokemon_name, name_trainer):
+        json_file_path_trainer = f"game/games_classes/{name_trainer}.json"
+        json_file_path_pokedex = "game/games_classes/pokedex.json"
+
+        # Charger le fichier du dresseur
+        with open(json_file_path_trainer, "r") as trainer_file:
+            try:
+                trainer_data = json.load(trainer_file)
+            except json.JSONDecodeError:
+                # Gérer l'erreur si le fichier du dresseur est vide ou mal formaté
+                print("Erreur de chargement du fichier du dresseur.")
+                return
+
+        # Charger le fichier pokedex.json
+        with open(json_file_path_pokedex, "r") as pokedex_file:
+            try:
+                pokedex_data = json.load(pokedex_file)
+            except json.JSONDecodeError:
+                # Gérer l'erreur si le fichier pokedex.json est vide ou mal formaté
+                print("Erreur de chargement du fichier pokedex.")
+                return
+
+        # Rechercher le Pokémon dans la liste du dresseur
+        if pokemon_name.get_name() in trainer_data:
+            # Trouver l'entrée correspondante dans le pokedex
+            for pokedex_entry in pokedex_data["pokemon_list"]:
+                if pokedex_entry["name"] == pokemon_name.get_name():
+                    # Mettre à jour les statistiques du Pokémon dans le fichier du dresseur
+                    trainer_data[pokemon_name.get_name()] = pokedex_entry
+
+            # Enregistrer les données mises à jour dans le fichier du dresseur
+            with open(json_file_path_trainer, "w") as trainer_file:
+                json.dump(trainer_data, trainer_file, indent=2)
+                print(f"Statistiques de {pokemon_name.get_name()} réinitialisées avec succès.")
+        else:
+            print(f"{pokemon_name.get_name()} n'a pas été trouvé dans le fichier du dresseur.")
+
+    def adjust_level(self, pokemon_name, name_trainer, level_stockage):
+        json_file_path = f"game/games_classes/{name_trainer}.json"
+
+        with open(json_file_path, "r") as file:
+            data = json.load(file)
+
+        for pokemon_data in data["pokemon_list"]:
+            if pokemon_data["name"] == pokemon_name.get_name():
+                pokemon_data["level"] = level_stockage
+                pokemon_data["power_attack"] += level_stockage
+                print(level_stockage, pokemon_data["power_attack"])
+                pokemon_data["defense"] += level_stockage
+                pokemon_data["speed"] += level_stockage
+                pokemon_data["pv_max"] += level_stockage
+                pokemon_data["pv"] = pokemon_name.get_pv_max() + level_stockage
+                pokemon_data["xp_max"] = 150 + 100 * pokemon_data["level"]
+                pokemon_data["xp"] = 0
+
+        with open(json_file_path, "w") as file:
+            json.dump(data, file, indent=2)

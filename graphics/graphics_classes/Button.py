@@ -104,3 +104,4 @@ button_pokedex = Button(575, 495, 'POKEDEX', font_long, 1, (0, 0, 0), (255, 0, 0
 
 
 button_add_pokemon = Button(475, 450, 'Add Pokemon', font_ingame, 1, (255, 0, 0), (0, 255, 0))
+button_remove_pokemon = Button(475, 450, 'Remove Pokemon', font_ingame, 1, (255, 0, 0), (0, 255, 0))

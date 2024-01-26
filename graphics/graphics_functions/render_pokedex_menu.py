@@ -216,6 +216,7 @@ def render_pokedex_menu():
         return_(screen)
 
     if get_pokedex_render() == 3:
+        render_list_pokemon()
         return_(screen)
 
 
@@ -224,14 +225,15 @@ def add_pokemon_list():
     pokemon = pokedex.get_pokemon_by_name(selected_pokemon_name)[0]
 
     if pokemon.get_in_stockage() == 1:
-        in_stockage_message = Message(400, 470, 300, 40, f'{pokemon.get_name()} vous accompagne!','black', 'white')
-        in_stockage_message.message_render(font_ingame, screen)
+        if button_remove_pokemon.render(screen):
+            set_pokedex_render(3)
+            pokemon.set_in_stockage(0)
+            Current_render.set_state(render_list_pokemon)
     if pokemon.get_in_stockage() == 0:
         if button_add_pokemon.render(screen):
             set_pokedex_render(3)
             pokemon.set_in_stockage(1)
             Current_render.set_state(render_list_pokemon)
-            # # print(get_pokedex_render())
 
 
 
@@ -239,6 +241,11 @@ def add_pokemon_list():
 def render_list_pokemon():
     bcg_pokedex_list = Image('./assets/images/pokedex_pokemon_choix.png', (0,0))
     bcg_pokedex_list.draw_image(screen)
+    list_pokemon = pokedex.get_pokemon_by_stockage(1)
+    
+    if back_button.render(screen):
+        set_pokedex_render(2)
+        Current_render.set_state(render_pokedex_menu)
 
 
 

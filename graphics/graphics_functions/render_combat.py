@@ -66,14 +66,14 @@ def render_combat_pokemon():
         # attack_button.draw(screen)
         object_button = Button_rect(410, 450, 350, 30, "OBJECT", 'white', 'black')
         object_button.collision(font_ingame, screen)
-        flee_button = Button_rect(30, 510, 350, 30, "RUN", 'white', 'black')
-        flee_button.collision(font_ingame, screen)
         new_pokemon_button = Button_rect(410, 510, 350, 30, "CHANGE POKEMON", 'white', 'black')
         new_pokemon_button.collision(font_ingame, screen)
         if attack_button.render(screen):
             set_combat(1)
             Combat.combat_begin.first_hit()
             Combat.combat_begin.attack_chance()
+        if flee_button.render(screen):
+            Current_render.set_state(render_choose_fight.render_choose_fight)
     
     elif get_combat() == 1:
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))

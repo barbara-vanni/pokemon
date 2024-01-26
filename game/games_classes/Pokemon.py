@@ -3,7 +3,7 @@ from .Type import *
 
 class Pokemon(Type):
     # Constructeur
-    def __init__(self, name, types, level, power_attack, defense, speed, pv, pv_max, xp, xp_max, image_front, matrice, statut = 0, in_stockage = 0 ):
+    def __init__(self, name, types, level, power_attack, defense, speed, pv, pv_max, xp, xp_max, image_front, evolution_level, evolution_name, matrice, statut = 0, in_stockage = 0):
         Type.__init__(self, types, matrice)
         self._name = name
         self._level = level
@@ -15,6 +15,8 @@ class Pokemon(Type):
         self._xp = xp
         self._xp_max = xp_max
         self._image_front = image_front
+        self._evolution_level = evolution_level
+        self._evolution_name = evolution_name
         self._statut = statut
         self._in_stockage = in_stockage
 
@@ -79,6 +81,18 @@ class Pokemon(Type):
     def set_image_front(self, image_front):
         self._image_front = image_front
 
+    # evolution_level
+    def get_evolution_level(self):
+        return self._evolution_level
+    def set_evolution_level(self, evolution_level):
+        self._evolution_level = evolution_level
+
+    # evolution_name
+    def get_evolution_name(self):
+        return self._evolution_name
+    def set_evolution_name(self, evolution_name):
+        self._evolution_name = evolution_name
+
     # Statut
     def get_statut(self):
         return self._statut
@@ -88,6 +102,8 @@ class Pokemon(Type):
     # In_stockage
     def get_in_stockage(self):
         return self._in_stockage
+    def set_in_stockage(self, in_stockage):
+        self._in_stockage = in_stockage
     def set_in_stockage(self, new_in_stockage):
         self._in_stockage = new_in_stockage
 

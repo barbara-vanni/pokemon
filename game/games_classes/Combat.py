@@ -117,6 +117,7 @@ class Combat:
         if self.__pokemon2 != self.__pokemon_player:
             self.__pokemon1.set_xp(self.__pokemon1.get_xp() + 100)
             if self.__pokemon1.get_xp() >= self.__pokemon1.get_xp_max():
+                self.__pokemon1.set_xp(self.__pokemon1.get_xp() - self.__pokemon1.get_xp_max())
                 return True
             return False
                 

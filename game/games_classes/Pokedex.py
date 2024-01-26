@@ -51,7 +51,6 @@ class Pokedex:
         return None
 
     def choose_your_name(self, name_trainer):
-        # self.__name_trainer = input("Choisissez votre nom de dresseur: ")
         json_file_path = f"game/games_classes/{name_trainer}.json"
         with open("game/games_classes/pokedex.json", "r") as pokedex_file:
             pokedex_data = json.load(pokedex_file)

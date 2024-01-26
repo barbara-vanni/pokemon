@@ -321,7 +321,7 @@
       "evolution_level": 20,
       "evolution_name": "Rattatac",
       "statut": 1,
-      "in_stockage": 1
+      "in_stockage": 0
     },
     {
       "name": "Rattatac",
@@ -337,7 +337,7 @@
       "image_front": "assets/images/pokemon_front/rattatac.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1833,7 +1833,7 @@
       "image_front": "assets/images/pokemon_front/excelangue.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1918,7 +1918,7 @@
       "image_front": "assets/images/pokemon_front/leveinard.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {

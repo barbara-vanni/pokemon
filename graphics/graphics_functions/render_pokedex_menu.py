@@ -5,6 +5,9 @@ from graphics.graphics_classes.Button import *
 from graphics import *
 from graphics.graphics_attributes import *
 import game.current_render as Current_render
+import graphics.graphics_functions.render_choose_fight as Render_choose_fight
+
+
 
 selected_pokemon_type = ""
 selected_pokemon_name = ""
@@ -265,13 +268,13 @@ def render_list_pokemon():
 
 def return_(screen):
     if back_button.render(screen):
-        # if get_pokedex_render() == 0:
-        #     # set_menu(1)
-        if get_pokedex_render() == 1:
+        if get_pokedex_render() == 0:
+            Current_render.set_state(Render_choose_fight.render_choose_fight)
+        elif get_pokedex_render() == 1:
             set_pokedex_render(0) 
-        if get_pokedex_render() == 2:
+        elif get_pokedex_render() == 2:
             set_pokedex_render(1)
-        if get_pokedex_render() == 3:
+        elif get_pokedex_render() == 3:
             set_pokedex_render(2)
 
 

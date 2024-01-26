@@ -1,5 +1,4 @@
-from .Type import *
-
+from .Type import Type
 
 class Pokemon(Type):
     # Constructeur

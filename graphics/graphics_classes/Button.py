@@ -68,15 +68,16 @@ choice_pokemon_3_button = Button(610, 320, "GRASS", font_ingame, 1, (0, 0, 0), (
 back_button = Button(720, 560, "BACK", font_ingame, 1, (0, 0, 0), (0, 255, 0))
 # quit_button = Button.Button(200, 100, "Cliquez-moi", None, 2, (255, 0, 0), (0, 255, 0))
 
+
 #button to choose the number of pokemon in the team
-button_survival = Button(572, 110, 'Survival', font_long, 1, (0, 0, 0), (255, 0, 0))
-button_one = Button(587, 165, '1 vs 1', font_long, 1, (0, 0, 0), (255, 0, 0))
-button_two = Button (587, 220, '2 vs 2', font_long, 1, (0, 0, 0), (255, 0, 0))
-button_three = Button(587, 275, '3 vs 3', font_long, 1, (0, 0, 0), (255, 0, 0))
-button_four = Button(587, 330, '4 vs 4', font_long, 1, (0, 0, 0), (255, 0, 0))
-button_five = Button(587, 385, '5 vs 5', font_long, 1, (0, 0, 0), (255, 0, 0))
-button_six = Button(587, 440, '6 vs 6', font_long, 1, (0, 0, 0), (255, 0, 0))
-button_pokedex = Button(575, 495, 'POKEDEX', font_long, 1, (0, 0, 0), (255, 0, 0))
+button_survival = Button(572, 60, 'Survival', font_long, 1, (0, 0, 0), (255, 0, 0))
+button_one = Button(587, 115, '1 vs 1', font_long, 1, (0, 0, 0), (255, 0, 0))
+button_two = Button (587, 170, '2 vs 2', font_long, 1, (0, 0, 0), (255, 0, 0))
+button_three = Button(587, 225, '3 vs 3', font_long, 1, (0, 0, 0), (255, 0, 0))
+button_four = Button(587, 280, '4 vs 4', font_long, 1, (0, 0, 0), (255, 0, 0))
+button_five = Button(587, 335, '5 vs 5', font_long, 1, (0, 0, 0), (255, 0, 0))
+button_six = Button(587, 390, '6 vs 6', font_long, 1, (0, 0, 0), (255, 0, 0))
+button_pokedex = Button(575, 445, 'POKEDEX', font_long, 1, (0, 0, 0), (255, 0, 0))
 
 
 button_add_pokemon = Button(475, 450, 'Add Pokemon', font_ingame, 1, (255, 0, 0), (0, 255, 0))

@@ -150,7 +150,7 @@
       "image_front": "assets/images/pokemon_front/tortank.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -473,7 +473,7 @@
       "image_front": "assets/images/pokemon_front/sablaireau.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1958,18 +1958,18 @@
     {
       "name": "Mewtwo",
       "types": "psychic",
-      "level": 10,
+      "level": 1,
       "power_attack": 110,
       "defense": 90,
       "speed": 130,
-      "pv": 1,
+      "pv": 100,
       "pv_max": 100,
       "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/mewtwo.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1986,7 +1986,7 @@
       "image_front": "assets/images/pokemon_front/dracoloss.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -2037,7 +2037,7 @@
       "image_front": "assets/images/pokemon_front/sulfura.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -2309,7 +2309,7 @@
     "image_front": "assets/images/pokemon_front/leviator.png",
     "evolution_level": null,
     "evolution_name": "",
-    "statut": 0,
+    "statut": 1,
     "in_stockage": 0
     },
     {
@@ -2394,7 +2394,7 @@
       "image_front": "assets/images/pokemon_front/lippoutou.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {

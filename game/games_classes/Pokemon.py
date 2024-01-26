@@ -3,7 +3,7 @@ from .Type import *
 
 class Pokemon(Type):
     # Constructeur
-    def __init__(self, name, types, level, power_attack, defense, speed, pv, pv_max, xp, xp_max, image_front, matrice, statut = 0, in_stockage = 0):
+    def __init__(self, name, types, level, power_attack, defense, speed, pv, pv_max, xp, xp_max, image_front, matrice, statut = 0, in_stockage = 0 ):
         Type.__init__(self, types, matrice)
         self._name = name
         self._level = level
@@ -88,8 +88,8 @@ class Pokemon(Type):
     # In_stockage
     def get_in_stockage(self):
         return self._in_stockage
-    def set_in_stockage(self, in_stockage):
-        self._in_stockage = in_stockage
+    def set_in_stockage(self, new_in_stockage):
+        self._in_stockage = new_in_stockage
 
         
 

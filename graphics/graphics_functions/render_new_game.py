@@ -29,7 +29,7 @@ def input_box_state():
 
 def render_new_game():
     global active, name_trainer
-    bcg_new_game = Image('./assets/images/professor_chen_classico.png', (0, 0))
+    bcg_new_game = Image('./assets/images/professor_chen_classico_nb.png', (0, 0))
     bcg_new_game.draw_image(screen)
     enter_name = Message(300, 100, 600, 60, 'Who are you ?', 'white', 'white')
     enter_name.message_render(font_long, screen)

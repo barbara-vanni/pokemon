@@ -34,6 +34,7 @@ def render_pokemon_choices():
     draw_text(screen, text_choix, font_ingame, rectangle, 50, 50, max_lines=5)
     water, fire, grass = render_pokemon_choices_buttons()
 
+
     return water, fire, grass
 
 

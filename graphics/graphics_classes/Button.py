@@ -40,7 +40,6 @@ class Button():
             # :
                 self.last_click_time = time.time()
                 self.clicked = True
-                print(self.text + " Clicked")
                 action = True
         # elif pygame.mouse.get_pressed()[0] == 0 and self.clicked:
         #     self.clicked = False

@@ -65,7 +65,7 @@
       "image_front": "assets/images/pokemon_front/salameche.png",
       "evolution_level": 16,
       "evolution_name": "Reptincel",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -105,14 +105,14 @@
     {
       "name": "Carapuce",
       "types": "water",
-      "level": 15,
-      "power_attack": 1000,
-      "defense": 65,
-      "speed": 200,
+      "level": 16,
+      "power_attack": 1001,
+      "defense": 66,
+      "speed": 201,
       "pv": 100,
-      "pv_max": 100,
-      "xp": 150,
-      "xp_max": 200,
+      "pv_max": 101,
+      "xp": 50,
+      "xp_max": 1750,
       "image_front": "assets/images/pokemon_front/carapuce.png",
       "evolution_level": 16,
       "evolution_name": "Carabaffe",
@@ -456,7 +456,7 @@
       "image_front": "assets/images/pokemon_front/sablette.png",
       "evolution_level": 22,
       "evolution_name": "Sablaireau",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {

@@ -241,8 +241,7 @@ def add_pokemon_list():
 def render_list_pokemon():
     bcg_pokedex_list = Image('./assets/images/pokedex_pokemon_choix.png', (0,0))
     bcg_pokedex_list.draw_image(screen)
-    list_pokemon = pokedex.get_pokemon_by_stockage(1)
-    
+
     if back_button.render(screen):
         set_pokedex_render(2)
         Current_render.set_state(render_pokedex_menu)

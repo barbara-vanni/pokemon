@@ -211,7 +211,6 @@ class Pokedex:
             if pokemon_data["name"] == pokemon_name.get_name():
                 pokemon_data["level"] = level_stockage
                 pokemon_data["power_attack"] += level_stockage
-                print(level_stockage, pokemon_data["power_attack"])
                 pokemon_data["defense"] += level_stockage
                 pokemon_data["speed"] += level_stockage
                 pokemon_data["pv_max"] += level_stockage

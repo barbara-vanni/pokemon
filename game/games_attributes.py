@@ -63,7 +63,6 @@ def get_state_combat():
 def set_state_combat(nstate_combat):
     global state_combat
     state_combat = nstate_combat
-
 trainer = Trainer([], None, "Sacha", [])
 pokemon1 = Pokemon("Pikachu", 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, "Electric")
 pokemon2 = Pokemon("Carapuce", 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, "Water")

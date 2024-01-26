@@ -1,5 +1,3 @@
-import pygame
-import sys
 import json
 import random
 from game.games_classes.Pokemon import *
@@ -26,6 +24,8 @@ class Pokedex:
                     pokemon_data["xp"],
                     pokemon_data["xp_max"],
                     image_front,
+                    pokemon_data["evolution_level"],
+                    pokemon_data["evolution_name"],
                     pokemon_data["statut"],
                     pokemon_data["in_stockage"]
                 )
@@ -154,3 +154,12 @@ class Pokedex:
                     pokemon_data["xp"] = 0
                 with open(json_file_path, "w") as file:
                     json.dump(data, file, indent=2)
+    
+    def evolution(self, pokemon_name, name_trainer):
+        json_file_path = f"game/games_classes/{name_trainer}.json"
+        with open(json_file_path, "r") as file:
+            data = json.load(file)
+        for pokemon_data in data["pokemon_list"]:
+            if pokemon_data["name"] == pokemon_name.get_name():
+                if pokemon_data["level"] == pokemon_name.get_evolution_level():
+                    return True

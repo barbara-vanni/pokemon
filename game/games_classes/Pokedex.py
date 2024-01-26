@@ -58,7 +58,7 @@ class Pokedex:
         with open(json_file_path, "w") as new_file:
             json.dump(pokedex_data, new_file, indent=2)    
 
-        trainer = Trainer([], None, name_trainer)
+        trainer = Trainer([], None, name_trainer, [])
         return trainer
 
     def change_statut(self, pokemon_name, name_trainer):

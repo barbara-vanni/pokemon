@@ -104,3 +104,9 @@ class Pokemon(Type):
         return self._in_stockage
     def set_in_stockage(self, in_stockage):
         self._in_stockage = in_stockage
+    def set_in_stockage(self, new_in_stockage):
+        self._in_stockage = new_in_stockage
+
+        
+
+

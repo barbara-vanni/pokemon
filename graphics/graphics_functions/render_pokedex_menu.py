@@ -1,8 +1,10 @@
 import pygame
 from game import *
+from game.games_classes.Pokemon import *
 from graphics.graphics_classes.Button import *
 from graphics import *
 from graphics.graphics_attributes import *
+import game.current_render as Current_render
 
 selected_pokemon_type = ""
 selected_pokemon_name = ""
@@ -210,13 +212,41 @@ def render_pokedex_menu():
             life_point_message.message_render(font_ingame, screen)
             xp_point_message = Message(400, 400, 300, 40, f'Experience = {str(pokemon.get_xp())} / {str(pokemon.get_xp_max())}', 'black', 'black')
             xp_point_message.message_render(font_ingame, screen)
-            if pokemon.get_in_stockage() == 1:
-                in_stockage_message = Message(400, 450, 300, 40, f'{pokemon.get_name()} vous accompagne!')
-                in_stockage_message.message_render(font_ingame, screen)
-            else:
-                add_to_stockage_button = Button_rect(400, 450, 300, 80, 'Ajouter au stockage', 'black', 'black')
-                add_to_stockage_button.collision(font_ingame, screen)
+            add_pokemon_list()    
         return_(screen)
+
+    if get_pokedex_render() == 3:
+        render_list_pokemon()
+        return_(screen)
+
+
+def add_pokemon_list():
+    global selected_pokemon_type, selected_pokemon_name
+    pokemon = pokedex.get_pokemon_by_name(selected_pokemon_name)[0]
+
+    if pokemon.get_in_stockage() == 1:
+        if button_remove_pokemon.render(screen):
+            set_pokedex_render(3)
+            pokemon.set_in_stockage(0)
+            Current_render.set_state(render_list_pokemon)
+    if pokemon.get_in_stockage() == 0:
+        if button_add_pokemon.render(screen):
+            set_pokedex_render(3)
+            pokemon.set_in_stockage(1)
+            Current_render.set_state(render_list_pokemon)
+
+
+
+
+def render_list_pokemon():
+    bcg_pokedex_list = Image('./assets/images/pokedex_pokemon_choix.png', (0,0))
+    bcg_pokedex_list.draw_image(screen)
+
+    if back_button.render(screen):
+        set_pokedex_render(2)
+        Current_render.set_state(render_pokedex_menu)
+
+
 
 def return_(screen):
     if back_button.render(screen):
@@ -224,7 +254,9 @@ def return_(screen):
         #     # set_menu(1)
         if get_pokedex_render() == 1:
             set_pokedex_render(0) 
-        elif get_pokedex_render() == 2:
+        if get_pokedex_render() == 2:
             set_pokedex_render(1)
+        if get_pokedex_render() == 3:
+            set_pokedex_render(2)
 
 

@@ -456,7 +456,7 @@
       "image_front": "assets/images/pokemon_front/sablette.png",
       "evolution_level": 22,
       "evolution_name": "Sablaireau",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {

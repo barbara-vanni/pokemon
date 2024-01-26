@@ -1,6 +1,7 @@
 import json
 import random
 from game.games_classes.Pokemon import *
+from game.games_classes.Trainer import *
 
 class Pokedex:
     def __init__(self):
@@ -57,6 +58,9 @@ class Pokedex:
         with open(json_file_path, "w") as new_file:
             json.dump(pokedex_data, new_file, indent=2)    
 
+        trainer = Trainer([], None, name_trainer)
+        return trainer
+
     def change_statut(self, pokemon_name, name_trainer):
         json_file_path = f"game/games_classes/{name_trainer}.json"
         with open(json_file_path, "r") as file:
@@ -66,6 +70,8 @@ class Pokedex:
                 pokemon_data["statut"] = 1
         with open(json_file_path, "w") as file:
             json.dump(data, file, indent=2)
+        
+
 
     def get_pokemon_by_type(self, pokemon_type):
         matching_pokemon = []
@@ -97,7 +103,6 @@ class Pokedex:
                 pokemon_data["xp"] = xp 
         with open(json_file_path, "w") as file:
             json.dump(data, file, indent=2)
-
 
     def change_stat_xp(self, pokemon_name, name_trainer):
         json_file_path = f"game/games_classes/{name_trainer}.json"

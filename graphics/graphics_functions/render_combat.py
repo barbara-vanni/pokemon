@@ -123,7 +123,13 @@ def render_combat_pokemon():
                 if Combat.combat_begin.gain_xp() == True:
                     pokedex.change_statistics(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_xp(), 'save')
                     pokedex.change_stat_pv(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_pv(), 'save')
-                    set_combat(4)
+                    evolution = pokedex.evolution(Combat.combat_begin.get_pokemon1(), 'save')
+                    if evolution:
+                        Combat.combat_begin.set_pokemon1(pokedex.choose_specific_pokemon(Combat.combat_begin.get_pokemon1().get_evolution_name()))
+                        set_pokemon1(Combat.combat_begin.get_pokemon1())
+                        set_combat(6)
+                    else:
+                        set_combat(4)
                 else:
                     if Combat.combat_begin.get_pokemon2().get_name() == Combat.combat_begin.get_pokemon_player():
                         pokedex.change_statistics_down(get_pokemon1(), 'save')
@@ -165,7 +171,7 @@ def render_combat_pokemon():
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
-        dead_text = (f"{get_pokemon2().get_name()} est K.O. Félication {get_pokemon1().get_name()} est passé lvl {pokemon1.get_level()} et son xp est {pokemon1.get_xp()} / {pokemon1.get_xp_max()}")
+        dead_text = (f"{Combat.combat_begin.get_pokemon2().get_name()} est K.O. Félication {Combat.combat_begin.get_pokemon1().get_name()} est passé lvl {Combat.combat_begin.get_pokemon1().get_level()} et son xp est {Combat.combat_begin.get_pokemon1().get_xp()} / {Combat.combat_begin.get_pokemon1().get_xp_max()}")
         draw_text(screen, dead_text, font_ingame, rectangle, 490, 60, max_lines=3)
         if suite_button.render(screen):  
             if get_state_combat() == 1:
@@ -180,7 +186,7 @@ def render_combat_pokemon():
                 set_combat(0)
 
 
-    elif get_combat(5):
+    elif get_combat() == 5:
         rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
@@ -194,3 +200,12 @@ def render_combat_pokemon():
             pokedex.stats_level_scale(get_pokemon2())
             pokedex.change_statut(get_pokemon2().get_name(), 'save')
             set_combat(0)
+    
+    elif get_combat() == 6:
+        rectangle = Rectangle.draw_rectangle(Rectangle(20, 420, 760, 160))
+        border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
+        border_option_message.draw_image(screen)
+        dead_text = (f"Votre {Combat.combat_begin.get_pokemon_player()} vient d'évoluer en {Combat.combat_begin.get_pokemon1().get_name()}")
+        draw_text(screen, dead_text, font_ingame, rectangle, 490, 60, max_lines=3)
+        if suite_button.render(screen):
+            set_pokemon1(pokedex.choose_specific_pokemon(get_pokemon1()))

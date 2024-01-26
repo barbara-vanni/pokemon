@@ -14,8 +14,13 @@ from graphics.graphics_functions.render_choose_fight import *
 
 
 def render_main_menu():
-
-    titre = Message(100, 50, 600, 120, 'POKEMON', 'white', 'blue')
+    bcg_main_menu = Image('./assets/images/main_menu.png', (0, 0))
+    bcg_main_menu.draw_image(screen)
+    titre = Message(99, 53, 600, 120, 'POKEMON', 'white', 'red')
+    titre.message_render(font_title, screen)
+    titre = Message(104, 54, 600, 120, 'POKEMON', 'white', 'orange')
+    titre.message_render(font_title, screen)
+    titre = Message(106, 56, 600, 120, 'POKEMON', 'white', 'orange')
     titre.message_render(font_title, screen)
     if new_game_button.render(screen):
         Current_render.set_state(render_new_game)

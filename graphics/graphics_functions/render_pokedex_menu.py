@@ -23,11 +23,11 @@ def render_pokedex_menu():
             for j in range(4):
                 y = 85 + 110 * j
                 index = i * 4 + j + 1
-                image_path = f'./assets/images/type/badges_{str(index)}.jpg'
+                image_path = f'./assets/images/type/{str(index)}_gem.png'
                 image = pygame.image.load(image_path)
-                message_type = Message(x, y + 80, 75, 15, pokemon_types[index - 1], 'black', 'black')
+                message_type = Message(x + 10, y + 85, 75, 15, pokemon_types[index - 1], 'black', 'black')
                 message_type.message_render(font_ingame, screen)
-                button_types = Button_image(x, y, image, 1)
+                button_types = Button_image(x, y, image, 3)
                 buttons.append(button_types.draw(screen))
 
         try:

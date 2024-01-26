@@ -22,15 +22,6 @@ def render_new_game():
     enter_name.message_render(font_long, screen)
 
     input_box_state()
-    # Input box for name user
-    # input_rect = pygame.Rect(100, 450, 200, 50)
-    # color = (255,245,255)
-    # active = False
-    # font = font_input
-    # max_char = 13
-    # input_text = ""
-    # text_surface = font.render(input_text, True, (0,0,0))
-    # width = max(200, text_surface.get_width()+10)
 
 
     for event in pygame.event.get():
@@ -56,35 +47,24 @@ def render_new_game():
                     name_trainer += event.unicode
                     if event.key == pygame.K_SPACE:
                         game_paused = True
-        if valider_new_game_button.render(screen):
-            Current_render.set_state(state_pokemon_choices)
+        if active:
+            if event.key == pygame.K_BACKSPACE:
+                # get text input from 0 to -1 i.e. end.
+                name_trainer = name_trainer[:-1]
+            elif event.key == pygame.K_RETURN:
+                print(name_trainer)
+                # save_data(name_trainer, 0)  
+            else:
+                name_trainer += event.unicode
+    if valider_new_game_button.render(screen):
+        Current_render.set_state(state_pokemon_choices)
 
-            if active:
-                if event.key == pygame.K_BACKSPACE:
-                    # get text input from 0 to -1 i.e. end.
-                    name_trainer = name_trainer[:-1]
-                elif event.key == pygame.K_RETURN:
-                    # Save the entered name to the JSON file when Enter key is pressed
-                    print(name_trainer)
-                    # save_data(name_trainer, 0)  
-                else:
-                    name_trainer += event.unicode
-                    if event.key == pygame.K_SPACE:
-                        game_paused = True
-        if valider_new_game_button.render(screen):
-            Current_render.set_state(state_pokemon_choices)
 
-    valider_new_game_button.render(screen)
 
 
 def input_box_state():
     global name_trainer  
-    # if active:
-    #     color = color_active
-    # else:
-    #     color = color_passive
 
-    # draw rectangle for input box
     pygame.draw.rect(screen, color, input_rect)
     text_surface = font_input.render(name_trainer, True, (0, 0, 0))
     # render

@@ -3,15 +3,11 @@ from graphics.graphics_classes import *
 from graphics.graphics_classes.Button import *
 import game.current_render as Current_render
 from graphics.graphics_functions.render_pokemon_choice import state_pokemon_choices
-# from game.games_classes.Pokedex import Pokedex
 from game.games_attributes import *
 
 name_trainer = ''
 input_rect = pygame.Rect(100, 450, 200, 50)
 active = False
-# color_active = pygame.Color('green')
-# # color of input box
-# color_passive = pygame.Color('red')
 color = (255,245,255)
 
 
@@ -44,12 +40,14 @@ def render_new_game():
                 if event.key == pygame.K_BACKSPACE:
                     name_trainer = name_trainer[:-1]
                 elif event.key == pygame.K_RETURN:
-                    print(name_trainer)
+                    pokedex.choose_your_name(name_trainer)
+                    trainer.set_name_trainer(name_trainer)
                 else:
                     name_trainer += event.unicode
 
     if valider_new_game_button.render(screen):
-        pokedex.choose_your_name(name_trainer)                 
+        pokedex.choose_your_name(name_trainer)                
+        trainer.set_name_trainer(name_trainer)
         Current_render.set_state(state_pokemon_choices)
 
 

@@ -7,7 +7,6 @@ running = True
 attack_button = None
 
 while running:
-    # render_choose_fight()
     # universal event handler ( à mettre seulement ici !)
     events = pygame.event.get()
     if pygame.event.Event(pygame.QUIT) in events:

@@ -16,7 +16,6 @@ font_long = pygame.font.Font('./assets/font/Pokemon_text.ttf',20)
 font_ingame = pygame.font.Font('./assets/font/Pokemon_text.ttf',15)
 font_little = pygame.font.Font('./assets/font/Pokemon_text.ttf',14)
 
-# text_attaque = ("Le Pokémon (nom de pokemon) lance l'attaque (nom de l'attaque). C'est (efficacité) efficace.")
 text_choix = (f"Hello (user_name), now you're gonna choose your first pokemon . . . . .  Choose wisely !")
 num_words = 0
 
@@ -29,7 +28,6 @@ def set_menu(new_menu):
 
 
 combat = 0
-
 def get_combat():
     return combat
 def set_combat(new_combat):

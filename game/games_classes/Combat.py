@@ -7,9 +7,9 @@ class Combat:
     combat_begin = None
     def __init__(self, pokemon1, pokemon2, attack_chance_ratio, affinity_values, player_list, computer_list, states):
         self.__pokemon_player = pokemon1.get_name()
-        self.__pokemon_computer = pokemon2
         self.__pokemon1 = pokemon1
         self.__pokemon2 = pokemon2
+        self.__pokemon_computer = pokemon2
         self.__attack_chance_ratio = attack_chance_ratio
         self.__affinity_values = affinity_values
         self.__player_list = player_list
@@ -146,4 +146,4 @@ class Combat:
         self.__pokemon1 = self.__pokemon2
         self.__pokemon2 = temp
 
-Combat.combat_begin = Combat(get_pokemon1(), get_pokemon2(), 0, 0, [], [], 0)
+Combat.combat_begin = Combat(trainer.get_actif_pokemon(), get_pokemon2(), 0, 0, [], [], 0)

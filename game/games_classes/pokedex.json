@@ -1,4 +1,27 @@
-{
+
+
+
+
+{ 
+  "pokemon_trainer": [
+    {
+      "name": "Bulbizarre",
+      "types": "grass",
+      "level": 1,
+      "power_attack": 49,
+      "defense": 49,
+      "speed": 45,
+      "pv": 100,
+      "pv_max": 100,
+      "xp": 0,
+      "xp_max": 200,
+      "image_front": "assets/images/pokemon_front/bulbizarre.png",
+      "evolution_level": 16,
+      "evolution_name": "Herbizarre",
+      "statut": 0,
+      "in_stockage": 0
+    }
+  ],
   "pokemon_list": [
     {
       "name": "Bulbizarre",

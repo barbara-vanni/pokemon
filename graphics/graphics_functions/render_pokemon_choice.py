@@ -39,6 +39,10 @@ def pokemon_1_action():
         Current_render.set_state(state_pokemon_choices)
     if valider_button.render(screen):
         set_pokemon1(pokemon)
+        trainer.add_pokemon(pokemon)
+        trainer.set_actif_pokemon(pokemon)
+        pokedex.choose_your_name(trainer.get_name_trainer())
+        pokedex.change_pokemon_trainer(trainer.get_name_trainer(), pokemon)
         Current_render.set_state(Render_choose_fight.render_choose_fight)
 
 def pokemon_2_action():
@@ -53,6 +57,10 @@ def pokemon_2_action():
         Current_render.set_state(state_pokemon_choices)
     if valider_button.render(screen):
         set_pokemon1(pokemon)
+        trainer.add_pokemon(pokemon)
+        trainer.set_actif_pokemon(pokemon)
+        pokedex.choose_your_name(trainer.get_name_trainer())
+        pokedex.change_pokemon_trainer(trainer.get_name_trainer(), pokemon)
         Current_render.set_state(Render_choose_fight.render_choose_fight)
 
 def pokemon_3_action():
@@ -67,4 +75,8 @@ def pokemon_3_action():
         Current_render.set_state(state_pokemon_choices)
     if valider_button.render(screen):
         set_pokemon1(pokemon)
+        trainer.add_pokemon(pokemon)
+        trainer.set_actif_pokemon(pokemon)
+        pokedex.choose_your_name(trainer.get_name_trainer())
+        pokedex.change_pokemon_trainer(trainer.get_name_trainer(), pokemon)
         Current_render.set_state(Render_choose_fight.render_choose_fight)

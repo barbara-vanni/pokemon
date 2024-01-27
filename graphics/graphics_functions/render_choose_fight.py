@@ -15,7 +15,7 @@ def render_choose_fight():
         image_trainer_choose_fight = pygame.image.load('./assets/images/ash1.png')
         screen.blit(image_font_choose_fight, (0, 0))
 
-        pokemon_front_view = Image(get_pokemon1().get_image_front(), (200, 300))
+        pokemon_front_view = Image(trainer.get_actif_pokemon().get_image_front(), (200, 300))
         pokemon_front_view.scale_image((250, 250))
         pokemon_front_view.draw_image(screen)
         titre_choose_fight.message_render(font_button_menu, screen)
@@ -23,24 +23,6 @@ def render_choose_fight():
         
     if button_survival.render(screen):
         set_state_combat(0)
-        Current_render.set_state(render_combat.render_combat_pokemon)
-    elif button_one.render(screen):
-        set_state_combat(1)
-        Current_render.set_state(render_combat.render_combat_pokemon)
-    elif button_two.render(screen):
-        set_state_combat(2)
-        Current_render.set_state(render_combat.render_combat_pokemon)
-    elif button_three.render(screen):
-        set_state_combat(3)
-        Current_render.set_state(render_combat.render_combat_pokemon)
-    elif button_four.render(screen):
-        set_state_combat(4)
-        Current_render.set_state(render_combat.render_combat_pokemon)
-    elif button_five.render(screen):
-        set_state_combat(5)
-        Current_render.set_state(render_combat.render_combat_pokemon)
-    elif button_six.render(screen):
-        set_state_combat(6)
         Current_render.set_state(render_combat.render_combat_pokemon)
     elif button_pokedex.render(screen):
         Current_render.set_state(render_pokedex.render_pokedex_menu) 

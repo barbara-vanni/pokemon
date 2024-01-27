@@ -25,13 +25,6 @@ pokemon_matrice = [
     [1, 0.5, 0.5, 0.5, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0.5, 2],
     [1, 0.5, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 1, 1, 1, 2, 2, 0.5, 1]   
 ]
-
-pokedex = Pokedex()
-pokedex.load_from_json("game/games_classes/pokedex.json")
-pokemon1 = pokedex.choose_specific_pokemon("Mewtwo")
-pokemon2 = pokedex.choose_random_pokemon()
-trainer = Trainer([pokemon1], pokemon1, '', [])
-
 #pokemon1
 def get_pokemon1():
     global pokemon1
@@ -47,6 +40,14 @@ def get_pokemon2():
 def set_pokemon2(npokemon2):
     global pokemon2
     pokemon2 = npokemon2
+
+pokedex = Pokedex()
+pokedex.load_from_json("game/games_classes/pokedex.json")
+pokemon1 = pokedex.choose_specific_pokemon("Mewtwo")
+pokemon2 = pokedex.choose_random_pokemon()
+trainer = Trainer([], None, "", 0)
+trainer.set_actif_pokemon(pokemon1)
+
 
 state_combat = 0
 

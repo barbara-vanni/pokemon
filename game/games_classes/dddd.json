@@ -1,4 +1,23 @@
 {
+  "pokemon_trainer": [
+    {
+      "name": "Bulbizarre",
+      "types": "grass",
+      "level": 1,
+      "power_attack": 49,
+      "defense": 49,
+      "speed": 45,
+      "pv": 100,
+      "pv_max": 100,
+      "xp": 0,
+      "xp_max": 200,
+      "image_front": "assets/images/pokemon_front/bulbizarre.png",
+      "evolution_level": 16,
+      "evolution_name": "Herbizarre",
+      "statut": 0,
+      "in_stockage": 0
+    }
+  ],
   "pokemon_list": [
     {
       "name": "Bulbizarre",
@@ -99,23 +118,6 @@
       "image_front": "assets/images/pokemon_front/dracaufeu.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
-      "in_stockage": 0
-    },
-    {
-      "name": "Carapuce",
-      "types": "water",
-      "level": 15,
-      "power_attack": 1000,
-      "defense": 65,
-      "speed": 200,
-      "pv": 100,
-      "pv_max": 100,
-      "xp": 150,
-      "xp_max": 200,
-      "image_front": "assets/images/pokemon_front/carapuce.png",
-      "evolution_level": 16,
-      "evolution_name": "Carabaffe",
       "statut": 0,
       "in_stockage": 0
     },
@@ -677,7 +679,7 @@
       "image_front": "assets/images/pokemon_front/grodoudou.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -932,7 +934,7 @@
       "image_front": "assets/images/pokemon_front/akwakwak.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1034,7 +1036,7 @@
       "image_front": "assets/images/pokemon_front/tetarte.png",
       "evolution_level": 36,
       "evolution_name": "Tartard",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1958,14 +1960,14 @@
     {
       "name": "Mewtwo",
       "types": "psychic",
-      "level": 3,
-      "power_attack": 112,
-      "defense": 92,
-      "speed": 132,
-      "pv": 98,
-      "pv_max": 102,
+      "level": 1,
+      "power_attack": 110,
+      "defense": 90,
+      "speed": 130,
+      "pv": 100,
+      "pv_max": 100,
       "xp": 0,
-      "xp_max": 450,
+      "xp_max": 150,
       "image_front": "assets/images/pokemon_front/mewtwo.png",
       "evolution_level": null,
       "evolution_name": "",
@@ -2258,7 +2260,7 @@
       "image_front": "assets/images/pokemon_front/evoli.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {

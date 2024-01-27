@@ -2,6 +2,7 @@ import json
 import random
 from game.games_classes.Pokemon import *
 from game.games_classes.Trainer import *
+import copy
 
 
 class Pokedex:
@@ -170,27 +171,8 @@ class Pokedex:
                 if pokemon_data["level"] == pokemon_name.get_evolution_level():
                     return True
     
-    # def change_pokemon_trainer(self, pokemon_name, name_trainer):
-    #     json_file_path = f"game/games_classes/{name_trainer}.json"
-    #     with open(json_file_path, "r") as file:
-    #         data = json.load(file)
-    #     for pokemon_data in data["pokemon_list"]:
-    #         if pokemon_data["name"] == pokemon_name.get_name():
-    #             pokemon_data["name"] = pokemon_name.get_evolution_name()
-    #             pokemon_data["level"] = pokemon_name.get_evolution_level()
-    #             pokemon_data["power_attack"] = pokemon_name.get_power_attack()
-    #             pokemon_data["defense"] = pokemon_name.get_defense()
-    #             pokemon_data["speed"] = pokemon_name.get_speed()
-    #             pokemon_data["pv_max"] = pokemon_name.get_pv_max()
-    #             pokemon_data["pv"] = pokemon_name.get_pv()
-    #             pokemon_data["xp_max"] = pokemon_name.get_xp_max()
-    #             pokemon_data["xp"] = pokemon_name.get_xp()
-    #             pokemon_data["evolution_level"] = pokemon_name.get_evolution_level()
-    #             pokemon_data["evolution_name"] = pokemon_name.get_evolution_name()
-    #             pokemon_data["statut"] = pokemon_name.get_statut()
-    #             pokemon_data["in_stockage"] = pokemon_name.get_in_stockage()
-    #     with open(json_file_path, "w") as file:
-    #         json.dump(data, file, indent=2)
+
+
 
     # def change_pokemon_trainer(self, name_trainer, pokemon_name):
     #     json_file_path = f"game/games_classes/{name_trainer}.json"
@@ -200,24 +182,8 @@ class Pokedex:
     #     for pokemon_data in data["pokemon_list"]:
     #         if pokemon_data["name"] == pokemon_name.get_name():
     #             # Copier les statistiques dans un nouvel objet Pokemon
-    #             specific_pokemon = Pokemon(
-    #                 pokemon_data["name"] == pokemon_name.get_name(),
-    #                 pokemon_data["types"] == pokemon_name.get_types(),
-    #                 pokemon_data["level"] == pokemon_name.get_level(),
-    #                 pokemon_data["power_attack"] == pokemon_name.get_power_attack(),
-    #                 pokemon_data["defense"] == pokemon_name.get_defense(),
-    #                 pokemon_data["speed"] == pokemon_name.get_speed(),
-    #                 pokemon_data["pv"] == pokemon_name.get_pv(),
-    #                 pokemon_data["pv_max"] == pokemon_name.get_pv_max(),
-    #                 pokemon_data["xp"] == pokemon_name.get_xp(),
-    #                 pokemon_data["xp_max"] == pokemon_name.get_xp_max(),
-    #                 pokemon_data.get("image_front") == pokemon_name.get_image_front(),
-    #                 pokemon_data["evolution_level"] == pokemon_name.get_evolution_level(),
-    #                 pokemon_data["evolution_name"]  == pokemon_name.get_evolution_name(),
-    #                 pokemon_data["statut"] == pokemon_name.get_statut(),
-    #                 pokemon_data["in_stockage"] == pokemon_name.get_in_stockage()
-    #             )
-
+    #             specific_pokemon = copy.deepcopy(pokemon_data)
+                
     #             # Ajouter le nouvel objet à la liste pokemon_trainer
     #             self.pokemon_trainer.append(specific_pokemon)
 
@@ -229,12 +195,13 @@ class Pokedex:
         with open(json_file_path, "r") as file:
             data = json.load(file)
 
-        for pokemon_data in data["pokemon_list"]:
+        for i, pokemon_data in enumerate(data["pokemon_list"]):
             if pokemon_data["name"] == pokemon_name.get_name():
-                # Ajouter le Pokémon existant à la liste pokemon_trainer
-                self.pokemon_trainer.append(pokemon_data)
-                # Retirer le Pokémon de la liste pokemon_list
-                data["pokemon_list"].remove(pokemon_data)
+                # Copier les statistiques dans un nouvel objet Pokemon
+                specific_pokemon = copy.deepcopy(pokemon_data)
+
+                # Ajouter le nouvel objet à la liste pokemon_trainer
+                data["pokemon_trainer"].append(specific_pokemon)
 
         with open(json_file_path, "w") as file:
             json.dump(data, file, indent=2)

@@ -109,8 +109,8 @@
       "name": "Carapuce",
       "types": "water",
       "level": 15,
-      "power_attack": 1000,
-      "defense": 65,
+      "power_attack": 63,
+      "defense": 43,
       "speed": 200,
       "pv": 100,
       "pv_max": 100,
@@ -136,7 +136,7 @@
       "image_front": "assets/images/pokemon_front/carabaffe.png",
       "evolution_level": 32,
       "evolution_name": "Tortank",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -153,7 +153,7 @@
       "image_front": "assets/images/pokemon_front/tortank.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -323,7 +323,7 @@
       "image_front": "assets/images/pokemon_front/rattata.png",
       "evolution_level": 20,
       "evolution_name": "Rattatac",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -340,7 +340,7 @@
       "image_front": "assets/images/pokemon_front/rattatac.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -476,7 +476,7 @@
       "image_front": "assets/images/pokemon_front/sablaireau.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -595,7 +595,7 @@
       "image_front": "assets/images/pokemon_front/melofee.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1173,7 +1173,7 @@
       "image_front": "assets/images/pokemon_front/chetiflor.png",
       "evolution_level": 21,
       "evolution_name": "Boustiflor",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1275,7 +1275,7 @@
       "image_front": "assets/images/pokemon_front/gravalanch.png",
       "evolution_level": 38,
       "evolution_name": "Grolem",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1904,7 +1904,7 @@
       "image_front": "assets/images/pokemon_front/rhinoferos.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1972,7 +1972,7 @@
       "image_front": "assets/images/pokemon_front/mewtwo.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1989,7 +1989,7 @@
       "image_front": "assets/images/pokemon_front/dracoloss.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -2040,7 +2040,7 @@
       "image_front": "assets/images/pokemon_front/sulfura.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -2312,7 +2312,7 @@
     "image_front": "assets/images/pokemon_front/leviator.png",
     "evolution_level": null,
     "evolution_name": "",
-    "statut": 1,
+    "statut": 0,
     "in_stockage": 0
     },
     {
@@ -2397,7 +2397,7 @@
       "image_front": "assets/images/pokemon_front/lippoutou.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {

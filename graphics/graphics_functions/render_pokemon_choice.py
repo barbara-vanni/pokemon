@@ -42,8 +42,11 @@ def pokemon_1_action():
         trainer.add_pokemon(pokemon)
         trainer.set_actif_pokemon(pokemon)
         pokedex.choose_your_name(trainer.get_name_trainer())
+        pokedex.load_from_json(trainer.get_name_trainer())
         pokedex.change_pokemon_trainer(trainer.get_name_trainer(), pokemon)
         Current_render.set_state(Render_choose_fight.render_choose_fight)
+        pokemon.set_statut(1)
+        pokedex.change_statut(get_pokemon1().get_name(), trainer.get_name_trainer())
 
 def pokemon_2_action():
     screen.fill('black')
@@ -60,8 +63,11 @@ def pokemon_2_action():
         trainer.add_pokemon(pokemon)
         trainer.set_actif_pokemon(pokemon)
         pokedex.choose_your_name(trainer.get_name_trainer())
+        pokedex.load_from_json(trainer.get_name_trainer())
         pokedex.change_pokemon_trainer(trainer.get_name_trainer(), pokemon)
         Current_render.set_state(Render_choose_fight.render_choose_fight)
+        pokemon.set_statut(1)
+        pokedex.change_statut(get_pokemon1().get_name(), trainer.get_name_trainer())
 
 def pokemon_3_action():
     screen.fill('black')
@@ -78,5 +84,8 @@ def pokemon_3_action():
         trainer.add_pokemon(pokemon)
         trainer.set_actif_pokemon(pokemon)
         pokedex.choose_your_name(trainer.get_name_trainer())
+        pokedex.load_from_json(trainer.get_name_trainer())
         pokedex.change_pokemon_trainer(trainer.get_name_trainer(), pokemon)
         Current_render.set_state(Render_choose_fight.render_choose_fight)
+        pokemon.set_statut(1)
+        pokedex.change_statut(get_pokemon1().get_name(), trainer.get_name_trainer())

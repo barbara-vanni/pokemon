@@ -3,12 +3,10 @@ from .Pokedex import *
 import json
 
 class Trainer():
-    def __init__(self, pokemon_list, actif_pokemon, name_trainer, catch_chance_ratio):
+    def __init__(self, pokemon_list, actif_pokemon, name_trainer):
         self.__pokemon_list = pokemon_list
         self.__actif_pokemon = actif_pokemon
-        self.__name_trainer = name_trainer
-        self.__catch_chance_ratio = catch_chance_ratio
-    
+        self.__name_trainer = name_trainer   
 
     def get_pokemon_list(self):
         return self.__pokemon_list
@@ -16,6 +14,7 @@ class Trainer():
         self.__pokemon_list = pokemon_list
 
     def get_actif_pokemon(self):
+
         return self.__actif_pokemon
     def set_actif_pokemon(self, actif_pokemon):
         self.__actif_pokemon = actif_pokemon
@@ -57,21 +56,18 @@ class Trainer():
     def show_pokemon_actif(self):
         print(self.__actif_pokemon.get_name())
 
-
-
-    def potion(self):
-        self.__actif_pokemon.set_pv(self.__actif_pokemon.get_pv() + 20)
-        if self.__actif_pokemon.get_pv() >= self.__actif_pokemon.get_pv_max():
-            self.__actif_pokemon.set_pv(self.__actif_pokemon.get_pv_max())
+    def potion(self, pokemon):
+        pokemon.set_pv(pokemon.get_pv() + 20)
+        if pokemon.get_pv() >= pokemon.get_pv_max():
+            pokemon.set_pv(pokemon.get_pv_max())
 
     def pokeball(self):
         catch_chance = random.randint(0, 100)
+        print(catch_chance)
         if catch_chance <= 33 :
-            return self.__catch_chance_ratio == 0
+            return 0
         else:
-            return self.__catch_chance_ratio == 1
-
-
+            return 1
 
 
 

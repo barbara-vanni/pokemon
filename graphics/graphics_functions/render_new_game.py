@@ -40,13 +40,11 @@ def render_new_game():
                 if event.key == pygame.K_BACKSPACE:
                     name_trainer = name_trainer[:-1]
                 elif event.key == pygame.K_RETURN:
-                    pokedex.choose_your_name(name_trainer)
                     trainer.set_name_trainer(name_trainer)
                 else:
                     name_trainer += event.unicode
 
-    if valider_new_game_button.render(screen):
-        pokedex.choose_your_name(name_trainer)                
+    if valider_new_game_button.render(screen):            
         trainer.set_name_trainer(name_trainer)
         Current_render.set_state(state_pokemon_choices)
 

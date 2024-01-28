@@ -1,13 +1,18 @@
 import json
 import random
+import os
 from game.games_classes.Pokemon import *
 from game.games_classes.Trainer import *
+import copy
+
 
 class Pokedex:
     def __init__(self):
         self.pokemon_list = []
+        self.pokemon_trainer = []
 
-    def load_from_json(self, json_file_path):
+    def load_from_json(self, file_name):
+        json_file_path = f"game/games_classes/{file_name}.json"
         with open(json_file_path, "r") as file:
             data = json.load(file)
             for pokemon_data in data["pokemon_list"]:
@@ -32,7 +37,8 @@ class Pokedex:
                 )
                 self.pokemon_list.append(pokemon)
                 pokemon.set_statut(pokemon_data["statut"])
-
+                self.pokemon_trainer.append(pokemon)
+                
     def print_pokemon_meet(self):
         for pokemon in self.pokemon_list:
             if pokemon.get_statut() == 1:
@@ -50,36 +56,76 @@ class Pokedex:
                 return pokemon
         return None
 
-    def choose_your_name(self, name_trainer):
+
+    def choose_your_pokemon(self, name_trainer):
         json_file_path = f"game/games_classes/{name_trainer}.json"
+        with open(json_file_path, "r") as file:
+            data = json.load(file)
+        for pokemon_data in data["pokemon_trainer"]:
+            pokemon = Pokemon(
+                pokemon_data["name"],
+                pokemon_data["types"],
+                pokemon_data["level"],
+                pokemon_data["power_attack"],
+                pokemon_data["defense"],
+                pokemon_data["speed"],
+                pokemon_data["pv"],
+                pokemon_data["pv_max"],
+                pokemon_data["xp"],
+                pokemon_data["xp_max"],
+                pokemon_data.get("image_front", "chemin/par/defaut/image.png"),
+                pokemon_data["evolution_level"],
+                pokemon_data["evolution_name"],
+                pokemon_data["statut"],
+                pokemon_data["in_stockage"]
+            )
+            return pokemon
+
+
+    def choose_your_name(self, name_trainer):
+        json_file_path = f'game/games_classes/{name_trainer}.json'
         with open("game/games_classes/pokedex.json", "r") as pokedex_file:
             pokedex_data = json.load(pokedex_file)
-        with open(json_file_path, "w") as new_file:
-            json.dump(pokedex_data, new_file, indent=2)    
+        with open(json_file_path, "w") as newfile:
+            json.dump(pokedex_data, newfile, indent=2)
 
-        trainer = Trainer([], None, name_trainer, [])
-        return trainer
-
+       
     def change_statut(self, pokemon_name, name_trainer):
         json_file_path = f"game/games_classes/{name_trainer}.json"
         with open(json_file_path, "r") as file:
             data = json.load(file)
+
+        # Modifier dans pokemon_list
         for pokemon_data in data["pokemon_list"]:
             if pokemon_data["name"] == pokemon_name:
                 pokemon_data["statut"] = 1
+
+        # Modifier dans pokemon_trainer
+        for pokemon_data in data["pokemon_trainer"]:
+            if pokemon_data["name"] == pokemon_name:
+                pokemon_data["statut"] = 1
+
+        # Écrire les modifications dans le fichier
         with open(json_file_path, "w") as file:
             json.dump(data, file, indent=2)
+
         
 
 
-    def get_pokemon_by_type(self, pokemon_type):
+    def get_pokemon_by_type(self, pokemon_type, name_trainer):
+        json_file_path = f"game/games_classes/{name_trainer}.json"
+        with open(json_file_path, "r") as file:
+            data = json.load(file)
         matching_pokemon = []
         for pokemon in self.pokemon_list:
             if pokemon_type in pokemon.get_types():
                 matching_pokemon.append(pokemon)
         return matching_pokemon
     
-    def get_pokemon_by_name(self, pokemon_name):
+    def get_pokemon_by_name(self, pokemon_name, name_trainer):
+        json_file_path = f"game/games_classes/{name_trainer}.json"
+        with open(json_file_path, "r") as file:
+            data = json.load(file)
         matching_pokemon = []
         for pokemon in self.pokemon_list:
             if pokemon_name in pokemon.get_name():
@@ -168,6 +214,49 @@ class Pokedex:
                 if pokemon_data["level"] == pokemon_name.get_evolution_level():
                     return True
     
+
+    # def change_pokemon_trainer(self, name_trainer, pokemon_name):
+    #     json_file_path = f"game/games_classes/{name_trainer}.json"
+    #     with open(json_file_path, "r") as file:
+    #         data = json.load(file)
+
+    #     for i, pokemon_data in enumerate(data["pokemon_list"]):
+    #         if pokemon_data["name"] == pokemon_name.get_name():
+    #             # Copier les statistiques dans un nouvel objet Pokemon
+    #             specific_pokemon = copy.deepcopy(pokemon_data)
+
+    #             # Ajouter le nouvel objet à la liste pokemon_trainer
+    #             data["pokemon_trainer"].append(specific_pokemon)
+
+    #     with open(json_file_path, "w") as file:
+    #         json.dump(data, file, indent=2)
+
+    def change_pokemon_trainer(self, name_trainer, pokemon_name):
+        json_file_path = f"game/games_classes/{name_trainer}.json"
+        with open(json_file_path, "r") as file:
+            data = json.load(file)
+
+        found = False
+        for i, pokemon_data in enumerate(data["pokemon_list"]):
+            if pokemon_data["name"] == pokemon_name.get_name():
+                # Copier les statistiques dans un nouvel objet Pokemon
+                specific_pokemon = copy.deepcopy(pokemon_data)
+                found = True
+                break
+
+        if not data["pokemon_trainer"]:
+            # Si la liste est vide, ajouter simplement le nouvel objet
+            data["pokemon_trainer"].append(specific_pokemon)
+        elif found:
+            # Si la liste n'est pas vide et l'entrée existe déjà, remplacer l'entrée
+            data["pokemon_trainer"] = [specific_pokemon]
+
+        with open(json_file_path, "w") as file:
+            json.dump(data, file, indent=2)
+
+
+
+
     def reset_stats(self, pokemon_name, name_trainer):
         json_file_path_trainer = f"game/games_classes/{name_trainer}.json"
         json_file_path_pokedex = "game/games_classes/pokedex.json"
@@ -224,3 +313,29 @@ class Pokedex:
 
         with open(json_file_path, "w") as file:
             json.dump(data, file, indent=2)
+
+    import os
+
+    def choose_trainer_file(self):
+        directory_path = "game/games_classes/"
+        json_files = [f for f in os.listdir(directory_path) if f.endswith('.json')]
+
+        # Filtrer les fichiers pour exclure pokedex.json
+        trainer_files = [f[:-5] for f in json_files if f != 'pokedex.json']
+
+        if len(trainer_files) == 1:
+            selected_trainer_file = trainer_files[0]
+            return selected_trainer_file
+        else:
+            return None
+    
+    def cleanup_trainer_file(self):
+        directory_path = "game/games_classes/"
+        json_files = [f for f in os.listdir(directory_path) if f.endswith('.json')]
+
+        # Filtrer les fichiers pour exclure pokedex.json
+        trainer_files = [f for f in json_files if f != 'pokedex.json']
+
+        if len(trainer_files) == 1:
+            file_path = os.path.join(directory_path, trainer_files[0])
+            os.remove(file_path)

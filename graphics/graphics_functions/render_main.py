@@ -8,7 +8,7 @@ import graphics.graphics_functions.render_pokedex_menu as render_pokedex
 from game.current_render import *
 import game.current_render as Current_render
 from game.games_attributes import *
-from graphics.graphics_functions.render_choose_fight import *
+import graphics.graphics_functions.render_choose_fight as Render_choose_fight
 
 
 
@@ -22,10 +22,23 @@ def render_main_menu():
     titre = Message(106, 56, 600, 120, 'POKEMON', 'white', 'orange')
     titre.message_render(font_title, screen)
     if new_game_button.render(screen):
+        pokedex.cleanup_trainer_file()
         Current_render.set_state(render_new_game)
 
     if continue_button.render(screen):
-        Current_render.set_state(render_combat.render_combat_pokemon)  
+        if pokedex.choose_trainer_file() == None:
+            message = Message(250, 450, 300, 100, 'No save file', 'white', 'black')
+            message.message_render(font_button_menu, screen)
+            pygame.display.update()
+            pygame.time.delay(1000)
+        else:
+            selected_trainer_file = pokedex.choose_trainer_file()
+            trainer.set_name_trainer(selected_trainer_file)
+            pokemon = pokedex.choose_your_pokemon(trainer.get_name_trainer())
+            trainer.set_actif_pokemon(pokemon)
+            set_pokemon1(trainer.get_actif_pokemon())
+            trainer.add_pokemon(get_pokemon1())
+            pokedex.change_pokemon_trainer(trainer.get_name_trainer(), get_pokemon1())
+            Current_render.set_state(Render_choose_fight.render_choose_fight)
+            pokedex.load_from_json(trainer.get_name_trainer())
 
-    if option_button.render(screen):
-        Current_render.set_state(render_choose_fight)

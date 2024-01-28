@@ -17,10 +17,10 @@ def render_combat_pokemon():
     bcg_combat = Image('./assets/images/battlegrass.png', (0,0))
     bcg_combat.draw_image(screen)
 
-    # Mise en place des informations graphiques pour le pokemon du dresseur 
-    Combat.combat_begin.set_pokemon1(get_pokemon1())
-    pokemon_good = Image(get_pokemon1().get_image_front(), (0, 130))
-    pokemon_good.scale_image((300, 300))
+    # Mise en place des informations graphiques pour le pokemon du dresseur
+    # Combat.combat_begin.set_pokemon1(get_pokemon1())
+    pokemon_good = Image(f'assets/images/pokemon_back/{(get_pokemon1().get_name()).lower()}.png', (70, 250))
+    pokemon_good.scale_image((200, 200))
     pokemon_good.draw_image(screen)
     border_good = Image('./assets/images/border_message.png', (430, 270))
     border_good.draw_image(screen)
@@ -43,6 +43,7 @@ def render_combat_pokemon():
     pv_bad.message_render(font_ingame, screen)
     pygame.draw.rect(screen, 'white',(40, 110, 280, 10), 0, 15)
     pygame.draw.rect(screen, 'blue', (40, 110, get_pokemon2().get_pv() * 280 / get_pokemon2().get_pv_max(), 10), 0, 15)
+    pokedex.change_statut(get_pokemon2().get_name(), trainer.get_name_trainer())
 
     #Menu de sélection de combat
     if get_combat() == 0:
@@ -76,6 +77,8 @@ def render_combat_pokemon():
             if Combat.combat_begin.get_attack_chance_ratio() == 0:
                 if turn_number == 1:
                     Combat.combat_begin.end_attack()
+                    # Combat.combat_begin.set_pokemon1(get_pokemon1())
+                    # Combat.combat_begin.set_pokemon2(get_pokemon2())
                     set_combat(0)
                     turn_number = 0
                 else:
@@ -152,8 +155,9 @@ def render_combat_pokemon():
                 get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
                 pokedex.stats_level_scale(get_pokemon2())
                 pokedex.change_statut(get_pokemon2().get_name(), trainer.get_name_trainer())
-            set_combat(0)
-            set_pokemon2(pokedex.choose_random_pokemon())
+                Combat.combat_begin.set_pokemon1(get_pokemon1())
+                Combat.combat_begin.set_pokemon2(get_pokemon2())
+                set_combat(0)
     
     elif get_combat() == 4:   
         rectangle = Rectangle.draw_rectangle(Rectangle(100, 380, 550, 160))
@@ -172,6 +176,8 @@ def render_combat_pokemon():
                 get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
                 pokedex.stats_level_scale(get_pokemon2())
                 pokedex.change_statut(get_pokemon2().get_name(), trainer.get_name_trainer())
+                Combat.combat_begin.set_pokemon1(get_pokemon1())
+                Combat.combat_begin.set_pokemon2(get_pokemon2())
                 set_combat(0)
 
     elif get_combat() == 5:
@@ -187,6 +193,8 @@ def render_combat_pokemon():
             get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
             pokedex.stats_level_scale(get_pokemon2())
             pokedex.change_statut(get_pokemon2().get_name(), trainer.get_name_trainer())
+            Combat.combat_begin.set_pokemon1(get_pokemon1())
+            Combat.combat_begin.set_pokemon2(get_pokemon2())
             set_combat(0)
     
     elif get_combat() == 6:
@@ -202,6 +210,8 @@ def render_combat_pokemon():
             get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
             pokedex.stats_level_scale(get_pokemon2())
             pokedex.change_statut(get_pokemon2().get_name(), trainer.get_name_trainer())
+            Combat.combat_begin.set_pokemon1(get_pokemon1())
+            Combat.combat_begin.set_pokemon2(get_pokemon2())
             set_combat(0)
     
     elif get_combat() == 7:
@@ -221,8 +231,6 @@ def render_combat_pokemon():
                     else:
                         set_combat(0)
                         turn_number = 0
-                    Combat.combat_begin.set_pokemon1(pokedex.choose_specific_pokemon(pokemon.get_name()))
-                    set_pokemon1(Combat.combat_begin.get_pokemon1())
                     set_combat(0)
                 elif suite_button.render(screen):
                     set_combat(0)
@@ -239,8 +247,6 @@ def render_combat_pokemon():
                     else:
                         set_combat(0)
                         turn_number = 0
-                    Combat.combat_begin.set_pokemon1(pokedex.choose_specific_pokemon(pokemon.get_name()))
-                    set_pokemon1(Combat.combat_begin.get_pokemon1())
                     set_combat(0)
                 elif suite_button.render(screen):
                     set_combat(0)
@@ -250,7 +256,6 @@ def render_combat_pokemon():
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
         if button_potion.render(screen):
-            trainer.potion()
             pv_earned = Message(100, 380, 550, 160, f"You earned 20 pv", 'white', 'black')	
             pv_earned.message_render(font_ingame, screen)
             if turn_number == 0:
@@ -264,6 +269,7 @@ def render_combat_pokemon():
                 pygame.time.delay(1000)
                 set_combat(0)
                 turn_number = 0
+            trainer.potion(Combat.combat_begin.get_pokemon1())
         elif button_pokeball.render(screen):
             set_combat(9)
     
@@ -272,12 +278,13 @@ def render_combat_pokemon():
         border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
         border_option_message.draw_image(screen)
         catch_chance_ratio = trainer.pokeball()
-        print(catch_chance_ratio)
         if catch_chance_ratio == 1:
             pokemon_catched = Message(100, 380, 550, 160, f"You caught {get_pokemon2().get_name()}", 'white', 'black')
             pokemon_catched.message_render(font_ingame, screen)
             pygame.display.update()
             pygame.time.delay(1000)
+            Combat.combat_begin.set_pokemon2(pokedex.choose_random_pokemon())
+            set_pokemon2(Combat.combat_begin.get_pokemon2())
             set_combat(0)
         elif catch_chance_ratio == 0:
             pokemon_no_catched = Message(100, 380, 550, 160, f"You didn't catch {get_pokemon2().get_name()}", 'white', 'black')

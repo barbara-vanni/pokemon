@@ -1,7 +1,23 @@
-{ 
-"pokemon_trainer": [
-
-],
+{
+  "pokemon_trainer": [
+    {
+      "name": "Carapuce",
+      "types": "water",
+      "level": 15,
+      "power_attack": 63,
+      "defense": 43,
+      "speed": 200,
+      "pv": 100,
+      "pv_max": 100,
+      "xp": 150,
+      "xp_max": 200,
+      "image_front": "assets/images/pokemon_front/carapuce.png",
+      "evolution_level": 16,
+      "evolution_name": "Carabaffe",
+      "statut": 1,
+      "in_stockage": 0
+    }
+  ],
   "pokemon_list": [
     {
       "name": "Bulbizarre",
@@ -119,7 +135,7 @@
       "image_front": "assets/images/pokemon_front/carapuce.png",
       "evolution_level": 16,
       "evolution_name": "Carabaffe",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -459,7 +475,7 @@
       "image_front": "assets/images/pokemon_front/sablette.png",
       "evolution_level": 22,
       "evolution_name": "Sablaireau",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -2300,20 +2316,20 @@
     },
     {
       "name": "Leviator",
-    "types": "water",
-    "level": 1,
-    "power_attack": 125,
-    "defense": 79,
-    "speed": 81,
-    "pv": 95,
-    "pv_max": 95,
-    "xp": 0,
-    "xp_max": 300,
-    "image_front": "assets/images/pokemon_front/leviator.png",
-    "evolution_level": null,
-    "evolution_name": "",
-    "statut": 0,
-    "in_stockage": 0
+      "types": "water",
+      "level": 1,
+      "power_attack": 125,
+      "defense": 79,
+      "speed": 81,
+      "pv": 95,
+      "pv_max": 95,
+      "xp": 0,
+      "xp_max": 300,
+      "image_front": "assets/images/pokemon_front/leviator.png",
+      "evolution_level": null,
+      "evolution_name": "",
+      "statut": 0,
+      "in_stockage": 0
     },
     {
       "name": "Tauros",
@@ -2397,7 +2413,7 @@
       "image_front": "assets/images/pokemon_front/lippoutou.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {

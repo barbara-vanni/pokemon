@@ -6,6 +6,7 @@ import graphics.graphics_functions.render_combat as render_combat
 import game.current_render as Current_render
 from graphics.graphics_functions.render_new_game import *
 import graphics.graphics_functions.render_pokedex_menu as render_pokedex
+import game.games_classes.Combat as Combat
 
 def render_choose_fight():
     if get_pokedex_render() == 0:
@@ -23,8 +24,10 @@ def render_choose_fight():
         
     if button_survival.render(screen):
         set_state_combat(0)
+        Combat.combat_begin.set_pokemon1(get_pokemon1())
         Current_render.set_state(render_combat.render_combat_pokemon)
     elif button_pokedex.render(screen):
         Current_render.set_state(render_pokedex.render_pokedex_menu) 
 
     screen.blit(image_trainer_choose_fight, (-10, 180))
+

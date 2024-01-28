@@ -146,4 +146,5 @@ class Combat:
         self.__pokemon1 = self.__pokemon2
         self.__pokemon2 = temp
 
+
 Combat.combat_begin = Combat(trainer.get_actif_pokemon(), get_pokemon2(), 0, 0, [], [], 0)

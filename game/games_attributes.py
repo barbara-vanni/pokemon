@@ -42,10 +42,10 @@ def set_pokemon2(npokemon2):
     pokemon2 = npokemon2
 
 pokedex = Pokedex()
-pokedex.load_from_json("game/games_classes/pokedex.json")
+pokedex.load_from_json("pokedex")
 pokemon1 = pokedex.choose_specific_pokemon("Mewtwo")
 pokemon2 = pokedex.choose_random_pokemon()
-trainer = Trainer([], None, "", 0)
+trainer = Trainer([], None, "")
 trainer.set_actif_pokemon(pokemon1)
 
 

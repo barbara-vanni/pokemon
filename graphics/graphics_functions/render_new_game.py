@@ -44,7 +44,7 @@ def render_new_game():
                 else:
                     name_trainer += event.unicode
 
-    if valider_new_game_button.render(screen):               
+    if valider_new_game_button.render(screen):            
         trainer.set_name_trainer(name_trainer)
         Current_render.set_state(state_pokemon_choices)
 

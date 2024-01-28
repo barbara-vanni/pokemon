@@ -22,10 +22,17 @@ def render_main_menu():
     titre = Message(106, 56, 600, 120, 'POKEMON', 'white', 'orange')
     titre.message_render(font_title, screen)
     if new_game_button.render(screen):
+        pokedex.cleanup_trainer_file()
         Current_render.set_state(render_new_game)
 
     if continue_button.render(screen):
-        trainer.set_actif_pokemon(trainer.get_pokemon_list()[0])
+        selected_trainer_file = pokedex.choose_trainer_file()
+        trainer.set_name_trainer(selected_trainer_file)
+        print(trainer.get_name_trainer())
+        trainer.set_actif_pokemon(pokedex.choose_your_pokemon())
+        set_pokemon1(trainer.get_actif_pokemon())
+        trainer.add_pokemon(get_pokemon1())
+        pokedex.change_pokemon_trainer(trainer.get_name_trainer(), get_pokemon1())
         Current_render.set_state(Render_choose_fight.render_choose_fight)  
 
     if option_button.render(screen):

@@ -243,6 +243,7 @@ def add_pokemon_list():
                 Current_render.set_state(render_list_pokemon)
             else:
                 trainer.add_pokemon(pokemon)
+                pokedex.change_pokemon_trainer(trainer.get_name_trainer(), pokemon)
                 set_pokedex_render(3)
                 pokemon.set_in_stockage(1)
                 Current_render.set_state(render_list_pokemon)

@@ -33,6 +33,9 @@ class Trainer():
     def add_pokemon(self, new_pokemon):
         if new_pokemon not in self.__pokemon_list and len(self.__pokemon_list) < 6:
             self.__pokemon_list.append(new_pokemon)
+            if len(self.__pokemon_list) == 1:
+                self.__actif_pokemon = new_pokemon
+                
     
     def remove_pokemon(self, pokemon_to_remove):
         if pokemon_to_remove in self.__pokemon_list:
@@ -53,6 +56,7 @@ class Trainer():
 
     def show_pokemon_actif(self):
         print(self.__actif_pokemon.get_name())
+
 
 
     def potion(self):

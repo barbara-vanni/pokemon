@@ -1,5 +1,6 @@
 import json
 import random
+import os
 from game.games_classes.Pokemon import *
 from game.games_classes.Trainer import *
 import copy
@@ -54,6 +55,11 @@ class Pokedex:
                 return pokemon
         return None
 
+    def choose_your_pokemon(self):
+        for pokemon in self.pokemon_trainer:
+            pokemon = self.pokemon_trainer[0]
+            return pokemon
+        return None
 
     def choose_your_name(self, name_trainer):
         json_file_path = f'game/games_classes/{name_trainer}.json'
@@ -172,24 +178,6 @@ class Pokedex:
                     return True
     
 
-
-
-    # def change_pokemon_trainer(self, name_trainer, pokemon_name):
-    #     json_file_path = f"game/games_classes/{name_trainer}.json"
-    #     with open(json_file_path, "r") as file:
-    #         data = json.load(file)
-
-    #     for pokemon_data in data["pokemon_list"]:
-    #         if pokemon_data["name"] == pokemon_name.get_name():
-    #             # Copier les statistiques dans un nouvel objet Pokemon
-    #             specific_pokemon = copy.deepcopy(pokemon_data)
-                
-    #             # Ajouter le nouvel objet à la liste pokemon_trainer
-    #             self.pokemon_trainer.append(specific_pokemon)
-
-    #     with open(json_file_path, "w") as file:
-    #         json.dump(data, file, indent=2)
-
     def change_pokemon_trainer(self, name_trainer, pokemon_name):
         json_file_path = f"game/games_classes/{name_trainer}.json"
         with open(json_file_path, "r") as file:
@@ -265,4 +253,27 @@ class Pokedex:
         with open(json_file_path, "w") as file:
             json.dump(data, file, indent=2)
 
+    import os
+
+    def choose_trainer_file(self):
+        directory_path = "game/games_classes/"
+        json_files = [f for f in os.listdir(directory_path) if f.endswith('.json')]
+
+        # Filtrer les fichiers pour exclure pokedex.json
+        trainer_files = [f[:-5] for f in json_files if f != 'pokedex.json']
+
+        if len(trainer_files) == 1:
+            selected_trainer_file = trainer_files[0]
+            print(f"Le fichier de dresseur trouvé est : {selected_trainer_file}")
+            return selected_trainer_file
     
+    def cleanup_trainer_file(self):
+        directory_path = "game/games_classes/"
+        json_files = [f for f in os.listdir(directory_path) if f.endswith('.json')]
+
+        # Filtrer les fichiers pour exclure pokedex.json
+        trainer_files = [f for f in json_files if f != 'pokedex.json']
+
+        if len(trainer_files) == 1:
+            file_path = os.path.join(directory_path, trainer_files[0])
+            os.remove(file_path)

@@ -357,34 +357,3 @@ def render_combat_pokemon():
 
 
 
-pokeball_images = [pygame.image.load(f"./assets/images/{i}_pokeball_.png") for i in range(1, 7)]
-
-# Liste pour suivre les pokeballs du joueur et de l'adversaire
-pokeballs_joueur = []
-pokeballs_adversaire = []
-
-# Index pour suivre l'image actuelle à afficher pour chaque joueur
-index_pokeball_joueur = 0
-index_pokeball_adversaire = 0
-
-# Fonction pour afficher les pokeballs du joueur
-def afficher_pokeballs_joueur():
-    for i, pokeball_image in enumerate(pokeballs_joueur):
-        pokeball_rect = Rectangle(10 + i * (pokeball_image.get_width() + 10), 10, 50, 50)
-        Rectangle.draw_rectangle(pokeball_rect)
-        screen.blit(pokeball_image, pokeball_rect)
-
-# Fonction pour afficher les pokeballs de l'adversaire
-def afficher_pokeballs_adversaire():
-    for i, pokeball_image in enumerate(pokeballs_adversaire):
-        pokeball_rect = pokeball_image.get_rect(topleft=(10 + i * (pokeball_image.get_width() + 10), 10))
-        screen.blit(pokeball_image, pokeball_rect)
-
-# Fonction pour passer à la pokeball suivante pour chaque joueur
-def passer_pokeball_suivante_joueur():
-    global index_pokeball_joueur
-    index_pokeball_joueur = (index_pokeball_joueur + 1) % len(pokeball_images)
-
-def passer_pokeball_suivante_adversaire():
-    global index_pokeball_adversaire
-    index_pokeball_adversaire = (index_pokeball_adversaire + 1) % len(pokeball_images)

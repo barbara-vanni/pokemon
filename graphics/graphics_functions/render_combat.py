@@ -17,14 +17,16 @@ def render_combat_pokemon():
     bcg_combat = Image('./assets/images/battlegrass.png', (0,0))
     bcg_combat.draw_image(screen)
 
-    pokeball = None
+   
+    afficher_pokeballs_adversaire()
+    afficher_pokeballs_joueur()
 
-    for pokeball_number in range(1, 6):
-        if get_state_combat() == pokeball_number:
-            pokeball = Image(f'./assets/images/pokeball{pokeball_number}.png', (pokeball_number * 60, 10))
+    # for pokeball_number in range(1, 6):
+    #     if get_state_combat() == pokeball_number:
+    #         pokeball = Image(f'./assets/images/pokeball{pokeball_number}.png', (pokeball_number * 60, 10))
 
-    if pokeball is not None:
-        pokeball.draw_image(screen)
+    # if pokeball is not None:
+    #     pokeball.draw_image(screen)
 
     # Mise en place des informations graphiques pour le pokemon du dresseur 
     pokemon_good = Image(get_pokemon1().get_image_front(), (0, 130))
@@ -233,3 +235,37 @@ def render_combat_pokemon():
                     set_combat(0)
                 elif suite_button.render(screen):
                     set_combat(0)
+
+
+
+pokeball_images = [pygame.image.load(f"./assets/images/{i}_pokeball_.png") for i in range(1, 7)]
+
+# Liste pour suivre les pokeballs du joueur et de l'adversaire
+pokeballs_joueur = []
+pokeballs_adversaire = []
+
+# Index pour suivre l'image actuelle à afficher pour chaque joueur
+index_pokeball_joueur = 0
+index_pokeball_adversaire = 0
+
+# Fonction pour afficher les pokeballs du joueur
+def afficher_pokeballs_joueur():
+    for i, pokeball_image in enumerate(pokeballs_joueur):
+        pokeball_rect = Rectangle(10 + i * (pokeball_image.get_width() + 10), 10, 50, 50)
+        Rectangle.draw_rectangle(pokeball_rect)
+        screen.blit(pokeball_image, pokeball_rect)
+
+# Fonction pour afficher les pokeballs de l'adversaire
+def afficher_pokeballs_adversaire():
+    for i, pokeball_image in enumerate(pokeballs_adversaire):
+        pokeball_rect = pokeball_image.get_rect(topleft=(10 + i * (pokeball_image.get_width() + 10), 10))
+        screen.blit(pokeball_image, pokeball_rect)
+
+# Fonction pour passer à la pokeball suivante pour chaque joueur
+def passer_pokeball_suivante_joueur():
+    global index_pokeball_joueur
+    index_pokeball_joueur = (index_pokeball_joueur + 1) % len(pokeball_images)
+
+def passer_pokeball_suivante_adversaire():
+    global index_pokeball_adversaire
+    index_pokeball_adversaire = (index_pokeball_adversaire + 1) % len(pokeball_images)

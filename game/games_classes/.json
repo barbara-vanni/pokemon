@@ -1340,7 +1340,7 @@
       "image_front": "assets/images/pokemon_front/ramoloss.png",
       "evolution_level": 37,
       "evolution_name": "Flagadoss",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {

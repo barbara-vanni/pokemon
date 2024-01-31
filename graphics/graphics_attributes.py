@@ -15,6 +15,7 @@ font_input = pygame.font.Font('./assets/font/Pokemon_text.ttf',40)
 font_long = pygame.font.Font('./assets/font/Pokemon_text.ttf',20)
 font_ingame = pygame.font.Font('./assets/font/Pokemon_text.ttf',15)
 font_little = pygame.font.Font('./assets/font/Pokemon_text.ttf',14)
+font_tiny = pygame.font.Font('./assets/font/Pokemon_text.ttf',10)
 
 text_choix = (f"Hello (user_name), now you're gonna choose your first pokemon . . . . .  Choose wisely !")
 num_words = 0

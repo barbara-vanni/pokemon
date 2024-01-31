@@ -171,15 +171,15 @@ def render_pokedex_menu():
             else:
                 titre = Message(350, 30, 40, 10, selected_pokemon_type, 'black', 'white')
                 titre.message_render(font_title_in, screen)
-                x = 50 + 160 * (i % 5)
-                y = 80 + 80 * (i // 5)
+                x = 50 + 90 * (i % 8)
+                y = 80 + 60 * (i // 8)
                 # image = f'./assets/images/pokemon_front/{pokemon.get_name()}.png' if pokemon.get_statut() == 1 else f'./assets/images/shadow/{pokemon.get_name()}.png'
                 if pokemon.get_statut() == 0:
                     image = Image(f'./assets/images/shadow/{pokemon.get_name()}.png', (x, y))
                     image.draw_image(screen)
                 else:
-                    message_type = Message(x + 25, y + 60, 20, 15, pokemon.get_name(), 'black', 'black')
-                    message_type.message_render(font_little, screen)
+                    message_type = Message(x + 25, y + 40, 20, 15, pokemon.get_name(), 'black', 'black')
+                    message_type.message_render(font_tiny, screen)
                     image_path = f'./assets/images/pokemon_front/{pokemon.get_name()}.png'
                     image = pygame.image.load(image_path)
                     button_types = Button_image(x, y, image, 1)

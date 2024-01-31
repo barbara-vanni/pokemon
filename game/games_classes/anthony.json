@@ -1,19 +1,19 @@
 {
   "pokemon_trainer": [
     {
-      "name": "Salameche",
-      "types": "fire",
+      "name": "Nidoqueen",
+      "types": "poison",
       "level": 1,
-      "power_attack": 52,
-      "defense": 0,
-      "speed": 0,
-      "pv": 1,
+      "power_attack": 47,
+      "defense": 52,
+      "speed": 41,
+      "pv": 100,
       "pv_max": 100,
       "xp": 0,
-      "xp_max": 200,
-      "image_front": "assets/images/pokemon_front/salameche.png",
-      "evolution_level": 16,
-      "evolution_name": "Reptincel",
+      "xp_max": 150,
+      "image_front": "assets/images/pokemon_front/nidoqueen.png",
+      "evolution_level": null,
+      "evolution_name": "",
       "statut": 1,
       "in_stockage": 0
     }
@@ -33,7 +33,7 @@
       "image_front": "assets/images/pokemon_front/bulbizarre.png",
       "evolution_level": 16,
       "evolution_name": "Herbizarre",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -77,14 +77,14 @@
       "power_attack": 52,
       "defense": 0,
       "speed": 0,
-      "pv": 21.25,
+      "pv": 1,
       "pv_max": 100,
-      "xp": 100,
+      "xp": 0,
       "xp_max": 200,
       "image_front": "assets/images/pokemon_front/salameche.png",
       "evolution_level": 16,
       "evolution_name": "Reptincel",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -288,7 +288,7 @@
       "image_front": "assets/images/pokemon_front/roucool.png",
       "evolution_level": 18,
       "evolution_name": "Roucoups",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -543,7 +543,7 @@
       "image_front": "assets/images/pokemon_front/nidoqueen.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -696,7 +696,7 @@
       "image_front": "assets/images/pokemon_front/grodoudou.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -849,7 +849,7 @@
       "image_front": "assets/images/pokemon_front/aeromite.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1359,7 +1359,7 @@
       "image_front": "assets/images/pokemon_front/ramoloss.png",
       "evolution_level": 37,
       "evolution_name": "Flagadoss",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -2413,7 +2413,7 @@
       "image_front": "assets/images/pokemon_front/lippoutou.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {

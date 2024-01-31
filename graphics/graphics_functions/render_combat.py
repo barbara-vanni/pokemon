@@ -55,6 +55,8 @@ def render_combat_pokemon():
             Combat.combat_begin.attack_chance()
         elif flee_button.render(screen):
             Current_render.set_state(render_choose_fight.render_choose_fight)
+            Combat.combat_begin.set_pokemon2(pokedex2.choose_random_pokemon())
+            set_pokemon2(Combat.combat_begin.get_pokemon2())
         elif change_poke_button.render(screen):
             set_combat(7)
         elif object_button.render(screen):

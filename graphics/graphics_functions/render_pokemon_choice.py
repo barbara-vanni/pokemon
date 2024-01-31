@@ -6,6 +6,7 @@ import graphics.graphics_functions.render_choose_fight as Render_choose_fight
 from graphics.graphics_functions import draw_text
 import game.current_render as Current_render
 from game.games_attributes import *
+from game.games_classes.Combat import *
 
 
 
@@ -41,12 +42,13 @@ def pokemon_1_action():
         set_pokemon1(pokemon)
         trainer.add_pokemon(pokemon)
         trainer.set_actif_pokemon(pokemon)
-        pokedex.choose_your_name(trainer.get_name_trainer())
-        pokedex.load_from_json(trainer.get_name_trainer())
-        pokedex.change_pokemon_trainer(trainer.get_name_trainer(), pokemon)
+        pokedex2.choose_your_name(trainer.get_name_trainer())
+        pokedex2.load_from_json(trainer.get_name_trainer())
+        pokedex2.change_pokemon_trainer(trainer.get_name_trainer(), pokemon)
+        Combat.combat_begin.set_pokemon_player(get_pokemon1().get_name())
         Current_render.set_state(Render_choose_fight.render_choose_fight)
         pokemon.set_statut(1)
-        pokedex.change_statut(get_pokemon1().get_name(), trainer.get_name_trainer())
+        pokedex2.change_statut(get_pokemon1().get_name(), trainer.get_name_trainer())
 
 def pokemon_2_action():
     screen.fill('black')
@@ -62,12 +64,13 @@ def pokemon_2_action():
         set_pokemon1(pokemon)
         trainer.add_pokemon(pokemon)
         trainer.set_actif_pokemon(pokemon)
-        pokedex.choose_your_name(trainer.get_name_trainer())
-        pokedex.load_from_json(trainer.get_name_trainer())
-        pokedex.change_pokemon_trainer(trainer.get_name_trainer(), pokemon)
+        pokedex2.choose_your_name(trainer.get_name_trainer())
+        pokedex2.load_from_json(trainer.get_name_trainer())
+        pokedex2.change_pokemon_trainer(trainer.get_name_trainer(), pokemon)
+        Combat.combat_begin.set_pokemon_player(get_pokemon1().get_name())
         Current_render.set_state(Render_choose_fight.render_choose_fight)
         pokemon.set_statut(1)
-        pokedex.change_statut(get_pokemon1().get_name(), trainer.get_name_trainer())
+        pokedex2.change_statut(get_pokemon1().get_name(), trainer.get_name_trainer())
 
 def pokemon_3_action():
     screen.fill('black')
@@ -83,9 +86,10 @@ def pokemon_3_action():
         set_pokemon1(pokemon)
         trainer.add_pokemon(pokemon)
         trainer.set_actif_pokemon(pokemon)
-        pokedex.choose_your_name(trainer.get_name_trainer())
-        pokedex.load_from_json(trainer.get_name_trainer())
-        pokedex.change_pokemon_trainer(trainer.get_name_trainer(), pokemon)
+        pokedex2.choose_your_name(trainer.get_name_trainer())
+        pokedex2.load_from_json(trainer.get_name_trainer())
+        pokedex2.change_pokemon_trainer(trainer.get_name_trainer(), pokemon)
+        Combat.combat_begin.set_pokemon_player(get_pokemon1().get_name())
         Current_render.set_state(Render_choose_fight.render_choose_fight)
         pokemon.set_statut(1)
-        pokedex.change_statut(get_pokemon1().get_name(), trainer.get_name_trainer())
+        pokedex2.change_statut(get_pokemon1().get_name(), trainer.get_name_trainer())

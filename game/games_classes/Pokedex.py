@@ -294,27 +294,25 @@ class Pokedex:
         else:
             print(f"{pokemon_name.get_name()} n'a pas été trouvé dans le fichier du dresseur.")
 
-    def adjust_level(self, pokemon_name, name_trainer, level_stockage):
-        json_file_path = f"game/games_classes/{name_trainer}.json"
+    # def adjust_level(self, pokemon_name, name_trainer, level_stockage):
+    #     json_file_path = f"game/games_classes/{name_trainer}.json"
 
-        with open(json_file_path, "r") as file:
-            data = json.load(file)
+    #     with open(json_file_path, "r") as file:
+    #         data = json.load(file)
 
-        for pokemon_data in data["pokemon_list"]:
-            if pokemon_data["name"] == pokemon_name.get_name():
-                pokemon_data["level"] = level_stockage
-                pokemon_data["power_attack"] += level_stockage
-                pokemon_data["defense"] += level_stockage
-                pokemon_data["speed"] += level_stockage
-                pokemon_data["pv_max"] += level_stockage
-                pokemon_data["pv"] = pokemon_name.get_pv_max() + level_stockage
-                pokemon_data["xp_max"] = 150 + 100 * pokemon_data["level"]
-                pokemon_data["xp"] = 0
+    #     for pokemon_data in data["pokemon_list"]:
+    #         if pokemon_data["name"] == pokemon_name.get_name():
+    #             pokemon_data["level"] = level_stockage
+    #             pokemon_data["power_attack"] += level_stockage
+    #             pokemon_data["defense"] += level_stockage
+    #             pokemon_data["speed"] += level_stockage
+    #             pokemon_data["pv_max"] += level_stockage
+    #             pokemon_data["pv"] = pokemon_name.get_pv_max() + level_stockage
+    #             pokemon_data["xp_max"] = 150 + 100 * pokemon_data["level"]
+    #             pokemon_data["xp"] = 0
 
-        with open(json_file_path, "w") as file:
-            json.dump(data, file, indent=2)
-
-    import os
+    #     with open(json_file_path, "w") as file:
+    #         json.dump(data, file, indent=2)
 
     def choose_trainer_file(self):
         directory_path = "game/games_classes/"

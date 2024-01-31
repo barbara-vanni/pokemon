@@ -1,19 +1,19 @@
 {
   "pokemon_trainer": [
     {
-      "name": "Carapuce",
-      "types": "water",
-      "level": 15,
-      "power_attack": 63,
-      "defense": 43,
-      "speed": 200,
-      "pv": 100,
+      "name": "Salameche",
+      "types": "fire",
+      "level": 1,
+      "power_attack": 52,
+      "defense": 0,
+      "speed": 0,
+      "pv": 1,
       "pv_max": 100,
-      "xp": 150,
+      "xp": 0,
       "xp_max": 200,
-      "image_front": "assets/images/pokemon_front/carapuce.png",
+      "image_front": "assets/images/pokemon_front/salameche.png",
       "evolution_level": 16,
-      "evolution_name": "Carabaffe",
+      "evolution_name": "Reptincel",
       "statut": 1,
       "in_stockage": 0
     }
@@ -75,16 +75,16 @@
       "types": "fire",
       "level": 1,
       "power_attack": 52,
-      "defense": 43,
-      "speed": 65,
-      "pv": 100,
+      "defense": 0,
+      "speed": 0,
+      "pv": 21.25,
       "pv_max": 100,
-      "xp": 0,
+      "xp": 100,
       "xp_max": 200,
       "image_front": "assets/images/pokemon_front/salameche.png",
       "evolution_level": 16,
       "evolution_name": "Reptincel",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -135,20 +135,20 @@
       "image_front": "assets/images/pokemon_front/carapuce.png",
       "evolution_level": 16,
       "evolution_name": "Carabaffe",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
       "name": "Carabaffe",
       "types": "water",
-      "level": 1,
-      "power_attack": 48,
-      "defense": 65,
-      "speed": 43,
-      "pv": 100,
-      "pv_max": 100,
+      "level": 16,
+      "power_attack": 63,
+      "defense": 80,
+      "speed": 57,
+      "pv": 115,
+      "pv_max": 115,
       "xp": 0,
-      "xp_max": 200,
+      "xp_max": 1800,
       "image_front": "assets/images/pokemon_front/carabaffe.png",
       "evolution_level": 32,
       "evolution_name": "Tortank",
@@ -475,7 +475,7 @@
       "image_front": "assets/images/pokemon_front/sablette.png",
       "evolution_level": 22,
       "evolution_name": "Sablaireau",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -696,7 +696,7 @@
       "image_front": "assets/images/pokemon_front/grodoudou.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -849,7 +849,7 @@
       "image_front": "assets/images/pokemon_front/aeromite.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {

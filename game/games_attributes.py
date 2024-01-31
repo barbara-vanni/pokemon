@@ -47,6 +47,7 @@ pokemon1 = pokedex.choose_specific_pokemon("Mewtwo")
 pokemon2 = pokedex.choose_random_pokemon()
 trainer = Trainer([], None, "")
 trainer.set_actif_pokemon(pokemon1)
+pokedex2 = Pokedex()
 
 
 state_combat = 0

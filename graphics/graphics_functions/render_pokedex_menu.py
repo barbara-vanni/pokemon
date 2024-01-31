@@ -49,7 +49,7 @@ def render_pokedex_menu():
         bcg_pokedex = Image('./assets/images/pokedex_pokemon_groupe.png', (0,0))
         bcg_pokedex.draw_image(screen)
 
-        matching_pokemon = pokedex.get_pokemon_by_type(selected_pokemon_type, trainer.get_name_trainer())
+        matching_pokemon = pokedex2.get_pokemon_by_type(selected_pokemon_type, trainer.get_name_trainer())
 
         for i, pokemon in enumerate(matching_pokemon):
             if len(matching_pokemon) == 1:
@@ -195,7 +195,7 @@ def render_pokedex_menu():
         bcg_pokedex = Image('./assets/images/pokedex_pokemon_solo.png', (0,0))
         bcg_pokedex.draw_image(screen)
 
-        matching_pokemon_name = pokedex.get_pokemon_by_name(selected_pokemon_name, trainer.get_name_trainer())
+        matching_pokemon_name = pokedex2.get_pokemon_by_name(selected_pokemon_name, trainer.get_name_trainer())
 
         for index, pokemon in enumerate(matching_pokemon_name):
             titre = Message(350, 30, 40, 10, selected_pokemon_name, 'black', 'white')
@@ -225,7 +225,7 @@ def render_pokedex_menu():
 
 def add_pokemon_list():
     global selected_pokemon_type, selected_pokemon_name
-    pokemon = pokedex.get_pokemon_by_name(selected_pokemon_name, trainer.get_name_trainer())[0]
+    pokemon = pokedex2.get_pokemon_by_name(selected_pokemon_name, trainer.get_name_trainer())[0]
 
     if pokemon.get_in_stockage() == 1:
         if button_remove_pokemon.render(screen):

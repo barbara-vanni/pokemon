@@ -133,14 +133,6 @@ class Combat:
         else:
             return self.__pokemon1.get_name()
 
-    # def winner_trainer(self):
-    #     if self.pokemon1.get_pv() <= 0:
-    #         return "Player 1 loses"
-    #     elif self.pokemon2.get_pv() <= 0:
-    #         return "Player 1 wins"
-    #     else:
-    #         return "Continue"
-
     def end_attack(self):
         temp = self.__pokemon1
         self.__pokemon1 = self.__pokemon2

@@ -34,7 +34,6 @@ class Button():
                 self.last_click_time = time.time()
                 self.clicked = True
                 action = True
-                print(f"{self.text} clicked")
         else:
             self.clicked = False
 

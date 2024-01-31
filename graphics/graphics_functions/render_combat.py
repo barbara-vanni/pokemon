@@ -43,7 +43,7 @@ def render_combat_pokemon():
     pv_bad.message_render(font_ingame, screen)
     pygame.draw.rect(screen, 'white',(40, 110, 280, 10), 0, 15)
     pygame.draw.rect(screen, 'blue', (40, 110, get_pokemon2().get_pv() * 280 / get_pokemon2().get_pv_max(), 10), 0, 15)
-    pokedex.change_statut(get_pokemon2().get_name(), trainer.get_name_trainer())
+    pokedex2.change_statut(get_pokemon2().get_name(), trainer.get_name_trainer())
 
     #Menu de sélection de combat
     if get_combat() == 0:
@@ -105,29 +105,27 @@ def render_combat_pokemon():
 
         if suite_button.render(screen):
             if Combat.combat_begin.end_game() == True:
+                print(Combat.combat_begin.get_pokemon2().get_name(), Combat.combat_begin.get_pokemon_player())
                 if Combat.combat_begin.gain_xp() == True:
-                    pokedex.change_statistics(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_xp(), trainer.get_name_trainer())
-                    pokedex.change_stat_pv(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_pv(), trainer.get_name_trainer())
-                    evolution = pokedex.evolution(Combat.combat_begin.get_pokemon1(), trainer.get_name_trainer())
+                    pokedex2.change_statistics(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_xp(), trainer.get_name_trainer())
+                    pokedex2.change_stat_pv(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_pv(), trainer.get_name_trainer())
+                    evolution = pokedex2.evolution(Combat.combat_begin.get_pokemon1(), trainer.get_name_trainer())
                     if evolution:
-                        level_stockage = Combat.combat_begin.get_pokemon1().get_level()
-                        pokedex.reset_stats(Combat.combat_begin.get_pokemon1(), trainer.get_name_trainer()) 
-                        Combat.combat_begin.set_pokemon1(Combat.combat_begin.get_pokemon1())
-                        Combat.combat_begin.set_pokemon1(pokedex.choose_specific_pokemon(Combat.combat_begin.get_pokemon1().get_evolution_name()))
-                        pokedex.adjust_level(Combat.combat_begin.get_pokemon1(), trainer.get_name_trainer(), level_stockage)
-                        Combat.combat_begin.set_pokemon1(pokedex.choose_specific_pokemon(Combat.combat_begin.get_pokemon1().get_name()))
+                        Combat.combat_begin.set_pokemon1(pokedex2.choose_specific_pokemon(Combat.combat_begin.get_pokemon1().get_evolution_name()))
                         set_pokemon1(Combat.combat_begin.get_pokemon1())
                         set_combat(6)
                     else:
                         set_combat(4)
                 else:
                     if Combat.combat_begin.get_pokemon2().get_name() == Combat.combat_begin.get_pokemon_player():
-                        pokedex.change_statistics_down(get_pokemon1(), trainer.get_name_trainer())
-                        pokedex.change_stat_pv(get_pokemon1().get_name(), get_pokemon1().get_pv_max() - 1, trainer.get_name_trainer())
-                        set_combat(5)
-                    pokedex.change_stat_pv(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_pv(), trainer.get_name_trainer())
-                    pokedex.change_stat_xp(Combat.combat_begin.get_pokemon1().get_name(), trainer.get_name_trainer())
-                    set_combat(3)
+                        get_pokemon1().set_pv(get_pokemon1().get_pv_max())
+                        set_pokemon2(pokedex2.choose_random_pokemon())
+                        Combat.combat_begin.set_pokemon2(get_pokemon2())
+                        Current_render.set_state(render_choose_fight.render_choose_fight)
+                    else:
+                        pokedex2.change_stat_pv(Combat.combat_begin.get_pokemon1().get_name(), Combat.combat_begin.get_pokemon1().get_pv(), trainer.get_name_trainer())
+                        pokedex2.change_stat_xp(Combat.combat_begin.get_pokemon1().get_name(), trainer.get_name_trainer())
+                        set_combat(3)
             else:
                 if turn_number == 1:
                     Combat.combat_begin.end_attack()
@@ -149,12 +147,12 @@ def render_combat_pokemon():
                 get_pokemon1().set_pv(get_pokemon1().get_pv_max())
                 Current_render.set_state(render_choose_fight.render_choose_fight)
             else:
-                set_pokemon1(pokedex.choose_specific_pokemon(get_pokemon1().get_name()))
-                set_pokemon2(pokedex.choose_random_pokemon())
-                scale = pokedex.get_level_scale(get_pokemon1())
+                set_pokemon1(pokedex2.choose_specific_pokemon(get_pokemon1().get_name()))
+                set_pokemon2(pokedex2.choose_random_pokemon())
+                scale = pokedex2.get_level_scale(get_pokemon1())
                 get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
-                pokedex.stats_level_scale(get_pokemon2())
-                pokedex.change_statut(get_pokemon2().get_name(), trainer.get_name_trainer())
+                pokedex2.stats_level_scale(get_pokemon2())
+                pokedex2.change_statut(get_pokemon2().get_name(), trainer.get_name_trainer())
                 Combat.combat_begin.set_pokemon1(get_pokemon1())
                 Combat.combat_begin.set_pokemon2(get_pokemon2())
                 set_combat(0)
@@ -170,32 +168,15 @@ def render_combat_pokemon():
                 get_pokemon1().set_pv(get_pokemon1().get_pv_max())
                 Current_render.set_state(render_choose_fight.render_choose_fight)
             else:
-                set_pokemon1(pokedex.choose_specific_pokemon(get_pokemon1().get_name()))
-                set_pokemon2(pokedex.choose_random_pokemon())
-                scale = pokedex.get_level_scale(get_pokemon1())
+                set_pokemon1(pokedex2.choose_specific_pokemon(get_pokemon1().get_name()))
+                set_pokemon2(pokedex2.choose_random_pokemon())
+                scale = pokedex2.get_level_scale(get_pokemon1())
                 get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
-                pokedex.stats_level_scale(get_pokemon2())
-                pokedex.change_statut(get_pokemon2().get_name(), trainer.get_name_trainer())
+                pokedex2.stats_level_scale(get_pokemon2())
+                pokedex2.change_statut(get_pokemon2().get_name(), trainer.get_name_trainer())
                 Combat.combat_begin.set_pokemon1(get_pokemon1())
                 Combat.combat_begin.set_pokemon2(get_pokemon2())
                 set_combat(0)
-
-    elif get_combat() == 5:
-        rectangle = Rectangle.draw_rectangle(Rectangle(100, 380, 550, 160))
-        border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
-        border_option_message.draw_image(screen)
-        dead_text = (f"Votre {get_pokemon1().get_name()} est mort, il repasse lvl {get_pokemon1().get_level()} avec {get_pokemon1.get_xp()} xp")
-        draw_text(screen, dead_text, font_ingame, rectangle, 460, 60, max_lines=3)
-        if suite_button.render(screen):
-            set_pokemon1(pokedex.choose_specific_pokemon(get_pokemon1().get_name()))
-            set_pokemon2(pokedex.choose_random_pokemon())
-            scale = pokedex.get_level_scale(get_pokemon1())
-            get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
-            pokedex.stats_level_scale(get_pokemon2())
-            pokedex.change_statut(get_pokemon2().get_name(), trainer.get_name_trainer())
-            Combat.combat_begin.set_pokemon1(get_pokemon1())
-            Combat.combat_begin.set_pokemon2(get_pokemon2())
-            set_combat(0)
     
     elif get_combat() == 6:
         rectangle = Rectangle.draw_rectangle(Rectangle(100, 380, 550, 160))
@@ -204,12 +185,12 @@ def render_combat_pokemon():
         dead_text = (f"Votre {Combat.combat_begin.get_pokemon_player()} vient d'évoluer en {Combat.combat_begin.get_pokemon1().get_name()}")
         draw_text(screen, dead_text, font_ingame, rectangle, 460, 60, max_lines=3)
         if suite_button.render(screen):
-            set_pokemon1(pokedex.choose_specific_pokemon(get_pokemon1().get_name()))
-            set_pokemon2(pokedex.choose_random_pokemon())
-            scale = pokedex.get_level_scale(get_pokemon1())
+            set_pokemon1(pokedex2.choose_specific_pokemon(get_pokemon1().get_name()))
+            set_pokemon2(pokedex2.choose_random_pokemon())
+            scale = pokedex2.get_level_scale(get_pokemon1())
             get_pokemon2().set_level(random.randint(get_pokemon1().get_level() - scale, get_pokemon1().get_level() + scale))
-            pokedex.stats_level_scale(get_pokemon2())
-            pokedex.change_statut(get_pokemon2().get_name(), trainer.get_name_trainer())
+            pokedex2.stats_level_scale(get_pokemon2())
+            pokedex2.change_statut(get_pokemon2().get_name(), trainer.get_name_trainer())
             Combat.combat_begin.set_pokemon1(get_pokemon1())
             Combat.combat_begin.set_pokemon2(get_pokemon2())
             set_combat(0)
@@ -222,7 +203,7 @@ def render_combat_pokemon():
             if index <= 2:
                 pokemon_button = Button(100 + 200 * index, 470, pokemon.get_name(), font_ingame, 0, 'black', 'black')
                 if pokemon_button.render(screen):
-                    Combat.combat_begin.set_pokemon1(pokedex.choose_specific_pokemon(pokemon.get_name()))
+                    Combat.combat_begin.set_pokemon1(pokedex2.choose_specific_pokemon(pokemon.get_name()))
                     set_pokemon1(Combat.combat_begin.get_pokemon1())
                     if turn_number == 0:
                         turn_number += 1
@@ -238,7 +219,7 @@ def render_combat_pokemon():
             elif index >= 3 and index <= 5:
                 pokemon_button = Button(100 + 200 * (index - 3), 520, pokemon.get_name(), font_ingame, 0, 'black', 'black')
                 if pokemon_button.render(screen):
-                    Combat.combat_begin.set_pokemon1(pokedex.choose_specific_pokemon(pokemon.get_name()))
+                    Combat.combat_begin.set_pokemon1(pokedex2.choose_specific_pokemon(pokemon.get_name()))
                     set_pokemon1(Combat.combat_begin.get_pokemon1())
                     if turn_number == 0:
                         turn_number += 1
@@ -283,7 +264,7 @@ def render_combat_pokemon():
             pokemon_catched.message_render(font_ingame, screen)
             pygame.display.update()
             pygame.time.delay(1000)
-            Combat.combat_begin.set_pokemon2(pokedex.choose_random_pokemon())
+            Combat.combat_begin.set_pokemon2(pokedex2.choose_random_pokemon())
             set_pokemon2(Combat.combat_begin.get_pokemon2())
             set_combat(0)
         elif catch_chance_ratio == 0:

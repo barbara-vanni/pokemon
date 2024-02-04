@@ -79,8 +79,6 @@ def render_combat_pokemon():
             if Combat.combat_begin.get_attack_chance_ratio() == 0:
                 if turn_number == 1:
                     Combat.combat_begin.end_attack()
-                    # Combat.combat_begin.set_pokemon1(get_pokemon1())
-                    # Combat.combat_begin.set_pokemon2(get_pokemon2())
                     set_combat(0)
                     turn_number = 0
                 else:

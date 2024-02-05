@@ -265,61 +265,9 @@ def render_combat_pokemon():
             pokemon_catched.message_render(font_ingame, screen)
             pygame.display.update()
             pygame.time.delay(1000)
+            Current_render.set_state(render_choose_fight.render_choose_fight)
             Combat.combat_begin.set_pokemon2(pokedex2.choose_random_pokemon())
             set_pokemon2(Combat.combat_begin.get_pokemon2())
-            set_combat(0)
-        elif catch_chance_ratio == 0:
-            pokemon_no_catched = Message(100, 380, 550, 160, f"You didn't catch {get_pokemon2().get_name()}", 'white', 'black')
-            pokemon_no_catched.message_render(font_ingame, screen)
-            pygame.display.update()
-            pygame.time.delay(1000)
-            if turn_number == 0:
-                turn_number += 1
-                set_combat(1)
-                Combat.combat_begin.attack_chance()
-            else:
-                set_combat(0)
-                turn_number = 0
-
-
-
-
-
-    elif get_combat() == 8:
-        rectangle = Rectangle.draw_rectangle(Rectangle(100, 380, 550, 160))
-        border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
-        border_option_message.draw_image(screen)
-        if button_potion.render(screen):
-            pv_earned = Message(100, 380, 550, 160, f"You earned 20 pv", 'white', 'black')	
-            pv_earned.message_render(font_ingame, screen)
-            if turn_number == 0:
-                pygame.display.update()
-                pygame.time.delay(1000)
-                turn_number += 1
-                Combat.combat_begin.attack_chance()
-                set_combat(1)
-            else:
-                pygame.display.update()
-                pygame.time.delay(1000)
-                set_combat(0)
-                turn_number = 0
-            trainer.potion(Combat.combat_begin.get_pokemon1())
-        elif button_pokeball.render(screen):
-            set_combat(9)
-    
-    elif get_combat() == 9:
-        rectangle = Rectangle.draw_rectangle(Rectangle(100, 380, 550, 160))
-        border_option_message = Image('./assets/images/border_choice_message.png', (30, 410))
-        border_option_message.draw_image(screen)
-        catch_chance_ratio = trainer.pokeball()
-        if catch_chance_ratio == 1:
-            pokemon_catched = Message(100, 380, 550, 160, f"You caught {get_pokemon2().get_name()}", 'white', 'black')
-            pokemon_catched.message_render(font_ingame, screen)
-            pygame.display.update()
-            pygame.time.delay(1000)
-            Combat.combat_begin.set_pokemon2(pokedex.choose_random_pokemon())
-            set_pokemon2(Combat.combat_begin.get_pokemon2())
-            set_combat(0)
         elif catch_chance_ratio == 0:
             pokemon_no_catched = Message(100, 380, 550, 160, f"You didn't catch {get_pokemon2().get_name()}", 'white', 'black')
             pokemon_no_catched.message_render(font_ingame, screen)

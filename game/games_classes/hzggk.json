@@ -24,9 +24,9 @@
       "types": "grass",
       "level": 1,
       "power_attack": 49,
-      "defense": 1,
-      "speed": 1,
-      "pv": 1,
+      "defense": 49,
+      "speed": 45,
+      "pv": 50,
       "pv_max": 100,
       "xp": 0,
       "xp_max": 200,
@@ -124,14 +124,14 @@
     {
       "name": "Carapuce",
       "types": "water",
-      "level": 15,
-      "power_attack": 1000,
-      "defense": 43,
-      "speed": 200,
+      "level": 19,
+      "power_attack": 1004,
+      "defense": 47,
+      "speed": 204,
       "pv": 100,
-      "pv_max": 100,
-      "xp": 150,
-      "xp_max": 200,
+      "pv_max": 104,
+      "xp": 50,
+      "xp_max": 2050,
       "image_front": "assets/images/pokemon_front/carapuce.png",
       "evolution_level": 16,
       "evolution_name": "Carabaffe",
@@ -203,7 +203,7 @@
       "image_front": "assets/images/pokemon_front/chrysacier.png",
       "evolution_level": 10,
       "evolution_name": "Papilusion",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -237,7 +237,7 @@
       "image_front": "assets/images/pokemon_front/aspicot.png",
       "evolution_level": 7,
       "evolution_name": "Coconfort",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -266,12 +266,12 @@
       "speed": 50,
       "pv": 100,
       "pv_max": 100,
-      "xp": 100,
+      "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/dardargnan.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -322,7 +322,7 @@
       "image_front": "assets/images/pokemon_front/roucarnage.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -492,7 +492,7 @@
       "image_front": "assets/images/pokemon_front/sablaireau.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -611,7 +611,7 @@
       "image_front": "assets/images/pokemon_front/melofee.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -628,7 +628,7 @@
       "image_front": "assets/images/pokemon_front/melodelfe.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -657,12 +657,12 @@
       "speed": 65,
       "pv": 100,
       "pv_max": 100,
-      "xp": 100,
+      "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/feunard.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -764,7 +764,7 @@
       "image_front": "assets/images/pokemon_front/ortide.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -866,7 +866,7 @@
       "image_front": "assets/images/pokemon_front/taupiqueur.png",
       "evolution_level": 26,
       "evolution_name": "Triopikeur",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1048,12 +1048,12 @@
       "speed": 90,
       "pv": 100,
       "pv_max": 100,
-      "xp": 100,
+      "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/tetarte.png",
       "evolution_level": 36,
       "evolution_name": "Tartard",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1138,7 +1138,7 @@
       "image_front": "assets/images/pokemon_front/machoc.png",
       "evolution_level": 28,
       "evolution_name": "Machopeur",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1291,7 +1291,7 @@
       "image_front": "assets/images/pokemon_front/gravalanch.png",
       "evolution_level": 38,
       "evolution_name": "Grolem",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1308,7 +1308,7 @@
       "image_front": "assets/images/pokemon_front/grolem.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1342,7 +1342,7 @@
       "image_front": "assets/images/pokemon_front/galopa.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1546,7 +1546,7 @@
       "image_front": "assets/images/pokemon_front/kokiyas.png",
       "evolution_level": 33,
       "evolution_name": "Crustabri",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1716,7 +1716,7 @@
       "image_front": "assets/images/pokemon_front/voltorbe.png",
       "evolution_level": 30,
       "evolution_name": "Electrode",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1733,7 +1733,7 @@
       "image_front": "assets/images/pokemon_front/electrode.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1813,12 +1813,12 @@
       "speed": 87,
       "pv": 100,
       "pv_max": 100,
-      "xp": 100,
+      "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/kicklee.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1971,7 +1971,7 @@
       "image_front": "assets/images/pokemon_front/mew.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -2073,7 +2073,7 @@
       "image_front": "assets/images/pokemon_front/elektor.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -2085,12 +2085,12 @@
       "speed": 85,
       "pv": 100,
       "pv_max": 100,
-      "xp": 100,
+      "xp": 0,
       "xp_max": 150,
       "image_front": "assets/images/pokemon_front/artikodin.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -2379,7 +2379,7 @@
       "image_front": "assets/images/pokemon_front/magmar.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {

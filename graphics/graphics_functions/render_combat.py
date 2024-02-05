@@ -204,6 +204,7 @@ def render_combat_pokemon():
                 pokemon_button = Button(100 + 200 * index, 470, pokemon.get_name(), font_ingame, 0, 'black', 'black')
                 if pokemon_button.render(screen):
                     Combat.combat_begin.set_pokemon1(pokedex2.choose_specific_pokemon(pokemon.get_name()))
+                    Combat.combat_begin.set_pokemon_player(Combat.combat_begin.get_pokemon1().get_name())
                     set_pokemon1(Combat.combat_begin.get_pokemon1())
                     if turn_number == 0:
                         turn_number += 1

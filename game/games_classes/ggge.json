@@ -1,19 +1,19 @@
 {
   "pokemon_trainer": [
     {
-      "name": "Poissoroy",
+      "name": "Carapuce",
       "types": "water",
-      "level": 1,
-      "power_attack": 67,
-      "defense": 60,
-      "speed": 63,
+      "level": 15,
+      "power_attack": 1000,
+      "defense": 43,
+      "speed": 200,
       "pv": 100,
       "pv_max": 100,
-      "xp": 0,
-      "xp_max": 150,
-      "image_front": "assets/images/pokemon_front/poissoroy.png",
-      "evolution_level": null,
-      "evolution_name": "",
+      "xp": 150,
+      "xp_max": 200,
+      "image_front": "assets/images/pokemon_front/carapuce.png",
+      "evolution_level": 16,
+      "evolution_name": "Carabaffe",
       "statut": 1,
       "in_stockage": 0
     }
@@ -84,7 +84,7 @@
       "image_front": "assets/images/pokemon_front/salameche.png",
       "evolution_level": 16,
       "evolution_name": "Reptincel",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -124,31 +124,31 @@
     {
       "name": "Carapuce",
       "types": "water",
-      "level": 15,
-      "power_attack": 63,
-      "defense": 43,
-      "speed": 200,
-      "pv": 100,
-      "pv_max": 100,
-      "xp": 150,
-      "xp_max": 200,
+      "level": 16,
+      "power_attack": 1001,
+      "defense": 44,
+      "speed": 201,
+      "pv": 63.0,
+      "pv_max": 101,
+      "xp": 50,
+      "xp_max": 1750,
       "image_front": "assets/images/pokemon_front/carapuce.png",
       "evolution_level": 16,
       "evolution_name": "Carabaffe",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
       "name": "Carabaffe",
       "types": "water",
-      "level": 1,
-      "power_attack": 48,
-      "defense": 65,
-      "speed": 43,
-      "pv": 100,
-      "pv_max": 100,
+      "level": 16,
+      "power_attack": 63,
+      "defense": 80,
+      "speed": 58,
+      "pv": 115,
+      "pv_max": 115,
       "xp": 0,
-      "xp_max": 200,
+      "xp_max": 1650,
       "image_front": "assets/images/pokemon_front/carabaffe.png",
       "evolution_level": 32,
       "evolution_name": "Tortank",
@@ -339,7 +339,7 @@
       "image_front": "assets/images/pokemon_front/rattata.png",
       "evolution_level": 20,
       "evolution_name": "Rattatac",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -458,7 +458,7 @@
       "image_front": "assets/images/pokemon_front/raichu.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -985,7 +985,7 @@
       "image_front": "assets/images/pokemon_front/colosinge.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1988,7 +1988,7 @@
       "image_front": "assets/images/pokemon_front/mewtwo.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -2175,7 +2175,7 @@
       "image_front": "assets/images/pokemon_front/amonistar.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -2498,7 +2498,7 @@
       "image_front": "assets/images/pokemon_front/poissoroy.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {

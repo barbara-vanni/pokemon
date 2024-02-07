@@ -1,19 +1,19 @@
 {
   "pokemon_trainer": [
     {
-      "name": "Salameche",
-      "types": "fire",
+      "name": "Kabutops",
+      "types": "water",
       "level": 1,
-      "power_attack": 52,
-      "defense": 1,
-      "speed": 1,
-      "pv": 1,
+      "power_attack": 80,
+      "defense": 90,
+      "speed": 55,
+      "pv": 100,
       "pv_max": 100,
       "xp": 0,
-      "xp_max": 200,
-      "image_front": "assets/images/pokemon_front/salameche.png",
-      "evolution_level": 16,
-      "evolution_name": "Reptincel",
+      "xp_max": 150,
+      "image_front": "assets/images/pokemon_front/kabutops.png",
+      "evolution_level": null,
+      "evolution_name": "",
       "statut": 1,
       "in_stockage": 0
     }
@@ -124,14 +124,14 @@
     {
       "name": "Carapuce",
       "types": "water",
-      "level": 19,
-      "power_attack": 1004,
-      "defense": 47,
-      "speed": 204,
-      "pv": 100,
-      "pv_max": 104,
-      "xp": 50,
-      "xp_max": 2050,
+      "level": 17,
+      "power_attack": 1002,
+      "defense": 45,
+      "speed": 202,
+      "pv": 101,
+      "pv_max": 102,
+      "xp": 150,
+      "xp_max": 1850,
       "image_front": "assets/images/pokemon_front/carapuce.png",
       "evolution_level": 16,
       "evolution_name": "Carabaffe",
@@ -322,7 +322,7 @@
       "image_front": "assets/images/pokemon_front/roucarnage.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -492,7 +492,7 @@
       "image_front": "assets/images/pokemon_front/sablaireau.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -628,7 +628,7 @@
       "image_front": "assets/images/pokemon_front/melodelfe.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -764,7 +764,7 @@
       "image_front": "assets/images/pokemon_front/ortide.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1138,7 +1138,7 @@
       "image_front": "assets/images/pokemon_front/machoc.png",
       "evolution_level": 28,
       "evolution_name": "Machopeur",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1342,7 +1342,7 @@
       "image_front": "assets/images/pokemon_front/galopa.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -1631,7 +1631,7 @@
       "image_front": "assets/images/pokemon_front/onix.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1716,7 +1716,7 @@
       "image_front": "assets/images/pokemon_front/voltorbe.png",
       "evolution_level": 30,
       "evolution_name": "Electrode",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1801,7 +1801,7 @@
       "image_front": "assets/images/pokemon_front/ossatueur.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -1971,7 +1971,7 @@
       "image_front": "assets/images/pokemon_front/mew.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {
@@ -2022,7 +2022,7 @@
       "image_front": "assets/images/pokemon_front/draco.png",
       "evolution_level": 55,
       "evolution_name": "Dracoloss",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -2090,7 +2090,7 @@
       "image_front": "assets/images/pokemon_front/artikodin.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -2141,7 +2141,7 @@
       "image_front": "assets/images/pokemon_front/kabutops.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 0,
+      "statut": 1,
       "in_stockage": 0
     },
     {
@@ -2379,7 +2379,7 @@
       "image_front": "assets/images/pokemon_front/magmar.png",
       "evolution_level": null,
       "evolution_name": "",
-      "statut": 1,
+      "statut": 0,
       "in_stockage": 0
     },
     {

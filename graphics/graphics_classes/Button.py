@@ -68,7 +68,7 @@ back_button = Button(720, 560, "BACK", font_ingame, 1, (0, 0, 0), (0, 255, 0))
 
 
 #button to choose the number of pokemon in the team
-button_survival = Button(572, 200, 'Fight', font_long, 1, (0, 0, 0), (255, 0, 0))
+button_survival = Button(572, 300, 'Fight', font_long, 1, (0, 0, 0), (255, 0, 0))
 button_pokedex = Button(575, 400, 'POKEDEX', font_long, 1, (0, 0, 0), (255, 0, 0))
 button_add_pokemon = Button(475, 450, 'Add Pokemon', font_ingame, 1, (255, 0, 0), (0, 255, 0))
 button_remove_pokemon = Button(475, 450, 'Remove Pokemon', font_ingame, 1, (255, 0, 0), (0, 255, 0))
